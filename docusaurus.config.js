@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
+  title: 'Paytheory',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
@@ -44,13 +44,14 @@ const config = {
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        blog: false,
+        // blog: {
+        //   showReadingTime: true,
+        //   // Please change this to your repo.
+        //   // Remove this to remove the "edit this page" links.
+        //   editUrl:
+        //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -58,28 +59,42 @@ const config = {
     ],
   ],
 
+  
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/paytheory-logo22.jpeg',
       navbar: {
-        title: 'My Site',
+        title: 'Docs',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/paytheory-logo22.jpeg',
         },
         items: [
+          
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'tutorialSidebar',
+          //   position: 'right',
+          //   label: 'SDK & API',
+          // },
+          // {
+          //   to:'/docs/Overview',
+          //   type: 'tutorialSidebar',
+          //   sidebarId: 'docs',
+          //   position: 'right',
+          //   label: 'Home3',
+          // },
+          // {to: '/blog', label: 'Blog', position: 'right'},
+          {type: 'doc', to:'/docs/Overview', label: 'Home', position:'right', docId: '/category/overview'},
+          {type: 'doc', to:'/docs/tutorial-basics', label: 'API', position:'right', docId: '/category/api-references'},
+          {type: 'doc', to:'/docs/tutorial-extras', label: 'SDK', position:'right', docId: '/category/sdk'},
+
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://start.merchant.dashboard.paytheory.com/settings',
+            label: 'Dashboard',
             position: 'right',
           },
         ],
