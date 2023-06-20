@@ -1,8 +1,4 @@
----
-sidebar_position: 1
----
-
-# Our Platform
+## Our Platform
 
 Pay Theory provides three environments for your integration:
 

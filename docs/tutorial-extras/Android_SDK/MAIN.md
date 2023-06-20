@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Pay Theory Android SDK
 
 Pay Theory Android SDK used to help you integrate Pay Theory into your app.

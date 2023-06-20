@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 # Functions
 
 These are the functions available to you in the Pay Theory SDK. These allow you to configure a payment or tokenize a payment method.
@@ -61,7 +64,7 @@ requireAccountName = false
 ```
 
 * **requireBillingAddress**: Boolean
-  * Require full billing address input fields for a card or bank payment
+  * Require full billing addresss input fields for a card or bank payment
 
 ***by default the SDK sets requireBillingAddress to false***
 

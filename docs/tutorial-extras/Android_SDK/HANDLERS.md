@@ -1,3 +1,6 @@
+---
+sidebar_position: 3
+---
 # Response Handlers
 
 Pay Theory Android SDK includes functions that are implemented via `Payable` interface
