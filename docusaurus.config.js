@@ -11,7 +11,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://192.168.13.54:3000',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -41,8 +41,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          
         },
         blog: false,
         // blog: {
@@ -60,12 +59,20 @@ const config = {
   ],
 
   
-
+  //themes: ['@docusaurus/theme-search-algolia'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/paytheory-logo22.jpeg',
+      algolia: {
+        apiKey:'194f1b9d23e7ca0f12159d7e957048e6',
+        indexName:'dev_PayTheory_SB',
+        ContextualSearch: true,
+        placeholder:'search in Paytheory website',
+        appId:'7Z0MVL2E44',
+
+      },
       navbar: {
         title: 'Docs',
         logo: {
@@ -74,20 +81,7 @@ const config = {
         },
         items: [
           
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'right',
-          //   label: 'SDK & API',
-          // },
-          // {
-          //   to:'/docs/Overview',
-          //   type: 'tutorialSidebar',
-          //   sidebarId: 'docs',
-          //   position: 'right',
-          //   label: 'Home3',
-          // },
-          // {to: '/blog', label: 'Blog', position: 'right'},
+          
           {type: 'doc', to:'/docs/Overview', label: 'Home', position:'right', docId: '/category/overview'},
           {type: 'doc', to:'/docs/tutorial-basics', label: 'API', position:'right', docId: '/category/api-references'},
           {type: 'doc', to:'/docs/tutorial-extras', label: 'SDK', position:'right', docId: '/category/sdk'},
