@@ -1,17 +1,21 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+//import '@algolia/autocomplete-theme-classic';
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+//const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Paytheory',
   tagline: 'Dinosaurs are cool',
+
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://192.168.13.54:3000',
+  // url: 'https://192.168.13.54:3000',
+  url: 'https://your-docusaurus-test-site.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -37,8 +41,15 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          //routeBasePath: '/',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           
@@ -51,22 +62,57 @@ const config = {
         //   editUrl:
         //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         // },
+        
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
   ],
-
+  //plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
+  // plugins: [
+  //   [
+  //     require.resolve("@cmfcmf/docusaurus-search-local"),
+  //     {
+  //       indexDocSidebarParentCategories: 0,
+  //       indexPages: false,
+  //       language: "en",
+  //       style: undefined,
+  //       maxSearchResults: 8,
+  //       lunr: 
+  //       {
+  //         tokenizerSeparator: /[\s\-]+/,
+  //         b: 0.75,
+  //         k1: 1.2,
+  //         titleBoost: 5,
+  //         contentBoost: 1,
+  //         tagsBoost: 3,
+  //         parentCategoriesBoost: 2,
+  //       }
+      
+  //     },
+  //   ],
+  // ],
+  // plugins: [
+  //   // ...
+  //   '@aldridged/docusaurus-plugin-lunr'
+  // ],
+    
   
   //themes: ['@docusaurus/theme-search-algolia'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    /** @type {import('@docusaurus/theme-search-algolia')} */
     ({
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: false,
+      },
       // Replace with your project's social card
       image: 'img/paytheory-logo22.jpeg',
       algolia: {
-        apiKey:'194f1b9d23e7ca0f12159d7e957048e6',
+        apiKey: '194f1b9d23e7ca0f12159d7e957048e6',
         indexName:'dev_PayTheory_SB',
         ContextualSearch: true,
         placeholder:'search in Paytheory website',
@@ -78,19 +124,57 @@ const config = {
         logo: {
           alt: 'My Site Logo',
           src: 'img/paytheory-logo22.jpeg',
+          // href: 'Overview',
         },
         items: [
-          
-          
-          {type: 'doc', to:'/docs/Overview', label: 'Home', position:'right', docId: '/category/overview'},
-          {type: 'doc', to:'/docs/tutorial-basics', label: 'API', position:'right', docId: '/category/api-references'},
-          {type: 'doc', to:'/docs/tutorial-extras', label: 'SDK', position:'right', docId: '/category/sdk'},
-
           {
-            href: 'https://start.merchant.dashboard.paytheory.com/settings',
-            label: 'Dashboard',
+            type: 'docSidebar',
+            sidebarId: 'homeSidebar',
             position: 'right',
+            label: 'Home',
           },
+          {
+            type: 'docSidebar',
+            sidebarId: 'apiSidebar',
+            position: 'right',
+            label: 'API',
+          },
+          {
+            position: 'right',
+            label: 'SDK',
+            type: 'dropdown',
+            items: [
+            {
+              type: 'docSidebar',
+              docId: 'tutorial-extras/Android_SDK/FUNCTIONS',
+              sidebarId: 'andriodSidebar',
+              label: 'Andriod SDK',
+              docsPluginId: 'default',
+            },
+            {
+              type: 'doc',
+              docId: 'tutorial-extras/APPLE/MAIN',
+              sidebarId: 'appleSidebar',
+              label: 'Apple SDK',
+              docsPluginId: 'default',
+            },
+            {
+              type: 'docSidebar',
+              docId: 'tutorial-extras/Android_SDK/FUNCTIONS',
+              sidebarId: 'javascriptSidebar',
+              label: 'JavaScript SDK',
+              docsPluginId: 'default',
+            },
+          ]
+        },
+          
+
+          // {
+          //   href: 'https://start.merchant.dashboard.paytheory.com/settings',
+          //   label: 'Dashboard',
+          //   position: 'right',
+          //   className: 'button button--secondary button--lg'
+          // },
         ],
       },
       footer: {
@@ -125,10 +209,10 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
+              // {
+              //   label: 'Blog',
+              //   to: '/blog',
+              // },
               {
                 label: 'GitHub',
                 href: 'https://github.com/facebook/docusaurus',
@@ -140,7 +224,7 @@ const config = {
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        //darkTheme: darkCodeTheme,
       },
     }),
 };

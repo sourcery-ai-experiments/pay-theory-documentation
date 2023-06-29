@@ -1,7 +1,7 @@
 {
     "index_name": "dev_PayTheory_SB",
     "sitemap_urls": [
-      "https://192.168.13.54:3000/sitemap.xml"
+      "http://localhost:3000/sitemap.xml"
     ],
     "sitemap_alternate_links": true,
     "stop_urls": [
