@@ -119,7 +119,16 @@ This action is dangerous
 
 [MDX](https://mdxjs.com/) can make your documentation more **interactive** and allows using any **React components inside Markdown**:
 
-```jsx
+
+```jsx title="my-doc.md"
+// highlight-start
+---
+id: my-doc-id
+title: My document title
+description: My document description
+slug: /my-custom-url
+---
+// highlight-end
 
 export const Highlight = ({children, color}) => (
 

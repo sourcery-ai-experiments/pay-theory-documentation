@@ -119,7 +119,7 @@
     --ifm-z-index-overlay: 400;
     --ifm-container-width: 1140px;
     --ifm-container-width-xl: 1320px;
-    --ifm-code-background: var(--ifm-color-gray-100);
+    --ifm-code-background: var(--ifm-color-gray-900);
     --ifm-code-border-radius: var(--ifm-global-radius);
     --ifm-code-font-size: 85%;
     --ifm-code-padding-horizontal: 0.1rem;
@@ -279,14 +279,12 @@
     --ifm-tabs-padding-horizontal: 1rem;
     --ifm-tabs-padding-vertical: 1rem;
 
-    --ifm-code-background: var(--ifm-alert-background-color-highlight);
     --ifm-tabs-color: var(--ifm-alert-foreground-color);
     --ifm-tabs-color-active: var(--ifm-alert-foreground-color);
     --ifm-tabs-color-active-border: var(--ifm-alert-border-color);
- 
-
 
     --docusaurus-tag-list-border: var(--ifm-color-gray-400);
+    --docusaurus-highlighted-code-line-bg: var(--ifm-color-gray-800);
 
 }
 
@@ -300,13 +298,13 @@
   --ifm-color-primary-lighter: #F4E2FF;
   --ifm-color-primary-lightest: #FAF1FF;
   --docusaurus-highlighted-code-line-bg: var(--ifm-color-gray-700);
+
+  
 }
 
 /*.theme-admonition-danger, .theme-admonition-tip, .theme-admonition-warning, .theme-admonition-info, .theme-admonition-success {
   background-color: inherit;
 }*/
-
-
 
 .menu{
   font-weight: var(--ifm-font-weight-normal);
@@ -319,14 +317,7 @@
   font-weight: 400;
 }
 
-.prism-code{
-  line-height: 1.125rem;
-  font-family: 'IBM Plex Mono', monospace;
-}
-
-.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module{
-  border: 1px solid var(--ifm-color-gray-200);
-}
+/*---------ADMONITIONS----------*/
 
 .alert--success{
   border: 1px solid var(--ifm-color-success-lighter);
@@ -349,3 +340,76 @@
   background-color: var(--ifm-color-warning-lightest);
   color: var(--ifm-color-warning-dark);
 }
+
+/*---------CODE BLOCK----------*/
+
+.prism-code{
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.35rem; 
+  padding: 3px 6px 4px;
+  background-color: var(--ifm-color-gray-900);
+  color: var(--ifm-color-gray-200);
+}
+
+.codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module{
+  color: var(--ifm-color-gray-100) !important;
+  background-color: var(--ifm-color-gray-900) !important;
+}
+
+.token.plain, .token.plain-text, .token.tag, .token.selector, .token.maybe-class-name{
+  color: var(--ifm-color-gray-100) !important;
+}
+
+.token.keyword, .token.interpolation{
+  color: #528BFF !important;
+}
+
+.token.boolean, .token.rule, .token.number, .token.constant, .token.property{
+  color: var(--ifm-color-success) !important;
+}
+
+.token.front-matter, .token.string, .token.attr-value{
+  color: var(--ifm-color-warning) !important;
+}
+
+.token.punctuation{
+  color: var(--ifm-color-gray-100) !important;
+}
+
+.token.atrule{
+  color: #528BFF !important;
+}
+
+.token.operator, .token.unit, .token.rule{
+  color: var(--ifm-color-gray-100) !important;
+}
+
+.token.class-name{
+  color: var(--ifm-color-danger) !important;
+}
+
+.token.attr-name{
+  color: #06AED4 !important;
+}
+
+.token.function{
+  color: var(--ifm-color-danger) !important;
+}
+
+.token.selector{
+  color: #06AED4 !important;
+}
+
+.token.variable, .token.parameter{
+  color: var(--ifm-color-primary-light) !important;
+}
+
+.token.comment{
+  color: var(--ifm-color-success) !important;
+}
+
+
+
+

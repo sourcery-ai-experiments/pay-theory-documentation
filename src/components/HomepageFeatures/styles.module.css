@@ -47,16 +47,6 @@ p {
   line-height: 1.5rem;
 }
 
-code{
-  font-family: 'IBM Plex Mono', monospace;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  border: 1px solid var(--ifm-color-gray-400);
-  padding: 3px 6px 4px;
-}
-
 h4 {
   font-weight: 300;
   font-size: .875rem;
