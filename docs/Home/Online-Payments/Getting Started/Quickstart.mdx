@@ -1,0 +1,198 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+<Tabs
+  defaultValue="javascript"
+  values={[
+    {label: 'Javascript', value: 'javascript'},
+    {label: 'Apple', value: 'apple'},
+    {label: 'Android', value: 'android'},
+  ]}>
+  <TabItem value="javascript">
+  <h1>Accepting Online Payments </h1>
+    <p>
+      In this Quickstart, you will learn how to create, initiate, and test a payment.
+    </p>
+    <Admonition type="info"  title="Before you start">
+    <p>
+    You will need access to your Pay Theory Sandbox. If you do not have a sandbox account, you can create one here.
+    </p>
+    <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Create Sandbox </a>
+      &nbsp;&nbsp;&nbsp;
+    <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Log in </a>
+    </Admonition>
+
+  ## 1. Importing the SDK
+  In order to import your SKD, you will need to copy and paste your Import URL into the header of your code editor.
+  
+  ```
+  <script src="https://austin.sdk.paytheory.com/index.js"> </script>
+  ```
+
+  ## 2. Calling the paytheory SDK
+  When you want to call a function from Pay theory SDK you eill need to use one of the following windowobjects:
+  ` paytheory ` or ` window.paytheory `
+  
+
+  ## 3. Add Paytheory elements to your form 
+  You need to add the Pay Theory elements to your form. You can place these elements anywhere in your form and the SDK will place the hosted fields in the correct place.
+
+  ```jsx
+  <form>
+  ...
+    ‹div id = "pay-theory-credit-card"></div> 
+    <div id = "pay-theory-credit-card-zip"></div>
+  ...
+  <form>
+
+  ```
+  ## 4. Set up the event listeners
+  After that, before you initialize the Pay Theory fields, you would need to invoke any event listeners.
+
+  <Admonition type="tip"  title="Recommended Event Listeners">
+    <p>The link below provides list of all event listeners available in the below link.</p>
+     
+    <a href= "../../tutorial-extras/WEB/EVENT_LISTENERS" class="button button--secondary button--lg">View All Event Listeners</a>
+    
+  </Admonition>
+
+  ```jsx
+   paytheory .errorobserver (error => {
+      //Logic to respond to errors
+    })
+
+  ```
+  ## 5. Initialize the Paytheory fields
+  After you have set up all the event listeners, you can initialize the pay theory fields by calling the 
+  ` payTheoryFields `  function.
+  
+  ```jsx
+    const API_KEY ='YOUR_API_KEY'
+    paytheory.payTheoryFields({
+      apiKey: API_KEY,
+    })
+  ```
+  <Admonition type="info"  title="Find your API Key from Pay Theory Portal">
+    <p>
+      There may be cases where you may find it difficult to get your API Key from the portal. You can follow the below steps for easily finding it.
+      &nbsp;&nbsp;
+      <ol>
+        <li>Log in to your Pay Theory Portal.</li>
+        <li>Select the Settings page from the left-hand navigation menu.</li>
+        <li>Select the Developer tab.</li>
+        <li>Find the API Key (Public key for SDK).</li>
+        <li>From here, you can copy the API key and paste it into your code editor.</li>
+      </ol>
+    </p>
+    
+    </Admonition>
+    <img src="/img/paytheory-API.jpg" alt="paytheory API" ></img>
+  <br>
+  </br>
+
+
+  ## 6. Once the fields are valid, Run Transaction
+  The only required field for the transact parameters is the amount field. You can customize the transact function more.
+  ```jsx
+
+    //Amount passed in is in cents
+    const AMOUNT = 1000
+
+    // Parameters that you will pass into the transact function. More details below.
+    const TRANSACTING_PARAMETERS = { 
+        amount: AMOUNT
+    }
+
+    let result = await paytheory.transact(TRANSACTING_PARAMETERS)
+
+    if (result.type === "SUCCESS") {
+    // Logic to respond to successful transaction
+    } else if (result.type === "FAILURE") {
+    // Logic to respond to failed transaction
+    } else if (result.type === "ERROR") {
+    // Logic to respond to error
+    }
+  ```
+
+  ## View Full Code
+  <Admonition type="info"  title="View Full Code">
+    <p>Click below link to download the files.</p>
+    <a  target="\_blank" href={require('/static/paytheory.zip').default}  class="button button--secondary button--lg" download > Download </a>
+    
+  </Admonition>
+
+  ## Next Steps
+  Once you are able to initiate the payment. You can use the below links
+
+  - [Styling Hosted Fields](./Styling)
+  - [Error Handling](./Errorhandling)
+  
+
+
+
+  </TabItem>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  <TabItem value="apple">
+  
+  # Accepting Online Payments
+  In this Quickstart you will learn how to create, initiate and test a payment.
+
+
+  :::info before you start
+
+  You will need access to your Pay Theory Sandbox. If you do not have a sandbox account you can create one here.
+
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Create Sandbox</a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Log in</a>
+
+  :::
+  
+  </TabItem>
+  <TabItem value="android">
+  
+  # Accepting Online Payments
+  In this Quickstart you will learn how to create, initiate and test a payment.
+
+
+  :::info before you start
+
+  You will need access to your Pay Theory Sandbox. If you do not have a sandbox account you can create one here.
+
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Create Sandbox</a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Log in</a>
+
+  :::
+  </TabItem>
+</Tabs>
+
+
+
+
+
+
