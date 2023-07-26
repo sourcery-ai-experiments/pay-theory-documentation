@@ -10,6 +10,8 @@ Docusaurus supports **[Markdown](https://daringfireball.net/projects/markdown/sy
 
 Markdown documents have metadata at the top called [Front Matter](https://jekyllrb.com/docs/front-matter/):
 
+### Heading 3
+
 ```text title="my-doc.md"
 // highlight-start
 ---
@@ -97,9 +99,9 @@ This action is a tip
 
 :::
 
-:::warning This is a Warning
+:::note This is a Note
 
-This action is a warning
+This action is a note
 
 :::
 
@@ -130,28 +132,21 @@ slug: /my-custom-url
 ---
 // highlight-end
 
+// this is a comment //
+
 export const Highlight = ({children, color}) => (
 
   <span
-
     style={{
-
       backgroundColor: color,
-
       borderRadius: '20px',
-
       color: '#fff',
-
       padding: '10px',
-
       cursor: 'pointer',
-
     }}
 
     onClick={() => {
-
       alert(`You clicked the color ${color} with label ${children}`)
-
     }}>
 
     {children}
