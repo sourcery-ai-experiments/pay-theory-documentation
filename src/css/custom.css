@@ -155,7 +155,7 @@
 
   --ifm-h1-font-size: 1.875rem;
   --ifm-h2-font-size: 1.25rem;
-  --ifm-h3-font-size: 1.125rem;
+  --ifm-h3-font-size: 1rem;
   --ifm-p-font-size: 1rem;
   --ifm-h4-font-size: 0.875rem;
   --ifm-h5-font-size: 0.85rem;
@@ -163,10 +163,10 @@
 
   --ifm-image-alignment-padding: 1.25rem;
 
-  --ifm-list-left-padding: 2rem;
-  --ifm-list-margin: 1rem;
+  --ifm-list-left-padding: 0;
+  --ifm-list-margin: 1.125rem;
   --ifm-list-item-margin: 0.25rem;
-  --ifm-list-paragraph-margin: 1rem;
+  --ifm-list-paragraph-margin: .25rem;
 
   --ifm-table-cell-padding: 0.75rem;
   --ifm-table-background: transparent;
@@ -184,16 +184,16 @@
   --ifm-link-hover-decoration: underline;
 
   --ifm-blockquote-font-size: var(--ifm-font-size-base);
-  --ifm-blockquote-border-left-width: 2px;
+  --ifm-blockquote-border-left-width: 1px;
   --ifm-blockquote-padding-horizontal: var(--ifm-spacing-horizontal);
   --ifm-blockquote-padding-vertical: 0;
   --ifm-blockquote-shadow: none;
-  --ifm-blockquote-color: var(--ifm-color-emphasis-800);
-  --ifm-blockquote-border-color: var(--ifm-color-emphasis-300);
+  --ifm-blockquote-color: var(--ifm-color-gray-800);
+  --ifm-blockquote-border-color: var(--ifm-color-gray-400);
 
   --ifm-hr-background-color: var(--ifm-color-emphasis-500);
   --ifm-hr-height: 1px;
-  --ifm-hr-margin-vertical: 1.5rem;
+  --ifm-hr-margin-vertical: 0;
 
   --ifm-scrollbar-size: 7px;
   --ifm-scrollbar-track-background-color: #f1f1f1;
@@ -239,8 +239,8 @@
   --ifm-button-border-width: var(--ifm-global-border-width);
   --ifm-button-color: var(--ifm-font-color-base-inverse);
   --ifm-button-font-weight: var(--ifm-font-weight-semibold);
-  --ifm-button-padding-horizontal: 1.5rem;
-  --ifm-button-padding-vertical: 0.375rem;
+  --ifm-button-padding-horizontal: .875rem;
+  --ifm-button-padding-vertical: .5rem;
   --ifm-button-size-multiplier: 1;
   --ifm-button-transition-duration: var(--ifm-transition-fast);
   --ifm-button-border-radius: calc( var(--ifm-global-radius) * var(--ifm-button-size-multiplier) );
@@ -361,10 +361,10 @@
   --ifm-h1-vertical-rhythm-bottom: .25;
   --ifm-h4-vertical-rhythm-bottom: .25;
   --ifm-heading-vertical-rhythm-bottom: 0.75;
-  --ifm-paragraph-margin-bottom: .75;
+  --ifm-paragraph-margin-bottom: 1;
 
   --ifm-h1-vertical-rhythm-top: 1;
-  --ifm-h2-vertical-rhythm-top: 2.5;
+  --ifm-h2-vertical-rhythm-top: 1.5;
   --ifm-h3-vertical-rhythm-top: 1;
   --ifm-p-vertical-rhythm-top: 1;
   --ifm-h4-vertical-rhythm-top: 1;
@@ -372,6 +372,8 @@
   --ifm-h6-vertical-rhythm-top: 1;
 
 }
+
+
 
 .markdown h1:first-child {
   --ifm-h1-font-size: 1.87rem;
@@ -381,13 +383,16 @@
 
 .markdown h2 {
   --ifm-h2-font-size: 1.25rem;
-  margin-bottom: calc( var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading) );
+  margin-bottom: .25rem !important;
   margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
 }
 .markdown h3 {
   --ifm-h3-font-size: 1.125rem;
-  margin-bottom: calc( var(--ifm-vertical-rhythm-bottom) * var(--ifm-leading));
-  margin-top: calc(var(--ifm-vertical-rhythm-top) * var(--ifm-leading));
+  font-weight: var(--ifm-font-weight-semibold);
+  margin-bottom: .25rem;
+  margin-top: .75rem;
+  margin-left: 1.5rem;
+  
 }
 
 .markdown p {
@@ -428,37 +433,43 @@ h1 {
   font-weight: var(--ifm-font-weight-medium) !important;
   font-size: var(--ifm-h1-font-size) !important;
   line-height: 2rem !important;
-  /* margin-bottom: .25rem !important; */
 }
 
 h2 {
   font-weight: var(--ifm-font-weight-medium) !important;
   font-size: var(--ifm-h2-font-size) !important;
   line-height: 1.875rem !important;
-  /* margin-bottom: .5rem !important; */
 }
 
 h3 {
   font-weight: var(--ifm-font-weight-medium) !important;
   font-size: 1.125rem !important;
-  line-height: 1.75rem !important;
-  padding-left: 24px;
-  /* margin-bottom: .5rem !important; */
+  font-weight: var(--ifm-font-weight-semibold);
+  line-height: 1.75rem !important; 
 }
 
 p {
   font-weight: var(--ifm-font-weight-book) !important;
   font-size: 1rem !important;
   line-height: 1.5rem !important;
-  /* margin-bottom: 1rem !important; */
 }
 
 h4 {
   font-weight: var(--ifm-font-weight-book) !important;
   font-size: .875rem !important;
   margin-bottom: 0 !important;
-  /* line-height: 1.25rem !important; */
 }
+
+hr {
+  background-color: var(--ifm-color-gray-400) !important;
+  margin-top: -.5rem !important;
+}
+
+blockquote {
+  border-left: ;
+}
+
+
 
 
 .menu{
@@ -469,6 +480,19 @@ h4 {
 }
 .navbar__link{
   font-weight: var(--ifm-font-weight-normal);
+}
+
+a button{
+  line-height: .875rem !important;
+}
+
+.markdown ul li {
+  margin-left: 1.5rem;
+  list-style-type: none;
+}
+.markdown ul li li{
+  margin-left: 1.5rem;
+  list-style-type: circle;
 }
 
 /*---------ADMONITIONS----------*/
@@ -482,11 +506,11 @@ h4 {
   line-height: var(--ifm-h4-font-size) !important;
   display: flex;
   align-items: center;
+  margin-bottom: .25rem !important;
 }
 
 /*--header icons--*/
 .admonitionIcon_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-styles-module svg{
-  fill: var(--ifm-color-gray-700) !important;
   height: var(--ifm-h4-font-size) !important;
   width: var(--ifm-h4-font-size) !important;
   margin-bottom: .25rem !important;
@@ -495,11 +519,13 @@ h4 {
 
 .admonitionIcon_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-styles-module {
   height: 1.25rem !important;
+  margin-right: .75rem !important;
 }
 
 /*--text--*/
 .theme-admonition p{
   font-size: var(--ifm-h4-font-size)!important;
+  margin-left: 1.95rem;
 }
 
 /*--tip--*/
