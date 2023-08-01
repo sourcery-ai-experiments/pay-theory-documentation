@@ -142,11 +142,6 @@ The only required key is `amount`.
   - Custom description assigned to a payment. Will be included in the transaction schema and in the Pay Theory Portal.
 
 
-- `paymentParameters`: (String)
-  - The payment parameters to use for the payment.
-  - For more information on payment parameters check out the [Payment Parameters](/overview/payment_parameters) documentation.
-
-
 - `payorId`: (String)
   - The Pay Theory payor ID to use for the payment. Allows for user to manage identities.
   - This cannot be used if also using the `payorInfo` parameter.
@@ -163,11 +158,6 @@ The only required key is `amount`.
 
 - `sendReceipt`: (Boolean)
   - Pass `true` to send a receipt to the payor. Must have an email address on the payorInfo object or pass in a payorId that has an email address tied to it.
-
-
-- `receiptDescription`: (String)
-  - Description to be included in the receipt. Defaults to "Payment from {merchant name}".
-  - For more info on receipts check out the [Receipts](/overview/email_receipts) documentation.
 
 Once the transact function is called, if you passed `true` to `requireConfirmation` you will receive a response from the `tokenizeObserver`.
 

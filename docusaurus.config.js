@@ -69,6 +69,17 @@ const config = {
       }),
     ],
   ],
+  plugins: [
+    [
+      'docusaurus-plugin-typedoc',
+
+      // Plugin / TypeDoc options
+      {
+        entryPoints: ['theme/pay_theory_types.ts'],
+        tsconfig: 'tsconfig.json',
+      },
+    ],
+  ],
   //plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
   // plugins: [
   //   [
@@ -132,6 +143,12 @@ const config = {
             sidebarId: 'homeSidebar',
             position: 'right',
             label: 'Home',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'tsSidebar',
+            position: 'left',
+            label: 'TS_API',
           },
           {
             type: 'docSidebar',
