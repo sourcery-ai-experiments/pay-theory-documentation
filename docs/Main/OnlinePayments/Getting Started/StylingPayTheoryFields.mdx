@@ -1,0 +1,99 @@
+---
+sidebar_position: 2
+---
+
+This guide will walk you through the basics of styling your Pay Theory Fields. You will learn how to style the text inputs and radio buttons using CSS. 
+
+## Pay Theory Fields
+To style the Pay Theory fields you can pass in a custom style object to the create function in our SDK. This allows you to style the text inside the inputs as well as the style of the radio buttons for the ACH account type.
+
+```jsx title="paytheory.js"
+const STYLES = {
+    default: {
+        color: 'black',
+        fontSize: '14px'
+    },
+    success: {
+        color: '#5cb85c',
+        fontSize: '14px'
+    },
+    error: {
+        color: '#d9534f',
+        fontSize: '14px'
+    },
+    radio: {
+          width: 18,
+          fill: "blue",
+          stroke: "grey",
+          text: {
+            fontSize: "18px",
+            color: "grey"
+          }
+    },
+    hidePlaceholder: false
+}
+```
+
+| KEY               | TYPE     | DESCRIPTION                                                            |
+|-------------------|----------|------------------------------------------------------------------------|
+|`default`          | object   | The way a text field looks when it is not in state success or error.   |
+|`success`          | object   | The way a text field looks when it is valid. Only applies to fields that go through validation.   |
+|`error`            | object   | The way a text field looks when it is invalid. Only applies to fields that go through validation.   |
+|`radio`            | object   | The way radio buttons look for the ACH account type <ul><li>`width: (Int)` The width in pixels of the radio buttons</li><li>`fill: (String)` The color of the radio buttons</li><li>`stroke: (String)` The color of the radio buttons border</li><li>`text: (Object)` This style object will be used to style the labels for the radio buttons</li></ul> |
+|`hidePlaceholder`  | Boolean  | This allows you to hide the placeholder text in the input fields.   |
+
+## Additional styling
+To style the input parent div, provide your own CSS for the Pay Theory containers you create. This is best used to style the height, width, and border of the container.
+
+:::danger 
+Individual pay-theory-credit-card-number containers should be at least 340px wide, pay-theory-credit-card combined input should be 400px
+:::
+
+```jsx title= src/custom.css
+#pay-theory-credit-card-number,
+#pay-theory-credit-card-exp,
+#pay-theory-credit-card-cvv {
+  height: 1.75em;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  margin: 4px 0;
+}
+```
+
+## State Observer
+A stateObserver lets you keep an eye on changes to the state of hosted fields and react to them. It offers a mechanism to keep a look on things like field focus, if a field is empty or if there are any validation errors with the field. Each time the state of a text input changes, the stateObserver callback method is called.
+
+:::info State Observer
+For more details on stateObserver functionality
+<a href= "../../../tutorial-extras/WEB/EVENT_LISTENERS#stateobserver" class="button button--primary button--lg">View stateObserver</a>
+:::
+
+```jsx title= src/paytheory.js
+const stateHandler = (state) => {
+    const cardState = state['card-number']
+    const cardField = document.getElementById("pay-theory-credit-card-number")
+    if(cardState.isDirty) {
+        cardField.classList.add("dirty")
+    } else {
+        cardField.classList.remove("dirty")
+    }
+    if(cardState.isFocused) {
+        cardField.classList.add("focused")
+    } else {
+        cardField.classList.remove("focused")
+    }
+    if(cardState.errorMessages && cardState.errorMessages.length > 0) {
+        cardField.classList.add("error")
+    } else {
+        cardField.classList.remove("error")
+    }
+}
+
+window.paytheory.stateObserver(stateHandler)
+  
+```
+
+## Next steps
+Once your Pay Theory fields are stylized you will need to make sure Error handling is set up. Additionally you can further customize your Pay Theory fields by adding [Cash](../CashPayments.mdx) and or [ACH](../ACH.mdx) functionality. 
+
+

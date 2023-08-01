@@ -277,10 +277,6 @@ The Pay Theory unique identifier for the invoice the transaction is for.
 **`metadata`: JSON**  
 Custom defined JSON object to be stored with the transaction.
 
-**`payment_parameters_name`: String**  
-The name of the payment parameters to use for the transaction.  
-For more information on payment parameters check out the [Payment Parameters](/overview/payment_parameters) documentation.
-
 **`receipt_description`: String**  
 The description of the transaction that will be displayed on the receipt.
 
