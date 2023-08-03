@@ -5,30 +5,30 @@ sidebar_position: 6
 QR Codes
 This guide will show you how to generate QR codes that will take users to your checkout.
 This function initializes a payment session based on the checkoutDetails you pass in. This QR Code will open a hosted checkout page that will allow the user to select a payment method and complete the payment.
-## Import the SDK
+## 1. Import the SDK
 You need to use the Pay Theory Web SDK. This is available by adding the below script into your web header.
 
 ```jsx
 <script src="https://carefeed.sdk.paytheorystudy.com/index.js"></script>
 ```
+*** 
 
-## Add Pay theory element to your Html
+## 2. Add Pay theory element to your Html
 This div is used to mount an iframe that will include a checkout button. You need to add the Pay Theory elements to your HTML. You can place these elements anywhere in your HTML and the SDK will place the QR Code in the correct place. 
-
 
 ```jsx
 <div id="pay-theory-checkout-qr"></div>
 ```
-## Prepare the QRCode
+***
+
+## 3. Prepare the QRCode
 ```jsx
 //Amount passed in is in cents
 const AMOUNT = 1000
 
-
 const PAYMENT_METADATA = {
   "student-name": "Jane Doe"
 };
-
 
 // Parameters that you will pass in to configure the checkout page that opens when the qrCode is scanned.
 const CHECKOUT_DETAILS = { 
@@ -54,16 +54,16 @@ paytheory.qrCode(OPTIONS)
 These are the values that you can pass into the qrCode function to customize the payment session.
 You pass a single object into the function with the following keys.
 
-#### Required Values:
+### Required Values:
 
-|Key                      |type               |description                                                                                |
+* |Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`apiKey`                 |String             |The API key for your Pay Theory account. You can find this in your Pay Theory Portal.|
 |`checkoutDetails`        |Object             |The details for the checkout page that opens when the qrCode is scanned. Details Below.|
 
-#### Optional Values
+* #### Optional Values
 
-|Key                      |type               |description                                                                                |
+* |Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`size`                   |Int                |This is the size, height and width, of the qrCode in pixels. Defaults to 128 and must be above 128 and below 300.|
 |`onReady`                |Function           |A function that will be called when the qrCode is ready to be displayed.|
@@ -72,25 +72,27 @@ You pass a single object into the function with the following keys.
 
 ### Checkout Details
 
-These are the values that you can pass into the checkoutDetails object to customize the checkout page that opens when the qrCode is scanned.
+* These are the values that you can pass into the checkoutDetails object to customize the checkout page that opens when the qrCode is scanned.
 
-#### Required values:
+*  #### Required values:
 
-|Key                |type               |description                                                                                |
+* |Key                |type               |description                                                                                |
 --------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`Amount`           |int                |The amount of the payment in cents.                                           |
 |`paymentName`      |String             |The name of the payment that will be displayed on the checkout page. Will also be passed in to the reference field of the transaction.|
 
-#### Optional values:
+* #### Optional values:
 
-|Key                      |type               |description                                                                                |
+* |Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`acceptedPaymentMethods` |String             |<ul><li> The payment methods that will be accepted for the payment. Defaults to `paytheory.ALL`.</li><li>Constants are available from the SDK.</li><li>Available options are `paytheory.ONLY_CARD`, `paytheory.ONLY_ACH`, `paytheory.ONLY_CASH`, `paytheory.NOT_CARD`,  `paytheory.NOT_ACH`, `paytheory.NOT_CASH`, and `paytheory.ALL`.</li></ul> |
 |`payorId`                |String             |The Pay Theory id for the payor that will be used for the payment. If this is not passed in, a new payor will be created.|
 |`metadata`               |JSON               |The metadata that will be passed into the transaction.|
 |`recurring ID `          |String             |<ul><li>The Pay Theory recurring ID to use for the payment. Allows for users to assign a payment to a recurring payment.</li><li>If you pass in a recurring ID, the transaction amount must be an interval of the recurring payments amount per payment.</li></ul>|
 
-## Next Steps
-You may also make reference to various payment methods like [ACH](ACH.mdx) and [Cash](CashPayments.mdx) capability.
+***
+
+## <ins> Next Steps </ins>
+You may also make reference to various payment methods like [`ACH`](ACH.mdx) and [`Cash`](CashPayments.mdx) capability.
 
 

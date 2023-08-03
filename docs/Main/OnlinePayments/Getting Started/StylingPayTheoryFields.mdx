@@ -34,6 +34,7 @@ const STYLES = {
 }
 ```
 
+
 | KEY               | TYPE     | DESCRIPTION                                                            |
 |-------------------|----------|------------------------------------------------------------------------|
 |`default`          | object   | The way a text field looks when it is not in state success or error.   |
@@ -41,6 +42,9 @@ const STYLES = {
 |`error`            | object   | The way a text field looks when it is invalid. Only applies to fields that go through validation.   |
 |`radio`            | object   | The way radio buttons look for the ACH account type <ul><li>`width: (Int)` The width in pixels of the radio buttons</li><li>`fill: (String)` The color of the radio buttons</li><li>`stroke: (String)` The color of the radio buttons border</li><li>`text: (Object)` This style object will be used to style the labels for the radio buttons</li></ul> |
 |`hidePlaceholder`  | Boolean  | This allows you to hide the placeholder text in the input fields.   |
+
+
+***
 
 ## Additional styling
 To style the input parent div, provide your own CSS for the Pay Theory containers you create. This is best used to style the height, width, and border of the container.
@@ -60,12 +64,14 @@ Individual pay-theory-credit-card-number containers should be at least 340px wid
 }
 ```
 
+***
+
 ## State Observer
 A stateObserver lets you keep an eye on changes to the state of hosted fields and react to them. It offers a mechanism to keep a look on things like field focus, if a field is empty or if there are any validation errors with the field. Each time the state of a text input changes, the stateObserver callback method is called.
 
 :::info State Observer
 For more details on stateObserver functionality
-<a href= "../../../tutorial-extras/WEB/EVENT_LISTENERS#stateobserver" class="button button--primary button--lg">View stateObserver</a>
+* <a href= "../../../tutorial-extras/WEB/EVENT_LISTENERS#stateobserver" class="button button--primary button--md">View stateObserver</a>
 :::
 
 ```jsx title= src/paytheory.js
@@ -92,8 +98,9 @@ const stateHandler = (state) => {
 window.paytheory.stateObserver(stateHandler)
   
 ```
+***
 
-## Next steps
-Once your Pay Theory fields are stylized you will need to make sure Error handling is set up. Additionally you can further customize your Pay Theory fields by adding [Cash](../CashPayments.mdx) and or [ACH](../ACH.mdx) functionality. 
+## <ins> Next steps </ins>
+Once your Pay Theory fields are stylized you will need to make sure Error handling is set up. Additionally you can further customize your Pay Theory fields by adding [`Cash`](../CashPayments.mdx) and or [`ACH`](../ACH.mdx) functionality. 
 
 

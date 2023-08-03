@@ -10,8 +10,9 @@ This guide will show you how to accept cash payments online with Pay Theory’s 
 To use cash you will need to make sure the transact function is enabled in order to accept cash payments online
 
 You can refer here how to use the transact function in your code.
-<a href= "../Online-Payments/Getting%20Started/Quickstart#6-once-the-fields-are-valid-run-transaction" class="button button--primary button--lg">Transact function</a>
+* <a href= "../Online-Payments/Getting%20Started/Quickstart#6-once-the-fields-are-valid-run-transaction" class="button button--primary button--md">Transact function</a>
 :::
+*** 
 
 ## Using the transact function
 
@@ -75,20 +76,20 @@ The function returns a Promise that will contain an object with a key of `type`.
 |`Cash`             |The transact call successfully generated a barcode and the barcode details will be in the body key.|
 |`Error`            |The transact call had an error while processing and the error details will be in the error key.    |
 
-#### Success response
-This is the value of the `body` key in the response if the `type` is SUCCESS:
+* #### Success response
+* This is the value of the `body` key in the response if the `type` is SUCCESS:
 
-|Key                |type               |description                                               |
+* |Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
 |`last_four`        |String             |The last four digits of the card number or account number.|
 |`amount`           |Int                |The amount of the transaction.                            |
 |`service_fee `     |Int                |The service fee of the transaction.                       |
 |`receipt_number `  |String             |The pay theory receipt number.                            |
 
-#### Failed response
-This is the value of the `body` key in the response if the `type` is FAILED:
+* #### Failed response
+* This is the value of the `body` key in the response if the `type` is FAILED:
 
-|Key                |type               |description                                               |
+* |Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
 |`receipt_number `  |String             |The pay theory receipt number.                            |
 |`last_four`        |String             |The last four digits of the card number or account number.|
@@ -96,10 +97,10 @@ This is the value of the `body` key in the response if the `type` is FAILED:
 |`state `           |String             |<ul><li>The state of the transaction.</li> <li> This will be a failure.</li></ul>   |
 |`type `            |String             |Description of the failure.                               |
 
-#### Confirmation response
-This is the value of the `body` key in the response if the `type` is CONFIRMATION:
+* #### Confirmation response
+* This is the value of the `body` key in the response if the `type` is CONFIRMATION:
 
-|Key                |type               |description                                               |
+* |Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
 |`fisrt_six`        |String             |The first six digits of the card number|
 |`last_four`        |String             |The last four digits of the card number or account number.|
@@ -107,22 +108,24 @@ This is the value of the `body` key in the response if the `type` is CONFIRMATIO
 |`service_fee `     |Int                |The service fee of the transaction.                       |
 |`receipt_number `  |String             |The pay theory receipt number.                            |
 
-#### Cash response
+* #### Cash response
 
-This is the value of the `body` key in the response if the `type` is CASH:
+* This is the value of the `body` key in the response if the `type` is CASH:
 
-While generating the Barcode it will use the geolocation to return a map url for the user's specific location. If this is the first time it has been requested the user will have the opportunity to accept or decline the request.
+* While generating the Barcode it will use the geolocation to return a map url for the user's specific location. If this is the first time it has been requested the user will have the opportunity to accept or decline the request.
 
-|Key                |type               |description                                               |
+* |Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
 |`barcodeURL`       |String             |The url for the barcode image.|
 |`mapURL`           |String             |The url for the map to find the retail locations to pay the barcode.|
 
-#### Error response
-This is the value of the `error` key in the response if the `type` is ERROR:
-|Key                |type               |description                                               |
+* #### Error response
+* This is the value of the `error` key in the response if the `type` is ERROR:
+* |Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
 |`message`          |String             |The error message.|
+
+***
 
 ## Cash Fields
 You can customize your cash fields based on your requirements and desired user experience.
@@ -134,6 +137,7 @@ These fields are all required to collect Cash information from the user.
 <div id = "pay-theory-cash-contact"></div>
 </form>
 ```
+***
 
-## Next Steps
-You can also refer to different payment modes like [ACH](ACH.mdx) functionality and [QRCode](QRCode.mdx) functionality .
+## <ins> Next Steps </ins>
+You can also refer to different payment modes like [  `ACH`](ACH.mdx) functionality and [`QRCode`](QRCode.mdx) functionality .
