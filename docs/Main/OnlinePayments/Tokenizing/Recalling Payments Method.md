@@ -2,7 +2,9 @@
 sidebar_position: 2
 ---
 
-## Payment Method Token
+This guide will walk you through calling back payment method tokens for a specific payor using our API. 
+
+## Understanding the payment method token object
 Payment Method Tokens are meant to store info that represents a tokenized Bank Account, Credit Card, or Debit Card.
 
 Here is how the token object looks like
@@ -29,21 +31,32 @@ Here is how the token object looks like
 |` exp_date`  |String       |The expiration date of the card. Null if the payment_type is not a card. Format: MMYY|
 |` full_name`|String        |The name on the card or bank account.|
 
+***
 
-
-## Query Payment Method Tokens
+## How to query payment method tokens for a payor
 Tokens are used to reference a payment method and enable transactions rather than managing credit card numbers and bank account information directly.
 
 :::info Query
 If you are unfamiliar with query writing, you may learn about fundamental query structure from the information provided below. 
 
-<a href= "../../../tutorial-basics/API/QUERY" class="button button--primary button--lg">Query</a>
-
+*  <a href= "../../../tutorial-basics/API/QUERY" class="button button--primary button--md">Query</a>
 :::
 
 ```graphql
 const GET_PAYMENT_METHOD_TOKENS = gql`
-query  paymentMethodTokens(direction: FORWARD, limit: 10, offset: "", offset_id: "", query: QueryObject) {
+query  paymentMethodTokens(direction: FORWARD, limit: 10, query:{
+        query_list:[{
+            key: "exp_date",
+            value: "05%",
+            operator : LIKE
+            conjunctive_operator: OR_NEXT
+            
+        },{
+            key: "card_brand",
+            value: "DISCOVER",
+            operator: EQUAL
+        }]
+    }){
     items {
         payment_method_id
         merchant_uid
@@ -61,47 +74,10 @@ query  paymentMethodTokens(direction: FORWARD, limit: 10, offset: "", offset_id:
   }
 ```
 
-|Key                |type             |description                        |
-|-------------------|-----------------|-----------------------------------|     
-|` limit`       |Int       |The number of payment_method_tokens to return.|
-|` direction`   |String     |The direction of the pagination. Make sure the results are returned in the correct order.<ul><li>Forward</li><li>Backward</li></ul> |
-| ` offset`     | String     |The value of the offset item for which the list is being sorted.<ul><li>If the direction is FORWARD, the offset item is the last item in the previous list.</li><li>If the direction is BACKWARD, the offset is the first item in the previous list.</li></ul>|
-|` offset_id`   |String     |The payment_method_id of the offset item. If the direction is FORWARD, the offset item is the last item in the list. If the direction is BACKWARD, the offset is the first item in the list.|
-|` query`       |QueryObject    |The query to filter the payment_method_tokens based on Pay Theory defined data. |
 
-### Nested Arguments
-From the above code the nested argument is `payor`
+* The output response will come back in JSON format as an array of payment method token objects under the items key.
 
-|Key                |type               |description                                               |
-|-------------------|-------------------|----------------------------------------------------------|
-|`query_list`       |QueryPair      |The set of queries used to filter the payment_method_tokens using Pay Theory-defined information. This will guarantee that only payment_method_tokens matching this query are returned.|
+***
 
-The output below demonstrates that the query was properly executed and that all of the tokens were shown on the console in JSON format.
-``` json
-{
-    "data": {
-        "paymentMethodTokens": {
-            "items": [
-                {
-                    "payment_method_id": "pt_pmt_XXXXX",
-                },
-                {
-                    "payment_method_id": "pt_pmt_XXXXX",
-                },
-              ...
-            ],
-            "total_row_count": 256
-        }
-    }
-}
-```
-
-|Key                |type               |description                                               |
-|-------------------|-------------------|----------------------------------------------------------|
-|` items`           |PaymentMethodToken     |The list of payment_method_tokens that are returned from the query. Objects will include all keys that are passed in with the query.|
-|` total_row_count` |Int         |The total number of payment_method_tokens that match the query. Used to help with pagination.|
-
-
-## Next Steps
-
-You can also refer to how to make [one time payment Transaction](./Making%20a%20Payment%20with%20Payment%20Token.md)
+## <ins> Next Steps </ins>
+You can also refer to how to make [`one time payment Transaction`](./Making%20a%20Payment%20with%20Payment%20Token.md)
