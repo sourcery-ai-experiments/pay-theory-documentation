@@ -11,7 +11,7 @@ Error management is crucial in the context of the Pay Theory SDK for guaranteein
 
 :::info Error Observer
 View more details on errorObserver functionality
-<a href= "../../../tutorial-extras/WEB/EVENT_LISTENERS#errorobserver" class="button button--primary button--lg">View ErrorObserver</a>
+*  <a href= "../../../tutorial-extras/WEB/EVENT_LISTENERS#errorobserver" class="button button--primary button--md">View ErrorObserver</a>
 :::
 
 You can return a number of errors from the SDK. They can be returned to the errorObserver or potentially in a response of type ERROR from a function call.

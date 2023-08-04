@@ -2,6 +2,8 @@
 sidebar_position: 3
 ---
 
+This guide will walk you through how to make a one time payment by using the payment token.
+
 ## Create one time payment 
 Sensitive information like credit card numbers or bank account numbers are replaced by the payment token.
 
@@ -29,7 +31,7 @@ mutation {
 ```
 
 ### Required Arguments
-|Key                |type         |       description                     |
+* |Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
 |`amount`           |Int        |The amount of the transaction. If the FeeMode is SERVICE_FEE, this is the amount of the transaction before fees.|
 |`merchant_uid`     |String      |The Pay Theory unique identifier for the merchant the transaction is for.|
@@ -38,17 +40,18 @@ mutation {
 |`fee_mode` |FeeMode    |The fee mode on the transaction. SERVICE_FEE charges the fees to the payor. MERCHANT_FEE charges the fees to the merchant. Options are<ul><li>SERVICE_FEE</li><li>MERCHANT_FEE(default)</li></ul>|
 
 
-### Optional Arguments
+* #### Optional Arguments
 
-|Key                 |type             |description                                 |
+* |Key                 |type             |description                                 |
 |---------------------|-----------------|--------------------------------------------|    
 |`account_code`     |String     | Customer defined account code for the transaction.|
 |`currency`         |String     |The type of currency for the transaction. Defaults to USD.|
 |`invoice_id`       |String     | The Pay Theory unique identifier for the invoice the transaction is for.|
 |`metadata`        |JSON        |Custom defined JSON object to be stored with the transaction.|
 
+***
 
-### Returns
+## Returns
 The results presented below show that the query was successfully run and that every token was shown on the terminal in JSON format.
 ``` json
 {
@@ -78,9 +81,10 @@ The results presented below show that the query was successfully run and that ev
 |`transaction_id`   |String     |The Pay Theory unique identifier for the transaction.|
 |`created_at`       |DateTime       |The date and time the transaction was created.|
 
+***
 
-## Next Steps:
-You can also refer to Recurring payment here Recurring Payments.
+## <ins> Next Steps </ins>
+You can also refer to Recurring payment here [`Recurring Payments`](../../Recurring%20Payments/Quickstart/Update%20Recurring%20Payments.md).
 
 
 

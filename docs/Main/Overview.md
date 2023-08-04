@@ -1,8 +1,8 @@
 ---
+title: 'Our Platform'
+sidebar_label: "Overview"
 sidebar_position: 1
 ---
-
-## Our Platform
 
 Pay Theory provides three environments for your integration:
 
@@ -25,40 +25,40 @@ You determine when changes from PayTheoryLab.com are deployed to PayTheory.com a
 
 ### Pay Theory Payments
 
-Provide safe and secure access to payments with hosted inputs for:
+* Provide safe and secure access to payments with hosted inputs for:
 
-- Credit card
-- Debit card
-- ACH
-- Cash
+* - Credit card
+* - Debit card
+* - ACH
+* - Cash
 
-For basic [HTML Examples](https://PARTNER_NAME.html.example.STAGE.com/index.html) check here. _make sure you have an API key ready first_
+* For basic [HTML Examples](https://austin.html.example.paytheory.com/index.html) check here. _Make sure you have an API key ready first_
 
 
 ### Pay Theory Sockets
 
-Sockets provide a secure, consistent experience regardless of internet speed
+* Sockets provide a secure, consistent experience regardless of internet speed.
 
-- No public facing payment API endpoints
-- End to end encryption of messages using [NaCl](https://nacl.cr.yp.to/) (external link)
-- Gated payment process
-- Fine-grained rate limiting
-- Improved API performance on slow connections
+* - No public facing payment API endpoints
+* - End to end encryption of messages using [NaCl](https://nacl.cr.yp.to/) (external link)
+* - Gated payment process
+* - Fine-grained rate limiting
+* - Improved API performance on slow connections
 
 
 ### Pay Theory Detective
 
-Actively detects bots & malicious actors
+* Actively detects bots & malicious actors
 
-- Anonymized fingerprinting
-- Behavioral analysis
-- Device / Website attestation
-- Machine learning (coming soon)
+* - Anonymized fingerprinting
+* - Behavioral analysis
+* - Device / Website attestation
+* - Machine learning (coming soon)
 
 ## Platforms
 
 -   Pay Theory provides SDKs for the following platforms
-    -   [Web / JavaScript](../../tutorial-extras/WEB/MAIN.md)
+    -   [Web / JavaScript](../Main/OnlinePayments/Getting%20Started/Quickstart.mdx)
     -   iOS
     -   Android (coming soon)
     -   WooCommerce (coming soon)
@@ -66,29 +66,29 @@ Actively detects bots & malicious actors
 
 ## Partner Application Environment
 
--  Partner applications run as isolated instances
+-  Partner applications run as isolated instances.
 -  Pay Theory maps upstream processor data feeds providing:
     - Payment summaries
     - Settlement summaries
     - Chargeback / Dispute management
 
 ### Merchant Portal
-- Merchants can manage SDK in the [merchant portal](https://PARTNER_NAME.merchant.dashboard.STAGE.com)
-- Account details are on the [settings page](https://PARTNER_NAME.merchant.dashboard.STAGE.com/settings)
-- Access to Payments, Settlements, and Chargeback details
-- Issue refunds on payments
+* - Merchants can manage SDK in the [merchant portal](https://austin.merchant.dashboard.paytheory.com/)
+* - Account details are on the [settings page](https://austin.merchant.dashboard.paytheory.com/settings)
+* - Access to Payments, Settlements, and Chargeback details
+* - Issue refunds on payments
 
 ### System Portal
-_Not available in start sandbox accounts_
-- Systems are merchants who also have other merchants they manage
-- Systems manage their merchants in the [system portal](https://PARTNER_NAME.system.dashboard.STAGE.com)
+* _Not available in start sandbox accounts_
+- Systems are merchants who also have other merchants they manage.
+- Systems manage their merchants in the [system portal](https://PARTNER_NAME.system.dashboard.STAGE.com).
     - Assign merchant user accounts
     - View merchant transactions
     - Manage merchant credentials
     - Issue refunds on payments for all system merchants
 
 ### Partner Portal
-_Not available in start sandbox accounts_
+* _Not available in start sandbox accounts_
 - Partners manage merchants in the [partner portal](https://PARTNER_NAME.partner.dashboard.STAGE.com)
     - Assign merchant user accounts
     - View merchant transactions
