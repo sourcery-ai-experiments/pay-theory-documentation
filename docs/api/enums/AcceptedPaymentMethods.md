@@ -14,6 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
+
 [pay_theory_types.ts:225](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L225)
 
 ___
@@ -64,6 +65,7 @@ ___
 
 #### Defined in
 
+
 [pay_theory_types.ts:230](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L230)
 
 ___
@@ -74,4 +76,6 @@ ___
 
 #### Defined in
 
+
 [pay_theory_types.ts:229](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L229)
+

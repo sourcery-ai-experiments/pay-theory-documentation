@@ -15,7 +15,8 @@
   --ifm-color-primary-darkest: #420050;
   --ifm-color-primary-light: #B12BFF;
   --ifm-color-primary-lighter: #F4E2FF;
-  --ifm-color-primary-lightest: #FAF1FF;
+  --ifm-color-primary-lightestish: #FAF1FF;
+  --ifm-color-primary-lightest: #FDF9FF;
   --docusaurus-highlighted-code-line-bg: var(--ifm-color-gray-300);
 
   --ifm-color-secondary: #CED9E6;
@@ -32,7 +33,8 @@
   --ifm-color-success-darkest:#039855;
   --ifm-color-success-light: #32D583;
   --ifm-color-success-lighter: #D1FADF;
-  --ifm-color-success-lightest: #ECFDF3;
+  --ifm-color-success-lightestish: #ECFDF3;
+  --ifm-color-success-lightest: #F6FEF9;
 
   --ifm-color-info: #CED9E6;
   --ifm-color-info-dark: #CED9E6;
@@ -48,7 +50,8 @@
   --ifm-color-warning-darkest:#DC6803;
   --ifm-color-warning-light: #FDB022;
   --ifm-color-warning-lighter: #FEF0C7;
-  --ifm-color-warning-lightest: #FFFAEB;
+  --ifm-color-warning-lightestish: #FFFAEB;
+  --ifm-color-warning-lightest: #FFFCF5;
 
   --ifm-color-danger: #F04438;
   --ifm-color-danger-dark: #D92D20;
@@ -56,7 +59,7 @@
   --ifm-color-danger-darkest:#D92D20;
   --ifm-color-danger-light: #FEE4E2;
   --ifm-color-danger-lighter: #FEE4E2;
-  --ifm-color-danger-lightest: #FEF3F2;
+  --ifm-color-danger-lightest: #FFFBFA;
 
 
   --ifm-color-danger-contrast-background: var(--ifm-color-danger-lightest);
@@ -64,7 +67,7 @@
   --ifm-color-white: #fff;
   --ifm-color-black: #1b1b1b;
   --ifm-color-gray-0: var(--ifm-color-white);
-  --ifm-color-gray-100: #F6F9FC;
+  --ifm-color-gray-100: #F5FAFF;
   --ifm-color-gray-200: #EDF2F7;
   --ifm-color-gray-300: #E5EBF2;
   --ifm-color-gray-400: #CED9E6;
@@ -165,7 +168,7 @@
 
   --ifm-list-left-padding: 0;
   --ifm-list-margin: 1.125rem;
-  --ifm-list-item-margin: 0.25rem;
+  --ifm-list-item-margin: 0.125rem;
   --ifm-list-paragraph-margin: .25rem;
 
   --ifm-table-cell-padding: 0.75rem;
@@ -235,7 +238,7 @@
   --ifm-breadcrumb-separator-size-multiplier: 1.25;
 
   --ifm-button-background-color: inherit;
-  --ifm-button-border-color: var(--ifm-button-background-color);
+  --ifm-button-border-color: inherit;
   --ifm-button-border-width: var(--ifm-global-border-width);
   --ifm-button-color: var(--ifm-font-color-base-inverse);
   --ifm-button-font-weight: var(--ifm-font-weight-semibold);
@@ -244,7 +247,7 @@
   --ifm-button-size-multiplier: 1;
   --ifm-button-transition-duration: var(--ifm-transition-fast);
   --ifm-button-border-radius: calc( var(--ifm-global-radius) * var(--ifm-button-size-multiplier) );
-  --ifm-button-group-spacing: 2px;
+  --ifm-button-group-spacing: .125rem;
   
   --ifm-card-background-color: var(--ifm-background-surface-color);
   --ifm-card-border-radius: calc(var(--ifm-global-radius) * 2);
@@ -314,14 +317,14 @@
   --ifm-tabs-color: var(--ifm-font-color-secondary);
   --ifm-tabs-color-active: var(--ifm-color-primary);
   --ifm-tabs-color-active-border: var(--ifm-tabs-color-active);
-  --ifm-tabs-padding-horizontal: 1rem;
-  --ifm-tabs-padding-vertical: 1rem;
+  --ifm-tabs-padding-horizontal: auto;
+  --ifm-tabs-padding-vertical: .25rem;
 
   --ifm-alert-foreground-color: var(--ifm-color-primary);
 
-  --ifm-tabs-color: var(--ifm-alert-foreground-color);
-  --ifm-tabs-color-active: var(--ifm-alert-foreground-color);
-  --ifm-tabs-color-active-border: var(--ifm-alert-border-color);
+  --ifm-tabs-color: var(--ifm-color-gray-900);
+  --ifm-tabs-color-active: var(--ifm-color-white);
+  --ifm-tabs-color-active-border: none;
 
   --docusaurus-tag-list-border: var(--ifm-color-gray-400);
   --docusaurus-highlighted-code-line-bg: var(--ifm-color-gray-200);
@@ -353,18 +356,15 @@
   --ifm-vertical-rhythm-top: 1;
   --ifm-vertical-rhythm-bottom: 1;
   
-  --ifm-h1-vertical-rhythm-top: 1;
-  --ifm-h2-vertical-rhythm-top: 2;
-  --ifm-h3-vertical-rhythm-top: 1.5;
   --ifm-heading-vertical-rhythm-top: 1.25;
 
   --ifm-h1-vertical-rhythm-bottom: .25;
   --ifm-h4-vertical-rhythm-bottom: .25;
-  --ifm-heading-vertical-rhythm-bottom: 0.75;
+  --ifm-heading-vertical-rhythm-bottom: 1;
   --ifm-paragraph-margin-bottom: 1;
 
-  --ifm-h1-vertical-rhythm-top: 1;
-  --ifm-h2-vertical-rhythm-top: 1.5;
+  --ifm-h1-vertical-rhythm-top: .5;
+  --ifm-h2-vertical-rhythm-top: 2;
   --ifm-h3-vertical-rhythm-top: 1;
   --ifm-p-vertical-rhythm-top: 1;
   --ifm-h4-vertical-rhythm-top: 1;
@@ -374,6 +374,17 @@
 }
 
 
+body {
+  font-family: var(--ifm-font-family-base);
+  font-style: normal;
+  font-weight: var(--ifm-font-weight-book);
+  font-size: var(--ifm-p-font-size);
+  color: var(--ifm-color-gray-900);
+}
+
+strong {
+  font-weight: var(--ifm-font-weight-medium);
+}
 
 .markdown h1:first-child {
   --ifm-h1-font-size: 1.87rem;
@@ -383,7 +394,7 @@
 
 .markdown h2 {
   --ifm-h2-font-size: 1.25rem;
-  margin-bottom: .25rem !important;
+  margin-bottom: ;
   margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
 }
 .markdown h3 {
@@ -391,13 +402,11 @@
   font-weight: var(--ifm-font-weight-semibold);
   margin-bottom: .25rem;
   margin-top: .75rem;
-  margin-left: 1.5rem;
-  
 }
 
 .markdown p {
   --ifm-p-font-size: 1rem;
-  margin-bottom: calc( var(--ifm-paragraph-margin-bottom) * var(--ifm-leading));
+  margin-bottom: calc( var(--ifm-paragraph-margin-bottom) * var(--ifm-leading)) !important;
 }
 
 .markdown h4 {
@@ -413,19 +422,6 @@
   --ifm-h6-font-size: 0.85rem;
   margin-bottom: calc( var(--ifm-vertical-rhythm-bottom) * var(--ifm-leading));
   margin-top: calc(var(--ifm-vertical-rhythm-top) * var(--ifm-leading));
-}
-
-
-body {
-  font-family: var(--ifm-font-family-base);
-  font-style: normal;
-  font-weight: var(--ifm-font-weight-book);
-  font-size: var(--ifm-p-font-size);
-  color: var(--ifm-color-gray-900);
-}
-
-strong {
-  font-weight: var(--ifm-font-weight-medium);
 }
 
 h1 {
@@ -462,15 +458,22 @@ h4 {
 
 hr {
   background-color: var(--ifm-color-gray-400) !important;
-  margin-top: -.5rem !important;
 }
 
 blockquote {
   border-left: ;
 }
 
+.markdown ul li, .markdown ol li {
+  margin-left: 1.5rem;
+}
+
+img{
+  margin-bottom: var(--ifm-leading);
+}
 
 
+/*---------MENUS----------*/
 
 .menu{
   font-weight: var(--ifm-font-weight-normal);
@@ -482,27 +485,77 @@ blockquote {
   font-weight: var(--ifm-font-weight-normal);
 }
 
-a button{
-  line-height: .875rem !important;
+/*---------BUTTONS----------*/
+
+.button--md{
+  padding-top: .35rem;
+  text-decoration: none;
+  border-width: 0;
 }
 
-.markdown ul li {
-  margin-left: 1.5rem;
-  list-style-type: none;
+.alert .button--primary{
+  background-color: transparent;
+  color: var(--ifm-color-gray-700);
+  border:1px solid var(--ifm-color-gray-700);
 }
-.markdown ul li li{
-  margin-left: 1.5rem;
-  list-style-type: circle;
+
+.button--primary:hover{
+  background-color: #ced9e639;
+  color: var(--ifm-color-gray-900);
+  border-color: var(--ifm-color-gray-900);
 }
+
+.button--secondary{
+  background-color: transparent;
+  border-width: 0;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  color: var(--ifm-color-gray-700)!important;
+}
+.button--secondary:hover{
+  color: var(--ifm-color-gray-900)!important;
+}
+.tabs{
+  position: sticky;
+  height: 4rem;
+}
+
+ul.tabs{
+  background-color: var(--ifm-color-white);
+  border: 1px solid var(--ifm-color-gray-900);
+  border-radius: 8px;
+  padding: 2px;
+}
+.tabs__item--active{
+  background-color: var(--ifm-color-gray-900) !important;
+  border: 1px solid var(--ifm-color-gray-900) !important;
+  border-radius: 6px;
+}
+.tabs__item{
+  margin:auto !important;
+  padding: 0px 10% 0px 10% !important;
+}
+.tabs__item ul li{
+  margin:20px !important;
+}
+
 
 /*---------ADMONITIONS----------*/
+
+.alert{
+ padding-left: 3rem !important;
+ margin-bottom: var(--ifm-leading) !important;
+}
+.alert li{
+  margin-left: 1rem !important;
+}
 
 /*--headers--*/
 .admonitionHeading_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-styles-module{
   text-transform: none !important;
-  font-weight: var(--ifm-font-weight-semibold) !important;
+  font-weight: var(--ifm-font-weight-medium) !important;
   color: var(--ifm-color-gray-900) !important;
-  font-size: var(--ifm-h4-font-size) !important;
+  font-size: var(--ifm-p-font-size) !important;
   line-height: var(--ifm-h4-font-size) !important;
   display: flex;
   align-items: center;
@@ -515,17 +568,20 @@ a button{
   width: var(--ifm-h4-font-size) !important;
   margin-bottom: .25rem !important;
   margin-top: .125rem;
+  left: -2rem;
+  position: relative;
 }
 
 .admonitionIcon_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-styles-module {
   height: 1.25rem !important;
-  margin-right: .75rem !important;
+  width: 0;
+  margin-right: 0 !important;
 }
 
 /*--text--*/
 .theme-admonition p{
   font-size: var(--ifm-h4-font-size)!important;
-  margin-left: 1.95rem;
+  margin-bottom: .675rem !important;
 }
 
 /*--tip--*/
@@ -582,6 +638,10 @@ a button{
   background-color: var(--ifm-color-primary-lightest);
   color: var(--ifm-color-gray-700);
 }
+.alert--info h2{
+  font-size: var(--ifm-p-font-size) !important;
+  margin-top: 0 !important;
+}
 .alert--info svg path{
   visibility: hidden !important;
 }
@@ -610,6 +670,10 @@ a button{
   border: 1px solid var(--ifm-color-gray-400);
 }
 
+code{
+  border-radius: .25rem !important;
+}
+
 .codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module{
   color: var(--ifm-color-gray-700) !important;
   background-color: var(--ifm-color-gray-200) !important;
@@ -617,7 +681,7 @@ a button{
 }
 
 .token.plain, .token.plain-text, .token.tag, .token.selector, .token.maybe-class-name, .token.punctuation, .token.operator, .token.unit, .token.rule{
-  color: var(--ifm-color-gray-800) !important;
+  color: var(--ifm-color-gray-700) !important;
 }
 
 .token.comment{

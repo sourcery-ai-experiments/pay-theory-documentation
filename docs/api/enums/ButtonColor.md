@@ -14,6 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
+
 [pay_theory_types.ts:244](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L244)
 
 ___
@@ -23,6 +24,7 @@ ___
 • **GREY** = ``"GREY"``
 
 #### Defined in
+
 
 [pay_theory_types.ts:245](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L245)
 
