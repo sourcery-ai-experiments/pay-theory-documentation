@@ -43,16 +43,16 @@ const CHECKOUT_DETAILS = {
 ```
 These are the values that you can pass into the `checkoutDetails` object to customize the checkout page that opens when the button is clicked.
 
-* #### Required values:
+### Required values:
 
-* |Key                |type               |description                                                                                |
+|Key                |type               |description                                                                                |
 --------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`Amount`           |int                |The amount of the payment in cents.                                           |
 |`paymentName`      |String             |The name of the payment that will be displayed on the checkout page. Will also be passed in to the reference field of the transaction.|
 
-* #### Optional values:
+### Optional values:
 
-* |Key                      |type               |description                                                                                |
+|Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`acceptedPaymentMethods` |String             |<ul><li> The payment methods that will be accepted for the payment. Defaults to `paytheory.ALL`.</li><li>Constants are available from the SDK.</li><li>Available options are `paytheory.ONLY_CARD`, `paytheory.ONLY_ACH`, `paytheory.ONLY_CASH`, `paytheory.NOT_CARD`,  `paytheory.NOT_ACH`, `paytheory.NOT_CASH`, and `paytheory.ALL`.</li></ul> |
 |`payorId`                |String             |The Pay Theory id for the payor that will be used for the payment. If this is not passed in, a new payor will be created.|
@@ -88,15 +88,14 @@ These are the values that you can pass into the `button` function to customize t
 You pass a single object into the function with the following keys.
 
 ### Required values
-
-* |Key                      |type               |description                                                                                |
+|Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`apiKey`                 |String             |The API key for your Pay Theory account. You can find this in your Pay Theory Portal.|
 |`checkoutDetails`        |Object             |The details for the checkout page that opens when the button is clicked. Details are mentioned [above](#prepare-the-checkout-details).|
 
-* #### Optional values
+### Optional values
 
-* |Key                      |type               |description                                                                                |
+|Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`onReady:`               |Function           |A function that will be called when the button is ready to be clicked.|
 |`onClick: `              |Function           |A function that will be called when the button is clicked.|

@@ -39,7 +39,7 @@ Tokens are used to reference a payment method and enable transactions rather tha
 :::info Query
 If you are unfamiliar with query writing, you may learn about fundamental query structure from the information provided below. 
 
-*  <a href= "../../../tutorial-basics/API/QUERY" class="button button--primary button--md">Query</a>
+<a href= "../../../tutorial-basics/API/QUERY" class="button button--primary button--md">Query</a>
 :::
 
 ```graphql
@@ -75,7 +75,7 @@ query  paymentMethodTokens(direction: FORWARD, limit: 10, query:{
 ```
 
 
-* The output response will come back in JSON format as an array of payment method token objects under the items key.
+The output response will come back in JSON format as an array of payment method token objects under the items key.
 
 ***
 
