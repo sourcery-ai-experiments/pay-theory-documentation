@@ -18,18 +18,12 @@ import Admonition from '@theme/Admonition';
   
   <TabItem value="javascript">
   <h1>Accepting Online Payments</h1>
-<p>In this Quickstart, you will learn how to create, initiate, and test a payment.</p>
+  <p>In this Quickstart, you will learn how to create, initiate, and test a payment.</p>
 
-<Admonition type="note"  title="Before you start">
-    <p>
-    You will need access to your Pay Theory Sandbox. If you do not have a sandbox account, you can create one here.
-    </p>
-
-    <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--primary button--md">Create Sandbox </a>
-
-      &nbsp;&nbsp;&nbsp;
-    <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--md">Log in </a>
-    </Admonition>
+  <Admonition type="note"  title="Before you start">
+    <p>You will need access to your Pay Theory Sandbox. If you do not have a sandbox account, you can create one here.</p>
+    <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--primary button--md">Create Sandbox </a> &nbsp;&nbsp;&nbsp;<a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--md">Log in </a>
+  </Admonition>
 
   ## 1. Importing the SDK
   In order to import your SKD, you will need to copy and paste your Import URL into the header of your code editor.
@@ -37,14 +31,12 @@ import Admonition from '@theme/Admonition';
   ```
   <script src="https://austin.sdk.paytheory.com/index.js"> </script>
   ```
-***
+  ***
 
   ## 2. Calling the paytheory SDK
   When you want to call a function from Pay theory SDK you eill need to use one of the following windowobjects:
   ` paytheory ` or ` window.paytheory `
-
-***
-
+  ***
 
   ## 3. Add Paytheory elements to your form 
   You need to add the Pay Theory elements to your form. You can place these elements anywhere in your form and the SDK will place the hosted fields in the correct place.
@@ -57,7 +49,7 @@ import Admonition from '@theme/Admonition';
   ...
   <form>
   ```
-***
+  ***
 
   ## 4. Set up the event listeners
   After that, before you initialize the Pay Theory fields, you would need to invoke any event listeners.
@@ -65,8 +57,7 @@ import Admonition from '@theme/Admonition';
   <Admonition type="tip"  title="Recommended Event Listeners">
     <p>The link below provides list of all event listeners available in the below link.</p>
      
-    <a href= "../../../tutorial-extras/WEB/EVENT_LISTENERS" class="button button--primary button--md">View All Event Listeners</a>
-    
+    <a href= "../../../tutorial-extras/WEB/EVENT_LISTENERS" class="button button--primary button--md">View All Event Listeners</a>  
   </Admonition>
 
   ```jsx
@@ -74,7 +65,7 @@ import Admonition from '@theme/Admonition';
       //Logic to respond to errors
     })
   ```
-***
+  ***
 
   ## 5. Initialize the Paytheory fields
   After you have set up all the event listeners, you can initialize the pay theory fields by calling the 
@@ -87,11 +78,8 @@ import Admonition from '@theme/Admonition';
     })
   ```
   <Admonition type="note"  title="Find your API Key from Pay Theory Portal">
-    <p>
-      There may be cases where you may find it difficult to get your API Key from the portal. You can follow the below steps for easily finding it.
-    </p>
+    <p>There may be cases where you may find it difficult to get your API Key from the portal. You can follow the below steps for easily finding it.</p>
     <p>  
-
       <ol>
         <li>Log in to your Pay Theory Portal.</li>
         <li>Select the Settings page from the left-hand navigation menu.</li>
@@ -100,11 +88,10 @@ import Admonition from '@theme/Admonition';
         <li>From here, you can copy the API key and paste it into your code editor.</li>
       </ol>
     </p>
-    
     </Admonition>
     <img src="/img/paytheory-API.jpg" alt="paytheory API" ></img>
 
-***
+  ***
 
   ## 6. Once the fields are valid, Run Transaction
   The only required field for the transact parameters is the amount field. You can customize the transact function more.
@@ -127,26 +114,21 @@ import Admonition from '@theme/Admonition';
     // Logic to respond to error
     }
   ```
-***
+  ***
 
 
-## Download Code
+  ## Download Code
   <Admonition type="info" title="Download Full Code">
     <p>Click below link to download the full code and project files.</p>
     <a  target="\_blank" href={require('/static/paytheory.zip').default}  class="button button--primary button--md" download > Download </a>
   </Admonition>
 
-***
+  ***
 
-## Next Steps
-Once you are able to initiate the payment. You can use the below links
-* [Styling Hosted Fields](./StylingPayTheoryFields.mdx)
-* [Error Handling](./Errorhandling)
-
-
-what does this do
-  
-
+  ## Next Steps
+  Once you are able to initiate the payment. You can use the below links
+  * [Styling Hosted Fields](./StylingPayTheoryFields.mdx)
+  * [Error Handling](./Errorhandling)
 
 
   </TabItem>

@@ -14,8 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-
-[pay_theory_types.ts:225](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L225)
+[pay_theory_types.ts:225](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L225)
 
 ___
 
@@ -25,7 +24,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:228](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L228)
+[pay_theory_types.ts:228](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L228)
 
 ___
 
@@ -35,7 +34,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:227](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L227)
+[pay_theory_types.ts:227](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L227)
 
 ___
 
@@ -45,7 +44,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:226](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L226)
+[pay_theory_types.ts:226](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L226)
 
 ___
 
@@ -55,7 +54,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:231](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L231)
+[pay_theory_types.ts:231](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L231)
 
 ___
 
@@ -65,8 +64,7 @@ ___
 
 #### Defined in
 
-
-[pay_theory_types.ts:230](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L230)
+[pay_theory_types.ts:230](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L230)
 
 ___
 
@@ -76,6 +74,4 @@ ___
 
 #### Defined in
 
-
-[pay_theory_types.ts:229](https://github.com/pay-theory/pay-theory-documentation/blob/824cdb6/theme/pay_theory_types.ts#L229)
-
+[pay_theory_types.ts:229](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L229)

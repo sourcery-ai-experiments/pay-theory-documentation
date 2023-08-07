@@ -55,15 +55,14 @@ These are the values that you can pass into the qrCode function to customize the
 You pass a single object into the function with the following keys.
 
 ### Required Values:
-
-* |Key                      |type               |description                                                                                |
+|Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`apiKey`                 |String             |The API key for your Pay Theory account. You can find this in your Pay Theory Portal.|
 |`checkoutDetails`        |Object             |The details for the checkout page that opens when the qrCode is scanned. Details Below.|
 
-* #### Optional Values
+### Optional Values
 
-* |Key                      |type               |description                                                                                |
+|Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`size`                   |Int                |This is the size, height and width, of the qrCode in pixels. Defaults to 128 and must be above 128 and below 300.|
 |`onReady`                |Function           |A function that will be called when the qrCode is ready to be displayed.|
@@ -72,18 +71,18 @@ You pass a single object into the function with the following keys.
 
 ### Checkout Details
 
-* These are the values that you can pass into the checkoutDetails object to customize the checkout page that opens when the qrCode is scanned.
+These are the values that you can pass into the checkoutDetails object to customize the checkout page that opens when the qrCode is scanned.
 
-*  #### Required values:
+### Required values:
 
-* |Key                |type               |description                                                                                |
+|Key                |type               |description                                                                                |
 --------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`Amount`           |int                |The amount of the payment in cents.                                           |
 |`paymentName`      |String             |The name of the payment that will be displayed on the checkout page. Will also be passed in to the reference field of the transaction.|
 
-* #### Optional values:
+### Optional values:
 
-* |Key                      |type               |description                                                                                |
+|Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
 |`acceptedPaymentMethods` |String             |<ul><li> The payment methods that will be accepted for the payment. Defaults to `paytheory.ALL`.</li><li>Constants are available from the SDK.</li><li>Available options are `paytheory.ONLY_CARD`, `paytheory.ONLY_ACH`, `paytheory.ONLY_CASH`, `paytheory.NOT_CARD`,  `paytheory.NOT_ACH`, `paytheory.NOT_CASH`, and `paytheory.ALL`.</li></ul> |
 |`payorId`                |String             |The Pay Theory id for the payor that will be used for the payment. If this is not passed in, a new payor will be created.|

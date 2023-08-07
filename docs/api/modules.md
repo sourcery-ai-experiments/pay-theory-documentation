@@ -35,6 +35,8 @@ Represents an address object with optional properties.
 
 #### Defined in
 
+[pay_theory_types.ts:45](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L45)
+
 ___
 
 ### BillingInfo
@@ -49,6 +51,8 @@ ___
 | `name?` | `string` |
 
 #### Defined in
+
+[pay_theory_types.ts:72](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L72)
 
 ___
 
@@ -67,6 +71,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:273](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L273)
+
 ___
 
 ### CashBarcodeObject
@@ -82,6 +88,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:125](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L125)
+
 ___
 
 ### CashBarcodeResponse
@@ -96,6 +104,8 @@ ___
 | `type` | [`CASH`](enums/ResponseMessageTypes.md#cash) |
 
 #### Defined in
+
+[pay_theory_types.ts:130](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L130)
 
 ___
 
@@ -123,6 +133,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:248](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L248)
+
 ___
 
 ### ConfirmationObject
@@ -142,6 +154,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:77](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L77)
+
 ___
 
 ### ConfirmationResponse
@@ -157,6 +171,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:86](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L86)
+
 ___
 
 ### ErrorResponse
@@ -171,6 +187,8 @@ ___
 | `type` | [`ERROR`](enums/ResponseMessageTypes.md#error) |
 
 #### Defined in
+
+[pay_theory_types.ts:183](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L183)
 
 ___
 
@@ -191,6 +209,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:111](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L111)
+
 ___
 
 ### FailedTransactionResponse
@@ -205,6 +225,8 @@ ___
 | `type` | [`FAILED`](enums/ResponseMessageTypes.md#failed) |
 
 #### Defined in
+
+[pay_theory_types.ts:120](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L120)
 
 ___
 
@@ -221,6 +243,8 @@ ___
 | `isFocused` | `boolean` |
 
 #### Defined in
+
+[pay_theory_types.ts:294](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L294)
 
 ___
 
@@ -244,6 +268,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:280](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L280)
+
 ___
 
 ### PayTheoryPaymentFieldsInput
@@ -264,6 +290,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:214](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L214)
+
 ___
 
 ### PayTheoryQRInput
@@ -282,6 +310,8 @@ ___
 | `size` | `number` |
 
 #### Defined in
+
+[pay_theory_types.ts:264](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L264)
 
 ___
 
@@ -303,6 +333,8 @@ Represents information about a payor.
 
 #### Defined in
 
+[pay_theory_types.ts:64](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L64)
+
 ___
 
 ### PlaceholderObject
@@ -311,6 +343,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:302](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L302)
+
 ___
 
 ### StateObject
@@ -318,6 +352,8 @@ ___
 Ƭ **StateObject**: `Record`<`ElementTypes`, [`FieldState`](modules.md#fieldstate)\>
 
 #### Defined in
+
+[pay_theory_types.ts:300](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L300)
 
 ___
 
@@ -343,6 +379,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:304](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L304)
+
 ___
 
 ### SuccessfulTransactionObject
@@ -367,6 +405,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:91](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L91)
+
 ___
 
 ### SuccessfulTransactionResponse
@@ -381,6 +421,8 @@ ___
 | `type` | [`SUCCESS`](enums/ResponseMessageTypes.md#success) |
 
 #### Defined in
+
+[pay_theory_types.ts:106](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L106)
 
 ___
 
@@ -398,6 +440,8 @@ ___
 | `payorInfo?` | [`PayorInfo`](modules.md#payorinfo) |
 
 #### Defined in
+
+[pay_theory_types.ts:189](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L189)
 
 ___
 
@@ -419,6 +463,8 @@ ___
 
 #### Defined in
 
+[pay_theory_types.ts:135](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L135)
+
 ___
 
 ### TokenizedPaymentMethodResponse
@@ -433,6 +479,8 @@ ___
 | `type` | [`TOKENIZED`](enums/ResponseMessageTypes.md#tokenized) |
 
 #### Defined in
+
+[pay_theory_types.ts:145](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L145)
 
 ___
 
@@ -461,3 +509,5 @@ ___
 | `sendReceipt?` | `boolean` |
 
 #### Defined in
+
+[pay_theory_types.ts:196](https://github.com/pay-theory/pay-theory-documentation/blob/bb21eba/theme/pay_theory_types.ts#L196)

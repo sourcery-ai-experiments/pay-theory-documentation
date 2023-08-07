@@ -31,7 +31,7 @@ mutation {
 ```
 
 ### Required Arguments
-* |Key                |type         |       description                     |
+|Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
 |`amount`           |Int        |The amount of the transaction. If the FeeMode is SERVICE_FEE, this is the amount of the transaction before fees.|
 |`merchant_uid`     |String      |The Pay Theory unique identifier for the merchant the transaction is for.|
@@ -40,9 +40,9 @@ mutation {
 |`fee_mode` |FeeMode    |The fee mode on the transaction. SERVICE_FEE charges the fees to the payor. MERCHANT_FEE charges the fees to the merchant. Options are<ul><li>SERVICE_FEE</li><li>MERCHANT_FEE(default)</li></ul>|
 
 
-* #### Optional Arguments
+### Optional Arguments
 
-* |Key                 |type             |description                                 |
+|Key                 |type             |description                                 |
 |---------------------|-----------------|--------------------------------------------|    
 |`account_code`     |String     | Customer defined account code for the transaction.|
 |`currency`         |String     |The type of currency for the transaction. Defaults to USD.|

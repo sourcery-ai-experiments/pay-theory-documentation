@@ -22,7 +22,7 @@ Follow step 3,4,5 at [Quickstart](../Getting Started/Quickstart.mdx)
 
 ***
 
-## 6. Run tokenization method
+## 3. Run tokenization method
 This function is used to tokenize a card or bank account. For further transactions, this token may be used in place of the real payment information, lowering the risk involved with keeping and transferring sensitive data.
 ```jsx
 // optionally provide details about the payor
@@ -37,32 +37,32 @@ const TOKENIZE_PAYMENT_METHOD_PARAMETERS = {
 
 paytheory.tokenizePaymentMethod(TOKENIZE_PAYMENT_METHOD_PARAMETERS)
 ```
-* #### Optional Values That Can be Passed into your payment method Token
-* These are the values that you can pass into the tokenizePaymentMethod function to tokenize a card or bank account.
+### Optional Values That Can be Passed into your payment method Token
+These are the values that you can pass into the tokenizePaymentMethod function to tokenize a card or bank account.
 
-* |Key                |type               |description                                               |
+|Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
 |`payorInfo `       |Object             |see the Payor Info object below for details|
 |`billingInfo `     |Object             |see the Billing Info object below for details. This is required if you are not using the zip hosted field.|
 |`metadata `        |Object             |An object that will be stored with the token and can be used to track the token.|
 |` payorId`         |String             |<ul><li>The Pay Theory payor ID to use for the payment. Allows for user to manage identities.</li><li>This cannot be used if also using the payorInfo parameter.</li></ul>|
 
-* The function returns a Promise that will contain an object with a key of `type`. You can expect the following values for type.
+The function returns a Promise that will contain an object with a key of `type`. You can expect the following values for type.
 
-* #### Promise Return Type and Expected Values
-* |Type               |Description                                            |
+### Promise Return Type and Expected Values
+|Type               |Description                                            |
 --------------------|-------------------------------------------------------|
 |`TOKENIZED `       |The payment method was tokenized successfully and the token will be in the body key.|
 |` ERROR`           |The transact call had an error while processing and the error details will be in the error key.|
 
-* After the payment is successful you can see the token has been generated and this is how the body looks.
+After the payment is successful you can see the token has been generated and this is how the body looks.
 
-* ![TokenizingPayments](/img/TokenizingPayments.jpeg)
+![TokenizingPayments](/img/TokenizingPayments.jpeg)
 
 ### Tokenized response
-* This is the value of the body key in the response if the type is TOKENIZED:
+This is the value of the body key in the response if the type is TOKENIZED:
 
-* |Key                   |type               |description                                               |
+|Key                   |type               |description                                               |
 |-----------------------|-------------------|----------------------------------------------------------|     
 |` payment_method_id`  |String             |The Pay Theory id for the payment method token. |
 |` payor_id`           | String            | The Pay Theory id for the payor that was used for the payment method token.|
@@ -73,9 +73,9 @@ paytheory.tokenizePaymentMethod(TOKENIZE_PAYMENT_METHOD_PARAMETERS)
 
 
 ### Error Response
-* This is the value of the error key in the response if the type is ERROR:
+This is the value of the error key in the response if the type is ERROR:
 
-* |Key                   |type               |description                                               |
+|Key                   |type               |description                                               |
 -----------------------|-------------------|----------------------------------------------------------|     
 |`message `            |String             |The error message.|  
 
