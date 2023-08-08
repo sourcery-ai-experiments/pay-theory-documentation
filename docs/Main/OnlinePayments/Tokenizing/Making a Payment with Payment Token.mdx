@@ -4,7 +4,20 @@ sidebar_position: 3
 
 This guide will walk you through how to make a one time payment by using the payment token.
 
-## Create one time payment 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+<Tabs
+  defaultValue="javascript"
+  values={[
+    {label: 'Javascript', value: 'javascript'},
+    {label: 'Apple', value: 'apple'},
+    {label: 'Android', value: 'android'},
+  ]}>
+  <TabItem value="javascript">
+
+  ## Create one time payment 
 Sensitive information like credit card numbers or bank account numbers are replaced by the payment token.
 
 ```graphql
@@ -85,6 +98,44 @@ The results presented below show that the query was successfully run and that ev
 
 ## <ins> Next Steps </ins>
 You can also refer to Recurring payment here [`Recurring Payments`](../../Recurring%20Payments/Quickstart/Update%20Recurring%20Payments.md).
+
+  </TabItem>
+
+  <TabItem value="apple">
+  
+  # Accepting Online Payments
+  In this Quickstart you will learn how to create, initiate and test a payment.
+
+
+  :::info before you start
+
+  You will need access to your Pay Theory Sandbox. If you do not have a sandbox account you can create one here.
+
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Create Sandbox</a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Log in</a>
+
+  :::
+  
+  </TabItem>
+  <TabItem value="android">
+  
+  # Accepting Online Payments
+  In this Quickstart you will learn how to create, initiate and test a payment.
+
+
+  :::info before you start
+
+  You will need access to your Pay Theory Sandbox. If you do not have a sandbox account you can create one here.
+
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--primary button--md">Create Sandbox</a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--md">Log in</a>
+
+  :::
+  </TabItem>
+</Tabs>  
+
 
 
 
