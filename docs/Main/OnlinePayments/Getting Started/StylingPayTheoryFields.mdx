@@ -4,6 +4,19 @@ sidebar_position: 2
 
 This guide will walk you through the basics of styling your Pay Theory Fields. You will learn how to style the text inputs and radio buttons using CSS. 
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+<Tabs
+  defaultValue="javascript"
+  values={[
+    {label: 'Javascript', value: 'javascript'},
+    {label: 'Apple', value: 'apple'},
+    {label: 'Android', value: 'android'},
+  ]}>
+  <TabItem value="javascript">
+
 ## Pay Theory Fields
 To style the Pay Theory fields you can pass in a custom style object to the create function in our SDK. This allows you to style the text inside the inputs as well as the style of the radio buttons for the ACH account type.
 
@@ -103,4 +116,42 @@ window.paytheory.stateObserver(stateHandler)
 ## <ins> Next steps </ins>
 Once your Pay Theory fields are stylized you will need to make sure Error handling is set up. Additionally you can further customize your Pay Theory fields by adding [`Cash`](../CashPayments.mdx) and or [`ACH`](../ACH.mdx) functionality. 
 
+
+  </TabItem>
+
+  <TabItem value="apple">
+  
+  # Accepting Online Payments
+  In this Quickstart you will learn how to create, initiate and test a payment.
+
+
+  :::info before you start
+
+  You will need access to your Pay Theory Sandbox. If you do not have a sandbox account you can create one here.
+
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Create Sandbox</a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Log in</a>
+
+  :::
+  
+  </TabItem>
+  <TabItem value="android">
+  
+  # Accepting Online Payments
+  In this Quickstart you will learn how to create, initiate and test a payment.
+
+
+  :::info before you start
+
+  You will need access to your Pay Theory Sandbox. If you do not have a sandbox account you can create one here.
+
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--primary button--md">Create Sandbox</a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--md">Log in</a>
+
+  :::
+  </TabItem>
+
+</Tabs>
 

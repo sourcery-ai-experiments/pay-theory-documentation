@@ -4,15 +4,23 @@ sidebar_position: 3
 
 This guide will show you how to accept cash payments online with Pay Theory’s checkout as well as how to handle barcodes that are generated at checkout.  
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
 
-:::danger Before you start
+<Tabs
+  defaultValue="javascript"
+  values={[
+    {label: 'Javascript', value: 'javascript'},
+    {label: 'Apple', value: 'apple'},
+    {label: 'Android', value: 'android'},
+  ]}>
+  <TabItem value="javascript">
 
-To use cash you will need to make sure the transact function is enabled in order to accept cash payments online
-
-You can refer here how to use the transact function in your code.
-<a href= "../Online-Payments/Getting%20Started/Quickstart#6-once-the-fields-are-valid-run-transaction" class="button button--primary button--md">Transact function</a>
-:::
-*** 
+  <Admonition type="danger"  title="Before you start">
+    <p>To use cash you will need to make sure the transact function is enabled in order to accept cash payments online.</p>
+    <a href= "../Online-Payments/Getting%20Started/Quickstart#6-once-the-fields-are-valid-run-transaction" class="button button--primary button--md">Transact function</a>
+  </Admonition>
 
 ## Using the transact function
 
@@ -141,3 +149,43 @@ These fields are all required to collect Cash information from the user.
 
 ## <ins> Next Steps </ins>
 You can also refer to different payment modes like [  `ACH`](ACH.mdx) functionality and [`QRCode`](QRCode.mdx) functionality .
+
+
+  </TabItem>
+
+  <TabItem value="apple">
+  
+  # Accepting Online Payments
+  In this Quickstart you will learn how to create, initiate and test a payment.
+
+
+  :::info before you start
+
+  You will need access to your Pay Theory Sandbox. If you do not have a sandbox account you can create one here.
+
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Create Sandbox</a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Log in</a>
+
+  :::
+  
+  </TabItem>
+  <TabItem value="android">
+  
+  # Accepting Online Payments
+  In this Quickstart you will learn how to create, initiate and test a payment.
+
+
+  :::info before you start
+
+  You will need access to your Pay Theory Sandbox. If you do not have a sandbox account you can create one here.
+
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--primary button--md">Create Sandbox</a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--md">Log in</a>
+
+  :::
+  </TabItem>
+</Tabs>
+
+
