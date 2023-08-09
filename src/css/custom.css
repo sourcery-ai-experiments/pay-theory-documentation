@@ -695,9 +695,11 @@ ul.tabs{
   display: flex;
   justify-content: center;
   color: var(--ifm-color-gray-600);
+  align-items: center;
   font-weight: var(--ifm-font-weight-normal);
   font-size: var(--ifm-h4-font-size);
   border: 1px solid transparent;
+  height: 36px;
 }
 .tabs__item--active, .tabs__item--active:hover{
   background-color: var(--ifm-color-gray-900) !important;
