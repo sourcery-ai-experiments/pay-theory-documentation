@@ -646,10 +646,10 @@ div.navbar__logo{
 
 /*---------BUTTONS----------*/
 
-.button--md{
+.alert .button--md{
   padding-top: .35rem;
   text-decoration: none;
-  border-width: 0;
+  
 }
 
 .alert .button--primary{
@@ -658,7 +658,7 @@ div.navbar__logo{
   border:1px solid var(--ifm-color-gray-700);
 }
 
-.button--primary:hover{
+.alert .button--primary:hover{
   background-color: #ced9e639;
   color: var(--ifm-color-gray-900);
   border-color: var(--ifm-color-gray-900);
@@ -667,8 +667,6 @@ div.navbar__logo{
 .button--secondary{
   background-color: transparent;
   border-width: 0;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
   color: var(--ifm-color-gray-700)!important;
 }
 .button--secondary:hover{
@@ -938,4 +936,71 @@ code{
 
 
 
+
+/* <section class="home">
+  <div class="container 2-col">
+    <div class="row">
+      <a class="features">
+
+      <section class="home">
+      <div class="container 3-col-card">
+        <div class="row">
+          <div class="col"> */
+
+.docs-home-content{
+  max-width: 1000px;
+}
+
+.home .col--3 .row {
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-color-gray-400);
+  margin: 4rem 0 0 0;
+  gap: .5rem;
+  background-color: var(--ifm-color-gray-100);
+
+}
+.home .col--3{
+  padding-right: 0;
+}
+.home .col--3 .col{
+  padding: 1rem;
+}
+
+.home .col--2 .row{
+  display:flex;
+  color: var(--ifm-color-gray-900);
+  justify-content: space-between;
+  gap: .5rem ;
+}
+.home .col--2 .features {
+  border: 1px solid var(--ifm-color-gray-400);
+  background-color: var(--ifm-color-white);
+  max-width: 50%;
+  padding: 1rem;
+  border-radius: var(--ifm-global-radius);
+  flex-grow: 1;
+  flex-basis: 40%;
+  color: var(--ifm-color-gray-900);
+  cursor: pointer;
+}
+
+.home .col--2 .features:hover {
+  border: 1px solid var(--ifm-color-gray-300);
+  background-color: var(--ifm-color-gray-100);
+  max-width: 50%;
+  padding: 1rem;
+  border-radius: var(--ifm-global-radius);
+  flex-grow: 1;
+  flex-basis: 49%;
+  color: var(--ifm-color-gray-900);
+  cursor: pointer;
+}
+
+.home .features h3, .home .col--3 .row h3{
+  margin-top: 0;
+}
+
+.home .features p, .home .col--3 .row p, .home .col--3 .row ul{
+  margin-bottom: .125rem !important;
+}
 
