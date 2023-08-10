@@ -2,6 +2,7 @@
 title: 'Our Platform'
 sidebar_label: "Overview"
 sidebar_position: 1
+hide_table_of_contents: true
 ---
 
 Pay Theory provides three environments for your integration:
@@ -22,15 +23,13 @@ Your instance of our platform lives in your own personal cloud space with its ow
 You determine when changes from PayTheoryLab.com are deployed to PayTheory.com and PayTheoryStudy.com.
 
 ## Features
-
 ### Pay Theory Payments
 
 * Provide safe and secure access to payments with hosted inputs for:
-
-* - Credit card
-* - Debit card
-* - ACH
-* - Cash
+  * Credit card
+  * Debit card
+  * ACH
+  * Cash
 
 * For basic [HTML Examples](https://austin.html.example.paytheory.com/index.html) check here. _Make sure you have an API key ready first_
 
@@ -38,22 +37,20 @@ You determine when changes from PayTheoryLab.com are deployed to PayTheory.com a
 ### Pay Theory Sockets
 
 * Sockets provide a secure, consistent experience regardless of internet speed.
-
-* - No public facing payment API endpoints
-* - End to end encryption of messages using [NaCl](https://nacl.cr.yp.to/) (external link)
-* - Gated payment process
-* - Fine-grained rate limiting
-* - Improved API performance on slow connections
+* No public facing payment API endpoints
+* End to end encryption of messages using [NaCl](https://nacl.cr.yp.to/) (external link)
+* Gated payment process
+* Fine-grained rate limiting
+* Improved API performance on slow connections
 
 
 ### Pay Theory Detective
 
 * Actively detects bots & malicious actors
-
-* - Anonymized fingerprinting
-* - Behavioral analysis
-* - Device / Website attestation
-* - Machine learning (coming soon)
+* Anonymized fingerprinting
+* Behavioral analysis
+* Device / Website attestation
+* Machine learning (coming soon)
 
 ## Platforms
 
@@ -73,15 +70,15 @@ You determine when changes from PayTheoryLab.com are deployed to PayTheory.com a
     - Chargeback / Dispute management
 
 ### Merchant Portal
-* - Merchants can manage SDK in the [merchant portal](https://austin.merchant.dashboard.paytheory.com/)
-* - Account details are on the [settings page](https://austin.merchant.dashboard.paytheory.com/settings)
-* - Access to Payments, Settlements, and Chargeback details
-* - Issue refunds on payments
+* Merchants can manage SDK in the [`Merchant portal`](https://austin.merchant.dashboard.paytheory.com/)
+* Account details are on the [`Settings page`](https://austin.merchant.dashboard.paytheory.com/settings)
+* Access to Payments, Settlements, and Chargeback details
+* Issue refunds on payments
 
 ### System Portal
 * _Not available in start sandbox accounts_
-- Systems are merchants who also have other merchants they manage.
-- Systems manage their merchants in the [system portal](https://PARTNER_NAME.system.dashboard.STAGE.com).
+* Systems are merchants who also have other merchants they manage.
+* Systems manage their merchants in the [`System portal`](https://PARTNER_NAME.system.dashboard.STAGE.com).
     - Assign merchant user accounts
     - View merchant transactions
     - Manage merchant credentials
@@ -89,7 +86,7 @@ You determine when changes from PayTheoryLab.com are deployed to PayTheory.com a
 
 ### Partner Portal
 * _Not available in start sandbox accounts_
-- Partners manage merchants in the [partner portal](https://PARTNER_NAME.partner.dashboard.STAGE.com)
+* Partners manage merchants in the [partner portal](https://PARTNER_NAME.partner.dashboard.STAGE.com)
     - Assign merchant user accounts
     - View merchant transactions
     - Manage merchant credentials
