@@ -244,6 +244,26 @@ const config = {
         //darkTheme: darkCodeTheme,
       },
     }),
+    scripts: [
+        {
+            type: 'text/javascript',
+            src: '/script/freshdesk.js',
+            async: true,
+            defer: true
+        },
+        {
+            type: 'text/javascript',
+            src: 'https://widget.freshworks.com/widgets/44000004239.js',
+            async: true,
+            defer: true
+        },
+        {
+            type: 'text/javascript',
+            src: '/script/hotjar.js',
+            async: true,
+            defer: true
+        }
+    ]
 };
 
 module.exports = config;
