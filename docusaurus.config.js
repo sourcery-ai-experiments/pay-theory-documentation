@@ -8,10 +8,10 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Paytheory',
-  tagline: 'Dinosaurs are cool',
+  title: 'Documentation',
+  tagline: 'Explore our quickstarts and guides.',
 
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.jpg',
 
   // Set the production url of your site here
   // url: 'https://192.168.13.54:3000',
@@ -126,10 +126,11 @@ const config = {
         apiKey: '194f1b9d23e7ca0f12159d7e957048e6',
         indexName:'dev_PayTheory_SB',
         ContextualSearch: true,
-        placeholder:'search in Paytheory website',
+        placeholder:'search in Pay Theory website',
         appId:'7Z0MVL2E44',
 
       },
+      
       navbar: {
         title: 'Docs',
         logo: {
