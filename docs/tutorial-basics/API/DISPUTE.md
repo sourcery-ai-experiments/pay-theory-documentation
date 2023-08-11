@@ -9,7 +9,7 @@ They could be an `INQUIRY` which is just a request for information, or an actual
 ```js
 {
     "merchant": "8404e0bf-a018-4329-a667-9e2aed9cee1e",
-    "transaction_id": "pt-austin-paytheorylab-004ah5",
+    "transaction_id": "pt_txn_004ah5",
     "dispute_id": "DItr55AS8SwakWj2AUmsxNUo",
     "account_code": "account12345",
     "amount": 888888,

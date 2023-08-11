@@ -1,8 +1,9 @@
 ---
 sidebar_position: 3
+sidebar_label: 'Cash Payments'
+title: ""
 ---
 
-This guide will show you how to accept cash payments online with Pay Theory’s checkout as well as how to handle barcodes that are generated at checkout.  
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -16,10 +17,12 @@ import Admonition from '@theme/Admonition';
     {label: 'Android', value: 'android'},
   ]}>
   <TabItem value="javascript">
+  <h1>Cash Payments</h1>
+  This guide will show you how to accept cash payments online with Pay Theory’s checkout as well as how to handle barcodes that are generated at checkout.  
 
   <Admonition type="danger"  title="Before you start">
     <p>To use cash you will need to make sure the transact function is enabled in order to accept cash payments online.</p>
-    <a href= "../Online-Payments/Getting%20Started/Quickstart#6-once-the-fields-are-valid-run-transaction" class="button button--primary button--md">Transact function</a>
+    <a href= "../OnlinePayments/Getting%20Started/Quickstart#6-once-the-fields-are-valid-run-transaction" class="button button--primary button--md">Transact function</a>
   </Admonition>
 
 ## Using the transact function
@@ -74,7 +77,7 @@ The only required key is `amount`.
 
 |Key                |type               |description                                                                                |
 --------------------|-------------------|-------------------------------------------------------------------------------------------|     
-|`Amount`           |int                |It represents the amount to be charged in cents.                                           |
+|`amount`           |int                |It represents the amount to be charged in cents.                                           |
 |`payorInfo`        |Object             |Refer to payor info here [payorinfo](../../tutorial-extras/WEB/FUNCTIONS#payor-info-object)|
 
 The function returns a Promise that will contain an object with a key of `type`. You can expect the following values for type:
@@ -128,9 +131,11 @@ While generating the Barcode it will use the geolocation to return a map url for
 |`mapURL`           |String             |The url for the map to find the retail locations to pay the barcode.|
 
 ### Error response
+
 This is the value of the `error` key in the response if the `type` is ERROR:
+
 |Key                |type               |description                                               |
---------------------|-------------------|----------------------------------------------------------|     
+|--------------------|-------------------|----------------------------------------------------------|     
 |`message`          |String             |The error message.|
 
 ***
@@ -140,14 +145,14 @@ You can customize your cash fields based on your requirements and desired user e
 These fields are all required to collect Cash information from the user.
 
 ```jsx
-<form> src/paytheory.js
+<form>
 <div id = "pay-theory-cash-name"></div>
 <div id = "pay-theory-cash-contact"></div>
 </form>
 ```
 ***
 
-## <ins> Next Steps </ins>
+## Next Steps
 You can also refer to different payment modes like [  `ACH`](ACH.mdx) functionality and [`QRCode`](QRCode.mdx) functionality .
 
 
@@ -155,36 +160,11 @@ You can also refer to different payment modes like [  `ACH`](ACH.mdx) functional
 
   <TabItem value="apple">
   
-  # Accepting Online Payments
-  In this Quickstart you will learn how to create, initiate and test a payment.
-
-
-  :::info before you start
-
-  You will need access to your Pay Theory Sandbox. If you do not have a sandbox account you can create one here.
-
-  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Create Sandbox</a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--lg">Log in</a>
-
-  :::
-  
+  <h1 style={{marginTop: "24px"}}>Coming Soon</h1>
   </TabItem>
   <TabItem value="android">
+  <h1 style={{marginTop: "24px"}}>Coming Soon</h1>
   
-  # Accepting Online Payments
-  In this Quickstart you will learn how to create, initiate and test a payment.
-
-
-  :::info before you start
-
-  You will need access to your Pay Theory Sandbox. If you do not have a sandbox account you can create one here.
-
-  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--primary button--md">Create Sandbox</a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://start.merchant.dashboard.paytheory.com/settings" class="button button--secondary button--md">Log in</a>
-
-  :::
   </TabItem>
 </Tabs>
 
