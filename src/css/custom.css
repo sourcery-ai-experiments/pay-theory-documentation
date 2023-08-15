@@ -162,7 +162,7 @@
   --ifm-p-font-size: 1rem;
   --ifm-h4-font-size: 0.875rem;
   --ifm-h5-font-size: 0.85rem;
-  --ifm-h6-font-size: 0.85rem;
+  --ifm-h6-font-size: 0.7rem;
 
   --ifm-image-alignment-padding: 1.25rem;
 
@@ -264,14 +264,14 @@
   --ifm-dropdown-link-color: var(--ifm-font-color-base);
   --ifm-dropdown-hover-background-color: var(--ifm-hover-overlay);
 
-  --ifm-footer-background-color: var(--ifm-color-emphasis-100);
-  --ifm-footer-color: inherit;
-  --ifm-footer-link-color: var(--ifm-color-emphasis-700);
-  --ifm-footer-link-hover-color: var(--ifm-color-primary);
+  --ifm-footer-background-color: var(--ifm-color-gray-900);
+  --ifm-footer-color: var(--ifm-color-white);
+  --ifm-footer-link-color: var(--ifm-color-white);
+  --ifm-footer-link-hover-color: var(--ifm-color-primary-light);
   --ifm-footer-link-horizontal-spacing: 0.5rem;
   --ifm-footer-padding-horizontal: calc(var(--ifm-spacing-horizontal) * 2);
   --ifm-footer-padding-vertical: calc(var(--ifm-spacing-vertical) * 2);
-  --ifm-footer-title-color: inherit;
+  --ifm-footer-title-color: var(--ifm-color-gray-500);
   --ifm-footer-logo-max-width: min(30rem, 90vw);
 
   --ifm-hero-background-color: var(--ifm-background-surface-color);
@@ -317,7 +317,7 @@
   --ifm-tabs-color: var(--ifm-font-color-secondary);
   --ifm-tabs-color-active: var(--ifm-color-primary);
   --ifm-tabs-color-active-border: var(--ifm-tabs-color-active);
-  --ifm-tabs-padding-horizontal: 0;
+  --ifm-tabs-height: 2.25rem;
   --ifm-tabs-padding-vertical: .25rem;
 
   --ifm-alert-foreground-color: var(--ifm-color-primary);
@@ -343,8 +343,8 @@
 
   --docsearch-modal-width: 560px !important;
   --docsearch-modal-height: 600px !important;
-  --docsearch-modal-background: var(--ifm-color-gray-100) !important;
-  --docsearch-modal-shadow: inset 0px 0px 0 0 transparent,0 1px 3px 0 #1b1b1b88 !important;
+  --docsearch-modal-background: var(--ifm-color-gray-200) !important;
+  --docsearch-modal-shadow: inset 0px 0px 0 transparent,0 .5rem 1rem #1b1b1b22 !important;
 
   --docsearch-searchbox-height: 2.5rem !important;
   --docsearch-searchbox-background: var(--ifm-color-white) !important;
@@ -352,7 +352,7 @@
   --docsearch-searchbox-shadow: inset 0 0 0 0px var(--ifm-color-gray-400) !important;
 
   --docsearch-hit-height: 3rem !important;
-  --docsearch-hit-color: var(--ifm-color-gray-600) !important;
+  --docsearch-hit-color: var(--ifm-color-gray-900) !important;
   --docsearch-hit-active-color: var(--ifm-color-white) !important;
   --docsearch-hit-background: var(--ifm-color-white) !important;
   --docsearch-hit-shadow: 0 1px 1px 0 var(--ifm-color-gray-300) !important;
@@ -363,6 +363,9 @@
   --docsearch-footer-height: 3rem !important;
   --docsearch-footer-background: var(--ifm-color-white) !important;
   --docsearch-footer-shadow: 0 -1px 0 0 transparent,0 -1px 1px 0 var(--ifm-color-gray-300) !important;
+
+  --doc-sidebar-width: 300px;
+  --doc-sidebar-hidden-width: 30px;
 
 }
 
@@ -383,85 +386,6 @@
 /*.theme-admonition-danger, .theme-admonition-tip, .theme-admonition-warning, .theme-admonition-info, .theme-admonition-success {
   background-color: inherit;
 }*/
-.DocSearch-Button {
-  align-items: center;
-  background: var(--docsearch-searchbox-background);
-  border: 1px solid var(--ifm-color-gray-400) !important;
-  border-radius: 40px;
-  color: var(--docsearch-muted-color);
-  cursor: pointer;
-  display: flex;
-  font-weight: 500;
-  height: 36px;
-  justify-content: space-between;
-  margin: 0 0 0 16px;
-  padding: 0 8px;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-.DocSearch-Input{
-  font-size: var(--ifm-p-font-size) !important;
-  padding: 0 0 .125rem .5rem !important;
-}
-.DocSearch-Search-Icon{
-  width: 1.25rem !important;
-  height: auto !important;
-}
-.DocSearch-Form {
-  align-items: center;
-  background: var(--ifm-color-white) !important;
-  border-radius: var(--ifm-global-radius) !important;
-  box-shadow: var(--docsearch-searchbox-shadow) !important;
-  display: flex;
-  height: var(--docsearch-searchbox-height);
-  margin: 0;
-  padding: 0 var(--docsearch-spacing);
-  position: relative;
-  width: 100%;
-}
-.DocSearch-Form:focus-within, .DocSearch-Form:hover{
-  box-shadow: inset 0 0 0 1px var(--ifm-color-gray-900) !important;
-}
-.DocSearch-Reset {
-  animation: fade-in .1s ease-in forwards;
-  appearance: none;
-  background: none;
-  border: 0;
-  border-radius: 50%;
-  color: var(--docsearch-icon-color);
-  cursor: pointer;
-  padding: 2px;
-  right: 0;
-  stroke-width: var(--docsearch-icon-stroke-width);
-}
-.DocSearch-Modal {
-  background: var(--docsearch-modal-background);
-  border-radius: 1rem !important;
-  border: 1px solid var(--ifm-color-gray-400);
-  box-shadow: var(--docsearch-modal-shadow);
-  flex-direction: column;
-  margin: 60px auto auto;
-  max-width: var(--docsearch-modal-width);
-  position: relative;
-}
-.DocSearch-Footer {
-  align-items: center;
-  background: var(--docsearch-footer-background);
-  border-radius: 0 0 1rem 1rem !important;
-  box-shadow: var(--docsearch-footer-shadow);
-  display: flex;
-  flex-direction: row-reverse;
-  flex-shrink: 0;
-  height: var(--docsearch-footer-height);
-  justify-content: space-between;
-  padding: 0 1rem !important;
-  position: relative;
-  -webkit-user-select: none;
-  user-select: none;
-  width: 100%;
-  z-index: 300;
-}
 
 .markdown {
   --ifm-vertical-rhythm-top: 1;
@@ -487,7 +411,6 @@
 .col--3{
  padding-left: 0;
  padding-right: 1rem;
- 
 }
 
 body {
@@ -565,6 +488,10 @@ p {
   font-size: 1rem !important;
   line-height: 1.5rem !important;
 }
+p a{
+  font-weight: var(--ifm-font-weight-medium);
+  color: var(--ifm-color-primary);
+}
 
 h4 {
   font-weight: var(--ifm-font-weight-medium) !important;
@@ -594,15 +521,13 @@ img{
 .menu{
   font-weight: var(--ifm-font-weight-book);
 }
-.menu__link{
-  flex: none;
-}
+
 .menu__link--active{
   font-weight: var(--ifm-font-weight-medium);
 }
 .menu__link--sublist-caret:after {
   content: '';
-  margin-left: auto;
+  margin-left: 0;
   min-width: 1.25rem;
   background: var(--ifm-menu-link-sublist-icon) 50% / 1.25rem 1.25rem;
   filter: var(--ifm-menu-link-sublist-icon-filter);
@@ -611,16 +536,21 @@ img{
   width: 1.25rem;
   transition: transform var(--ifm-transition-fast) linear;
   order: -1;
+  justify-content: flex-start;
 }
+
+
 .menu__list-item-collapsible .menu__link:hover, .menu__list-item-collapsible .menu__link--active {
   color: var(--ifm-color-gray-700) !important;
-  font-weight: var(--ifm-font-weight-medium);
+  
 }
+
 .navbar__link{
   font-weight: var(--ifm-font-weight-normal);
 }
 .navbar__logo{
-  width: 6.563rem;
+  --ifm-nav-logo-width: 6.563rem;
+  width: var(--ifm-nav-logo-width);
   height: auto;
 }
 div.navbar__logo{
@@ -636,13 +566,168 @@ div.navbar__logo{
 }
 .navbar{
   border-bottom: 1px solid var(--ifm-color-gray-300);
-  background-color: ;
 }
 .toggle_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
   width: 0 !important;
   height: 0 !important;
   visibility: hidden;
 }
+.dropdown--hoverable:hover .dropdown__menu, .dropdown--show .dropdown__menu, .dropdown--hoverable:hover .dropdown__menu ul {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(-1px);
+  visibility: visible;
+  box-shadow: 0 4px .75rem #1b1b1b22;
+  border: 1px solid var(--ifm-color-gray-400);
+  padding: .25rem;
+  padding-top: .05rem;
+}
+.dropdown__link {
+  border-radius: 0.25rem;
+  color: var(--ifm-color-gray-700);
+  font-weight: var(--ifm-font-weight-book);
+  font-size: var(--ifm-p-font-size) !important;
+  display: block;
+  padding: 0.5rem;
+  white-space: nowrap;
+}
+.DocSearch-Button {
+  align-items: center;
+  background: var(--docsearch-searchbox-background);
+  border: 1px solid var(--ifm-color-gray-400) !important;
+  border-radius: 40px;
+  color: var(--docsearch-muted-color);
+  cursor: pointer;
+  display: flex;
+  font-weight: 500;
+  height: 36px;
+  justify-content: space-between;
+  margin: 0 0 0 16px;
+  padding: 0 8px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+.searchBox_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
+  order: -1 !important;
+  flex: 100 0 auto
+}
+.navbar__items--right {
+  justify-content: space-between ;
+  width: calc(100% - var(--ifm-nav-logo-width));
+  flex-grow: 10;
+
+}
+.navbar__items {
+  justify-content: space-between;
+  flex-grow: auto;
+  min-width: calc(100% - var(--ifm-nav-logo-width));
+
+}
+.navbar__inner {
+  justify-content: flex-start;
+  flex-grow: 0;
+}
+
+.DocSearch-Button {
+  align-items: center;
+  background: var(--docsearch-searchbox-background);
+  border: 0;
+  border-radius: 40px;
+  color: var(--docsearch-muted-color);
+  cursor: pointer;
+  display: flex;
+  font-weight: 500;
+  height: 36px;
+  justify-content: space-between;
+  margin: 0 0 0 16px ;
+  padding: 0 8px;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 300px;
+  justify-content: space-around;
+}
+@media (max-width: 996px) {
+  .DocSearch-Button{
+    justify-content: flex-end;
+    transition: none;
+  }
+}
+@media (max-width: 768px) {
+  .DocSearch-Button{
+    width: 100%;
+    justify-content: flex-end;
+    transition: none;
+  }
+}
+.DocSearch-Input{
+  font-size: var(--ifm-p-font-size) !important;
+  padding: 0 0 .125rem .5rem !important;
+}
+.DocSearch-Search-Icon{
+  width: 1.25rem !important;
+  height: auto !important;
+}
+.DocSearch-Form {
+  align-items: center;
+  background: var(--ifm-color-white) !important;
+  border-radius: var(--ifm-global-radius) !important;
+  box-shadow: var(--docsearch-searchbox-shadow) !important;
+  display: flex;
+  height: var(--docsearch-searchbox-height);
+  margin: 0;
+  padding: 0 var(--docsearch-spacing);
+  position: relative;
+  width: 100%;
+}
+.DocSearch-Form:focus-within, .DocSearch-Form:hover{
+  box-shadow: inset 0 0 0 1px var(--ifm-color-gray-500) !important;
+}
+.DocSearch-Form{
+  box-shadow: inset 0 0 0 1px var(--ifm-color-gray-400) !important;
+}
+
+.DocSearch-Reset {
+  animation: fade-in .1s ease-in forwards;
+  appearance: none;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  color: var(--docsearch-icon-color);
+  cursor: pointer;
+  padding: 2px;
+  right: 0;
+  stroke-width: var(--docsearch-icon-stroke-width);
+}
+.DocSearch-Modal {
+  background: var(--docsearch-modal-background);
+  border-radius: 1rem !important;
+  border: 1px solid var(--ifm-color-gray-400);
+  box-shadow: var(--docsearch-modal-shadow);
+  flex-direction: column;
+  margin: 60px auto auto;
+  max-width: var(--docsearch-modal-width);
+  position: relative;
+}
+.DocSearch-Footer {
+  align-items: center;
+  background: var(--docsearch-footer-background);
+  border-radius: 0 0 1rem 1rem !important;
+  box-shadow: var(--docsearch-footer-shadow);
+  display: flex;
+  flex-direction: row-reverse;
+  flex-shrink: 0;
+  height: var(--docsearch-footer-height);
+  justify-content: space-between;
+  padding: 0 1rem !important;
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  z-index: 300;
+}
+
 
 /*---------BUTTONS----------*/
 
@@ -675,8 +760,21 @@ div.navbar__logo{
 
 /*---------TABS----------*/
 .tabs{
-  position: sticky;
   gap: .25rem;
+  position: fixed;
+  top: 70px;
+  width: calc(75% - ((var(--doc-sidebar-width)) + 20px));
+  z-index: 100;
+  background-color: #f1f1f1;
+  max-width: 894px;
+  box-shadow: 0 1rem 1rem var(--ifm-color-white), 0px -2rem var(--ifm-color-white), -2rem 1rem 1rem var(--ifm-color-white), 2rem 1rem 1rem var(--ifm-color-white);
+}
+.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module{
+  padding-top: calc(var(--ifm-tabs-height) + 1rem);
+}
+@media (max-width: 996px) {.tabs {
+ width: calc(100% - ((var(--doc-sidebar-hidden-width)) + 4rem)) !important;
+}
 }
 
 ul.tabs{
@@ -697,7 +795,7 @@ ul.tabs{
   font-weight: var(--ifm-font-weight-normal);
   font-size: var(--ifm-h4-font-size);
   border: 1px solid transparent;
-  height: 36px;
+  height: var(--ifm-tabs-height);
 }
 .tabs__item--active, .tabs__item--active:hover{
   background-color: var(--ifm-color-gray-900) !important;
@@ -716,6 +814,41 @@ ul.tabs{
   margin: 0 auto !important;
   
 }
+
+/*---------PAGINATION----------*/
+.pagination-nav{
+  grid-gap: var(--ifm-spacing-horizontal);
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pagination-nav__link{
+  border: 1px solid var(--ifm-color-gray-400);
+}
+.pagination-nav__link:hover{
+  background-color: var(--ifm-color-gray-100);
+  border: 1px solid var(--ifm-color-gray-400) ;
+}
+.pagination-nav__sublabel{
+  font-weight: var(--ifm-font-weight-normal);
+  font-size: var(--ifm-h4-font-size);
+  margin-bottom: 0;
+}
+.pagination-nav__label{
+  font-weight: var(--ifm-font-weight-normal);
+  font-size: var(--ifm-p-font-size);
+  line-height: 1.25;
+  margin-bottom: .25rem;
+  color: var(--ifm-color-primary);
+}
+.pagination-nav__link--next .pagination-nav__label::after {
+  content: ' >';
+}
+
+.pagination-nav__link--prev .pagination-nav__label::before{
+  content: '< ';
+}
+
 
 /*---------TABLES----------*/
 table{
@@ -767,6 +900,7 @@ table tr:last-child td:first-child{
 .alert{
  padding-left: 3rem !important;
  margin-bottom: var(--ifm-leading) !important;
+ margin-top: var(--ifm-leading) !important;
 }
 .alert li{
   margin-left: 1rem !important;
@@ -900,6 +1034,7 @@ code{
   color: var(--ifm-color-gray-700) !important;
   background-color: var(--ifm-color-gray-200) !important;
   border: 1px solid var(--ifm-color-gray-400);
+  margin-top: 1rem !important;
 }
 
 .token.plain, .token.plain-text, .token.tag, .token.selector, .token.maybe-class-name, .token.punctuation, .token.operator, .token.unit, .token.rule{
@@ -935,7 +1070,23 @@ code{
 }
 
 
-
+ 
+/*-----------FOOTER------------ */
+.footer{
+  padding: .5rem;
+}
+.footer__title{
+  font-size: var(--ifm-h3-font-size);
+  letter-spacing: .125rem;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+.footer__copyright{
+  font-size: var(--ifm-h6-font-size);
+  letter-spacing: .05rem;
+  text-transform: uppercase;
+  color: var(--ifm-color-gray-400);
+}
 
 /* <section class="home">
   <div class="container 2-col">
