@@ -28,9 +28,9 @@ module.exports = {
       collapsed:true,
       label: 'Online Payments',
       items:[
-        {
-            type:'doc', id: 'Main/Overview'
-        },
+        // {
+        //     type:'doc', id: 'Main/Overview'
+        // },
         {
           type: 'category',
           label: 'Getting Started',

@@ -136,13 +136,13 @@ const config = {
         logo: {
           alt: 'My Site Logo',
           src: 'img/paytheory-logo22.jpeg',
-          // href: 'Overview',
+          href: 'docs/Main/OnlinePayments/Getting Started/Quickstart',
         },
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'homeSidebar',
-            position: 'right',
+            position: 'left',
             label: 'Home',
           },
           // {
