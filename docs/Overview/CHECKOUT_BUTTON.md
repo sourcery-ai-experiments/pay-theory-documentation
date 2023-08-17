@@ -48,7 +48,7 @@ const CHECKOUT_DETAILS = {
 }
 ```
 
-Further details on the checkout details can be found in the [button](../web/functions#button) function details.
+Further details on the checkout details can be found in the [button](../tutorial-extras/web/FUNCtions#button) function details.
 
 ## Step 4: Style the Button
 

@@ -2,7 +2,7 @@ import React from 'react';
 export const Highlight = ({children, color}) => (
     <span
         style={{
-            backgroundColor: "#000",
+            backgroundColor: color,
             borderRadius: '20px',
             color: '#fff',
             padding: '10px',

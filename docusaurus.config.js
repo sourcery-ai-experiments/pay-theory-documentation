@@ -1,17 +1,17 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-//import '@algolia/autocomplete-theme-classic';
+//const lightCodeTheme = require('./src/css/prismLight.js');
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 //const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Paytheory',
-  tagline: 'Dinosaurs are cool',
+  title: 'Documentation',
+  tagline: 'Explore our quickstarts and guides.',
 
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.jpg',
 
   // Set the production url of your site here
   // url: 'https://192.168.13.54:3000',
@@ -69,6 +69,17 @@ const config = {
       }),
     ],
   ],
+  plugins: [
+    [
+      'docusaurus-plugin-typedoc',
+
+      // Plugin / TypeDoc options
+      {
+        entryPoints: ['theme/pay_theory_types.ts'],
+        tsconfig: 'tsconfig.json',
+      },
+    ],
+  ],
   //plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
   // plugins: [
   //   [
@@ -115,23 +126,24 @@ const config = {
         apiKey: '194f1b9d23e7ca0f12159d7e957048e6',
         indexName:'dev_PayTheory_SB',
         ContextualSearch: true,
-        placeholder:'search in Paytheory website',
+        placeholder:'search in Pay Theory website',
         appId:'7Z0MVL2E44',
 
       },
+      
       navbar: {
         title: 'Docs',
         logo: {
           alt: 'My Site Logo',
           src: 'img/paytheory-logo22.jpeg',
-          // href: 'Overview',
+          href: 'docs/Main/OnlinePayments/Getting Started/Quickstart',
         },
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'homeSidebar',
             position: 'right',
-            label: 'Home',
+            label: 'Docs',
           },
           {
             type: 'docSidebar',
@@ -178,55 +190,75 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              // {
-              //   label: 'Blog',
-              //   to: '/blog',
-              // },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        style: 'light',
+        // links: [
+        //   {
+        //     title: 'Docs',
+        //     items: [
+        //       {
+        //         label: 'Getting Started',
+        //         to: '/docs/Main/OnlinePayments/Getting%20Started/Quickstart',
+        //       },
+        //     ],
+        //   },
+        //   {
+        //     title: 'Community',
+        //     items: [
+        //       {
+        //         label: 'Stack Overflow',
+        //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+        //       },
+        //       {
+        //         label: 'Discord',
+        //         href: 'https://discordapp.com/invite/docusaurus',
+        //       },
+        //       {
+        //         label: 'Twitter',
+        //         href: 'https://twitter.com/docusaurus',
+        //       },
+        //     ],
+        //   },
+        //   {
+        //     title: 'More',
+        //     items: [
+        //       // {
+        //       //   label: 'Blog',
+        //       //   to: '/blog',
+        //       // },
+        //       {
+        //         label: 'GitHub',
+        //         href: 'https://github.com/facebook/docusaurus',
+        //       },
+        //     ],
+        //   },
+        // ],
+        copyright: `Copyright Pay Theory © ${new Date().getFullYear()}`,
       },
       prism: {
         theme: lightCodeTheme,
         //darkTheme: darkCodeTheme,
       },
     }),
+    scripts: [
+        {
+            type: 'text/javascript',
+            src: '/script/freshdesk.js',
+            async: true,
+            defer: true
+        },
+        {
+            type: 'text/javascript',
+            src: 'https://widget.freshworks.com/widgets/44000004239.js',
+            async: true,
+            defer: true
+        },
+        {
+            type: 'text/javascript',
+            src: '/script/hotjar.js',
+            async: true,
+            defer: true
+        }
+    ]
 };
 
 module.exports = config;

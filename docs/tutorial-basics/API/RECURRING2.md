@@ -6,7 +6,7 @@ This guide will walk you through the steps to create a recurring payment in Pay 
 
 You will need to have a payment method token to create a recurring payment. You can create a payment method token by using one of our SDKs and calling the tokenizePaymentMethod function:
 
-* [Web/JS](../web/functions#tokenizepaymentmethod)
+* [Web/JS](../../Home/Online-Payments/Getting%20Started/Quickstart#6-once-the-fields-are-valid-run-transaction)
 
 ```js
 const TOKENIZE_PAYMENT_METHOD_PARAMETERS = {

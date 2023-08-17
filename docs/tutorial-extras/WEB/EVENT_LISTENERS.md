@@ -106,6 +106,46 @@ If a failure or decline occurs during the payment, the response will be similar 
   - This will be `FAILURE`
 - **type** (String): Description of the failure
 
+## stateObserver
+
+The stateObserver will fire when the state of any hosted field changes. You can use this listener to respond when a hosted field is focused, blurred, or when it has been typed into.
+
+
+```jsx
+myPayTheory.stateObserver(state => {
+    // Logic to respond to state changes
+})
+```
+
+### Callback Argument
+The callback will be passed a state object. The state object will include an object with all the possible fields that can be used with the Pay Theory SDK and consist of 3 pieces of information.
+
+- **isFocused** : boolean indicating if the field is focused.
+- **isDirty** : boolean indicating if the field currently has text entered.
+- **errorMessages** : array of error messages if the field is invalid.
+
+:::tip Note:
+If using the combined card field you will receive state updates for number, cvv, and exp separately
+:::
+
+``` jsx
+{
+  "card-number": {
+    "isDirty": false,
+    "isFocused": false,
+    "errorMessages": []
+  },
+  "card-cvv": ...,
+  "card-exp": ...,
+  "card-name": ...,
+  "billing-line1": ...,
+  "billing-line2": ...,
+  "billing-city": ...,
+}
+```
+This can be used to help if you want to display field specific error messages or style the fields based on the state.
+This can also be used to help if you are using the Card Billing fields to capture the payor info and want to ensure the fields are filled out.
+
 ## transactedObserver
 
 The `transactedObserver` will fire with a response after the `transact` function is called without the `require_confirmation` parameter passed in or set to `false`.
