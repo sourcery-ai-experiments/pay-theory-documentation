@@ -22,25 +22,14 @@ import Admonition from '@theme/Admonition';
   This quickstart will show you how to securely tokenize a user's payment method so that it can be recalled in a future payment or through a recurring payment.
 
 
-
-## 1. Importing the SDK
-In order to import your SKD, copy and paste the following code into the header of your code editor. Make sure to edit the ACCOUNT_NAME and the ENV.
-```jsx
-<script src="https://start.sdk.paytheory.com/index.js"> </script>
-```
-***
-
-## 2. Calling the paytheory SDK
-When you want to call a function from Pay theory SDK you eill need to use one of the following window objects: paytheory or window.paytheory
-
-
-:::danger 
-Follow step 3,4,5 at [Quickstart](../Getting Started/Quickstart.mdx)
+:::danger Before you start
+In order to tlkenize a payment method you need be set up to accept online payments.  
+<a href= "../Getting Started/Quickstart" class="button button--primary button--md">Accepting Online Payments</a>
 :::
 
 ***
 
-## 3. Run tokenization method
+## Run tokenization method
 This function is used to tokenize a card or bank account. For further transactions, this token may be used in place of the real payment information, lowering the risk involved with keeping and transferring sensitive data.
 ```jsx
 // optionally provide details about the payor

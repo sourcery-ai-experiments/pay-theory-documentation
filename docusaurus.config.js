@@ -142,15 +142,9 @@ const config = {
           {
             type: 'docSidebar',
             sidebarId: 'homeSidebar',
-            position: 'left',
-            label: 'Home',
+            position: 'right',
+            label: 'Docs',
           },
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tsSidebar',
-          //   position: 'left',
-          //   label: 'TS_API',
-          // },
           {
             type: 'docSidebar',
             sidebarId: 'apiSidebar',
