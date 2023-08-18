@@ -3,5 +3,5 @@ import {Redirect} from '@docusaurus/router';
 
 
 export default function Home() {
-    return <Redirect to="/docs/Main/OnlinePayments/Getting%20Started/Quickstart" />;
+    return <Redirect to="/docs/Main/Getting%20Started/Quickstart" />;
 }
