@@ -576,7 +576,12 @@ img{
   padding-bottom: .35rem;
 }
 
-
+.disabled{
+  pointer-events: none;
+}
+.disabled a{
+  color: var(--ifm-color-gray-500) !important;
+}
 
 
 .menu__list-item-collapsible .menu__link:hover, .menu__list-item-collapsible .menu__link--active {
