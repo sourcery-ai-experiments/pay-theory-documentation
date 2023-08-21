@@ -39,13 +39,13 @@ Here is how the token object looks like
 
 |Key                 |type             |description                                 |
 |--------------------|-----------------|--------------------------------------------|     
-|` payment_method_id`| String          |The unique payment method id.|
-|` merchant_uid`     | String          |The Pay Theory unique identifier assigned to the merchant that the payment_method_token belongs to.|
-|`payor`             |PayorObject      |The payor object. Refer to the Payor docs for more info.|
-|`payment_type `     |PaymentType      | The type of payment method.<ul><li>CARD</li><li>ACH</li><li>CASH</li></ul>
-|` last_four`      | String      | The last four digits of the card or bank account number.|
-|` exp_date`  |String       |The expiration date of the card. Null if the payment_type is not a card. Format: MMYY|
-|` full_name`|String        |The name on the card or bank account.|
+|  payment_method_id | string          |The unique payment method id.|
+|  merchant_uid      | string          |The Pay Theory unique identifier assigned to the merchant that the payment_method_token belongs to.|
+| payor              |payorObject      |The payor object. Refer to the Payor docs for more info.|
+| payment_type       |paymentType      | The type of payment method.<ul><li>CARD</li><li>ACH</li><li>CASH</li></ul>
+|  last_four       | string      | The last four digits of the card or bank account number.|
+|  exp_date   |string       |The expiration date of the card. Null if the payment_type is not a card. Format: MMYY|
+|  full_name |string        |The name on the card or bank account.|
 
 ***
 

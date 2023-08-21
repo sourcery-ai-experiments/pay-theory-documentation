@@ -19,8 +19,10 @@ import Admonition from '@theme/Admonition';
    <h1>Styling Pay Theory Fields</h1>
    This guide will walk you through the basics of styling your Pay Theory Fields. You will learn how to style the text inputs and radio buttons using CSS. 
    
-   <h2>Pay Theory Fields</h2>
-    To style the Pay Theory fields you can pass in a custom style object to the create function in our SDK. This allows you to style the text inside the inputs as well as the style of the radio buttons for the ACH account type.
+
+
+## Pay Theory Fields
+To style the Pay Theory fields you can pass in a custom style object to the create function in our SDK. This allows you to style the text inside the inputs as well as the style of the radio buttons for the ACH account type.
 
 ```jsx title="paytheory.js"
 const STYLES = {
@@ -52,11 +54,11 @@ const STYLES = {
 
 | KEY               | TYPE     | DESCRIPTION                                                            |
 |-------------------|----------|------------------------------------------------------------------------|
-|`default`          | object   | The way a text field looks when it is not in state success or error.   |
-|`success`          | object   | The way a text field looks when it is valid. Only applies to fields that go through validation.   |
-|`error`            | object   | The way a text field looks when it is invalid. Only applies to fields that go through validation.   |
-|`radio`            | object   | The way radio buttons look for the ACH account type <ul><li>`width: (Int)` The width in pixels of the radio buttons</li><li>`fill: (String)` The color of the radio buttons</li><li>`stroke: (String)` The color of the radio buttons border</li><li>`text: (Object)` This style object will be used to style the labels for the radio buttons</li></ul> |
-|`hidePlaceholder`  | Boolean  | This allows you to hide the placeholder text in the input fields.   |
+| default           | object   | The way a text field looks when it is not in state success or error.   |
+| success           | object   | The way a text field looks when it is valid. Only applies to fields that go through validation.   |
+| error             | object   | The way a text field looks when it is invalid. Only applies to fields that go through validation.   |
+| radio             | object   | The way radio buttons look for the ACH account type <ul><li>`width: (int)` The width in pixels of the radio buttons</li><li>`fill: (string)` The color of the radio buttons</li><li>`stroke: (string)` The color of the radio buttons border</li><li>`text: (object)` This style object will be used to style the labels for the radio buttons</li></ul> |
+| hidePlaceholder   | Boolean  | This allows you to hide the placeholder text in the input fields.   |
 
 
 ***

@@ -254,7 +254,7 @@
   --ifm-card-horizontal-spacing: var(--ifm-global-spacing);
   --ifm-card-vertical-spacing: var(--ifm-global-spacing);
 
-  --ifm-toc-border-color: var(--ifm-color-emphasis-300);
+  --ifm-toc-border-color: var(--ifm-color-emphasis-400);
   --ifm-toc-link-color: var(--ifm-color-content-secondary);
   --ifm-toc-padding-vertical: 0.5rem;
   --ifm-toc-padding-horizontal: 0.5rem;
@@ -435,13 +435,19 @@ strong {
   --ifm-h2-font-size: 1.25rem;
   margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
   margin-bottom: .75rem;
+  scroll-margin-top: 9rem !important;
 }
+
 .markdown h3 {
   --ifm-h3-font-size: 1.125rem;
   font-weight: var(--ifm-font-weight-semibold);
   margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
   margin-bottom: .75rem;
-  line-height: 1.125rem;
+  scroll-margin-top: 9rem !important;
+}
+.markdown h3:target, .markdown h2:target{
+  background-color: var(--ifm-color-gray-200);
+  color: var(--ifm-color-primary);
 }
 
 .markdown p {
@@ -500,7 +506,8 @@ h4 {
 }
 
 hr {
-  background-color: var(--ifm-color-gray-300) !important;
+  background-color: var(--ifm-color-gray-400) !important;
+  height: .5px !important;
 }
 
 blockquote {
@@ -514,8 +521,8 @@ blockquote {
 img{
   margin-bottom: 0;
 }
-.hash-link::before{
-  content: 'copy';
+.hash-link:focus::before, .hash-link:hover, a.hash-link{
+  text-decoration: none !important;
 }
 
 
@@ -568,7 +575,7 @@ img{
   margin-top: 0 ;
 }
 .menu_node_modules-\@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-Content-styles-module {
-  padding: .5rem 1rem 1rem 1.5rem !important;
+  padding: .5rem .5rem 1rem 1rem !important;
   scrollbar-gutter: stable;
 }
 .menu__link {
@@ -581,6 +588,9 @@ img{
 }
 .disabled a{
   color: var(--ifm-color-gray-500) !important;
+}
+.theme-doc-sidebar-item-link-level-1 a{
+  margin-top: 1rem !important;
 }
 
 
@@ -612,7 +622,7 @@ div.navbar__logo{
   line-height: 1.25;
 }
 .navbar{
-  border-bottom: 1px solid var(--ifm-color-gray-300);
+  border-bottom: 1px solid var(--ifm-color-gray-400);
 }
 .toggle_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
   width: 0 !important;
@@ -858,9 +868,11 @@ table{
 table thead tr{
   background-color: var(--ifm-color-gray-200);
   border: none;
+  text-align: left;
 }
 table thead th:first-child{
   border-radius: 0.45rem 0 0 0 ;
+  min-width: 8rem !important;
 }
 table thead th:last-child{
   border-radius: 0 0.45rem 0 0 ;
@@ -873,11 +885,13 @@ thead th{
   color: var(--ifm-color-gray-700);
   text-transform: uppercase ;
   letter-spacing: .05rem;
+  padding: .75rem ;
 }
 table td{
   border: none;
   font-size: var(--ifm-p-font-size);
-  padding: .5rem .5rem .75rem .5rem!important;
+  padding: .75rem ;
+  line-height: 1.25rem;
 }
 table tbody tr > *{
   background-color: var(--ifm-color-white);
@@ -1031,7 +1045,11 @@ code{
   margin-top: 1rem !important;
 }
 
-.token.plain, .token.plain-text, .token.tag, .token.selector, .token.maybe-class-name, .token.punctuation, .token.operator, .token.unit, .token.rule{
+.token{
+  color: var(--ifm-color-white);
+}
+
+.token.plain, .token.number, .token.plain-text, .token.tag, .token.selector, .token.maybe-class-name, .token.punctuation, .token.operator, .token.unit, .token.rule{
   color: var(--ifm-color-white) !important;
 }
 
@@ -1051,7 +1069,7 @@ code{
   color: var(--ifm-color-success-light) !important;
 }
 
-.token.boolean, .token.rule, .token.number, .token.constant, .token.property, .token.property-access{
+.token.boolean, .token.rule,  .token.constant, .token.property, .token.property-access{
   color: #61e2ff !important;
 }
 
@@ -1060,7 +1078,7 @@ code{
 }
 
 .token.variable, .token.parameter{
-  color: var(--ifm-color-primary-light) !important;
+  color: #d58ffe !important;
 }
 
 
