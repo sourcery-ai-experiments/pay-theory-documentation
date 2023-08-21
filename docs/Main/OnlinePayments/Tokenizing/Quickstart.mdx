@@ -49,18 +49,18 @@ These are the values that you can pass into the tokenizePaymentMethod function t
 
 |Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
-|`payorInfo `       |Object             |see the Payor Info object below for details|
-|`billingInfo `     |Object             |see the Billing Info object below for details. This is required if you are not using the zip hosted field.|
-|`metadata `        |Object             |An object that will be stored with the token and can be used to track the token.|
-|` payorId`         |String             |<ul><li>The Pay Theory payor ID to use for the payment. Allows for user to manage identities.</li><li>This cannot be used if also using the payorInfo parameter.</li></ul>|
+| payorInfo         |object             |see the Payor Info object below for details|
+| billingInfo       |object             |see the Billing Info object below for details. This is required if you are not using the zip hosted field.|
+| metadata          |object             |An object that will be stored with the token and can be used to track the token.|
+|  payorId          |string             |<ul><li>The Pay Theory payor ID to use for the payment. Allows for user to manage identities.</li><li>This cannot be used if also using the payorInfo parameter.</li></ul>|
 
 The function returns a Promise that will contain an object with a key of `type`. You can expect the following values for type.
 
 ### Promise Return Type and Expected Values
 |Type               |Description                                            |
 --------------------|-------------------------------------------------------|
-|`TOKENIZED `       |The payment method was tokenized successfully and the token will be in the body key.|
-|` ERROR`           |The transact call had an error while processing and the error details will be in the error key.|
+| TOKENIZED         |The payment method was tokenized successfully and the token will be in the body key.|
+|  ERROR            |The transact call had an error while processing and the error details will be in the error key.|
 
 After the payment is successful you can see the token has been generated and this is how the body looks.
 
@@ -71,12 +71,12 @@ This is the value of the body key in the response if the type is TOKENIZED:
 
 |Key                   |type               |description                                               |
 |-----------------------|-------------------|----------------------------------------------------------|     
-|` payment_method_id`  |String             |The Pay Theory id for the payment method token. |
-|` payor_id`           | String            | The Pay Theory id for the payor that was used for the payment method token.|
-|`last_four `          |String             | The last four digits of the card number or account number.|
-|`brand`               |String             |The brand of the card.                                    |
-|` payment_type`       |String             |  The type of payment method tokenized. This will be card or ACH.|
-|` metadata`           |JSON               | The metadata that was passed in when tokenizing the payment method.|
+|  payment_method_id   |string             |The Pay Theory id for the payment method token. |
+|  payor_id            |string            | The Pay Theory id for the payor that was used for the payment method token.|
+| last_four            |string             | The last four digits of the card number or account number.|
+| brand                |string             |The brand of the card.                                    |
+|  payment_type        |string             |  The type of payment method tokenized. This will be card or ACH.|
+|  metadata            |JSON               | The metadata that was passed in when tokenizing the payment method.|
 
 
 ### Error Response
@@ -84,7 +84,7 @@ This is the value of the error key in the response if the type is ERROR:
 
 |Key                   |type               |description                                               |
 -----------------------|-------------------|----------------------------------------------------------|     
-|`message `            |String             |The error message.|  
+| message              |string             |The error message.|  
 
 ***
 

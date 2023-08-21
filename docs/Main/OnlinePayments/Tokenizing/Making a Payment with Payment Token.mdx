@@ -54,7 +54,7 @@ mutation {
 | merchant_uid      |string      |The Pay Theory unique identifier for the merchant the transaction is for.|
 | payment_method_id  |string     |The Pay Theory unique identifier for the payment method the transaction will be charged to.|
 | fee       |int        |If your fee mode is SERVICE_FEE, you must also pass in the fee and fee_mode arguments. The amount of the fee that will be charged to the payor for the transaction if the FeeMode is SERVICE_FEE.|
-| fee_mode  |feeMode    |The fee mode on the transaction. SERVICE_FEE charges the fees to the payor. MERCHANT_FEE charges the fees to the merchant. Options are<ul><li>SERVICE_FEE</li><li>MERCHANT_FEE(default)</li></ul>|
+| fee_mode  |FeeMode    |The fee mode on the transaction. SERVICE_FEE charges the fees to the payor. MERCHANT_FEE charges the fees to the merchant. Options are<ul><li>SERVICE_FEE</li><li>MERCHANT_FEE(default)</li></ul>|
 
 
 ### Optional Arguments
@@ -89,14 +89,14 @@ The results presented below show that the query was successfully run and that ev
 
 |Key                 |type             |description                                 |
 |--------------------|-----------------|--------------------------------------------|    
-| status        |transactionStatus  |The status of the transaction. Options are:<ul><li>PENDING</li><li>SUCCEEDED</li><li>FAILED</li></ul> |
+| status        |TransactionStatus  |The status of the transaction. Options are:<ul><li>PENDING</li><li>SUCCEEDED</li><li>FAILED</li></ul> |
 | amount        |int        |The amount of the transaction. This is the amount after fees if the FeeMode is SERVICE_FEE.|
 | card_brand        |string     |The brand of the card used for the transaction.|
 | last_four     |string     |The last four digits of the card or bank account used for the transaction.|
 | service_fee   |int        |The amount of the service fee charged for the transaction. This will be 0 if the FeeMode is MERCHANT_FEE.|
 | currency      |string     |The type of currency for the transaction.|
 | transaction_id    |string     |The Pay Theory unique identifier for the transaction.|
-| created_at        |dateTime       |The date and time the transaction was created.|
+| created_at        |DateTime       |The date and time the transaction was created.|
 
 ***
 
