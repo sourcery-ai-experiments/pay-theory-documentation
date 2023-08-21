@@ -136,7 +136,7 @@ const config = {
         logo: {
           alt: 'My Site Logo',
           src: 'img/paytheory-logo22.jpeg',
-          href: 'docs/Main/OnlinePayments/Getting Started/Quickstart',
+          href: 'docs/Main/Getting Started/Quickstart',
         },
         items: [
           {
