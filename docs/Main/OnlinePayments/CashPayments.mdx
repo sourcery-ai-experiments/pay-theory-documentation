@@ -17,13 +17,14 @@ import Admonition from '@theme/Admonition';
     {label: 'Android', value: 'android'},
   ]}>
   <TabItem value="javascript">
-  <h1>Cash Payments</h1>
-  This guide will show you how to accept cash payments online with Pay Theory’s checkout as well as how to handle barcodes that are generated at checkout.  
+  
+# Cash Payments
+This guide will show you how to accept cash payments online with Pay Theory’s checkout as well as how to handle barcodes that are generated at checkout.  
 
-  <Admonition type="danger"  title="Before you start">
-    <p>To use cash you will need to make sure the transact function is enabled in order to accept cash payments online.</p>
-    <a href= "../Getting%20Started/Quickstart#6-once-the-fields-are-valid-run-transaction" class="button button--primary button--md">Transact function</a>
-  </Admonition>
+:::danger Before you start
+To use cash you will need to make sure the transact function is enabled in order to accept cash payments online.
+<a href= "../Getting%20Started/Quickstart#6-once-the-fields-are-valid-run-transaction" class="button button--primary button--md">Transact function</a>
+:::
 
 ## Using the transact function
 
@@ -75,47 +76,47 @@ The following are values that you can pass into the `transact` function to custo
 
 |Key                |type               |description                                                                                |
 --------------------|-------------------|-------------------------------------------------------------------------------------------|     
-|`amount`           |int                |It represents the amount to be charged in cents.                                           |
-|`payorInfo`        |Object             |Refer to payor info here [payorinfo](../../tutorial-extras/WEB/FUNCTIONS#payor-info-object)|
+| amount            |int                |It represents the amount to be charged in cents.                                           |
+| payorInfo         |object             |Refer to payor info here [payorinfo](../../tutorial-extras/WEB/FUNCTIONS#payor-info-object)|
 
 The function returns a Promise that will contain an object with a key of `type`. You can expect the following values for type:
 
 |Type               |description                                                                                       |
 --------------------|---------------------------------------------------------------------------------------------------|     
-|`Cash`             |The transact call successfully generated a barcode and the barcode details will be in the body key.|
-|`Error`            |The transact call had an error while processing and the error details will be in the error key.    |
+| cash              |The transact call successfully generated a barcode and the barcode details will be in the body key.|
+| error             |The transact call had an error while processing and the error details will be in the error key.    |
 
 ### Success response
 This is the value of the `body` key in the response if the `type` is SUCCESS:
 
 |Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
-|`last_four`        |String             |The last four digits of the card number or account number.|
-|`amount`           |Int                |The amount of the transaction.                            |
-|`service_fee `     |Int                |The service fee of the transaction.                       |
-|`receipt_number `  |String             |The pay theory receipt number.                            |
+| last_four         |string             |The last four digits of the card number or account number.|
+| amount            |int                |The amount of the transaction.                            |
+| service_fee       |int                |The service fee of the transaction.                       |
+| receipt_number    |string             |The pay theory receipt number.                            |
 
 ### Failed response
 This is the value of the `body` key in the response if the `type` is FAILED:
 
 |Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
-|`receipt_number `  |String             |The pay theory receipt number.                            |
-|`last_four`        |String             |The last four digits of the card number or account number.|
-|`brand`            |String             |The brand of the card.                                    |
-|`state `           |String             |<ul><li>The state of the transaction.</li> <li> This will be a failure.</li></ul>   |
-|`type `            |String             |Description of the failure.                               |
+| receipt_number    |string             |The pay theory receipt number.                            |
+| last_four         |string             |The last four digits of the card number or account number.|
+| brand             |string             |The brand of the card.                                    |
+| state             |string             |The state of the transaction. This will be a failure. |
+| type              |string             |Description of the failure.                               |
 
 ### Confirmation response
 This is the value of the `body` key in the response if the `type` is CONFIRMATION:
 
 |Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
-|`fisrt_six`        |String             |The first six digits of the card number|
-|`last_four`        |String             |The last four digits of the card number or account number.|
-|`Amount`           |int                |The amount of the transaction. |
-|`service_fee `     |Int                |The service fee of the transaction.                       |
-|`receipt_number `  |String             |The pay theory receipt number.                            |
+| fisrt_six         |string             |The first six digits of the card number|
+| last_four         |string             |The last four digits of the card number or account number.|
+| amount            |int                |The amount of the transaction. |
+| service_fee       |int                |The service fee of the transaction.                       |
+| receipt_number    |string             |The pay theory receipt number.                            |
 
 ### Cash response
 
@@ -125,8 +126,8 @@ While generating the Barcode it will use the geolocation to return a map url for
 
 |Key                |type               |description                                               |
 --------------------|-------------------|----------------------------------------------------------|     
-|`barcodeURL`       |String             |The url for the barcode image.|
-|`mapURL`           |String             |The url for the map to find the retail locations to pay the barcode.|
+| barcodeURL        |string             |The url for the barcode image.|
+| mapURL            |string             |The url for the map to find the retail locations to pay the barcode.|
 
 ### Error response
 
@@ -134,13 +135,13 @@ This is the value of the `error` key in the response if the `type` is ERROR:
 
 |Key                |type               |description                                               |
 |--------------------|-------------------|----------------------------------------------------------|     
-|`message`          |String             |The error message.|
+| message           |string             |The error message.|
 
 ***
 
 ## Cash Fields
 You can customize your cash fields based on your requirements and desired user experience.
-These fields are all required to collect Cash information from the user.
+These fields are all required to collect cash information from the user.
 
 ```jsx
 <form>

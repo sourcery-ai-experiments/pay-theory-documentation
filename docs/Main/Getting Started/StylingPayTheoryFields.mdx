@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-sidebar_label: 'Styling PayTheory Fields'
+sidebar_label: 'Styling and Managing States'
 title: ""
 ---
 
@@ -15,50 +15,50 @@ import Admonition from '@theme/Admonition';
     {label: 'Apple', value: 'apple'},
     {label: 'Android', value: 'android'},
   ]}>
-  <TabItem value="javascript">
-   <h1>Styling Pay Theory Fields</h1>
-   This guide will walk you through the basics of styling your Pay Theory Fields. You will learn how to style the text inputs and radio buttons using CSS. 
+<TabItem value="javascript">
+
+# Styling and Managing States
+This guide will walk you through the basics of styling your Pay Theory Fields and state management. You will learn how to style the text inputs and radio buttons using CSS and how to use the stateObserver. 
    
-   <h2>Pay Theory Fields</h2>
-    To style the Pay Theory fields you can pass in a custom style object to the create function in our SDK. This allows you to style the text inside the inputs as well as the style of the radio buttons for the ACH account type.
+## Styling the Pay Theory fields
+To style the Pay Theory fields you can pass in a custom style object to the create function in our SDK. This allows you to style the text inside the inputs as well as the style of the radio buttons for the ACH account type.
 
 ```jsx title="paytheory.js"
 const STYLES = {
-    default: {
-        color: 'black',
-        fontSize: '14px'
-    },
-    success: {
-        color: '#5cb85c',
-        fontSize: '14px'
-    },
-    error: {
-        color: '#d9534f',
-        fontSize: '14px'
-    },
-    radio: {
-          width: 18,
-          fill: "blue",
-          stroke: "grey",
-          text: {
-            fontSize: "18px",
-            color: "grey"
-          }
-    },
-    hidePlaceholder: false
+  default: {
+    color: 'black',
+    fontSize: '14px'
+  },
+  success: {
+    color: '#5cb85c',
+    fontSize: '14px'
+  },
+  error: {
+    color: '#d9534f',
+    fontSize: '14px'
+  },
+  radio: {
+    width: 18,
+    fill: "blue",
+    stroke: "grey",
+    text: {
+    fontSize: "18px",
+    color: "grey"
+    }
+  },
+hidePlaceholder: false
 }
 ```
 
-
 | KEY               | TYPE     | DESCRIPTION                                                            |
 |-------------------|----------|------------------------------------------------------------------------|
-|`default`          | object   | The way a text field looks when it is not in state success or error.   |
-|`success`          | object   | The way a text field looks when it is valid. Only applies to fields that go through validation.   |
-|`error`            | object   | The way a text field looks when it is invalid. Only applies to fields that go through validation.   |
-|`radio`            | object   | The way radio buttons look for the ACH account type <ul><li>`width: (Int)` The width in pixels of the radio buttons</li><li>`fill: (String)` The color of the radio buttons</li><li>`stroke: (String)` The color of the radio buttons border</li><li>`text: (Object)` This style object will be used to style the labels for the radio buttons</li></ul> |
-|`hidePlaceholder`  | Boolean  | This allows you to hide the placeholder text in the input fields.   |
+| default           | object   | The way a text field looks when it is not in state success or error.   |
+| success           | object   | The way a text field looks when it is valid. Only applies to fields that go through validation.   |
+| error             | object   | The way a text field looks when it is invalid. Only applies to fields that go through validation.   |
+| radio             | object   | The way radio buttons look for the ACH account type <ul><li>`width: (int)` The width in pixels of the radio buttons</li><li>`fill: (string)` The color of the radio buttons</li><li>`stroke: (string)` The color of the radio buttons border</li><li>`text: (object)` This style object will be used to style the labels for the radio buttons</li></ul> |
+| hidePlaceholder   | boolean  | This allows you to hide the placeholder text in the input fields.   |
 
-
+The way radio buttons look for the ACH account type <ul><li>`width: (int)` The width in pixels of the radio buttons</li><li>`fill: (string)` The color of the radio buttons</li><li>`stroke: (string)` The color of the radio buttons border</li><li>`text: (object)` This style object will be used to style the labels for the radio buttons</li></ul> 
 ***
 
 ## Additional styling
@@ -81,38 +81,36 @@ Individual pay-theory-credit-card-number containers should be at least 340px wid
 
 ***
 
-## State Observer
+## Using the stateObserver
 A stateObserver lets you keep an eye on changes to the state of hosted fields and react to them. It offers a mechanism to keep a look on things like field focus, if a field is empty or if there are any validation errors with the field. Each time the state of a text input changes, the stateObserver callback method is called.
-
-:::info State Observer
-For more details on stateObserver functionality
-<a href= "../../tutorial-extras/WEB/EVENT_LISTENERS#stateobserver" class="button button--primary button--md">View stateObserver</a>
-:::
 
 ```jsx title= src/paytheory.js
 const stateHandler = (state) => {
-    const cardState = state['card-number']
-    const cardField = document.getElementById("pay-theory-credit-card-number")
-    if(cardState.isDirty) {
-        cardField.classList.add("dirty")
-    } else {
-        cardField.classList.remove("dirty")
-    }
-    if(cardState.isFocused) {
-        cardField.classList.add("focused")
-    } else {
-        cardField.classList.remove("focused")
-    }
-    if(cardState.errorMessages && cardState.errorMessages.length > 0) {
-        cardField.classList.add("error")
-    } else {
-        cardField.classList.remove("error")
-    }
+  const cardState = state['card-number']
+  const cardField = document.getElementById("pay-theory-credit-card-number")
+  if(cardState.isDirty) {
+    cardField.classList.add("dirty")
+  } else {
+    cardField.classList.remove("dirty")
+  }
+  if(cardState.isFocused) {
+    cardField.classList.add("focused")
+  } else {
+    cardField.classList.remove("focused")
+  }
+  if(cardState.errorMessages && cardState.errorMessages.length > 0) {
+    cardField.classList.add("error")
+  } else {
+    cardField.classList.remove("error")
+  }
 }
 
 window.paytheory.stateObserver(stateHandler)
-  
 ```
+:::info Additiona stateObserver functionality
+For more details on stateObserver functionality
+<a href= "../../tutorial-extras/WEB/EVENT_LISTENERS#stateobserver" class="button button--primary button--md">View stateObserver</a>
+:::
 ***
 
 ## Next steps
