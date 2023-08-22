@@ -33,7 +33,7 @@ When testing you will be using an SDK import and API Key that contains either pa
 |Visa       |4242 4242 4242 4242   |	
 
 ### Card Failures
-To trigger certain failures process a payment using the following amounts. These failues will not work when using `service_fee` fee mode.
+To trigger certain failures process a payment using the following amounts. These failures will not work when using `service_fee` fee mode.
 
 
 |Amount |Error Type                             |
