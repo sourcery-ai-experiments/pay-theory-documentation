@@ -83,40 +83,8 @@ The function returns a Promise that will contain an object with a key of `type`.
 
 |Type               |description                                                                                       |
 --------------------|---------------------------------------------------------------------------------------------------|     
-| cash              |The transact call successfully generated a barcode and the barcode details will be in the body key.|
-| error             |The transact call had an error while processing and the error details will be in the error key.    |
-
-### Success response
-This is the value of the `body` key in the response if the `type` is SUCCESS:
-
-|Key                |type               |description                                               |
---------------------|-------------------|----------------------------------------------------------|     
-| last_four         |string             |The last four digits of the card number or account number.|
-| amount            |int                |The amount of the transaction.                            |
-| service_fee       |int                |The service fee of the transaction.                       |
-| receipt_number    |string             |The pay theory receipt number.                            |
-
-### Failed response
-This is the value of the `body` key in the response if the `type` is FAILED:
-
-|Key                |type               |description                                               |
---------------------|-------------------|----------------------------------------------------------|     
-| receipt_number    |string             |The pay theory receipt number.                            |
-| last_four         |string             |The last four digits of the card number or account number.|
-| brand             |string             |The brand of the card.                                    |
-| state             |string             |The state of the transaction. This will be a failure. |
-| type              |string             |Description of the failure.                               |
-
-### Confirmation response
-This is the value of the `body` key in the response if the `type` is CONFIRMATION:
-
-|Key                |type               |description                                               |
---------------------|-------------------|----------------------------------------------------------|     
-| first_six         |string             |The first six digits of the card number|
-| last_four         |string             |The last four digits of the card number or account number.|
-| amount            |int                |The amount of the transaction. |
-| service_fee       |int                |The service fee of the transaction.                       |
-| receipt_number    |string             |The pay theory receipt number.                            |
+| CASH              |The transact call successfully generated a barcode and the barcode details will be in the body key.|
+| ERROR             |The transact call had an error while processing and the error details will be in the error key.    |
 
 ### Cash response
 
