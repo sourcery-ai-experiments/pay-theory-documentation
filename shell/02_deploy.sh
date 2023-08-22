@@ -55,7 +55,7 @@ echo "Retrieving certificate" ;
 CERTIFICATE_ARN=$(aws --region="us-east-1" ssm get-parameters --name "${SERVICE_NAME}-${PARTNER}-${STAGE}-certificate-arn" --output text --query "Parameters[0].Value")
 
 aws cloudformation deploy --template-file ./templates/formation.yml \
---stack-name books-app-developer-"${PARTNER}"-"${STAGE}" \
+--stack-name "${SERVICE_NAME}"-"${PARTNER}"-"${STAGE}" \
 --region "${TARGET_REGION}" \
 --capabilities CAPABILITY_NAMED_IAM \
 --no-fail-on-empty-changeset \
@@ -67,7 +67,7 @@ HostedZone="${HOSTED_ZONE}" \
 CertificateArn="${CERTIFICATE_ARN}"
 
 # Check the status of cloudformation stack set
-STATUS=$(aws cloudformation describe-stacks --stack-name books-app-developer-"${PARTNER}"-"${STAGE}" --output text --query "Stacks[0].StackStatus")
+STATUS=$(aws cloudformation describe-stacks --stack-name "${SERVICE_NAME}"-"${PARTNER}"-"${STAGE}" --output text --query "Stacks[0].StackStatus")
 if [ "$STATUS" = "CREATE_COMPLETE" ]; then
   echo "The cloudformation stack set has been created successfully"
 elif [ "$STATUS" = "UPDATE_COMPLETE" ]; then
