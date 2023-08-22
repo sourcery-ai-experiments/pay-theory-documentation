@@ -18,7 +18,7 @@ Indicates a response involving cash.
 
 #### Defined in
 
-[pay_theory_types.ts:27](https://github.com/pay-theory/pay-theory-documentation/blob/83670fa/theme/pay_theory_types.ts#L27)
+[pay_theory_types.ts:27](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L27)
 
 ___
 
@@ -30,7 +30,7 @@ Indicates a confirmation response.
 
 #### Defined in
 
-[pay_theory_types.ts:19](https://github.com/pay-theory/pay-theory-documentation/blob/83670fa/theme/pay_theory_types.ts#L19)
+[pay_theory_types.ts:19](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L19)
 
 ___
 
@@ -42,7 +42,7 @@ Indicates an error response.
 
 #### Defined in
 
-[pay_theory_types.ts:15](https://github.com/pay-theory/pay-theory-documentation/blob/83670fa/theme/pay_theory_types.ts#L15)
+[pay_theory_types.ts:15](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L15)
 
 ___
 
@@ -54,7 +54,7 @@ Indicates a failed response.
 
 #### Defined in
 
-[pay_theory_types.ts:23](https://github.com/pay-theory/pay-theory-documentation/blob/83670fa/theme/pay_theory_types.ts#L23)
+[pay_theory_types.ts:23](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L23)
 
 ___
 
@@ -66,7 +66,7 @@ Indicates a successful response.
 
 #### Defined in
 
-[pay_theory_types.ts:11](https://github.com/pay-theory/pay-theory-documentation/blob/83670fa/theme/pay_theory_types.ts#L11)
+[pay_theory_types.ts:11](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L11)
 
 ___
 
@@ -78,4 +78,4 @@ Indicates a response involving a tokenized mechanism.
 
 #### Defined in
 
-[pay_theory_types.ts:31](https://github.com/pay-theory/pay-theory-documentation/blob/83670fa/theme/pay_theory_types.ts#L31)
+[pay_theory_types.ts:31](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L31)

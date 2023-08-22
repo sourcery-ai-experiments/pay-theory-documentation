@@ -19,16 +19,11 @@ import Admonition from '@theme/Admonition';
   <TabItem value="javascript">
 
 
-# ErrorHandling
+# Error Handling
 This guide will show you how to handle and resolve errors that occur during a transaction to ensure payments remain dependable and secure. 
 
-## Error Observer
+## Using the errorObserver
 Error management is crucial in the context of the Pay Theory SDK for guaranteeing a seamless and error-free payment processing experience. 
-
-:::info Error Observer
-View more details on errorObserver functionality
-<a href= "../../tutorial-extras/WEB/EVENT_LISTENERS#error-observer" class="button button--primary button--md">View ErrorObserver</a>
-:::
 
 You can return a number of errors from the SDK. They can be returned to the errorObserver or potentially in a response of type ERROR from a function call.
 Below is a list of errors that can be returned from the SDK.
@@ -58,9 +53,12 @@ window.paytheory.errorObserver(error => {
     // Logic to handle auth token fetching errors
     console.log("There was an error fetching the auth token when initializing the SDK.");
     // Additional code specific to auth token errors
-  }});
-
+}});
 ```
+:::note Additional errorObserver functionality
+View more details on errorObserver functionality
+<a href= "../../tutorial-extras/WEB/EVENT_LISTENERS#error-observer" class="button button--primary button--md">View ErrorObserver</a>
+:::
 
   </TabItem>
   <TabItem value="apple">
