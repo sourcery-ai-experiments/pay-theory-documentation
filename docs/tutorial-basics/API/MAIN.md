@@ -181,7 +181,7 @@ You can then leverage it to help you build queries, test calls, and download cod
 2. As you type it will have autocomplete to help you fill in the query.
 3. You can click here to download code snippets for the call you have built.
 
-![Postman Code Spippet Tool](https://books-ui-assets.s3.amazonaws.com/postman_code_snippet.png)
+![Postman Code Snippet Tool](https://books-ui-assets.s3.amazonaws.com/postman_code_snippet.png)
 
 In the dropdown at the top, you can select the language you want to download the code snippet in. It has a rather extensive list available for you to choose from.
 

@@ -64,7 +64,7 @@ requireAccountName = false
 ```
 
 * **requireBillingAddress**: Boolean
-  * Require full billing addresss input fields for a card or bank payment
+  * Require full billing address input fields for a card or bank payment
 
 ***by default the SDK sets requireBillingAddress to false***
 

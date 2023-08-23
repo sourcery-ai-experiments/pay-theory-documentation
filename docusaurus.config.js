@@ -159,8 +159,8 @@ const config = {
             {
               type: 'docSidebar',
               docId: 'tutorial-extras/Android_SDK/FUNCTIONS',
-              sidebarId: 'andriodSidebar',
-              label: 'Andriod SDK',
+              sidebarId: 'androidSidebar',
+              label: 'Android SDK',
               docsPluginId: 'default',
             },
             {
