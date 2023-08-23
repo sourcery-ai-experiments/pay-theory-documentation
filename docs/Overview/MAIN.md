@@ -54,7 +54,7 @@ Actively detects bots & malicious actors
 ## Platforms
 
 -   Pay Theory provides SDKs for the following platforms
-    -   [Web / JavaScript](../../tutorial-extras/WEB/)
+    -   [Web / JavaScript](../tutorial-extras/WEB/MAIN.md)
     -   iOS
     -   Android (coming soon)
     -   WooCommerce (coming soon)

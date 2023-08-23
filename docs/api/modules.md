@@ -35,7 +35,7 @@ Represents an address object with optional properties.
 
 #### Defined in
 
-[pay_theory_types.ts:45](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L45)
+[pay_theory_types.ts:45](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L45)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:72](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L72)
+[pay_theory_types.ts:72](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L72)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:273](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L273)
+[pay_theory_types.ts:273](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L273)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:125](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L125)
+[pay_theory_types.ts:125](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L125)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:130](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L130)
+[pay_theory_types.ts:130](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L130)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:248](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L248)
+[pay_theory_types.ts:248](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L248)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:77](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L77)
+[pay_theory_types.ts:77](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L77)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:86](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L86)
+[pay_theory_types.ts:86](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L86)
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:183](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L183)
+[pay_theory_types.ts:183](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L183)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:111](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L111)
+[pay_theory_types.ts:111](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L111)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:120](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L120)
+[pay_theory_types.ts:120](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L120)
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:294](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L294)
+[pay_theory_types.ts:294](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L294)
 
 ___
 
@@ -268,7 +268,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:280](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L280)
+[pay_theory_types.ts:280](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L280)
 
 ___
 
@@ -290,7 +290,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:214](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L214)
+[pay_theory_types.ts:214](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L214)
 
 ___
 
@@ -311,7 +311,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:264](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L264)
+[pay_theory_types.ts:264](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L264)
 
 ___
 
@@ -333,7 +333,7 @@ Represents information about a payor.
 
 #### Defined in
 
-[pay_theory_types.ts:64](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L64)
+[pay_theory_types.ts:64](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L64)
 
 ___
 
@@ -343,7 +343,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:302](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L302)
+[pay_theory_types.ts:302](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L302)
 
 ___
 
@@ -353,7 +353,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:300](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L300)
+[pay_theory_types.ts:300](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L300)
 
 ___
 
@@ -379,7 +379,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:304](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L304)
+[pay_theory_types.ts:304](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L304)
 
 ___
 
@@ -405,7 +405,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:91](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L91)
+[pay_theory_types.ts:91](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L91)
 
 ___
 
@@ -422,7 +422,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:106](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L106)
+[pay_theory_types.ts:106](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L106)
 
 ___
 
@@ -441,7 +441,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:189](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L189)
+[pay_theory_types.ts:189](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L189)
 
 ___
 
@@ -463,7 +463,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:135](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L135)
+[pay_theory_types.ts:135](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L135)
 
 ___
 
@@ -480,7 +480,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:145](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L145)
+[pay_theory_types.ts:145](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L145)
 
 ___
 
@@ -510,4 +510,4 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:196](https://github.com/pay-theory/pay-theory-documentation/blob/96966bb/theme/pay_theory_types.ts#L196)
+[pay_theory_types.ts:196](https://github.com/pay-theory/pay-theory-documentation/blob/7419167/theme/pay_theory_types.ts#L196)
