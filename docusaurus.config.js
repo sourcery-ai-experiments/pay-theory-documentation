@@ -121,7 +121,7 @@ const config = {
         respectPrefersColorScheme: false,
       },
       // Replace with your project's social card
-      image: 'img/paytheory-logo22.jpeg',
+      image: 'img/logo.svg',
       algolia: {
         apiKey: '194f1b9d23e7ca0f12159d7e957048e6',
         indexName:'dev_PayTheory_SB',
