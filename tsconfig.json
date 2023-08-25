@@ -6,7 +6,9 @@
     "target": "es6",
     "allowJs": true,
     "moduleResolution": "node",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
   },
   "typedocOptions": {
     "entryPoints": ["theme/pay_theory_types.ts"],

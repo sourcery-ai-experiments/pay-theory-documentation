@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: latest
+  pre_build:
+    commands:
+      - echo Installing dependencies...
+      - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+      - npm install -g npm@latest
+      - export SERVICE_NAME=pay-theory-documentation
+      - export SERVICE_TYPE=books      
+      - export TARGET_REGION=$AWS_REGION
+      - export TARGET_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
+      - export REACT_APP_ENV=$ENVIRONMENT
+      - export REACT_APP_PARTNER=$PARTNER
+      - export REACT_APP_STAGE=$STAGE
+      - export REACT_APP_ENVIRONMENT=$PARTNER-$STAGE
+      - echo $REACT_APP_ENV $PARTNER $STAGE Install started on `date`
+      - echo $TARGET_MODE
+      - export AWS_RETRY_MODE=standard ;
+      - export AWS_MAX_ATTEMPTS=15 ;
+  build:
+    commands:
+      - bash shell/01_prepare.sh $PARTNER $STAGE $SERVICE_TYPE $SERVICE_NAME $GITHUB_ACCESS_TOKEN $TARGET_MODE
+      - bash shell/02_deploy.sh $PARTNER $STAGE $SERVICE_TYPE $SERVICE_NAME $TARGET_MODE         
