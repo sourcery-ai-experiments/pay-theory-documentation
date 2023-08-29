@@ -194,7 +194,7 @@
   --ifm-blockquote-color: var(--ifm-color-gray-800);
   --ifm-blockquote-border-color: var(--ifm-color-gray-400);
 
-  --ifm-hr-background-color: var(--ifm-color-emphasis-500);
+  --ifm-hr-background-color: var(--ifm-color-gray-400);
   --ifm-hr-height: 1px;
   --ifm-hr-margin-vertical: 0;
 
@@ -505,11 +505,6 @@ h4 {
   margin-bottom: 0 !important;
 }
 
-hr {
-  background-color: var(--ifm-color-gray-400) !important;
-  height: .5px !important;
-}
-
 .markdown ul:not(.tabs) li, .markdown ol li {
   margin-left: 1.5rem;
   margin-bottom: .35rem;
@@ -550,9 +545,7 @@ img{
   justify-content: flex-start;
 }
 
-.menu__list:first-child {
-  margin-top: -.75rem !important;
-}
+
 .theme-doc-sidebar-item-category-level-1{
   padding-bottom: 0 !important;  
 }
@@ -560,12 +553,13 @@ img{
 .menu__list .menu__list-item-collapsible{
   margin-top: 1rem ;
 }
-.theme-doc-sidebar-menu .menu__list .menu__list-item-collapsible{
+.theme-doc-sidebar-menu .menu__list-item:first-child .menu__list-item-collapsible{
   margin-top: 0 ;
 }
+
 .menu_node_modules-\@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-Content-styles-module, .menu_SIkG {
-  padding: .5rem .5rem 1rem 1rem !important;
-  scrollbar-gutter: stable;
+  padding: 1rem .5rem 1rem 1rem !important;
+
 }
 .menu__link {
   padding-top: .25rem;
@@ -595,12 +589,12 @@ img{
   font-weight: var(--ifm-font-weight-normal);
 }
 .navbar__logo{
-  --ifm-nav-logo-width: 6.563rem;
-  width: var(--ifm-nav-logo-width);
-  height: auto;
+  width: auto;
+  height: fit-content;
 }
 div.navbar__logo{
-  padding-top: 2px;
+  padding-top: 4px;
+  margin-right: .5rem;
 }
 .navbar__title{
   font-size: var(--ifm-p-font-size);
@@ -617,6 +611,23 @@ div.navbar__logo{
   width: 0 !important;
   height: 0 !important;
   visibility: hidden;
+}
+.navbar__toggle svg, .navbar-sidebar__close svg{
+  height: 16px;
+  width: 16px;
+}
+.navbar__toggle svg{
+  height: 24px;
+  width: 24px;
+}
+.navbar-sidebar__brand, .navbar-sidebar__back{
+  padding: .5rem 1.25rem ;
+}
+.navbar-sidebar__back{
+  font-size: var(--ifm-h4-font-size);
+  text-transform: uppercase;
+  font-weight: var(--ifm-font-weight-normal);
+  margin-bottom: 0;
 }
 .dropdown--hoverable:hover .dropdown__menu, .dropdown--show .dropdown__menu, .dropdown--hoverable:hover .dropdown__menu ul {
   opacity: 1;
