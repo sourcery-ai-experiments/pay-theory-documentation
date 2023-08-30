@@ -123,7 +123,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/logo.svg',
       algolia: {
-        apiKey: 'f6ac9eb65a1cada80c0e52aff34ef6d1',
+        apiKey: 'fa68347e5d228c27e710aa15ccda53de',
         indexName:'paytheory',
         ContextualSearch: true,
         placeholder:'search in Pay Theory website',
