@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[pay_theory_types.ts:237](https://github.com/pay-theory/pay-theory-documentation/blob/f319b45/theme/pay_theory_types.ts#L237)
+[pay_theory_types.ts:237](https://github.com/pay-theory/pay-theory-documentation/blob/7e9ea98/theme/pay_theory_types.ts#L237)
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:238](https://github.com/pay-theory/pay-theory-documentation/blob/f319b45/theme/pay_theory_types.ts#L238)
+[pay_theory_types.ts:238](https://github.com/pay-theory/pay-theory-documentation/blob/7e9ea98/theme/pay_theory_types.ts#L238)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:236](https://github.com/pay-theory/pay-theory-documentation/blob/f319b45/theme/pay_theory_types.ts#L236)
+[pay_theory_types.ts:236](https://github.com/pay-theory/pay-theory-documentation/blob/7e9ea98/theme/pay_theory_types.ts#L236)
 
 ___
 
@@ -44,4 +44,4 @@ ___
 
 #### Defined in
 
-[pay_theory_types.ts:235](https://github.com/pay-theory/pay-theory-documentation/blob/f319b45/theme/pay_theory_types.ts#L235)
+[pay_theory_types.ts:235](https://github.com/pay-theory/pay-theory-documentation/blob/7e9ea98/theme/pay_theory_types.ts#L235)
