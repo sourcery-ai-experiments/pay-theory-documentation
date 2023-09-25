@@ -4,7 +4,7 @@ sidebar_label: 'Users'
 title: ""
 ---
 
-#Users
+# Users
 
 Users are accounts that have access to PayTheory Portals. Users can be created with access to the Merchant, System, or Partner Portal.
 
