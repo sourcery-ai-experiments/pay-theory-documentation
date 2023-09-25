@@ -65,15 +65,15 @@ const config = {
     ],
   ],
   plugins: [
-    [
-      'docusaurus-plugin-typedoc',
-
-      // Plugin / TypeDoc options
-      {
-        entryPoints: ['theme/pay_theory_types.ts'],
-        tsconfig: 'tsconfig.json',
-      },
-    ],
+    // [
+    //   'docusaurus-plugin-typedoc',
+    //
+    //   // Plugin / TypeDoc options
+    //   {
+    //     entryPoints: ['theme/pay_theory_types.ts'],
+    //     tsconfig: 'tsconfig.json',
+    //   },
+    // ],
   ],
   //plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
   // plugins: [
@@ -155,21 +155,21 @@ const config = {
             items: [
             {
               type: 'docSidebar',
-              docId: 'tutorial-extras/Android_SDK/FUNCTIONS',
+              docId: 'sdk/Android_SDK/FUNCTIONS',
               sidebarId: 'androidSidebar',
               label: 'Android SDK',
               docsPluginId: 'default',
             },
             {
               type: 'doc',
-              docId: 'tutorial-extras/APPLE/MAIN',
+              docId: 'sdk/APPLE/MAIN',
               sidebarId: 'appleSidebar',
               label: 'Apple SDK',
               docsPluginId: 'default',
             },
             {
               type: 'docSidebar',
-              docId: 'tutorial-extras/Android_SDK/FUNCTIONS',
+              docId: 'sdk/Android_SDK/FUNCTIONS',
               sidebarId: 'javascriptSidebar',
               label: 'JavaScript SDK',
               docsPluginId: 'default',
