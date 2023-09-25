@@ -28,7 +28,7 @@ Provide safe and secure access to payments with hosted inputs for:
 - ACH
 - Cash
 
-For basic [HTML Examples](https://PARTNER_NAME.html.example.STAGE.com/index.html) check here. _make sure you have an API key ready first_
+For basic [HTML Examples](https://start.html.example.paytheory.com/index.html) check here. _make sure you have an API key ready first_
 
 
 ### Pay Theory Sockets
@@ -54,7 +54,7 @@ Actively detects bots & malicious actors
 ## Platforms
 
 -   Pay Theory provides SDKs for the following platforms
-    -   [Web / JavaScript](../tutorial-extras/WEB/MAIN.md)
+    -   [Web / JavaScript](../sdk/JAVASCRIPT/MAIN.md)
     -   iOS
     -   Android (coming soon)
     -   WooCommerce (coming soon)
@@ -69,15 +69,15 @@ Actively detects bots & malicious actors
     - Chargeback / Dispute management
 
 ### Merchant Portal
-- Merchants can manage SDK in the [merchant portal](https://PARTNER_NAME.merchant.dashboard.STAGE.com)
-- Account details are on the [settings page](https://PARTNER_NAME.merchant.dashboard.STAGE.com/settings)
+- Merchants can manage SDK in the [merchant portal](https://start.merchant.dashboard.paytheory.com)
+- Account details are on the [settings page](https://start.merchant.dashboard.paytheory.com/settings)
 - Access to Payments, Settlements, and Chargeback details
 - Issue refunds on payments
 
 ### System Portal
 _Not available in start sandbox accounts_
 - Systems are merchants who also have other merchants they manage
-- Systems manage their merchants in the [system portal](https://PARTNER_NAME.system.dashboard.STAGE.com)
+- Systems manage their merchants in the [system portal](https://start.system.dashboard.paytheory.com)
     - Assign merchant user accounts
     - View merchant transactions
     - Manage merchant credentials
@@ -85,7 +85,7 @@ _Not available in start sandbox accounts_
 
 ### Partner Portal
 _Not available in start sandbox accounts_
-- Partners manage merchants in the [partner portal](https://PARTNER_NAME.partner.dashboard.STAGE.com)
+- Partners manage merchants in the [partner portal](https://start.partner.dashboard.paytheory.com)
     - Assign merchant user accounts
     - View merchant transactions
     - Manage merchant credentials

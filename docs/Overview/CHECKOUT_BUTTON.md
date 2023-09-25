@@ -48,7 +48,7 @@ const CHECKOUT_DETAILS = {
 }
 ```
 
-Further details on the checkout details can be found in the [button](../tutorial-extras/WEB/FUNCTIONS.md#button) function details.
+Further details on the checkout details can be found in the [button](../sdk/JAVASCRIPT/FUNCTIONS.md#button) function details.
 
 ## Step 4: Style the Button
 
@@ -64,7 +64,7 @@ const STYLE_OBJECT = {
 }
 ```
 
-Further details on the style object can be found in the [button](../tutorial-extras/WEB/FUNCTIONS.md#button) function details.
+Further details on the style object can be found in the [button](../sdk/JAVASCRIPT/FUNCTIONS.md#button) function details.
 
 ## Step 5: Create functions to handle actions from the button
 
