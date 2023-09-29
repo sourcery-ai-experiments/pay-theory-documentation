@@ -274,7 +274,7 @@
   --ifm-footer-title-color: var(--ifm-color-gray-500);
   --ifm-footer-logo-max-width: min(30rem, 90vw);
 
-  --ifm-hero-background-color: var(--ifm-background-surface-color);
+  --ifm-hero-background-color: url(/static/img/home_page/PortalImageFade.jpeg);
   --ifm-hero-text-color: var(--ifm-color-emphasis-800);
 
   --ifm-menu-color: var(--ifm-color-emphasis-700);
@@ -767,6 +767,11 @@ div.navbar__logo{
   color: var(--ifm-color-gray-900)!important;
 }
 
+.button--primary:hover{
+  background-color: var(--ifm-color-gray-700);
+  border-color: var(--ifm-color-gray-900);
+}
+
 /*---------TABS Styling in components----------*/
 
 /*---------PAGINATION----------*/
@@ -1116,70 +1121,140 @@ code{
   color: var(--ifm-color-gray-400);
 }
 
-/* <section class="home">
-  <div class="container 2-col">
-    <div class="row">
-      <a class="features">
+/*-----------HOME------------ */
 
-      <section class="home">
-      <div class="container 3-col-card">
-        <div class="row">
-          <div class="col"> */
-
-.docs-home-content{
-  max-width: 1000px;
+.docs-home-content, .home header{
+  max-width: 1100px;
+  margin: 0 auto;
 }
-
+.home .markdown .header{
+  max-width: 100px !important;
+  margin: 0 auto;
+}
 .home .col--3 .row {
-  border-radius: var(--ifm-global-radius);
-  border: 1px solid var(--ifm-color-gray-400);
   margin: 4rem 0 0 0;
-  gap: .5rem;
-  background-color: var(--ifm-color-gray-100);
-
+  gap: 1.5rem;
 }
+.hero .col {
+  max-width: 700px;
+}
+.hero {
+  background-image:  url(/img/home_page/Destructive-Square.jpeg);
+  background-size:calc(var(--ifm-container-width)*.8 );
+  background-repeat: no-repeat;
+  background-position:right -14rem top  ;
+  background-color: var(--ifm-color-gray-400);
+  width: 100% !important;
+  border-radius: 2rem;
+  margin-top: 2rem;
+  height: 29rem;
+}
+/* .hero .button--secondary{
+  color: var(--ifm-color-white) !important;
+}
+.hero .button--secondary:hover{
+  color: var(--ifm-color-gray-400) !important;
+} */
+.hero img{
+  width: 70%;
+}
+
+
+.home .col--3 .row .col{
+  border-radius: 1.5rem;
+  background-color: var(--ifm-color-black);
+  color: var(--ifm-color-white);
+}
+
+.home .col--3 .row .col a {
+  color: var(--ifm-color-white);
+}
+.home .col--3 .row .col a::before {
+  content: '→';
+  margin-right: .5rem;
+}
+
 .home .col--3{
   padding-right: 0;
 }
 .home .col--3 .col{
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .home .col--2 .row{
   display:flex;
   color: var(--ifm-color-gray-900);
   justify-content: space-between;
-  gap: .5rem ;
+  gap: 1rem ;
 }
-.home .col--2 .features {
+
+.home .col--2 .features{
   border: 1px solid var(--ifm-color-gray-400);
   background-color: var(--ifm-color-white);
   max-width: 50%;
-  padding: 1rem;
-  border-radius: var(--ifm-global-radius);
+  padding: 1.5rem;
+  border-radius: 1rem;
   flex-grow: 1;
   flex-basis: 40%;
   color: var(--ifm-color-gray-900);
   cursor: pointer;
 }
-
 .home .col--2 .features:hover {
   border: 1px solid var(--ifm-color-gray-300);
   background-color: var(--ifm-color-gray-100);
-  max-width: 50%;
-  padding: 1rem;
-  border-radius: var(--ifm-global-radius);
-  flex-grow: 1;
-  flex-basis: 49%;
   color: var(--ifm-color-gray-900);
+
+}
+
+
+.home .features .content {
+  display: flex;
+  flex-direction: row;
+}
+
+.home .features .text {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 1rem ;
+  padding: 0;
+}
+.home .features .content img{
+  display: flex;
+  width: 2.5rem;
+  margin: 0 .5rem ;
+  padding: 0;
+}
+
+.home .col ul li{
+  margin-left: 0 !important;
+}
+
+
+.home .col ul li::marker{
+  color: transparent;
+}
+
+
+.home li a:hover {
+  font-weight: var(--ifm-font-weight-medium);
   cursor: pointer;
 }
 
-.home .features h3, .home .col--3 .row h3{
+
+.home .col--3 .row h2{
   margin-top: 0;
 }
+.home .features h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 
 .home .features p, .home .col--3 .row p, .home .col--3 .row ul{
   margin-bottom: .125rem !important;
+}
+
+.docMainContainerEnhanced_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
+ max-width: 100% !important;
 }
 
