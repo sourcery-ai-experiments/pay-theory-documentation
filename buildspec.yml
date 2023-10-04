@@ -8,7 +8,7 @@ phases:
     commands:
       - echo Installing dependencies...
       - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-      - npm install -g npm@latest
+      - npm install -g npm@9.8.1
       - export SERVICE_NAME=pay-theory-documentation
       - export SERVICE_TYPE=books      
       - export TARGET_REGION=$AWS_REGION

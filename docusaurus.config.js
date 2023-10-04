@@ -15,15 +15,10 @@ const config = {
 
   // Set the production url of your site here
   // url: 'https://192.168.13.54:3000',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://docs.paytheory.com/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -70,15 +65,15 @@ const config = {
     ],
   ],
   plugins: [
-    [
-      'docusaurus-plugin-typedoc',
-
-      // Plugin / TypeDoc options
-      {
-        entryPoints: ['theme/pay_theory_types.ts'],
-        tsconfig: 'tsconfig.json',
-      },
-    ],
+    // [
+    //   'docusaurus-plugin-typedoc',
+    //
+    //   // Plugin / TypeDoc options
+    //   {
+    //     entryPoints: ['theme/pay_theory_types.ts'],
+    //     tsconfig: 'tsconfig.json',
+    //   },
+    // ],
   ],
   //plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
   // plugins: [
@@ -123,11 +118,13 @@ const config = {
       // Replace with your project's social card
       image: 'img/logo.svg',
       algolia: {
-        apiKey: '194f1b9d23e7ca0f12159d7e957048e6',
-        indexName:'dev_PayTheory_SB',
+        apiKey: 'fa68347e5d228c27e710aa15ccda53de',
+        indexName:'paytheory',
         ContextualSearch: true,
         placeholder:'search in Pay Theory website',
-        appId:'7Z0MVL2E44',
+        appId:'750L2445EV',
+        insights: true,
+        debug: false
 
       },
       
@@ -158,21 +155,21 @@ const config = {
             items: [
             {
               type: 'docSidebar',
-              docId: 'tutorial-extras/Android_SDK/FUNCTIONS',
+              docId: 'sdk/Android_SDK/FUNCTIONS',
               sidebarId: 'androidSidebar',
               label: 'Android SDK',
               docsPluginId: 'default',
             },
             {
               type: 'doc',
-              docId: 'tutorial-extras/APPLE/MAIN',
+              docId: 'sdk/APPLE/MAIN',
               sidebarId: 'appleSidebar',
               label: 'Apple SDK',
               docsPluginId: 'default',
             },
             {
               type: 'docSidebar',
-              docId: 'tutorial-extras/Android_SDK/FUNCTIONS',
+              docId: 'sdk/Android_SDK/FUNCTIONS',
               sidebarId: 'javascriptSidebar',
               label: 'JavaScript SDK',
               docsPluginId: 'default',
