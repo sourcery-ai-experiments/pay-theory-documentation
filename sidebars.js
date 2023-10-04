@@ -37,17 +37,20 @@ module.exports = {
         // {
         //     type:'doc', id: 'Main/Overview'
         // },
-       
-        {
-          type: 'doc', id: 'Main/OnlinePayments/CashPayments'
-        },
+        
         {
           type:'doc', id: 'Main/OnlinePayments/ACH',className: 'disabled'
+        },
+        {
+          type: 'doc', id: 'Main/OnlinePayments/CashPayments'
         },
         
         {
           type:'doc', id: 'Main/OnlinePayments/PaymentButton'
         },
+        // {
+        //   type:'doc', id: 'Main/OnlinePayments/PaymentLinks'
+        // },
         {
           type:'doc', id: 'Main/OnlinePayments/QRCode'
         },

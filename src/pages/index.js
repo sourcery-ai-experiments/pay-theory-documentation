@@ -1,7 +1,17 @@
 import React from 'react';
-import {Redirect} from '@docusaurus/router';
-
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 export default function Home() {
-    return <Redirect to="/docs/Main/Getting%20Started/Quickstart" />;
+    const {siteConfig} = useDocusaurusContext();
+    return (
+        <Layout
+            title={`${siteConfig.title}`}
+            description="Description will go into a meta tag in <head />">
+            <main>
+                <HomepageFeatures />
+            </main>
+        </Layout>
+    );
 }
