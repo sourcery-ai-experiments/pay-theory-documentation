@@ -59,7 +59,7 @@ export default function HomepageFeatures() {
                               </div>
                           </div>
                       </a>
-                      <a href="../docs/Main/_______" className="features">
+                      <a target="_blank" href= "https://paytheory.freshdesk.com/support/solutions/articles/44002441108-how-to-create-an-invoice" className="features">
                           <div className="content">
                               <img src="/img/home_page/InvoicingIcon.svg" alt="Invoicing & billing"></img>
                               <div className="text">
