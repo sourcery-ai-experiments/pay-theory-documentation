@@ -133,7 +133,7 @@ const config = {
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
-          href: 'docs/Main/Getting Started/Quickstart',
+          href: ' ',
         },
         items: [
           {
@@ -153,27 +153,27 @@ const config = {
             label: 'SDK',
             type: 'dropdown',
             items: [
-            {
-              type: 'docSidebar',
-              docId: 'sdk/Android_SDK/FUNCTIONS',
-              sidebarId: 'androidSidebar',
-              label: 'Android SDK',
-              docsPluginId: 'default',
-            },
-            {
-              type: 'doc',
-              docId: 'sdk/APPLE/MAIN',
-              sidebarId: 'appleSidebar',
-              label: 'Apple SDK',
-              docsPluginId: 'default',
-            },
-            {
-              type: 'docSidebar',
-              docId: 'sdk/Android_SDK/FUNCTIONS',
-              sidebarId: 'javascriptSidebar',
-              label: 'JavaScript SDK',
-              docsPluginId: 'default',
-            },
+              {
+                type: 'docSidebar',
+                docId: 'sdk/Android_SDK/FUNCTIONS',
+                sidebarId: 'javascriptSidebar',
+                label: 'JavaScript SDK',
+                docsPluginId: 'default',
+              },
+              {
+                type: 'doc',
+                docId: 'sdk/APPLE/MAIN',
+                sidebarId: 'appleSidebar',
+                label: 'Apple SDK',
+                docsPluginId: 'default',
+              },
+              {
+                type: 'docSidebar',
+                docId: 'sdk/Android_SDK/FUNCTIONS',
+                sidebarId: 'androidSidebar',
+                label: 'Android SDK',
+                docsPluginId: 'default',
+              },
           ]
         },
           
