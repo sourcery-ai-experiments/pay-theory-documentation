@@ -1413,6 +1413,10 @@ code{
  max-width: 100% !important;
 }
 
+.last{
+  margin-bottom: 40px;
+}
+
 @media (max-width: 996px) {
   .container{
     padding: 30px ;

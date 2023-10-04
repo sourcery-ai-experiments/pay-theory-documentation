@@ -8,7 +8,7 @@ export default function HomepageFeatures() {
                   <h1>Documentation</h1>
                   <p>Explore our guides and resources</p>
                   <div className="button-row">
-                      <a href= "./Getting Started/Quickstart" className="button button--primary button--md">Get started with payments</a>
+                      <a href= "../docs/Main/Getting Started/Quickstart" className="button button--primary button--md">Get started with payments</a>
                       <a onClick={() => FreshworksWidget('open')} className="button button--secondary button--md">Request a sandbox</a>
                   </div>
               </div>
@@ -20,25 +20,22 @@ export default function HomepageFeatures() {
                       <div className="col">
                           <h3>No Code</h3>
                           <ul>
-                              <li><a href= "_________">Accept payments with payment links</a></li>
-                              <li><a href= "_________">Send invoices</a></li>
-                              <li><a href= "_________">Accept cash payments online</a></li>
+                              <li><a target="_blank" href= "https://paytheory.freshdesk.com/support/solutions/articles/44002441104-how-to-create-a-payment-link">Accept payments with payment links</a></li>
+                              <li><a target="_blank" href= "https://paytheory.freshdesk.com/support/solutions/articles/44002441108-how-to-create-an-invoice">Send invoices</a></li>
                           </ul>
                       </div>
                       <div className="col">
                           <h3>Low Code</h3>
                           <ul>
-                              <li><a href= "./GettingStarted/Quickstart">Use our prebuilt checkout page</a></li>
-                              <li><a href= "./OnlinePayments/QRCode">Take payments with QR codes</a></li>
-                              <li><a href= "./OnlinePayments/PaymentButton">Set up a payment button</a></li>
+                              <li><a href= "../docs/Main/OnlinePayments/PaymentButton">Set up a payment button</a></li>
+                              <li><a href= "../docs/Main/OnlinePayments/QRCode">Take payments with QR codes</a></li>
                           </ul>
                       </div>
                       <div className="col">
                           <h3>For Developers</h3>
                           <ul>
-                              <li><a href= "../tutorial-extras/WEB/Main">API reference</a></li>
-                              <li><a href= "">Customize reporting</a></li>
-                              <li><a href= "">Query payment data</a></li>
+                              <li><a href= "../docs/api/MAIN">API reference</a></li>
+                              <li><a href= "../docs/api/QUERY">Customize reporting</a></li>
                           </ul>
                       </div>
                   </div>
@@ -53,7 +50,7 @@ export default function HomepageFeatures() {
                           <h2>Product Guides</h2>
                           <p>Learn step by step how to implement our products</p>
                       </div>
-                      <a href= "./GettingStarted/Quickstart" className="features">
+                      <a href= "../docs/Main/Getting Started/Quickstart" className="features">
                           <div className="content">
                               <img src="/img/home_page/InclusiveIcon.svg" alt="Online payments"></img>
                               <div className="text">
@@ -62,7 +59,7 @@ export default function HomepageFeatures() {
                               </div>
                           </div>
                       </a>
-                      <a className="features">
+                      <a href="../docs/Main/_______" className="features">
                           <div className="content">
                               <img src="/img/home_page/InvoicingIcon.svg" alt="Invoicing & billing"></img>
                               <div className="text">
@@ -71,7 +68,7 @@ export default function HomepageFeatures() {
                               </div>
                           </div>
                       </a>
-                      <a className="features">
+                      <a href='../docs/api/RECURRING' className="features">
                           <div className="content">
                               <img src="/img/home_page/RecurringIcon.svg" alt="Recurring payments"></img>
                               <div className="text">
@@ -80,7 +77,7 @@ export default function HomepageFeatures() {
                               </div>
                           </div>
                       </a>
-                      <a className="features">
+                      <a href='../docs/Main/OnlinePayments/Tokenizing/Quickstart' className="features">
                           <div className="content">
                               <img src="/img/home_page/EmbeddedIcon.svg" alt="Tokenizing a payment method"></img>
                               <div className="text">
@@ -89,7 +86,7 @@ export default function HomepageFeatures() {
                               </div>
                           </div>
                       </a>
-                      <a className="features">
+                      <a href='../docs/Main/Testing' className="features">
                           <div className="content">
                               <img src="/img/home_page/SaaSIcon.svg" alt="Testing payments"></img>
                               <div className="text">
@@ -102,17 +99,17 @@ export default function HomepageFeatures() {
               </div>
           </section>
 
-          <section className="home">
+          <section className="home last">
               <div className="container col--3">
                   <div className="row">
                       <div className="section-header">
                           <h2>Resources</h2>
                       </div>
-                      <a className="col resources">
+                      <a target='_blank' href='https://paytheory.freshdesk.com/support/solutions' className="col resources">
                           <h3>Knowledgebase</h3>
                           <p>Learn more about our platform</p>
                       </a>
-                      <a className="col resources">
+                      <a target='_blank' href='https://paytheory.freshdesk.com/support/tickets/new' className="col resources">
                           <h3>Support</h3>
                           <p>Contact customer support </p>
                       </a>
