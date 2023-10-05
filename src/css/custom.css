@@ -1175,7 +1175,8 @@ code{
 /* ----HERO---- */
 .docs-home-content, .home header{
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto ;
+  padding: 0 40px;
 }
 .home .markdown .header{
   max-width: 100px !important;
@@ -1240,7 +1241,7 @@ code{
   font-weight: 500 !important;
   font-family: 'halyard-text';
 }
-.hero button{
+.hero .button{
   padding: 8px 20px 10px;
   border-radius: 14px;
 }
@@ -1272,7 +1273,7 @@ code{
   margin-left: 1rem !important;
 }
 
-.home .col ul li::marker{
+.home .col--3 ul li::marker{
   content: '→ ';
   padding-right: 4px !important;
 }
@@ -1379,8 +1380,6 @@ code{
   text-decoration: none !important;
 }
 
-
-
 .col--3 .section-header{
   display: flex;
   flex-direction: column;
@@ -1413,18 +1412,26 @@ code{
  max-width: 100% !important;
 }
 
+.feedback{
+  margin-left: 18px;
+}
+.feedback ul {
+  margin-top: 0;
+}
+
 .last{
   margin-bottom: 40px;
 }
 
+
 @media (max-width: 996px) {
-  .container{
+  .docs-home-content{
     padding: 30px ;
   }
-  .container .home .col--2 .row{
+  .home .col--2 .row{
     margin: 0 !important;
   }
-  .container .home .col--2{
+  .home .col--2{
     padding: 0;
   }
   .hero{
@@ -1489,13 +1496,13 @@ code{
 }
 
 @media (max-width: 580px /*480*/) {
-  .container{
+  .docs-home-content{
     padding: 10px ;
   }
-  .container .home .col--2 .row{
+  .home .col--2 .row{
     margin: 0 !important;
   }
-  .container .home .col--2{
+  .home .col--2{
     padding: 0;
   }
   .hero h1{
