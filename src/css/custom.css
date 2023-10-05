@@ -524,6 +524,21 @@ img{
   text-decoration: none !important;
 }
 
+.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module, .docItemCol_VOVn{
+  padding: 0 40px ;
+}
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
 
 /*---------MENUS----------*/
 
@@ -1306,7 +1321,7 @@ code{
 .home{
   margin-top: 4rem;
 }
-.col--2 .section-header {
+.home .col--2 .section-header {
   display: flex;
   flex-direction: column;
   max-width: 50%;
@@ -1380,7 +1395,7 @@ code{
   text-decoration: none !important;
 }
 
-.col--3 .section-header{
+.home .col--3 .section-header{
   display: flex;
   flex-direction: column;
   max-width: 33.33%;
@@ -1408,10 +1423,6 @@ code{
   line-height: 3rem !important;
 }
 
-.docMainContainerEnhanced_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
- max-width: 100% !important;
-}
-
 .feedback{
   margin-left: 18px;
 }
@@ -1425,8 +1436,8 @@ code{
 
 
 @media (max-width: 996px) {
-  .docs-home-content{
-    padding: 30px ;
+  .docs-home-content, .docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module, .docItemCol_VOVn{
+    padding: 0 30px ;
   }
   .home .col--2 .row{
     margin: 0 !important;
@@ -1478,7 +1489,7 @@ code{
 }
 
 @media (max-width: 800px) {
-  .home .col--2 .features, .col--2 .section-header, .col--3 .section-header {
+  .home .col--2 .features, .home .col--2 .section-header, .home .col--3 .section-header {
     flex-basis: 100% !important;
     max-width: 100%;
   }
@@ -1496,7 +1507,7 @@ code{
 }
 
 @media (max-width: 580px /*480*/) {
-  .docs-home-content{
+  .docs-home-content, .docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module, .docItemCol_VOVn{
     padding: 10px ;
   }
   .home .col--2 .row{
