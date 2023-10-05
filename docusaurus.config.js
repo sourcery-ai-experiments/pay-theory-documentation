@@ -131,9 +131,9 @@ const config = {
       navbar: {
         title: 'Docs',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Pay Theory Logo',
           src: 'img/logo.svg',
-          href: ' ',
+          href: '/',
         },
         items: [
           {
