@@ -55,7 +55,7 @@ export default function HomepageFeatures() {
                               <img src="/img/home_page/InclusiveIcon.svg" alt="Online payments"></img>
                               <div className="text">
                                   <h4>Accepting Online Payments</h4>
-                                  <p>Get started accepting online payments</p>
+                                  <p>Create a custom checkout page with our SDK</p>
                               </div>
                           </div>
                       </a>
@@ -104,17 +104,19 @@ export default function HomepageFeatures() {
                   <div className="row">
                       <div className="section-header">
                           <h2>Resources</h2>
+                          {/* <div className='feedback'><ul><li><a>Submit Feedback</a></li></ul></div> */}
                       </div>
                       <a target='_blank' href='https://paytheory.freshdesk.com/support/solutions' className="col resources">
-                          <h3>Knowledgebase</h3>
-                          <p>Learn more about our platform</p>
+                          <h3>Knowledge Base</h3>
+                          <p>Learn more about our platform and how to use our tools</p>
                       </a>
                       <a target='_blank' href='https://paytheory.freshdesk.com/support/tickets/new' className="col resources">
                           <h3>Support</h3>
-                          <p>Contact customer support </p>
+                          <p>Contact customer support</p>
                       </a>
                   </div>
               </div>
+              
           </section>
       </div>
   );

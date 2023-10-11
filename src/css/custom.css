@@ -524,6 +524,21 @@ img{
   text-decoration: none !important;
 }
 
+.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module, .docItemCol_VOVn{
+  padding: 0 40px ;
+}
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
 
 /*---------MENUS----------*/
 
@@ -1175,7 +1190,8 @@ code{
 /* ----HERO---- */
 .docs-home-content, .home header{
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto ;
+  padding: 0 40px;
 }
 .home .markdown .header{
   max-width: 100px !important;
@@ -1240,7 +1256,7 @@ code{
   font-weight: 500 !important;
   font-family: 'halyard-text';
 }
-.hero button{
+.hero .button{
   padding: 8px 20px 10px;
   border-radius: 14px;
 }
@@ -1272,7 +1288,7 @@ code{
   margin-left: 1rem !important;
 }
 
-.home .col ul li::marker{
+.home .col--3 ul li::marker{
   content: '→ ';
   padding-right: 4px !important;
 }
@@ -1305,7 +1321,7 @@ code{
 .home{
   margin-top: 4rem;
 }
-.col--2 .section-header {
+.home .col--2 .section-header {
   display: flex;
   flex-direction: column;
   max-width: 50%;
@@ -1379,9 +1395,7 @@ code{
   text-decoration: none !important;
 }
 
-
-
-.col--3 .section-header{
+.home .col--3 .section-header{
   display: flex;
   flex-direction: column;
   max-width: 33.33%;
@@ -1409,22 +1423,26 @@ code{
   line-height: 3rem !important;
 }
 
-.docMainContainerEnhanced_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
- max-width: 100% !important;
+.feedback{
+  margin-left: 18px;
+}
+.feedback ul {
+  margin-top: 0;
 }
 
 .last{
   margin-bottom: 40px;
 }
 
+
 @media (max-width: 996px) {
-  .container{
-    padding: 30px ;
+  .docs-home-content, .docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module, .docItemCol_VOVn{
+    padding: 0 30px ;
   }
-  .container .home .col--2 .row{
+  .home .col--2 .row{
     margin: 0 !important;
   }
-  .container .home .col--2{
+  .home .col--2{
     padding: 0;
   }
   .hero{
@@ -1471,7 +1489,7 @@ code{
 }
 
 @media (max-width: 800px) {
-  .home .col--2 .features, .col--2 .section-header, .col--3 .section-header {
+  .home .col--2 .features, .home .col--2 .section-header, .home .col--3 .section-header {
     flex-basis: 100% !important;
     max-width: 100%;
   }
@@ -1489,13 +1507,13 @@ code{
 }
 
 @media (max-width: 580px /*480*/) {
-  .container{
+  .docs-home-content, .docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module, .docItemCol_VOVn{
     padding: 10px ;
   }
-  .container .home .col--2 .row{
+  .home .col--2 .row{
     margin: 0 !important;
   }
-  .container .home .col--2{
+  .home .col--2{
     padding: 0;
   }
   .hero h1{
