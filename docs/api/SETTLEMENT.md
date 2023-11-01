@@ -12,23 +12,33 @@ Settlements are a batch of payments, disputes, and refunds that are grouped toge
 
 ```js
 {
-    merchant_uid: String
-    settlement_batch: Int
-    settlement_date: DateTime
-    transaction_debit_count: Int
-    transaction_reversal_count: Int
-    transaction_dispute_count: Int
-    gross_amount: Int
-    net_amount: Int
-    total_fees: Int
-    total_adjustments: Int
     currency: String
+    gross_amount: Int
+    merchant_uid: String
+    net_amount: Int
+    settlement_batch: Int
+    settlement_date: AWSDateTime
     status: String
+    transaction_debit_count: Int
+    transaction_dispute_count: Int
+    transaction_reversal_count: Int
+    transfer_date: AWSDateTime
+    total_adjustments: Int
+    total_fees: Int
+    updated_row_at: AWSDateTime
 }
 ```
+**`currency`: String**  
+The currency of the settlement.
+
+**`gross_amount`: Int**  
+The total amount of the settlement before any fees and adjustments.
 
 **`merchant_uid`: String**  
 The Pay Theory unique identifier assigned to the merchant that the settlement belongs to.
+
+**`net_amount`: Int**  
+The total amount of the settlement after any fees and adjustments.
 
 **`settlement_batch`: Int**  
 The unique settlement batch number.
@@ -36,34 +46,31 @@ The unique settlement batch number.
 **`settlement_date`: String**  
 The date the settlement was created in an ISO 8601 String format.
 
-**`transaction_debit_count`: Int**  
-The number of transactions of type DEBIT that were included in the settlement.
-
-**`transaction_reversal_count`: Int**  
-The number of transactions of type REVERSAL that were included in the settlement.
-
-**`transaction_dispute_count`: Int**  
-The number of transactions of type DISPUTE that were included in the settlement.
-
-**`gross_amount`: Int**  
-The total amount of the settlement before any fees and adjustments.
-
-**`net_amount`: Int**  
-The total amount of the settlement after any fees and adjustments.
-
-**`total_fees`: Int**  
-The total amount of fees that were applied to the settlement.
-
-**`total_adjustments`: Int**  
-The total amount of adjustments that were applied to the settlement.
-
-**`currency`: String**  
-The currency of the settlement.
-
 **`status`: String**  
 The status of the settlement.
 * `PENDING`
 * `SUCCEEDED`
+
+**`transaction_debit_count`: Int**  
+The number of transactions of type DEBIT that were included in the settlement.
+
+**`transaction_dispute_count`: Int**  
+The number of transactions of type DISPUTE that were included in the settlement.
+
+**`transaction_reversal_count`: Int**  
+The number of transactions of type REVERSAL that were included in the settlement.
+
+**`transfer_date`: String**  
+The date the settlement was transferred to the merchant in an ISO 8601 String format.
+
+**`total_adjustments`: Int**  
+The total amount of adjustments that were applied to the settlement.
+
+**`total_fees`: Int**  
+The total amount of fees that were applied to the settlement.
+
+**`updated_row_at`: String**  
+The date the settlement was last updated in an ISO 8601 String format.
 
 ## Query Settlements
 ```js

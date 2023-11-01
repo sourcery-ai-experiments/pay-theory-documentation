@@ -12,111 +12,138 @@ Transactions are a data object that can represent a payment, failed or successfu
 
 ```js
 {
-    merchant_uid: String
-    transaction_id: String
-    payment_method: PaymentMethodTokenWithQuery
-    recurring: RecurringPayment
-    invoice: Invoice
-    account_code: String
-    gross_amount: Int
-    net_amount: Int
-    refunded_amount: Int
-    fees: Int
-    currency: String
-    reference: String
-    settlement_batch: Int
-    status: TransactionStatus
-    dispute_status: DisputeStatus
-    is_settled: Boolean
-    transaction_date: DateTime
-    transaction_type: TransactionType
-    refund_reason: RefundReason
-    failure_reasons: [String]
-    fee_mode: FeeMode
-    timezone: String
-    metadata: JSON
+  account_code: String
+  ach_return_details: AchReturnDetails
+  currency: String
+  dispute_status: DisputeStatus
+  failure_reasons: [String]
+  fee_mode: FeeMode
+  fees: Int
+  invoice: Invoice
+  is_settled: Boolean
+  gross_amount: Int
+  merchant_uid: String
+  metadata: AWSJSON
+  net_amount: Int
+  payment_method: PaymentMethodToken
+  recurring: RecurringPayment
+  reference: String
+  refund_reason: RefundReason
+  refund_voidable: Boolean
+  refunded_amount: Int
+  settlement_batch: Int
+  status: TransactionStatus
+  timezone: String
+  transaction_date: AWSDateTime
+  transaction_id: String
+  transaction_type: TransactionType
+  updated_row_at: AWSDateTime
 }
 ```
 
-**`merchant_uid`: String**  
-The Pay Theory unique identifier assigned to the merchant that the transaction belongs to.
-
-**`transaction_id`: String**  
-The unique transaction id.
-
-**`payment_method`: PaymentMethodTokenObject**
-The payment method used to make the transaction. Refer to the [Payment Method Token](payment_method_token) for more info.
-
-**`recurring`: RecurringPayment**  
-The recurring payment that the transaction belongs to if any. Refer to the [Recurring Payment](recurring) for more info.
-
 **`account_code`: String**  
-Metadata passed in at the time of the transaction under the key `pay-theory-account-code`
+Custom defined value passed in as the account code for the transaction.
 
-**`gross_amount`: Int**  
-The total amount of the transaction.
-
-**`net_amount`: Int**  
-The total amount of the transaction after fees.
-
-**`refunded_amount`: Int**  
-The amount of the transaction that has been refunded if any.
-
-**`fees`: Int**  
-The fees that were taken out of the gross amount of the transaction.
+**`ach_return_details`: AchReturnDetails**  
+The details of the ACH return if any. 
+* `return_code`: String
+  * The return code of the ACH return. 
+* `return_details`: String
+  * A string that describes the return code.
 
 **`currency`: String**  
 The type of currency for the transaction.
 
-**`reference`: String**  
-Metadata passed in at the time of the transaction under the key `pay-theory-reference`
-
-**`settlement_batch`: Int**  
-The unique settlement batch number the transaction belongs to if settled.
-
-**`status`: String**  
-The status of the transaction.
-* `PENDING`
-* `SUCCESS`
-* `SETTLED`
-* `FAILED`
-* `REFUNDED`
-* `PARTIALLY_REFUNDED`
-
-**`dispute_status`: String**  
-Shows status of associated dispute if any.
+**`dispute_status`: DisputeStatus**  
+The status of the dispute if any. Options are:
 * `PENDING`
 * `INQUIRY`
 * `WON`
 * `LOST`
 
-**`is_settled`: Boolean**  
-Whether the transaction has been settled.
-
-**`transaction_date`: String**  
-The date the transaction was made returned as an ISO 8601 string.
-
-**`transaction_type`: String**  
-The type of transfer that was made.
-* `DEBIT`
-* `REVERSAL`
-* `FAILURE`
-
-**`refund_reason`: JSON**  
-The reason for the refund if any.
-* `reason_code`: String
-  * `requested_by_customer`
-  * `fradulent`
-  * `duplicate`
-  * `other`
-* `reason_details`: String
-  * Optional additional details passed at the time of the refund
-
 **`failure_reasons`: [String]**  
 List of strings, if any, detailing the reason a transaction failed.
 
-**`metadata`: JSON**  
-The metadata that was passed in at the time of the transaction.
+**`fee_mode`: FeeMode**  
+The fee mode on the transaction. `SERVICE_FEE` charges the fees to the payor. `MERCHANT_FEE` charges the fees to the merchant. Options are:
+* `SERVICE_FEE`
+* `MERCHANT_FEE`
+
+**`fees`: Int**  
+The amount of the fees charged for the transaction.
+
+**`gross_amount`: Int**  
+The total amount of the transaction.
+
+**`is_settled`: Boolean**  
+Whether the transaction has been settled.
+
+**`merchant_uid`: String**  
+The Pay Theory unique identifier for the merchant the transaction is for.
+
+**`metadata`: AWSJSON**  
+Custom defined JSON object to be stored with the transaction.
+
+**`net_amount`: Int**  
+The total amount of the transaction after fees.
+
+**`payment_method`: PaymentMethodToken**  
+The payment method used to make the transaction. Refer to the [Payment Method Token](payment_method_token) for more info.
+
+**`recurring`: RecurringPayment**  
+The recurring payment that the transaction belongs to if any. Refer to the [Recurring Payment](recurring) for more info.
+
+**`reference`: String**  
+Custom defined value passed in as the reference for the transaction.
+
+**`refund_reason`: RefundReason**  
+The reason for the refund if any.  
+* `reason_code`: RefundReasonCode
+  * `DUPLICATE`
+  * `FRAUDULENT`
+  * `REQUESTED_BY_CUSTOMER`
+  * `OTHER`
+* `reason_details`: String
+  * Optional additional details passed at the time of the refund
+
+**`refund_voidable`: Boolean**  
+Whether the refund can be voided.
+
+**`refunded_amount`: Int** 
+The amount of the transaction that has been refunded if any.
+
+**`settlement_batch`: Int**  
+The unique settlement batch number the transaction belongs to if settled.
+
+**`status`: TransactionStatus**  
+The status of the transaction. Options are:
+* `PENDING`
+* `SUCCEEDED`
+* `FAILED`
+* `SETTLED`
+* `REFUNDED`
+* `PARTIALLY_REFUNDED`
+* `VOIDED`
+* `RETURNED`
+
+**`timezone`: String**  
+The timezone the transaction was made in.
+
+**`transaction_date`: AWSDateTime**  
+The date the transaction was made returned as an ISO 8601 string.
+
+**`transaction_id`: String**  
+The Pay Theory unique identifier for the transaction.
+
+**`transaction_type`: TransactionType**  
+The type of transfer that was made. Options are:
+* `ACH_RETURN`
+* `DEBIT`
+* `FAILURE`
+* `REVERSAL`
+
+**`updated_row_at`: AWSDateTime**  
+The date and time the transaction was last updated in an ISO 8601 string.
 
 ## Query Transactions
 ```graphql
@@ -218,7 +245,7 @@ The total number of transactions that match the query. Used to help with paginat
 
 ## Create One Time Payment
 
-```js
+```graphql
 mutation {
   createOneTimePayment(amount: Int, 
           merchant_uid: String, 
@@ -347,7 +374,7 @@ The date and time the transaction was created.
 
 This call will create a refund for a transaction.
 
-```js
+```graphql
 mutation {
   createRefund(amount: Int, 
                refund_reason: { reason_code: RefundReasonCode, reason_details: String }, 
@@ -391,7 +418,7 @@ The call will return a boolean `true` if the refund was created successfully or 
 
 This call will allow you to calculate what the fee amount should be if using `SERVICE_FEE` for a transaction.
 
-```js
+```graphql
 {
   serviceFeeAmount(amount: Int, merchant_uid: String) {
     ach {
@@ -452,3 +479,30 @@ This is what you would want to pass in the `amount` argument for the `createOneT
 The total amount of the transaction after the service fee.  
 This is what you would want to show the payor the total amount of the transaction will be.
 
+
+## Send Transaction Receipt
+
+This call will send a receipt for a transaction to the email address on file with the payor or an email passed in.
+
+```graphql
+mutation MyMutation($email: AWSEmail, $receipt_description: String, $transaction_id: String!) {
+  createReceiptEmail(transaction_id: $transaction_id, 
+                     email: $email,
+                     receipt_description: $receipt_description)
+}
+```
+
+**Arguments**  
+
+**Required Arguments**  
+
+**`transaction_id`: String**  
+The Pay Theory unique identifier for the transaction to send the receipt for.
+
+**Optional Arguments**  
+
+**`email`: AWSEmail**  
+The email address to send the receipt to. If not provided the email address on file with the payor will be used.
+
+**`receipt_description`: String**  
+The description of the transaction that will be displayed on the receipt. If not provided it will just say "Payment to `merchant_name`".
