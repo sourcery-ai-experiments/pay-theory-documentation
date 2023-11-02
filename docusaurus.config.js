@@ -3,7 +3,7 @@
 
 //const lightCodeTheme = require('./src/css/prismLight.js');
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
+import {themes as prismThemes} from 'prism-react-renderer';
 //const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
@@ -232,7 +232,7 @@ const config = {
         copyright: `Copyright Pay Theory © ${new Date().getFullYear()}`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: prismThemes.github,
         //darkTheme: darkCodeTheme,
       },
     }),

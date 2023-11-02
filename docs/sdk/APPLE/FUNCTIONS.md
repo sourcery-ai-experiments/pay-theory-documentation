@@ -74,7 +74,7 @@ let payor = Payor(
 
 
 * **receiptDescription**: String
-    * Description to be included in the receipt. Defaults to "Payment from {merchant name}".
+    * Description to be included in the receipt. Defaults to "Payment from your merchant".
 
 
 * **confirmation**: Boolean

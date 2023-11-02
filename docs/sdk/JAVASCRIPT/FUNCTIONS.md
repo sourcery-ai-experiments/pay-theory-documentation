@@ -169,7 +169,7 @@ The only required key is `amount`.
 
 
 - `receiptDescription`: (String)
-  - Description to be included in the receipt. Defaults to "Payment from {merchant name}".
+  - Description to be included in the receipt. Defaults to "Payment from your merchant".
 
 The function returns a Promise that will contain an object with a key of `type`. You can expect the following values for `type`:
 - `SUCCESS`: The transaction was successful and the transaction details will be in the `body` key.

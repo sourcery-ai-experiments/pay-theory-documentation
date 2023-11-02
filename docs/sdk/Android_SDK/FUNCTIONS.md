@@ -108,7 +108,7 @@ feeMode = FeeMode.MERCHANT_FEE
 feeMode = FeeMode.SERVICE_FEE
 ```
 
-* **metadata**: HashMap<Any,Any>
+* **metadata**: HashMap\<Any,Any\>
   * Track payments with custom metadata for a card or bank payment
 
 ```Kotlin
