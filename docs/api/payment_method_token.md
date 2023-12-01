@@ -192,7 +192,7 @@ mutation {
 **Arguments**
 
 **`payment_method`: PaymentMethodInput**  
-The payment method input object. Refer to the [PaymentMethodInput](payment-method-input) docs for more info.
+The payment method input object. Refer to the [PaymentMethodInput](#payment-method-input-object) docs for more info.
 
 **`merchant_uid`: String**  
 The Pay Theory unique identifier assigned to the merchant that the payment_method_token belongs to.
