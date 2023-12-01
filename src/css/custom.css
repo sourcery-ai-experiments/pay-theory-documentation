@@ -899,7 +899,7 @@ table tr:last-child td:first-child{
 }
 
 /*--headers--*/
-.admonitionHeading_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-styles-module, .admonitionHeading_tbUL {
+.admonitionHeading_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-Layout-styles-module, .admonitionHeading_tbUL {
   text-transform: none !important;
   font-weight: var(--ifm-font-weight-medium) !important;
   color: var(--ifm-color-gray-900) ;
@@ -911,16 +911,14 @@ table tr:last-child td:first-child{
 }
 
 /*--header icons--*/
-.admonitionIcon_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-styles-module svg, .admonitionIcon_kALy svg{
-  height: var(--ifm-h4-font-size) ;
-  width: var(--ifm-h4-font-size) ;
+.admonitionIcon_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-Layout-styles-module svg, .admonitionIcon_kALy svg{
   margin-bottom: .25rem ;
-  margin-top: .125rem;
+  margin-top: .025rem;
   left: -2rem;
   position: relative;
 }
 
-.admonitionIcon_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-styles-module, .admonitionIcon_kALy {
+.admonitionIcon_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-Layout-styles-module, .admonitionIcon_kALy {
   height: 1.25rem ;
   width: 0;
   margin-right: 0 !important;
@@ -1051,14 +1049,17 @@ table tr:last-child td:first-child{
   font-family: 'IBM Plex Mono', monospace;
   font-weight: var(--ifm-font-weight-normal);
   font-size: var(--ifm-h4-font-size);
+}
+
+.prism-code{
   line-height: 1.5rem; 
-  background-color: var(--ifm-color-gray-900);
+  background-color: var(--ifm-color-gray-900) !important;
   color: var(--ifm-color-white);
 }
 
 code{
   border-radius: 8px ;
-  border: 1px solid var(--ifm-color-gray-500);
+  border: 1px solid var(--ifm-color-gray-400) ;
   display: inline;
   vertical-align: baseline;
   padding: 1px 4px 2px 5px;
