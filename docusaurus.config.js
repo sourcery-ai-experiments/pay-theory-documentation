@@ -155,21 +155,21 @@ const config = {
             items: [
               {
                 type: 'docSidebar',
-                docId: 'sdk/Android_SDK/FUNCTIONS',
+                docId: 'sdk/javascript/main',
                 sidebarId: 'javascriptSidebar',
                 label: 'JavaScript SDK',
                 docsPluginId: 'default',
               },
               {
                 type: 'doc',
-                docId: 'sdk/APPLE/MAIN',
+                docId: 'sdk/apple/main',
                 sidebarId: 'appleSidebar',
                 label: 'Apple SDK',
                 docsPluginId: 'default',
               },
               {
                 type: 'docSidebar',
-                docId: 'sdk/Android_SDK/FUNCTIONS',
+                docId: 'sdk/android/functions',
                 sidebarId: 'androidSidebar',
                 label: 'Android SDK',
                 docsPluginId: 'default',
