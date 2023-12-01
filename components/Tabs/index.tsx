@@ -13,7 +13,7 @@ const Tabs = (props: TabsProps) => {
                         gap: .25rem;
                         position: fixed;
                         top: 4rem;
-                        width: calc(75% - ((var(--doc-sidebar-width)) + 20px));
+                        width: calc(75% - ((var(--doc-sidebar-width))));
                         z-index: 100;
                         background-color: #323439 ;
                         max-width: 894px;
