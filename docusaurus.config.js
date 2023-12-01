@@ -3,7 +3,7 @@
 
 //const lightCodeTheme = require('./src/css/prismLight.js');
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
+import {themes as prismThemes} from 'prism-react-renderer';
 //const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
@@ -155,21 +155,21 @@ const config = {
             items: [
               {
                 type: 'docSidebar',
-                docId: 'sdk/Android_SDK/FUNCTIONS',
+                docId: 'sdk/javascript/main',
                 sidebarId: 'javascriptSidebar',
                 label: 'JavaScript SDK',
                 docsPluginId: 'default',
               },
               {
                 type: 'doc',
-                docId: 'sdk/APPLE/MAIN',
+                docId: 'sdk/apple/main',
                 sidebarId: 'appleSidebar',
                 label: 'Apple SDK',
                 docsPluginId: 'default',
               },
               {
                 type: 'docSidebar',
-                docId: 'sdk/Android_SDK/FUNCTIONS',
+                docId: 'sdk/android/functions',
                 sidebarId: 'androidSidebar',
                 label: 'Android SDK',
                 docsPluginId: 'default',
@@ -232,7 +232,7 @@ const config = {
         copyright: `Copyright Pay Theory © ${new Date().getFullYear()}`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: prismThemes.github,
         //darkTheme: darkCodeTheme,
       },
     }),
