@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 sidebar_label: 'Payment Method'
 title: ""
 ---
@@ -203,7 +203,7 @@ The payment method token object. Refer to the [Payment Method Token](#the-paymen
 
 ## Payment Method Input Object
 This is the input object used when passing in payment method into any mutation that requires it.  
-*You must be PCI L1 compliant to use this in a mutation.*
+*You must be PCI L1 compliant to use this. For more details contact support@paytheory.com*
 
 ```graphql
 {

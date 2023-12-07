@@ -1,5 +1,5 @@
 ---
-sidebar_position: 12
+sidebar_position: 13
 sidebar_label: 'Metadata'
 title: ""
 ---
@@ -32,8 +32,14 @@ The metadata you want to update the item with. Any keys passed in will overwrite
 **`metadata_associate`: MetadataAssociate**  
 The type of item you want to update metadata for. Options are:
 
-* `TRANSACTION`
+* `AUTHORIZATION`
+* `INVOICE`
+* `PAYMENT_METHOD_TOKEN`
+* `PAYMENT_SESSION`
+* `PAYOR`
 * `RECURRING`
+* `TRANSACTION`
+* `SALE`
 
 **Returns**
 
@@ -57,8 +63,15 @@ The Pay Theory merchant_uid of the item you want to delete metadata for.
 
 **`metadata_associate`: MetadataAssociate**  
 The type of item you want to delete metadata for. Options are:
-* `TRANSACTION`
+
+* `AUTHORIZATION`
+* `INVOICE`
+* `PAYMENT_METHOD_TOKEN`
+* `PAYMENT_SESSION`
+* `PAYOR`
 * `RECURRING`
+* `TRANSACTION`
+* `SALE`
 
 **`metadata_keys`: [String]!**  
 The keys of the metadata you want to delete.
