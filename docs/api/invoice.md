@@ -110,9 +110,9 @@ The total amount that has been paid toward the invoice.
 
 **`accepted_payment_methods`: AcceptedPaymentMethods** 
 The payment methods that will be accepted on the Pay Theory hosted checkout page. It is an object that contains the following:
-* `ach`: Boolean
-* `card`: Boolean
-* `cash`: Boolean
+* `ach`: **Boolean**
+* `card`: **Boolean**
+* `cash`: **Boolean**
 
 **`is_secure`: Boolean**  
 When set to true, the payor will be required to enter a security pin to pay the invoice.
@@ -330,9 +330,9 @@ The settings input object to configure settings for the Pay Theory hosted checko
 
 **`accepted_payment_methods`: AcceptedPaymentMethodsInput**  
 The payment methods that will be accepted on the Pay Theory hosted checkout page. It is an object that contains the following:
-* `ach`: Boolean
-* `card`: Boolean
-* `cash`: Boolean
+* `ach`: **Boolean**
+* `card`: **Boolean**
+* `cash`: **Boolean**
 
 **`is_secure`: Boolean**  
 When set to true, the payor will be required to enter a security pin to pay the invoice.
@@ -433,9 +433,9 @@ The settings input object to configure settings for the Pay Theory hosted checko
 
 **`accepted_payment_methods`: AcceptedPaymentMethodsInput**  
 The payment methods that will be accepted on the Pay Theory hosted checkout page. It is an object that contains the following:
-* `ach`: Boolean
-* `card`: Boolean
-* `cash`: Boolean
+* `ach`: **Boolean**
+* `card`: **Boolean**
+* `cash`: **Boolean**
 
 **`is_secure`: Boolean**  
 When set to true, the payor will be required to enter a security pin to pay the invoice.

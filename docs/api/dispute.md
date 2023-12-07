@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 sidebar_label: 'Dispute'
 title: ""
 ---
@@ -27,6 +27,7 @@ They could be an `INQUIRY` which is just a request for information, or an actual
     reason_message: String
     settlement_withdrawal_batch: String
     settlement_deposit_batch: String
+    updated_row_at: AWSDateTime
 }
 ```
 
@@ -77,6 +78,9 @@ The settlement batch number where funds were withdrawn from the merchants accoun
 
 **settlement_deposit_batch**: String  
 The settlement batch number where funds were deposited into the merchants account if a dispute is `WON`.
+
+**updated_row_at**: String
+The date the dispute was last updated in the database.
 
 ## Query Disputes
 

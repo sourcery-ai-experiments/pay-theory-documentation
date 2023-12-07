@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 10
 sidebar_label: 'Merchant'
 title: ""
 ---
@@ -129,6 +129,7 @@ This is a limited merchant object that is returned when you want to query a list
     card_active: Boolean
     ach_active: Boolean
     cash_active: Boolean
+    updated_row_at: AWSDateTime
 }
 ```
 
@@ -155,6 +156,9 @@ If the merchant has successfully completed onboarding and has an ACH processor a
 
 **`cash_active`: Boolean**  
 If the merchant has successfully completed onboarding and has a cash processor active.
+
+**`updated_row_at`: String**
+The date the merchant was last updated.
 
 
 ## Query Merchants
