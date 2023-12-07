@@ -8,7 +8,7 @@ export default function HomepageFeatures() {
                   <h1>Documentation</h1>
                   <p>Explore our guides and resources</p>
                   <div className="button-row">
-                      <a href= "../docs/Main/Getting Started/Quickstart" className="button button--primary button--md">Get started with payments</a>
+                      <a href= "../docs/main/getting_started/quickstart" className="button button--primary button--md">Get started with payments</a>
                       <a onClick={() => FreshworksWidget('open')} className="button button--secondary button--md">Request a sandbox</a>
                   </div>
               </div>
@@ -27,15 +27,15 @@ export default function HomepageFeatures() {
                       <div className="col">
                           <h3>Low Code</h3>
                           <ul>
-                              <li><a href= "../docs/Main/OnlinePayments/PaymentButton">Set up a payment button</a></li>
-                              <li><a href= "../docs/Main/OnlinePayments/QRCode">Take payments with QR codes</a></li>
+                              <li><a href= "../docs/main/online_payments/payment_button">Set up a payment button</a></li>
+                              <li><a href= "../docs/main/online_payments/qr_code">Take payments with QR codes</a></li>
                           </ul>
                       </div>
                       <div className="col">
                           <h3>For Developers</h3>
                           <ul>
-                              <li><a href= "../docs/api/MAIN">API reference</a></li>
-                              <li><a href= "../docs/api/QUERY">Customize reporting</a></li>
+                              <li><a href= "../docs/api/main">API reference</a></li>
+                              <li><a href= "../docs/api/query">Customize reporting</a></li>
                           </ul>
                       </div>
                   </div>
@@ -50,7 +50,7 @@ export default function HomepageFeatures() {
                           <h2>Product Guides</h2>
                           <p>Learn step by step how to implement our products</p>
                       </div>
-                      <a href= "../docs/Main/Getting Started/Quickstart" className="features">
+                      <a href= "../docs/main/getting_started/quickstart" className="features">
                           <div className="content">
                               <img src="/img/home_page/InclusiveIcon.svg" alt="Online payments"></img>
                               <div className="text">
@@ -68,7 +68,7 @@ export default function HomepageFeatures() {
                               </div>
                           </div>
                       </a>
-                      <a href='../docs/api/RECURRING' className="features">
+                      <a href='../docs/api/recurring' className="features">
                           <div className="content">
                               <img src="/img/home_page/RecurringIcon.svg" alt="Recurring payments"></img>
                               <div className="text">
@@ -77,7 +77,7 @@ export default function HomepageFeatures() {
                               </div>
                           </div>
                       </a>
-                      <a href='../docs/Main/OnlinePayments/Tokenizing/Quickstart' className="features">
+                      <a href='../docs/main/online_payments/tokenizing/quickstart' className="features">
                           <div className="content">
                               <img src="/img/home_page/EmbeddedIcon.svg" alt="Tokenizing a payment method"></img>
                               <div className="text">
@@ -86,7 +86,7 @@ export default function HomepageFeatures() {
                               </div>
                           </div>
                       </a>
-                      <a href='../docs/Main/Testing' className="features">
+                      <a href='../docs/main/testing' className="features">
                           <div className="content">
                               <img src="/img/home_page/SaaSIcon.svg" alt="Testing payments"></img>
                               <div className="text">
