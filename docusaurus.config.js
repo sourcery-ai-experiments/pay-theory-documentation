@@ -3,7 +3,7 @@
 
 //const lightCodeTheme = require('./src/css/prismLight.js');
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
+import {themes as prismThemes} from 'prism-react-renderer';
 //const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
@@ -15,15 +15,10 @@ const config = {
 
   // Set the production url of your site here
   // url: 'https://192.168.13.54:3000',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://docs.paytheory.com/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -70,15 +65,15 @@ const config = {
     ],
   ],
   plugins: [
-    [
-      'docusaurus-plugin-typedoc',
-
-      // Plugin / TypeDoc options
-      {
-        entryPoints: ['theme/pay_theory_types.ts'],
-        tsconfig: 'tsconfig.json',
-      },
-    ],
+    // [
+    //   'docusaurus-plugin-typedoc',
+    //
+    //   // Plugin / TypeDoc options
+    //   {
+    //     entryPoints: ['theme/pay_theory_types.ts'],
+    //     tsconfig: 'tsconfig.json',
+    //   },
+    // ],
   ],
   //plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
   // plugins: [
@@ -121,22 +116,24 @@ const config = {
         respectPrefersColorScheme: false,
       },
       // Replace with your project's social card
-      image: 'img/paytheory-logo22.jpeg',
+      image: 'img/logo.svg',
       algolia: {
-        apiKey: '194f1b9d23e7ca0f12159d7e957048e6',
-        indexName:'dev_PayTheory_SB',
+        apiKey: 'fa68347e5d228c27e710aa15ccda53de',
+        indexName:'paytheory',
         ContextualSearch: true,
         placeholder:'search in Pay Theory website',
-        appId:'7Z0MVL2E44',
+        appId:'750L2445EV',
+        insights: true,
+        debug: false
 
       },
       
       navbar: {
         title: 'Docs',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/paytheory-logo22.jpeg',
-          href: 'docs/Main/OnlinePayments/Getting Started/Quickstart',
+          alt: 'Pay Theory Logo',
+          src: 'img/logo.svg',
+          href: '/',
         },
         items: [
           {
@@ -156,27 +153,27 @@ const config = {
             label: 'SDK',
             type: 'dropdown',
             items: [
-            {
-              type: 'docSidebar',
-              docId: 'tutorial-extras/Android_SDK/FUNCTIONS',
-              sidebarId: 'andriodSidebar',
-              label: 'Andriod SDK',
-              docsPluginId: 'default',
-            },
-            {
-              type: 'doc',
-              docId: 'tutorial-extras/APPLE/MAIN',
-              sidebarId: 'appleSidebar',
-              label: 'Apple SDK',
-              docsPluginId: 'default',
-            },
-            {
-              type: 'docSidebar',
-              docId: 'tutorial-extras/Android_SDK/FUNCTIONS',
-              sidebarId: 'javascriptSidebar',
-              label: 'JavaScript SDK',
-              docsPluginId: 'default',
-            },
+              {
+                type: 'docSidebar',
+                docId: 'sdk/javascript/main',
+                sidebarId: 'javascriptSidebar',
+                label: 'JavaScript SDK',
+                docsPluginId: 'default',
+              },
+              {
+                type: 'doc',
+                docId: 'sdk/apple/main',
+                sidebarId: 'appleSidebar',
+                label: 'Apple SDK',
+                docsPluginId: 'default',
+              },
+              {
+                type: 'docSidebar',
+                docId: 'sdk/android/functions',
+                sidebarId: 'androidSidebar',
+                label: 'Android SDK',
+                docsPluginId: 'default',
+              },
           ]
         },
           
@@ -235,7 +232,7 @@ const config = {
         copyright: `Copyright Pay Theory © ${new Date().getFullYear()}`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: prismThemes.github,
         //darkTheme: darkCodeTheme,
       },
     }),
