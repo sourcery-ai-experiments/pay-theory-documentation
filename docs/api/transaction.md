@@ -260,6 +260,7 @@ mutation {
   createOneTimePayment(amount: Int, 
           merchant_uid: String, 
           payment_method_id: String, 
+          payment_method: PaymentMethodInput,
           account_code: String, 
           currency: String, 
           fee: Int, 
@@ -295,6 +296,10 @@ The Pay Theory unique identifier for the merchant the transaction is for.
 
 **`payment_method_id`: String**  
 The Pay Theory unique identifier for the payment method the transaction will be charged to.
+
+**`payment_method`: PaymentMethodInput**
+The payment method to be used for the transaction. This is required if you are not passing in a `payment_method_id`. Refer to the [Payment Method Input](./payment_method_token.md#payment-method-input-object) for more info.  
+*You must be PCI L1 compliant to use this. For more details contact support@paytheory.com*
 
 If your fee mode is `SERVICE_FEE`, you must also pass in the `fee` and `fee_mode` arguments.
 **`fee`: Int**  
