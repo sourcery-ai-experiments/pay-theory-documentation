@@ -1,7 +1,9 @@
 ---
 sidebar_position: 1
-sidebar_class_name: disabled
 sidebar_label: Overview
+title: "Overview"
+sidebar_class_name: hidden
+
 ---
 
-Documentation Coming Soon
+Guide Coming Soon
