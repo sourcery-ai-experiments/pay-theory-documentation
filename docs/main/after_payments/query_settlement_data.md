@@ -1,7 +1,12 @@
 ---
 sidebar_position: 2
-sidebar_class_name: disabled
 sidebar_label: Query Settlement Data
+title: "Query Settlement Data"
+
 ---
 
-Documentation Coming Soon
+Guide Coming Soon
+
+## API Links
+* [Query Settlement Data](../../api/settlement)
+* [Query Data](../../api/query) 
