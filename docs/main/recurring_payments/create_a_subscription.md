@@ -1,9 +1,14 @@
 ---
-sidebar_position: 1
-sidebar_label: Overview
+sidebar_position: 2
+sidebar_label: Create Recurring Payment
 title: ""
 
 ---
+
+<!-- Guide Coming Soon
+
+## API Link
+* [Create Recurring Payment](../../api/recurring#create-recurring-payment) -->
 
 
 import Tabs from '../../../components/Tabs';
@@ -20,8 +25,8 @@ import Admonition from '@theme/Admonition';
   
   <TabItem value="javascript">
 
-# Recurring Payments
-Recurring payments are payments that get triggered on a specified interval. The following guides will show you how to create a subscription and a payment plan. 
+# Create Recurring Payments
+Recurring payments are payments that get triggered on a specified interval. can be used to create subscriptions, and payment plans and other use cases where you want to  This guide will show you how to create a payment plan and a subscription. 
 
 :::danger Before you start
 You will need to be able to tokenize a payment in order to set up a recurring payment. 
@@ -29,11 +34,7 @@ You will need to be able to tokenize a payment in order to set up a recurring pa
 <a href= "../../online_payments/tokenizing/quickstart" class="button button--primary button--md">Tokenizing Quickstart</a>
 :::
 
-## Create a payment plan
-Payment plans enables you to collect a payment that gets evenly distributed over a set amount of time.
-
-## Create a subscription
-A Subscription enables you to collect a specific 
+## Setting up a your recurring payment
 
 ### 1. Setting up a Payment Plan
 
