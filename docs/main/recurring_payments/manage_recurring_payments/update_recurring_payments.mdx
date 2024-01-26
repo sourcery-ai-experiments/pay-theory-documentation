@@ -1,0 +1,116 @@
+---
+sidebar_position: 4
+sidebar_label: Update Recurring Payment
+title: "Update Recurring Payment"
+
+---
+
+
+import Tabs from '../../../../components/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+<Tabs
+  defaultValue="javascript"
+  values={[
+    {label: 'Javascript', value: 'javascript'},
+    {label: 'Apple', value: 'apple'},
+    {label: 'Android', value: 'android'},
+  ]}>
+  <TabItem value="javascript">
+
+# Update Recurring Payment
+This guide refers to making changes to the specifics of an already-existing regular payment plan, including altering the amounts, intervals, or related data.
+
+:::info
+It updates the payment method on the recurring payment. If you want to update any other fields, you will need to cancel the recurring payment and create a new one.
+:::
+
+
+## Create a update recurring payments
+This call will modify automatic payment plans that are in progress without having to cancel and start over from scratch.
+
+```graphql
+mutation {
+	updateRecurringPayment(input: {
+        payment_method_id: String,
+        recurring_id: String,
+    }) 
+    {
+        fee_mode
+        Fee_per_payment
+        mute_all_emails
+        payment_method {
+        payment_method_object
+        }
+        recurring_id
+        
+    }
+}
+```
+
+### Arguments
+|Key                |       description                     |
+|-------------------|---------------------------------------|     
+| UpdateRecurringPaymentInput |The recurring_id of the recurring payment to be retired.|
+
+### Required Arguments
+|Key                |type         |       description                     |
+|-------------------|-------------|---------------------------------------|     
+| recurring_id      |string        |The `recurring_id` of the recurring payments to be updated.|
+| payment_method_id      |string      |The payment_method_id of the tokenized payment method that will be used for the recurring payment. If recurring payment is in a Failed state it will try to run a payment with the new payment method and get it back into a Successful state.|
+
+
+### Optional Arguments
+|Key                 |type             |description                                 |
+|---------------------|-----------------|--------------------------------------------|    
+| pay_all_missed_payment      |boolean     | If the recurring payment has a set number of payments (Payment Plan) and is in a Failed state, this will make a one time charge to account for all missed payments to get it back into a Successful state.|
+| mute_all_emails          |boolean     |If set to true, no emails will be sent to the payor for this recurring payment.|
+| recurring_id        |string     | The pay theory unique identifier assigned to the recurring payment.|
+| fee_mode            |FeeMode        |The fee mode for the recurring payment. SERVICE_FEE charges the fees to the payor. MERCHANT_FEE charges the fees to the merchant. Options are<ul><li>SERVICE_FEE</li><li>MERCHANT_FEE(default)</li></ul>|
+| fee_per_payment              | int  | The fee for the recurring payment. |
+
+
+***
+
+## Returns
+The call will return the updated recurring payment object.
+
+```JSON
+{
+    "data": {
+        "updateRecurringPayment": {
+            "fee_per_payment": int,
+            "mute_all_emails": false,
+            "payment_method": {
+                "payment_method_id": string
+            },
+            "recurring_id": string
+        }
+    }
+}
+
+```
+
+## Next Steps
+You always have the option to create [new recurring payments](../create_a_payment_plan.mdx) pertaining to recurring payments as well as [cancel the recurring payments](cancel_recurring_payments.mdx).
+
+
+</TabItem>
+  <TabItem value="apple">
+
+# Documentation Coming Soon
+Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
+<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
+
+  </TabItem>
+
+  <TabItem value="android">
+
+# Documentation Coming Soon
+Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
+<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
+
+  </TabItem>
+
+</Tabs>
