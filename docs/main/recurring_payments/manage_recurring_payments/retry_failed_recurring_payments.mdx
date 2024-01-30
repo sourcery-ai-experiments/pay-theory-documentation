@@ -19,7 +19,7 @@ import Admonition from '@theme/Admonition';
   <TabItem value="javascript">
 
 # Retry Failed Recurring Payment
-This should be used if the payment method on file is still valid, and you want to retry the payment.
+Retry failed recurring payments automatically resubmits declined transactions for a subscription or service. This should be used if the payment method on file is still valid, and you want to retry the payment.
 
 :::info Example
 Payment has failed because of insufficient funds on the card, but the customer has made a payment on the balance to resolve the issue this will  prevent future payment failures due to insufficient funds.
@@ -37,6 +37,8 @@ mutation {
 ```
 
 ### Required Arguments
+The following parameter must be used in order to retry the failed recurring payment data. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
+
 |Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
 | recurring_id            |string        |The recurring_id of the recurring payment to be retired.|

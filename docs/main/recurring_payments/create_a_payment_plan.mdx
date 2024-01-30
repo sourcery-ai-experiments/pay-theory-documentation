@@ -19,7 +19,7 @@ import Admonition from '@theme/Admonition';
   <TabItem value="javascript">
 
 # Making a Recurring payment
-This guide will walk you through how to make a recurring payment plan.
+Payment plan are any recurring transactions that are completed on a periodic basis, such as utility bills, loans, or contracts. This guide will walk you through how to make a recurring payment plan.
 
 ## Create a payment plan
 A recurring payment represents a payment that will trigger on an interval. You can create a recurring payment with a set number of payments to enable a payment plan for a payor.
@@ -48,11 +48,15 @@ mutation {
 }
 ```
 ### Arguments
+To create a payment plan, you need to send a request.
+
 |Key            |description                |
 |---------------|---------------------------|
 | createRecurringPayment | This object contains all the details needed to create a recurring payment.|
 
 ### Required Arguments
+The following parameters must be used in order for the payment plan to be created successfully. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
+
 |Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
 | amount            |int        |The amount of the recurring payment.|
@@ -65,6 +69,8 @@ mutation {
 
 
 ### Optional Arguments
+The parameters listed below provide flexibility in query result customization but are not required to create a payment plan. Default values are frequently assigned to them.
+
 |Key                 |type             |description                                 |
 |---------------------|-----------------|--------------------------------------------|    
 | amount_per_payment      |int     | The amount of the recurring payment.|

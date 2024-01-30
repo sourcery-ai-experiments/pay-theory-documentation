@@ -19,9 +19,9 @@ import Admonition from '@theme/Admonition';
   <TabItem value="javascript">
 
 # Making a payment using subscription
-This guide will walk you through how to make a payment using subscription.
+A payment subscription involves paying for ongoing use of a service or product, sometimes in many levels.This guide will walk you through how to make a payment using subscription.
 
-## Create a payment plan
+## Create a payment plan using subscription
 You can also create a recurring payment with no set payment amounts to enable a subscription for a payor.
 
 ```graphql
@@ -47,11 +47,15 @@ mutation {
 }
 ```
 ### Arguments
+To create a payment subscription plan, you need to send a request.
+
 |Key            |description                |
 |---------------|---------------------------|
 | createPaymentSubscription | This object contains all the details needed to create a payment subscription.|
 
 ### Required Arguments
+The following parameters must be used in order for the subscription plan to be created successfully. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
+
 |Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
 | amount            |int        |The amount of the recurring payment.|
@@ -63,6 +67,8 @@ mutation {
 
 
 ### Optional Arguments
+The parameters listed below provide flexibility in query result customization but are not required to create a subscription plan. Default values are frequently assigned to them.
+
 |Key                 |type             |description                                 |
 |---------------------|-----------------|--------------------------------------------|    
 | amount_per_payment      |int     | The amount of the recurring payment.|

@@ -1,0 +1,66 @@
+---
+sidebar_position: 4
+sidebar_label: Sending Receipts
+title: "Sending Receipts"
+
+---
+
+import Tabs from '../../../components/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+<Tabs
+  defaultValue="javascript"
+  values={[
+    {label: 'Javascript', value: 'javascript'},
+    {label: 'Apple', value: 'apple'},
+    {label: 'Android', value: 'android'},
+  ]}>
+  <TabItem value="javascript">
+
+# Sending Receipts
+This call will send a receipt for a transaction to the email address on file with the payor or an email passed in. This guide will walk you through how to send receipts the payor.
+
+```graphql
+mutation sendingReceipts (email: AWSEmail, receipt_description: String, transaction_id: String!) {
+  createReceiptEmail(transaction_id: transaction_id, 
+                     email: email,
+                     receipt_description: receipt_description)
+}
+
+```
+
+### Required Arguments
+The following parameters must be used in order to send receipts to the payor. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
+
+|Key                |type         |       description                     |
+|-------------------|-------------|---------------------------------------|     
+|transaction_id       |string     |The Pay Theory unique identifier for the transaction to send the receipt for. |
+|email       | AWSEmail    | The email address to send the receipt to. If not provided the email address on file with the payor will be used.|
+|receipt_description       |string | The description of the transaction that will be displayed on the receipt. If not provided it will just say "Payment to merchant_name".|
+
+
+***
+
+
+## Next Steps
+We can learn how to use the querying object in settlements [query settlement object](query_settlement_data.mdx) as well as how the [query](query) in a transaction functions works.
+
+</TabItem>
+  <TabItem value="apple">
+
+# Documentation Coming Soon
+Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
+<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
+
+  </TabItem>
+
+  <TabItem value="android">
+
+# Documentation Coming Soon
+Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
+<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
+
+  </TabItem>
+
+</Tabs>
