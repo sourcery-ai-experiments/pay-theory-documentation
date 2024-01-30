@@ -294,3 +294,27 @@ Can be set to true to send a receipt to the payor.
 **Returns**
 
 The transaction object.  Refer to the [Transaction Object](transaction.md) for more info.
+
+## Void Authorization
+
+This will void an authorization that has not been captured.  If the authorization has been captured, this call will fail. 
+
+*Partial voids are not supported by all processors and cannot be processed on an Amex authorization.  Please contact Pay Theory for more information.*
+
+```graphql
+mutation {
+    createVoidForAuthorization(authorization_id: String!, void_amount: Int!)
+}
+```
+
+**Arguments**
+
+**`authorization_id`: String!**  
+The Pay Theory unique identifier assigned to the authorization that you are looking to void.
+
+**`void_amount`: Int!**  
+The amount of the void in cents.  
+*Partial voids are not supported by all processors and cannot be processed on an Amex authorization.  Please contact Pay Theory for more information.*
+
+**Returns**  
+This call returns a boolean indicating if the void was successful.
