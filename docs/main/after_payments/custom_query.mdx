@@ -18,7 +18,7 @@ import Admonition from '@theme/Admonition';
   ]}>
   <TabItem value="javascript">
 
-# Query
+# Custom Query
 We will go over how to create custom queries that you may submit to the Pay Theory API in this section.
 Let's examine a fundamental query object first, and then we will dissect it.
 
@@ -40,10 +40,10 @@ Let's examine a fundamental query object first, and then we will dissect it.
 ```
 
 ## Query Pair
-A list of query pairs used to build out a query.
+A list of query pairs can be used to build out a query.
 
 #### Required Arguments
-The following parameter must be used in order to use a query pair while writing a graphql query.
+The following parameter must be used in order to use a query pair while writing a GraphQL query.
 
 |Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
@@ -102,10 +102,10 @@ A sort pair is the object used to tell a query how the data should be sorted.
 |key             | string    | The key to sort the data by.|
 
 ## Examples
-The examples that follow will provide a quick rundown of how the query functions in the payment transaction.
+The following examples provide a quick rundown of how the query functions in the payment transaction.
 
 #### 1. Transactions With Status SETTLED and the reference starts with `test`.
-   If you wanted to build a query that looked for any transactions that had a status of SETTLED and the reference starts with test, you would do the following.
+   If you wanted to build a query that looks for any transactions that has a status of SETTLED and the reference starts with test, you would do the following.
 
    This query would return only those transactions where the status is `SETTLED` and the reference is `test`.
     ```graphql
@@ -137,10 +137,10 @@ The examples that follow will provide a quick rundown of how the query functions
     ```
 
 #### 2. Querying Sub Objects
-    Due to the fact payment method is a nested data object payment method queries can be made by passing a separate array of query pairs for the metadata.
+    Payment method is a nested data object. Because of this, payment method queries can be made by passing a separate array of query pairs for the metadata.
 
 
-    This would return 10 transactions where the `gross_amount` is greater than 1000 and the payment has a payment method in which the `last_four` is equal to 1234. It would be sorted by gross_amount in ascending order.
+    This following will return 10 transactions where the `gross_amount` is greater than 1000 and the payment has a payment method in which the `last_four` is equal to 1234. It would be sorted by gross_amount in ascending order.
 
     ```graphql
     {
@@ -175,9 +175,6 @@ The examples that follow will provide a quick rundown of how the query functions
     ```
 
 ***
-
-## Next Steps
-We can discover how to utilize the query object to [query settlement details](query_settlement_data.mdx).
 
 </TabItem>
   <TabItem value="apple">
