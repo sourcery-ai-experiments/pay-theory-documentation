@@ -19,7 +19,7 @@ import Admonition from '@theme/Admonition';
   <TabItem value="javascript">
 
 # Query Settlement Data
-Settlements are a batch of payments, disputes, and refunds that are grouped together and paid out to a merchant. This guide will walk you through how to write a query for settlment.
+Settlements are a batch of payments, disputes, and refunds that are grouped together and paid out to a merchant. This guide will walk you through how to write a query for a settlment.
 
 ```graphql
 query Getsettlement{
@@ -56,7 +56,7 @@ Sending a request is required in order to get query settlement data. To obtain t
 
 
 ### Required Arguments
-The following parameters must be used in order for getting the query settlement data. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
+The following parameters must be used in order to get the query settlement data. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
 
 |Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
@@ -71,7 +71,7 @@ The following parameters must be used in order for getting the query settlement 
 ***
 
 ## Returns
-This returns if the attempt made for retry failed payment is successful or not.
+This returns an array of settlement objects and the total number of items that match that query.
 
 ```JSON
 {
@@ -91,8 +91,6 @@ This returns if the attempt made for retry failed payment is successful or not.
 }
 ```
 
-## Next Steps
-We can also find how to build your own queries and what operators we need while building a [query](query.mdx).
 
 </TabItem>
   <TabItem value="apple">
