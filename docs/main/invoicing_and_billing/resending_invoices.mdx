@@ -1,0 +1,188 @@
+---
+sidebar_position: 2
+sidebar_label: Resending Invoices
+title: "Resending Invoices"
+
+---
+
+import Tabs from '../../../components/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+<Tabs
+  defaultValue="javascript"
+  values={[
+    {label: 'Javascript', value: 'javascript'},
+    {label: 'Apple', value: 'apple'},
+    {label: 'Android', value: 'android'},
+  ]}>
+  <TabItem value="javascript">
+
+# Invoice
+Invoices are used to create a payment request that can be sent to a payor. This guide will walk you through how to create, update and delete an invoice.
+
+## Create an Invoice
+An invoice helps in providing the essential details regarding the services rendered, their associated costs, and the terms of payment, allowing for effective billing procedures.
+
+```graphql
+mutation {
+    createInvoice(input:{
+        invoice_amount: int,
+        currency:string,
+        merchant_uid: string,
+        payor_id: string
+    }){
+        due_by
+        fee_mode
+        invoice_id
+        invoice_description
+        invoice_name
+    }
+}
+
+```
+
+### Required Arguments
+To create an invoice, you need to send a request. The following parameters must be used in order to create an invoice successfully. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
+
+|Key                |type         |       description                     |
+|-------------------|-------------|---------------------------------------|     
+| invoice_amount            |int        |The total amount of the invoice.|
+| currency      |string      |The currency of the payment that will be used to pay the invoice.|
+| merchant_uid      |string      |The Pay Theory unique identifier for the merchant that the invoice belongs to.|
+| payor_id  |string    |The Pay Theory unique identifier for the payor that the invoice belongs to.|
+
+### Optional Arguments
+The parameters listed below provide flexibility in query result customization but are not required to create an invoice. Default values are frequently assigned to them.
+
+|Key                 |type             |description                                 |
+|---------------------|-----------------|--------------------------------------------|    
+| due_by      |string     | The date that the payor is expected to pay the invoice by.|
+| fee_mode          |FeeMode     |The fee mode that will be used on that transaction when a payment is made through Pay Theory's hosted checkout. It can be one of the following: <ul><li>MERCHANT_FEE=''</li><li>SERVICE_FEE=''</li></ul>|
+| invoice_description        |string     | A brief description of the invoice. This will show up on the hosted checkout page and any email communications about the Invoice.|
+| invoice_name         |string        |The name of the invoice. This will show up on the hosted checkout page and any email communications about the Invoice. |
+
+***
+
+### Returns
+The call will return the newly created invoice.
+```JSON
+{
+    "data": {
+        "createInvoice": {
+            "due_by": string,
+            "created_date": string,
+            "currency": string,
+            "fee_mode": string,
+            "invoice_description": string,
+        }
+    }
+}
+```
+
+## Update an Invoice
+Updating an invoice involves making changes to the billing or payment information included in the invoice record.
+
+```graphql
+mutation {
+    updateInvoice(invoice_id: string, invoice_update_input:{
+        invoice_description: string,
+        currency: "USD",
+        due_by: "2022-09-19"
+
+    }) 
+}
+```
+### Required Arguments
+The following parameters must be used in order to update an invoice successfully. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
+
+|Key                |type         |       description                     |
+|-------------------|-------------|---------------------------------------|     
+| invoice_id            |string        |The Pay Theory unique identifier for the invoice to update.|
+| invoice_update_input      |UpdateInvoiceInput      |The input object that contains all of the information needed to update an invoice.|
+
+### Return
+If the invoice is updated and the call will return true.
+
+```JSON
+{
+    "data": {
+        "updateInvoice": true
+    }
+}
+```
+
+## Delete Invoice
+When an invoice is deleted, its information and transaction history are permanently erased from the database.
+
+```graphql
+mutation {
+    deleteInvoice(invoice_id: string) 
+}
+```
+### Required Arguments
+To delete an invoice, you need to send a request. The following parameters must be used in order to delete an invoice successfully. 
+
+|Key                |type         |       description                     |
+|-------------------|-------------|---------------------------------------|     
+| invoice_id            |string        |The Pay Theory unique identifier for the invoice to update.|
+
+### Return
+If the invoice is deleted and the call will return true.
+
+```JSON
+{
+    "data": {
+        "deleteInvoice": true
+    }
+}
+```
+
+## Create an Invoice email
+This call is used to resend Invoice emails for a specific invoice.
+
+```graphql
+
+mutation {
+    createInvoiceEmail(invoice_id: String)
+}
+```
+
+### Required Arguments
+To create an invoice email, you need to send a request. The following parameters must be used in order to create an invoice email successfully. 
+
+|Key                |type         |       description                     |
+|-------------------|-------------|---------------------------------------|     
+| invoice_id            |string        |The Pay Theory unique identifier for the invoice to update.|
+
+### Return
+The response will include a boolean value that will be true if the email was sent successfully.
+
+```JSON
+{
+    "data": {
+        "createInvoiceEmail": true
+    }
+}
+```
+## Next Steps
+You can also refer to [creating an offline invoice payment](record_an_offline_payment). 
+
+</TabItem>
+  <TabItem value="apple">
+
+# Documentation Coming Soon
+Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
+<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
+
+  </TabItem>
+
+  <TabItem value="android">
+
+# Documentation Coming Soon
+Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
+<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
+
+  </TabItem>
+
+</Tabs>
