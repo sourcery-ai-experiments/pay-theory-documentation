@@ -1,7 +1,7 @@
 ---
-sidebar_position: 2
-sidebar_label: Invoices
-title: "Invoices"
+sidebar_position: 1
+sidebar_label: Create an Invoice
+title: "Create an Invoice"
 
 ---
 
@@ -18,11 +18,8 @@ import Admonition from '@theme/Admonition';
   ]}>
   <TabItem value="javascript">
 
-# Invoices
-Invoices are used to create a payment request that can be sent to a payor. This guide will walk you through how to create, update and delete an invoice.
-
-## Create an invoice
-Use the code below to create an invoice.
+# Create an Invoice
+Invoices are used to create a payment request that can be sent to a payor. This guide will walk you through how to create an invoice.
 
 ```graphql
 mutation {
@@ -42,7 +39,7 @@ mutation {
 
 ```
 
-### Required Arguments
+## Required Arguments
 When creating an invoice you need to send a request. The following parameters must be used in order to create an invoice successfully.
 
 |Key                |type         |       description                     |
@@ -52,7 +49,7 @@ When creating an invoice you need to send a request. The following parameters mu
 | merchant_uid      |string      |The Pay Theory unique identifier for the merchant that the invoice belongs to.|
 | payor_id  |string    |The Pay Theory unique identifier for the payor that the invoice belongs to.|
 
-### Optional Arguments
+## Optional Arguments
 The parameters listed below provide flexibility in query result customization but are not required to create an invoice. Default values are frequently assigned to them.
 
 |Key                 |type             |description                                 |
@@ -62,9 +59,7 @@ The parameters listed below provide flexibility in query result customization bu
 | invoice_description        |string     | A brief description of the invoice. This will show up on the hosted checkout page and any email communications about the Invoice.|
 | invoice_name         |string        |The name of the invoice. This will show up on the hosted checkout page and any email communications about the Invoice. |
 
-***
-
-### Returns
+## Returns
 The call will return the newly created invoice.
 ```JSON
 {
@@ -79,94 +74,6 @@ The call will return the newly created invoice.
     }
 }
 ```
-
-## Update an invoice
-Updating an invoice involves making changes to the billing or payment information included in the invoice record.
-
-```graphql
-mutation {
-    updateInvoice(invoice_id: string, invoice_update_input:{
-        invoice_description: string,
-        currency: "USD",
-        due_by: "2022-09-19"
-
-    }) 
-}
-```
-### Required Arguments
-The following parameters must be used in order to update an invoice successfully. 
-
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-| invoice_id            |string        |The Pay Theory unique identifier for the invoice to update.|
-| invoice_update_input      |UpdateInvoiceInput      |The input object that contains all of the information needed to update an invoice.|
-
-### Return
-If the invoice is updated, the call will return true.
-
-```JSON
-{
-    "data": {
-        "updateInvoice": true
-    }
-}
-```
-
-## Delete an invoice
-When an invoice is deleted, its information and transaction history are permanently erased from the database.
-
-```graphql
-mutation {
-    deleteInvoice(invoice_id: string) 
-}
-```
-### Required Arguments
-To delete an invoice, you need to send a request. The following parameters must be used in order to delete an invoice successfully. 
-
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-| invoice_id            |string        |The Pay Theory unique identifier for the invoice to update.|
-
-### Return
-If the invoice is deleted and the call will return true.
-
-```JSON
-{
-    "data": {
-        "deleteInvoice": true
-    }
-}
-```
-
-## Create an invoice email
-This call is used to resend invoice emails for a specific invoice.
-
-```graphql
-
-mutation {
-    createInvoiceEmail(invoice_id: String)
-}
-```
-
-### Required Arguments
-To create an invoice email, you need to send a request. The following parameters must be used in order to create an invoice email successfully. 
-
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-| invoice_id            |string        |The Pay Theory unique identifier for the invoice to update.|
-
-### Return
-The response will include a boolean value that will be true if the email was sent successfully.
-
-```JSON
-{
-    "data": {
-        "createInvoiceEmail": true
-    }
-}
-```
-## Next Steps
-You can also refer to [creating an offline invoice payment](record_an_offline_payment). 
 
 </TabItem>
   <TabItem value="apple">
