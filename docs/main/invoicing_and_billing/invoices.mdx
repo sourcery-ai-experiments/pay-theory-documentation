@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
-sidebar_label: Resending Invoices
-title: "Resending Invoices"
+sidebar_label: Invoices
+title: "Invoices"
 
 ---
 
@@ -18,11 +18,11 @@ import Admonition from '@theme/Admonition';
   ]}>
   <TabItem value="javascript">
 
-# Invoice
+# Invoices
 Invoices are used to create a payment request that can be sent to a payor. This guide will walk you through how to create, update and delete an invoice.
 
-## Create an Invoice
-An invoice helps in providing the essential details regarding the services rendered, their associated costs, and the terms of payment, allowing for effective billing procedures.
+## Create an invoice
+Use the code below to create an invoice.
 
 ```graphql
 mutation {
@@ -43,7 +43,7 @@ mutation {
 ```
 
 ### Required Arguments
-To create an invoice, you need to send a request. The following parameters must be used in order to create an invoice successfully. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
+When creating an invoice you need to send a request. The following parameters must be used in order to create an invoice successfully.
 
 |Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
@@ -80,7 +80,7 @@ The call will return the newly created invoice.
 }
 ```
 
-## Update an Invoice
+## Update an invoice
 Updating an invoice involves making changes to the billing or payment information included in the invoice record.
 
 ```graphql
@@ -94,7 +94,7 @@ mutation {
 }
 ```
 ### Required Arguments
-The following parameters must be used in order to update an invoice successfully. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
+The following parameters must be used in order to update an invoice successfully. 
 
 |Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
@@ -102,7 +102,7 @@ The following parameters must be used in order to update an invoice successfully
 | invoice_update_input      |UpdateInvoiceInput      |The input object that contains all of the information needed to update an invoice.|
 
 ### Return
-If the invoice is updated and the call will return true.
+If the invoice is updated, the call will return true.
 
 ```JSON
 {
@@ -112,7 +112,7 @@ If the invoice is updated and the call will return true.
 }
 ```
 
-## Delete Invoice
+## Delete an invoice
 When an invoice is deleted, its information and transaction history are permanently erased from the database.
 
 ```graphql
@@ -138,8 +138,8 @@ If the invoice is deleted and the call will return true.
 }
 ```
 
-## Create an Invoice email
-This call is used to resend Invoice emails for a specific invoice.
+## Create an invoice email
+This call is used to resend invoice emails for a specific invoice.
 
 ```graphql
 

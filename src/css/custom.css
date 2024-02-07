@@ -772,7 +772,7 @@ div.navbar__logo{
   border-radius: 10px;
 }
 
-.alert .button--md{
+.button--md, .alert .button--md{
   padding-top: .35rem;
   text-decoration: none;
   margin-top: .5rem ;
