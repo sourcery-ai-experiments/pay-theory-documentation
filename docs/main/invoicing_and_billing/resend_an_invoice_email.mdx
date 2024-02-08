@@ -1,0 +1,66 @@
+---
+sidebar_position: 4
+sidebar_label: Resend an Invoice Email
+title: "Resend an Invoice Email"
+
+---
+
+import Tabs from '../../../components/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+<Tabs
+  defaultValue="javascript"
+  values={[
+    {label: 'Javascript', value: 'javascript'},
+    {label: 'Apple', value: 'apple'},
+    {label: 'Android', value: 'android'},
+  ]}>
+  <TabItem value="javascript">
+
+# Resend an Invoice Email
+This guide will demonstrate how to resend an invoice's email.
+
+```graphql
+
+mutation {
+    createInvoiceEmail(invoice_id: String)
+}
+```
+
+## Required Arguments
+To create an invoice email, you need to send a request. The following parameters must be used in order to create an invoice email successfully. 
+
+|Key                |type         |       description                     |
+|-------------------|-------------|---------------------------------------|     
+| invoice_id            |string        |The Pay Theory unique identifier for the invoice to update.|
+
+## Return
+The response will include a boolean value that will be true if the email was sent successfully.
+
+```JSON
+{
+    "data": {
+        "createInvoiceEmail": true
+    }
+}
+```
+
+</TabItem>
+  <TabItem value="apple">
+
+# Documentation Coming Soon
+Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
+<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
+
+  </TabItem>
+
+  <TabItem value="android">
+
+# Documentation Coming Soon
+Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
+<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
+
+  </TabItem>
+
+</Tabs>
