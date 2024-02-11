@@ -9,14 +9,6 @@ import Tabs from '../../../components/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
-<Tabs
-  defaultValue="javascript"
-  values={[
-    {label: 'Javascript', value: 'javascript'},
-    {label: 'Apple', value: 'apple'},
-    {label: 'Android', value: 'android'},
-  ]}>
-  <TabItem value="javascript">
 
 # Making a payment using subscription
 A payment subscription involves paying for ongoing use of a service or product. This guide will walk you through how to make a payment using subscription.
@@ -24,7 +16,7 @@ A payment subscription involves paying for ongoing use of a service or product. 
 ## Create a payment plan using subscription
 You can also create a recurring payment with no set payment amounts to enable a subscription for a payor.
 
-```graphql
+```graphql title="GraphQL"
 mutation {
   createPaymentSubscription(input: {
             amount: Int, 
@@ -81,7 +73,7 @@ The parameters listed below provide flexibility in query result customization bu
 
 ## Returns
 The call will return the newly created recurring payment.
-```JSON
+```JSON title="JSON"
 {
     "data": {
         "createRecurringPayment": {
@@ -98,28 +90,9 @@ The call will return the newly created recurring payment.
 }
 ```
 
+***
 ## Next Steps
 You can also refer to [create recurring payment](../recurring_payments/create_a_payment_plan.mdx) and we can also update our recurring payments information refer to [update the recurring payments](../recurring_payments/manage_recurring_payments/update_recurring_payments.mdx).
-
-</TabItem>
-  <TabItem value="apple">
-
-# Documentation Coming Soon
-Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
-<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
-
-  </TabItem>
-
-  <TabItem value="android">
-
-# Documentation Coming Soon
-Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
-<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
-
-  </TabItem>
-
-</Tabs>
-
 
 
 

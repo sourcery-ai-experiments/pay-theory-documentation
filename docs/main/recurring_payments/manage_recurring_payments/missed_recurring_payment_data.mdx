@@ -9,15 +9,6 @@ import Tabs from '../../../../components/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
-<Tabs
-  defaultValue="javascript"
-  values={[
-    {label: 'Javascript', value: 'javascript'},
-    {label: 'Apple', value: 'apple'},
-    {label: 'Android', value: 'android'},
-  ]}>
-  <TabItem value="javascript">
-
 # Get Missed Recurring Payment Data
 Retrieving missed recurring payment data allows tracking of failed transactions or missed payments within a subscription or service. By following this guide you will learn how to obtain the total amount of payments due as well as the number of missed payments.
 
@@ -25,7 +16,7 @@ Retrieving missed recurring payment data allows tracking of failed transactions 
 ## Obtain Missed Recurring Payment Information
 This is useful if you want to charge a customer for all missed payments at once when updating their payment method. This will query how many payments have been missed and the total amount of those payments.
 
-```graphql
+```graphql title="GraphQL"
 {
     query missedRecurringPaymentData(recurring_id: String) {
         fee
@@ -51,7 +42,7 @@ The following parameters must be used in order to get the missed recurring payme
 ## Returns
 The information from this call will include the amount the consumer needs to make up for missing payments for a recurring payment option.
 
-```JSON
+```JSON title="JSON"
 {
     "data": {
         "missedRecurringPaymentData": {
@@ -63,25 +54,8 @@ The information from this call will include the amount the consumer needs to mak
 }
 
 ```
+***
 
 ## Next Steps
 You always have the option to create [retry for failed recurring payments](retry_failed_recurring_payments.mdx) pertaining to recurring payments as well as [cancel the recurring payments](cancel_recurring_payments.mdx).
 
-</TabItem>
-  <TabItem value="apple">
-
-# Documentation Coming Soon
-Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
-<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
-
-  </TabItem>
-
-  <TabItem value="android">
-
-# Documentation Coming Soon
-Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
-<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
-
-  </TabItem>
-
-</Tabs>

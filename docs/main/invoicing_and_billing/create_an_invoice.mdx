@@ -9,19 +9,10 @@ import Tabs from '../../../components/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
-<Tabs
-  defaultValue="javascript"
-  values={[
-    {label: 'Javascript', value: 'javascript'},
-    {label: 'Apple', value: 'apple'},
-    {label: 'Android', value: 'android'},
-  ]}>
-  <TabItem value="javascript">
+# Create an Invoice 
+Invoices are used to create a payment request that can be sent to a payor. The call below will create an invoice.
 
-# Create an Invoice
-Invoices are used to create a payment request that can be sent to a payor. This guide will walk you through how to create an invoice.
-
-```graphql
+```graphql title="GraphQL"
 mutation {
     createInvoice(input:{
         invoice_amount: int,
@@ -39,29 +30,9 @@ mutation {
 
 ```
 
-## Required Arguments
-When creating an invoice you need to send a request. The following parameters must be used in order to create an invoice successfully.
-
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-| invoice_amount            |int        |The total amount of the invoice.|
-| currency      |string      |The currency of the payment that will be used to pay the invoice.|
-| merchant_uid      |string      |The Pay Theory unique identifier for the merchant that the invoice belongs to.|
-| payor_id  |string    |The Pay Theory unique identifier for the payor that the invoice belongs to.|
-
-## Optional Arguments
-The parameters listed below provide flexibility in query result customization but are not required to create an invoice. Default values are frequently assigned to them.
-
-|Key                 |type             |description                                 |
-|---------------------|-----------------|--------------------------------------------|    
-| due_by      |string     | The date that the payor is expected to pay the invoice by.|
-| fee_mode          |FeeMode     |The fee mode that will be used on that transaction when a payment is made through Pay Theory's hosted checkout. It can be one of the following: <ul><li>MERCHANT_FEE=''</li><li>SERVICE_FEE=''</li></ul>|
-| invoice_description        |string     | A brief description of the invoice. This will show up on the hosted checkout page and any email communications about the Invoice.|
-| invoice_name         |string        |The name of the invoice. This will show up on the hosted checkout page and any email communications about the Invoice. |
-
 ## Returns
 The call will return the newly created invoice.
-```JSON
+```JSON title="JSON"
 {
     "data": {
         "createInvoice": {
@@ -75,21 +46,8 @@ The call will return the newly created invoice.
 }
 ```
 
-</TabItem>
-  <TabItem value="apple">
+:::note  View Arguments
+View the extensive list of arguments for creating an invoice in our API. 
 
-# Documentation Coming Soon
-Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
-<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
-
-  </TabItem>
-
-  <TabItem value="android">
-
-# Documentation Coming Soon
-Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
-<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
-
-  </TabItem>
-
-</Tabs>
+<a href= "../../api/invoice#create-an-invoice" class="button button--primary button--md">View All Arguments</a>
+:::

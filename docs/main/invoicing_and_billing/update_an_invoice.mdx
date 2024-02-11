@@ -9,19 +9,10 @@ import Tabs from '../../../components/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
-<Tabs
-  defaultValue="javascript"
-  values={[
-    {label: 'Javascript', value: 'javascript'},
-    {label: 'Apple', value: 'apple'},
-    {label: 'Android', value: 'android'},
-  ]}>
-  <TabItem value="javascript">
-
 # Update an Invoice
-Updating an invoice involves making changes to the billing or payment information included in the invoice record. This guide will show you how to update an existing invoice.
+Updating an invoice involves making changes to the billing or payment information included in the invoice record. This following call will update an existing invoice.
 
-```graphql
+```graphql title="GraphQL"
 mutation {
     updateInvoice(invoice_id: string, invoice_update_input:{
         invoice_description: string,
@@ -31,41 +22,19 @@ mutation {
     }) 
 }
 ```
-## Required Arguments
-The following parameters must be used in order to update an invoice successfully. 
-
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-| invoice_id            |string        |The Pay Theory unique identifier for the invoice to update.|
-| invoice_update_input      |UpdateInvoiceInput      |The input object that contains all of the information needed to update an invoice.|
 
 ## Return
 If the invoice is updated, the call will return true.
 
-```JSON
+```JSON title="JSON"
 {
     "data": {
         "updateInvoice": true
     }
 }
 ```
+:::note  View Arguments
+View the extensive list of arguments for updating an invoice in our API. 
 
-
-</TabItem>
-  <TabItem value="apple">
-
-# Documentation Coming Soon
-Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
-<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
-
-  </TabItem>
-
-  <TabItem value="android">
-
-# Documentation Coming Soon
-Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
-<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
-
-  </TabItem>
-
-</Tabs>
+<a href= "../../api/invoice#update-an-invoice" class="button button--primary button--md">View All Arguments</a>
+:::

@@ -24,7 +24,7 @@ This guide will walk you through the steps to create a payment button that will 
 ## 1. Import the SDK
 You need to use the Pay Theory Web SDK. This is available by adding the below script into your web header. This button will open a hosted checkout page that will allow the user to select a payment method and complete the payment.
 
-```jsx
+```jsx title="javascript"
 <script src="https://carefeed.sdk.paytheorystudy.com/index.js"></script>
 ```
 ***
@@ -32,7 +32,7 @@ You need to use the Pay Theory Web SDK. This is available by adding the below sc
 ## 2. Add Pay Theory element to your Html
 This div is used to mount an iframe that will include a checkout button. You need to add the Pay Theory elements to your HTML. You can place these elements anywhere in your HTML and the SDK will place the button in the correct place. 
 
-```jsx
+```jsx title="javascript"
 <div id = "pay-theory-checkout-button" ></div>
 ```
 *** 
@@ -40,7 +40,7 @@ This div is used to mount an iframe that will include a checkout button. You nee
 ## 3. Prepare the checkout details
 You will need to put together the details of the checkout. This includes the amount, payment name, and any other details you want to pass to the checkout.
 
-```jsx
+```jsx title="javascript"
 //Amount passed in is in cents
 const AMOUNT = 1000
 
@@ -81,7 +81,7 @@ These are the values that you can pass into the `checkoutDetails` object to cust
 
 ## 4. Create the Button
 Using the button function, you can make the button. Send the style object, the checkout details, and the action-handling routines. To manage the button's actions, you can write functions. Among them are `onReady`, `onClick`, `onSuccess`, `onError`, and `onCancel`.
-```jsx
+```jsx title="javascript"
 const handlePayment = () => {
   // Function that will be called when a payment is successful
   const ON_SUCCESS = (response) => {
@@ -122,7 +122,6 @@ You pass a single object into the function with the following keys.
 | onSuccess               |function           |A function that will be called when the payment is successful. It is passed an object with the following values. <ul><li>last_four (String): The last four digits of the card number or account number.</li><li>amount (Int): The amount of the transaction (service fee is included).</li><li>service_fee (Int): The service fee of the transaction.</li><li>receipt_number (String): The Pay Theory receipt number.</li><li>brand (String): The brand of the card.</li><li>created_at (String): The date and time the transaction was created.</li><li>state (String): The status of the transaction.</li><li>metadata (JSON): The metadata of the transaction.</li><li>payor_id (String): The Pay Theory id for the payor that was used for the transaction.</li><li>payment_method_id (String): The Pay Theory id for the payment method token.</li></ul>  
 | onBarcode               |function           |A function that will be called when a barcode is successfully created and the user closes the window. It is passed an object with the following values.<ul><li> barcodeUrl (String): The url for the barcode image.</li><li> mapUrl (String): The url for the map to find retail locations to pay the barcode.</li></ul>
 
-***
 
 
 :::note Setting up a button for multiple payments

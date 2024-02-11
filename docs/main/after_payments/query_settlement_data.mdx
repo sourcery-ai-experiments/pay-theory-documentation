@@ -9,19 +9,10 @@ import Tabs from '../../../components/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
-<Tabs
-  defaultValue="javascript"
-  values={[
-    {label: 'Javascript', value: 'javascript'},
-    {label: 'Apple', value: 'apple'},
-    {label: 'Android', value: 'android'},
-  ]}>
-  <TabItem value="javascript">
-
 # Query Settlement Data
 Settlements are a batch of payments, disputes, and refunds that are grouped together and paid out to a merchant. This guide will walk you through how to write a query for a settlment.
 
-```graphql
+```graphql title="GraphQL"
 query Getsettlement{
     settlements(limit: 10, direction: FORWARD, offset: "", offset_id: "", query:{
         query_list:[
@@ -73,7 +64,7 @@ The following parameters must be used in order to get the query settlement data.
 ## Returns
 This returns an array of settlement objects and the total number of items that match that query.
 
-```JSON
+```JSON title="JSON"
 {
     "data": {
         "settlements": {
@@ -90,23 +81,3 @@ This returns an array of settlement objects and the total number of items that m
     }
 }
 ```
-
-
-</TabItem>
-  <TabItem value="apple">
-
-# Documentation Coming Soon
-Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
-<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
-
-  </TabItem>
-
-  <TabItem value="android">
-
-# Documentation Coming Soon
-Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
-<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
-
-  </TabItem>
-
-</Tabs>

@@ -9,19 +9,10 @@ import Tabs from '../../../components/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
-<Tabs
-  defaultValue="javascript"
-  values={[
-    {label: 'Javascript', value: 'javascript'},
-    {label: 'Apple', value: 'apple'},
-    {label: 'Android', value: 'android'},
-  ]}>
-  <TabItem value="javascript">
-
 # Record an Offline Payment
  Offline transactions are used to track payments that are made outside Pay Theory towards an Invoice. This call is used to create an offline transaction for an invoice.
 
-```graphql
+```graphql title="GraphQL"
 mutation {
     createOfflineTransaction(input:  {
         amount:int
@@ -37,23 +28,10 @@ mutation {
 }
 ```
 
-## Required Arguments
-The following parameters must be used in order to create an offline invoice payment. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
-
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-|amount            |int        |The amount of the offline transaction.|
-|invoice_id            |string  | The Pay Theory unique identifier for the invoice that the offline transaction is being applied to.|
-|transaction_date| string       |The date that the offline transaction was made.|
-|type         | OfflineTransactionType     |The type of offline transaction. It can be one of the following:<ul><li>ACH</li><li>CARD</li><li>CASH</li><li>OTHER</li></ul>|
-
-
-***
-
 ## Returns
 The response will contain the offline transaction object that was created.
 
-```JSON
+```JSON title="JSON"
 {
     "data": {
         "createOfflineTransaction": {
@@ -65,22 +43,8 @@ The response will contain the offline transaction object that was created.
 }
 
 ```
+:::note  View Arguments
+View the extensive list of arguments for recording an offline payment in our API. 
 
-</TabItem>
-  <TabItem value="apple">
-
-# Documentation Coming Soon
-Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
-<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
-
-  </TabItem>
-
-  <TabItem value="android">
-
-# Documentation Coming Soon
-Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
-<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
-
-  </TabItem>
-
-</Tabs>
+<a href= "../../api/invoice#create-an-offline-transaction" class="button button--primary button--md">View All Arguments</a>
+:::

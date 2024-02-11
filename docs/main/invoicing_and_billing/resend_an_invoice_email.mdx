@@ -9,36 +9,21 @@ import Tabs from '../../../components/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
-<Tabs
-  defaultValue="javascript"
-  values={[
-    {label: 'Javascript', value: 'javascript'},
-    {label: 'Apple', value: 'apple'},
-    {label: 'Android', value: 'android'},
-  ]}>
-  <TabItem value="javascript">
 
 # Resend an Invoice Email
-This guide will demonstrate how to resend an invoice's email.
+The call below will resend an invoice's email.
 
-```graphql
+```graphql title="GraphQL"
 
 mutation {
     createInvoiceEmail(invoice_id: String)
 }
 ```
 
-## Required Arguments
-To create an invoice email, you need to send a request. The following parameters must be used in order to create an invoice email successfully. 
-
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-| invoice_id            |string        |The Pay Theory unique identifier for the invoice to update.|
-
 ## Return
 The response will include a boolean value that will be true if the email was sent successfully.
 
-```JSON
+```JSON title="JSON"
 {
     "data": {
         "createInvoiceEmail": true
@@ -46,21 +31,8 @@ The response will include a boolean value that will be true if the email was sen
 }
 ```
 
-</TabItem>
-  <TabItem value="apple">
+:::note  View Arguments
+View the extensive list of arguments for resending an invoice email in our API. 
 
-# Documentation Coming Soon
-Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
-<a href= "../../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
-
-  </TabItem>
-
-  <TabItem value="android">
-
-# Documentation Coming Soon
-Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
-<a href= "../../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
-
-  </TabItem>
-
-</Tabs>
+<a href= "../../api/invoice#resend-an-invoice-email" class="button button--primary button--md">View All Arguments</a>
+:::
