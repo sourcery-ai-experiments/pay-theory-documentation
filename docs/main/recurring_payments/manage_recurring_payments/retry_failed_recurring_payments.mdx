@@ -18,17 +18,18 @@ Payment has failed because of insufficient funds on the card, but the customer h
 :::
 
 
-## Create a retry for failed payments
+## Request
 This call will allow you to retry a payment for a recurring payment that is in a Failed state. This should be used when the state is `INSTRUMENT_FAILURE` and the issue with the payment method has been addressed.
 
 ```graphql title="GraphQL"
 mutation {
-    createRetryForFailedRecurringPayment(recurring_id: string)
-}
+    createRetryForFailedRecurringPayment(
+        recurring_id: "" # Insert recurring_id
+)}
 
 ```
 
-### Required Arguments
+### Required Parameters
 The following parameter must be used in order to retry the failed recurring payment data. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
 
 |Key                |type         |       description                     |

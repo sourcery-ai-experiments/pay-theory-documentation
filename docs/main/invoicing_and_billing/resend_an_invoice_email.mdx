@@ -11,14 +11,25 @@ import Admonition from '@theme/Admonition';
 
 
 # Resend an Invoice Email
-The call below will resend an invoice's email.
+The guide below will resend an invoice's email.
+
+## Request
+Insert the appropriate invoice ID into the request below to resend the invoice's email.
 
 ```graphql title="GraphQL"
-
 mutation {
-    createInvoiceEmail(invoice_id: String)
-}
+    createInvoiceEmail(
+        invoice_id: "" # Insert invoice_id 
+)}
 ```
+
+:::note  Additional Parameters
+View the extensive list of parameters for resending an invoice email in our API. 
+
+<a href= "../../api/invoice#resend-an-invoice-email" class="button button--primary button--md">View All Parameters</a>
+:::
+
+***
 
 ## Return
 The response will include a boolean value that will be true if the email was sent successfully.
@@ -31,8 +42,3 @@ The response will include a boolean value that will be true if the email was sen
 }
 ```
 
-:::note  View Arguments
-View the extensive list of arguments for resending an invoice email in our API. 
-
-<a href= "../../api/invoice#resend-an-invoice-email" class="button button--primary button--md">View All Arguments</a>
-:::

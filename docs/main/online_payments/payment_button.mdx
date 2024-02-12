@@ -7,15 +7,6 @@ title: ""
 import Tabs from '../../../components/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
-
-<Tabs
-  defaultValue="javascript"
-  values={[
-    {label: 'Javascript', value: 'javascript'},
-    {label: 'Apple', value: 'apple'},
-    {label: 'Android', value: 'android'},
-  ]}>
-  <TabItem value="javascript">
   
 
 # Payment Button
@@ -59,16 +50,16 @@ const CHECKOUT_DETAILS = {
   recurringId: "pt_rec_XXXXXXXXX", 
 }
 ```
-These are the values that you can pass into the `checkoutDetails` object to customize the checkout page that opens when the button is clicked.
+These are the parameters that you can pass into the `checkoutDetails` object to customize the checkout page that opens when the button is clicked.
 
-### Required values:
+### Required parameters:
 
 |Key                |type               |description                                                                                |
 --------------------|-------------------|-------------------------------------------------------------------------------------------|     
 | amount            |int                |The amount of the payment in cents.                                           |
 | paymentName       |string             |The name of the payment that will be displayed on the checkout page. Will also be passed in to the reference field of the transaction.|
 
-### Optional values:
+### Optional parameters:
 
 |Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
@@ -102,16 +93,16 @@ paytheory.button({
 };
 ```
 
-These are the values that you can pass into the `button` function to customize the payment session.
+These are the parameters that you can pass into the `button` function to customize the payment session.
 You pass a single object into the function with the following keys.
 
-### Required values
+### Required parameters
 |Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
 | apiKey                  |string             |The API key for your Pay Theory account. You can find this in your Pay Theory Portal.|
 | checkoutDetails         |object             |The details for the checkout page that opens when the button is clicked. Details are mentioned [above](#prepare-the-checkout-details).|
 
-### Optional values
+### Optional parameters
 
 |Key                      |type               |description                                                                                |
 --------------------------|-------------------|-------------------------------------------------------------------------------------------|     
@@ -128,22 +119,3 @@ You pass a single object into the function with the following keys.
 The button session will only enable a single payment. If you want to enable multiple payments, you will need to clear the button from the DOM and create a new button.
 :::
 
-
-</TabItem>
-  <TabItem value="apple">
-
-# Documentation Coming Soon
-Our Apple SDK is fully functional. If you would like to implement our Apple SDK select the link below for more information.
-<a href= "../../sdk/apple/MAIN" class="button button--primary button--md">View Apple SDK Reference</a>
-
-  </TabItem>
-
-  <TabItem value="android">
-
-# Documentation Coming Soon
-Our Android SDK is fully functional. If you would like to implement our Android SDK select the link below for more information.
-<a href= "../../sdk/android/MAIN" class="button button--primary button--md">View Android SDK Reference</a>
-
-  </TabItem>
-
-</Tabs> 
