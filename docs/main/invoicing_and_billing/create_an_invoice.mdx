@@ -9,45 +9,52 @@ import Tabs from '../../../components/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
-# Create an Invoice 
-Invoices are used to create a payment request that can be sent to a payor. The call below will create an invoice.
+# Create an Invoice
+Invoices are used to create a payment request that can be sent to a payor. This guide will walk you through how to create an invoice.
+
+
+## Request
+
+We are going to create an invoice being sent to Justice Howard. The invoice is for $100.00 and is for landscaping services.
 
 ```graphql title="GraphQL"
 mutation {
     createInvoice(input:{
-        invoice_amount: int,
-        currency:string,
-        merchant_uid: string,
-        payor_id: string
+        invoice_amount: 10000,
+        invoice_name: "Landscaping Services",
+        merchant_uid: "", # Insert your merchant_uid
+        payor: {
+            full_name: "Justice Howard",
+            email: "justice_howard@justice_howard.io"
+        },
+        currency: "USD"
     }){
-        due_by
-        fee_mode
         invoice_id
-        invoice_description
         invoice_name
+        invoice_amount
     }
 }
 
 ```
 
-## Returns
-The call will return the newly created invoice.
+:::note  View Arguments
+View the extensive list of arguments for creating an invoice in our API.
+
+<a href= "../../api/invoice#create-an-invoice" class="button button--primary button--md">View All Arguments</a>
+:::
+
+
+## Return
+The call will return the newly created invoice. The `invoice_id` will be used to track the invoice through our system.
+
 ```JSON title="JSON"
 {
     "data": {
         "createInvoice": {
-            "due_by": string,
-            "created_date": string,
-            "currency": string,
-            "fee_mode": string,
-            "invoice_description": string,
+            "invoice_id": "invoice_id",
+            "invoice_name": "Landscaping Services",
+            "invoice_amount": 10000
         }
     }
 }
 ```
-
-:::note  View Arguments
-View the extensive list of arguments for creating an invoice in our API. 
-
-<a href= "../../api/invoice#create-an-invoice" class="button button--primary button--md">View All Arguments</a>
-:::

@@ -18,13 +18,16 @@ A recurring payment represents a payment that will trigger on an interval. You c
 ```graphql title="GraphQL"
 mutation {
   createRecurringPayment(input: {
-            amount: Int, 
+            amount: 10000,
             payment_count: Int
             merchant_uid: String, 
-            payment_interval: PAYMENT_INTERVAL, 
-            payment_method_id: String, 
-            recurring_name: String,
-            payor: Payor,
+            payment_interval: MONTHLY,
+            payment_method_id: "", # Put the payment method id here
+            recurring_name: "Tech Fees",
+            payor: {
+                full_name: "Justice Howard",
+                email: "justice_howard@justice_howard.io"
+            }
         }) {
  amount_per_payment
  fee_mode
@@ -38,37 +41,12 @@ mutation {
 
 }
 ```
-### Arguments
-To create a payment plan, you need to send a request.
 
-|Key            |description                |
-|---------------|---------------------------|
-| createRecurringPayment | This object contains all the details needed to create a recurring payment.|
+:::note  View Parameters
+View the extensive list of arguments for creating an invoice in our API.
 
-### Required Arguments
-The following parameters must be used in order for the payment plan to be created successfully. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
-
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-| amount            |int        |The amount of the recurring payment.|
-| merchant_uid      |string      |The Pay Theory merchant is a unique identifier for the merchant that is creating the recurring payment.|
-| payment_count      |int      |The total number of payments to be made as part of the recurring schedule.|
-| payment_interval  |Payment_Interval     |The interval of the recurring payment. The following intervals are available: <ul><li>WEEKLY</li><li>BI_WEEKLY</li><li>MONTHLY</li><li>QUARTERLY</li><li>BI_ANNUAL</li><li>ANNUAL</li></ul>|
-| payment_method_id       |string        |The `payment_method_id` of the tokenized payment method that will be used for the recurring payment.|
-| payor  |Payor    |The payor object that the recurring payment will be tied to. This will create a new payor in the system|
-| recurring_name      |string      |Custom  name for the recurring payment.|
-
-
-### Optional Arguments
-The parameters listed below provide flexibility in query result customization but are not required to create a payment plan. Default values are frequently assigned to them.
-
-|Key                 |type             |description                                 |
-|---------------------|-----------------|--------------------------------------------|    
-| amount_per_payment      |int     | The amount of the recurring payment.|
-| fee_mode          |FeeMode     |The fee mode for the recurring payment. SERVICE_FEE charges the fees to the payor. MERCHANT_FEE charges the fees to the merchant. Options are<ul><li>SERVICE_FEE</li><li>MERCHANT_FEE(default)</li></ul>|
-| recurring_id        |string     | The pay theory unique identifier assigned to the recurring payment.|
-| remaining_payments         |int        |The amount of the recurring payment that is still owed. This will be null on a recurring date if there is no fixed payment amount.|
-| status              | Recurring status  | The status of the recurring payment.<ul><li>`SYSTEM_FAILURE`: The recurring payment failed due to a system error. Will retry automatically till the system issue is resolved.</li><li>`INSTRUMENT_FAILURE`: The recurring payment failed due to a payment method error. Will not retry until the payment method is updated.</li><li>`SUCCESS`: The last payment was successful.</li></ul> |
+<a href= "../../api/invoice#create-an-invoice" class="button button--primary button--md">View All Arguments</a>
+:::
 
 ***
 
