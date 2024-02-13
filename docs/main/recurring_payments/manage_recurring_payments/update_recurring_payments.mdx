@@ -13,39 +13,34 @@ import Admonition from '@theme/Admonition';
 # Update Recurring Payment
 Updating recurring payments allows modifications to payment details, intervals, or amounts for ongoing subscriptions or services. This guide refers to making changes to the specifics of an already-existing regular payment plan, including altering the amounts, intervals, or related data.
 
-:::info Info
-It updates the payment method on the recurring payment. If you want to update any other fields, you will need to cancel the recurring payment and create a new one.
+:::tip Tip
+Updating an invoice can be used to update a payment method and catch up on any missed payments caused by an invalid payment method. If you want to update any other fields, you will need to cancel the recurring payment and create a new one.
 :::
 
 
 ## Request
-This call will modify automatic payment plans that are in progress without having to cancel and start over from scratch.
+This call will allow you to update the payment method on a recurring payment and catch up on any missed payments caused by an invalid payment method.
 
 ```graphql title="GraphQL"
 mutation {
 	updateRecurringPayment(input: {
-        payment_method_id: String,
+        payment_method_id: "", # Insert payment_method_id
         recurring_id: "", # Insert recurring_id
     }) 
     {
-        fee_mode
-        Fee_per_payment
-        mute_all_emails
-        payment_method {
-        payment_method_object
-        }
+        amount_per_payment
+        remaining_payments
         recurring_id
-        
     }
 }
 ```
 
 :::note  Additional Parameters
 View the extensive list of parameters for recurring payments in our API.
+<<<<<<< HEAD
 
 <a href= "../../api/recurring#update-recurring-payment" class="button button--primary button--md">View All Parameters</a>
 :::
-
 
 ***
 
@@ -56,12 +51,9 @@ The call will return the updated recurring payment object.
 {
     "data": {
         "updateRecurringPayment": {
-            "fee_per_payment": int,
-            "mute_all_emails": false,
-            "payment_method": {
-                "payment_method_id": string
-            },
-            "recurring_id": string
+            "amount_per_payment": 100,
+            "remaining_payments": 10,
+            "recurring_id": "pt_rec_123456789"
         }
     }
 }
