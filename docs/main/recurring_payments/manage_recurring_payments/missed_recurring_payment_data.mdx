@@ -29,15 +29,11 @@ This is useful if you want to charge a customer for all missed payments at once 
 }
 ```
 
-### Required Parameters
-The following parameters must be used in order to get the missed recurring payment data information.
+:::note  Additional Parameters
+View the extensive list of parameters for recurring payments in our API.
 
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-| recurring_id            |string        |The recurring_id of the recurring payment to be retired.|
-|fee            |int  | If the recurring payment has fee_mode set to SERVICE_FEE, this will be the total amount of fees that will be charged to the customer to pay off the missed payments. If the recurring payment has fee_mode set to MERCHANT_FEE, this will be 0.|
-|number_of_payments_missed| int             |The number of payments that have been missed.|
-|total_amount_owed         | int        |The total amount that the customer will owe to pay off the missed payments.|
+<a href= "../../api/recurring#get-missed-recurring-payment-data" class="button button--primary button--md">View All Parameters</a>
+:::
 
 
 ***
