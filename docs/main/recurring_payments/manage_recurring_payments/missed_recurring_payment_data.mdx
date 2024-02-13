@@ -13,12 +13,15 @@ import Admonition from '@theme/Admonition';
 Retrieving missed recurring payment data allows tracking of failed transactions or missed payments within a subscription or service. By following this guide you will learn how to obtain the total amount of payments due as well as the number of missed payments.
 
 
-## Obtain Missed Recurring Payment Information
+## Request
 This is useful if you want to charge a customer for all missed payments at once when updating their payment method. This will query how many payments have been missed and the total amount of those payments.
 
 ```graphql title="GraphQL"
 {
-    query missedRecurringPaymentData(recurring_id: String) {
+    query missedRecurringPaymentData(
+        recurring_id: "" # Insert recurring_id
+    ) 
+    {
         fee
         number_of_payments_missed
         total_amount_owed
@@ -26,7 +29,7 @@ This is useful if you want to charge a customer for all missed payments at once 
 }
 ```
 
-### Required Arguments
+### Required Parameters
 The following parameters must be used in order to get the missed recurring payment data information.
 
 |Key                |type         |       description                     |
@@ -39,7 +42,7 @@ The following parameters must be used in order to get the missed recurring payme
 
 ***
 
-## Returns
+## Return
 The information from this call will include the amount the consumer needs to make up for missing payments for a recurring payment option.
 
 ```JSON title="JSON"

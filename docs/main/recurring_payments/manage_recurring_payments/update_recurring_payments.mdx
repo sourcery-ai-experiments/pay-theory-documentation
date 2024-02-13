@@ -18,14 +18,14 @@ It updates the payment method on the recurring payment. If you want to update an
 :::
 
 
-## Create a update recurring payments
+## Request
 This call will modify automatic payment plans that are in progress without having to cancel and start over from scratch.
 
 ```graphql title="GraphQL"
 mutation {
 	updateRecurringPayment(input: {
         payment_method_id: String,
-        recurring_id: String,
+        recurring_id: "", # Insert recurring_id
     }) 
     {
         fee_mode
@@ -40,7 +40,7 @@ mutation {
 }
 ```
 
-### Arguments
+### Parameters
 To update a recurring payment, you need to send a request.
 
 |Key                |       description                     |
@@ -70,7 +70,7 @@ The parameters listed below provide flexibility in query result customization bu
 
 ***
 
-## Returns
+## Return
 The call will return the updated recurring payment object.
 
 ```JSON title="JSON"

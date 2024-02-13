@@ -12,17 +12,17 @@ import Admonition from '@theme/Admonition';
 # Cancel Recurring Payment
 Cancelling recurring payments stops an account from being charged or debited in the future for a service or subscription. This guide will show you how to cancel the recurring payments that will halt the further installments.
 
-## Query to cancel recurring payments
+## Request
 The procedure known as "Cancel Recurring Payment" ends planned, recurring payments. In order to halt further installments, users usually take this step, frequently. Once a recurring payment is canceled, it cannot be reactivated.
 
 ```graphql title="GraphQL"
 mutation {
-    cancelRecurringPayment(recurring_id: string)
-}
-
+    cancelRecurringPayment(
+        recurring_id: "" # Insert recurring_id
+)}
 ```
 
-### Required Arguments
+### Required Parameters
 The following parameter must be used in order for the payment plan to be cancelled successfully. The query may fail to execute if any parameter is omitted, in which case the required data for processing will need to be requested.
 
 |Key                |type         |       description                     |
@@ -32,7 +32,7 @@ The following parameter must be used in order for the payment plan to be cancell
 
 ***
 
-## Returns
+## Return
 The call will return true if the recurring payment was successfully canceled.
 
 ```JSON title="JSON"

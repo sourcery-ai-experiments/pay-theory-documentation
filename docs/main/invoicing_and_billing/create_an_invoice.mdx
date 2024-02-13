@@ -12,20 +12,18 @@ import Admonition from '@theme/Admonition';
 # Create an Invoice
 Invoices are used to create a payment request that can be sent to a payor. This guide will walk you through how to create an invoice.
 
-
 ## Request
-
-We are going to create an invoice being sent to Justice Howard. The invoice is for $100.00 and is for landscaping services.
+The following example will send an invoice to Pat Johnson. The invoice is for $100.00 USD and is for tutoring services. 
 
 ```graphql title="GraphQL"
 mutation {
     createInvoice(input:{
-        invoice_amount: 10000,
-        invoice_name: "Landscaping Services",
-        merchant_uid: "", # Insert your merchant_uid
+        invoice_amount: 10000, # Amount in pennies
+        invoice_name: "Tutoring Services", 
+        merchant_uid: "", # Insert merchant_uid
         payor: {
-            full_name: "Justice Howard",
-            email: "justice_howard@justice_howard.io"
+            full_name: "Pat Johnson",
+            email: "patjohnson1234@pat_johnson.io"
         },
         currency: "USD"
     }){
@@ -37,12 +35,13 @@ mutation {
 
 ```
 
-:::note  View Arguments
-View the extensive list of arguments for creating an invoice in our API.
+:::note  Additional Parameters
+View the extensive list of parameters for creating an invoice in our API.
 
-<a href= "../../api/invoice#create-an-invoice" class="button button--primary button--md">View All Arguments</a>
+<a href= "../../api/invoice#create-an-invoice" class="button button--primary button--md">View All Parameters</a>
 :::
 
+***
 
 ## Return
 The call will return the newly created invoice. The `invoice_id` will be used to track the invoice through our system.
@@ -52,7 +51,7 @@ The call will return the newly created invoice. The `invoice_id` will be used to
     "data": {
         "createInvoice": {
             "invoice_id": "invoice_id",
-            "invoice_name": "Landscaping Services",
+            "invoice_name": "Pat Johnson",
             "invoice_amount": 10000
         }
     }

@@ -9,61 +9,53 @@ import Tabs from '../../../components/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
-# Making a Recurring payment
+# Create a Payment Plan
 Recurring payments are any repeating transactions that are completed on a periodic basis, such as a car loan, or mortgage. This guide will walk you through how to make a recurring payment plan.
 
-## Create a payment plan
-A recurring payment represents a payment that will trigger on an interval. You can create a recurring payment with a set number of payments to enable a payment plan for a payor.
+## Request
+In the following example Pat Johnson purchassed a lawn mower for $1000.00. However he was unable to make the entire payment so he opted for a payment plan. In this example, his total payment of $1000.00 will be split up into 10 payments of $100.00. The payments will be collected from Pat Johnson's tokenized payment method every month, and will continue until the all 10 payments are complete.
 
 ```graphql title="GraphQL"
 mutation {
   createRecurringPayment(input: {
-            amount: 10000,
-            payment_count: Int
-            merchant_uid: String, 
-            payment_interval: MONTHLY,
-            payment_method_id: "", # Put the payment method id here
-            recurring_name: "Tech Fees",
+            amount: 10000,  # Amount in pennies
+            payment_count: 10, 
+            merchant_uid: "", # Insert merchant_uid
+            payment_interval: MONTHLY, 
+            payment_method_id: "", # Insert tokenized payment method
+            recurring_name: "Lawn Mower",
             payor: {
-                full_name: "Justice Howard",
-                email: "justice_howard@justice_howard.io"
+                full_name: "Pat Johnson",
+                email: "patjohnson@pat_johnson.io"
             }
         }) {
  amount_per_payment
- fee_mode
- fee_per_payment
- next_payment_date
  payment_interval
  recurring_id
  remaining_payments
- statuts
 }
 
 }
 ```
 
-:::note  View Parameters
-View the extensive list of arguments for creating an invoice in our API.
+:::note  Additional Parameters
+View the extensive list of parameters for recurring payments in our API.
 
-<a href= "../../api/invoice#create-an-invoice" class="button button--primary button--md">View All Arguments</a>
+<a href= "../../api/recurring" class="button button--primary button--md">View All Parameters</a>
 :::
 
 ***
 
-## Returns
+## Return
 The call will return the newly created recurring payment.
 ```JSON title="JSON"
 {
     "data": {
         "createRecurringPayment": {
-            "amount_per_payment": Int,
-            "fee_mode": "MERCHANT_FEE",
-            "fee_per_payment": Int,
-            "payment_interval": "WEEKLY",
-            "recurring_description": null,
-            "recurring_id": String,
-            "remaining_payments": Int,
-            "status": "SUCCESS",
+            "amount_per_payment": 10000,
+            "payment_interval": "MONTHLY",
+            "recurring_id": "pt_rec_XXXXXXXXX",
+            "remaining_payments": 9
         }
     }
 }

@@ -10,13 +10,24 @@ import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
 # Delete an Invoice
-Deleting an invoice permenantly erases an invoice's transaction history from the database. The call below will delete an invoice.
+Deleting an invoice permenantly erases an invoice's transaction history from the database. The guide below will delete an invoice.
+
+## Request
+Insert the appropriate `invoice_id` below to delete an invoice.
 
 ```graphql title="GraphQL"
 mutation {
-    deleteInvoice(invoice_id: string) 
-}
+    deleteInvoice(
+        invoice_id: "" # Insert invoice_id 
+)}
 ```
+:::note  Additional Parameters
+View the extensive list of parameters for deleting an invoice in our API. 
+
+<a href= "../../api/invoice#delete-an-invoice" class="button button--primary button--md">View All Parameters</a>
+:::
+
+***
 
 ## Return
 If the invoice is deleted and the call will return true.
@@ -29,9 +40,5 @@ If the invoice is deleted and the call will return true.
 }
 ```
 
-:::note  View Arguments
-View the extensive list of arguments for deleting an invoice in our API. 
 
-<a href= "../../api/invoice#delete-an-invoice" class="button button--primary button--md">View All Arguments</a>
-:::
 
