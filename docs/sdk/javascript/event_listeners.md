@@ -48,7 +48,7 @@ The callback will be passed a string indicating what happened in the SDK. The st
 
 Most errors will require the user to refresh the page and try again.
 
-The exception to this is the `NOT_VALID` error which will require the user to change the data in the payment fields until you get a proper response to the valid observer and then you may try and transact or tokenize again.
+The exception to this is the `NOT_VALID` error which will require the user to change the data in the payment fields until you get a proper response to the valid observer, and then you may try and transact or tokenize again.
 
 **Returns**
 

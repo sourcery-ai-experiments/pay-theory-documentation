@@ -193,7 +193,7 @@ mutation {
 **Parameters**
 |Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
-|intput             |CreateInvoiceInput|The input object that contains all of the information needed to create an invoice.|
+|intput             |CreateInvoiceInput|The input object that contains all the information needed to create an invoice.|
 
 **CreateInvoiceInput**
 

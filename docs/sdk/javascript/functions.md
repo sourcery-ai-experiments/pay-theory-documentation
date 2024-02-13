@@ -147,7 +147,7 @@ paytheory.cancel()
 
 The function returns a Promise that will contain `true` if the transaction was cancelled successfully or an [`ERROR`](#error-response) Response.
 
-Once you click cancel the transaction will be cancelled and you will be able to run `transact` again.
+Once you click cancel the transaction will be cancelled, and you will be able to run `transact` again.
 
 ***
 ## tokenizePaymentMethod
@@ -343,7 +343,7 @@ This is the value of the `body` key in the response if the `type` is `CASH`:
 
 ### Error Response
 
-If the response has the `type` of `ERROR` it will have another key `error` with a string attatched to it. The string will begin with one of the codes shown [here](ERRORS).
+If the response has the `type` of `ERROR` it will have another key `error` with a string attached to it. The string will begin with one of the codes shown [here](ERRORS).
 
 ```json
 {

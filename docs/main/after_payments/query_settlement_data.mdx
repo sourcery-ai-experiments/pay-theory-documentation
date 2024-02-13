@@ -10,10 +10,10 @@ import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
 # Query Settlement Data
-Settlements are a batch of payments, disputes, and refunds that are grouped together and paid out to a merchant. This guide will walk you through how to write a query for a settlment.
+Settlements are a batch of payments, disputes, and refunds that are grouped together and paid out to a merchant. This guide will walk you through how to write a query for a settlement.
 
 ```graphql title="GraphQL"
-query Getsettlement{
+query GetSettlement{
     settlements(limit: 10, direction: FORWARD, offset: "", offset_id: "", query:{
         query_list:[
             {

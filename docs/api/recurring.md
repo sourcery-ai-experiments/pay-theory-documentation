@@ -180,7 +180,7 @@ mutation {
             mute_all_emails: Boolean
     }) {
         account_code
-        ...reccuring_payment_object
+        ...recuring_payment_object
     }
 }
 ```
@@ -235,9 +235,9 @@ mutation {
 
 **Parameters**
 
-|Key               | type                         | description                                                                 |
-|------------------|------------------------------|-----------------------------------------------------------------------------|     
-|input             | UpdateeRecurringPaymentInput | The input object that contains the details to update the recurring payment. |
+|Key               | type                        | description                                                                 |
+|------------------|-----------------------------|-----------------------------------------------------------------------------|     
+|input             | UpdateRecurringPaymentInput | The input object that contains the details to update the recurring payment. |
 
 
 **UpdateRecurringPaymentInput**

@@ -14,7 +14,7 @@ import Admonition from '@theme/Admonition';
 A payment subscription involves paying for ongoing use of a service or product. This guide will walk you through how to make a payment using subscription.
 
 ## Request
-In this example, Pat Johnson has purchased an ongoing subscription to Lawncare Digest. Pat will be charged $5.00 every month from his tokendized method on file, until he cancels his subscription. 
+In this example, Pat Johnson has purchased an ongoing subscription to Lawn Care Digest. Pat will be charged $5.00 every month from his tokenized method on file, until he cancels his subscription.
 
 ```graphql title="GraphQL"
 mutation {
@@ -23,7 +23,7 @@ mutation {
             merchant_uid: "", # Insert merchant_uid
             payment_interval: MONTHLY, 
             payment_method_id: "", # Insert tokenized payment method
-            recurring_name: "Lawncare Digest",
+            recurring_name: "Lawn Care Digest",
             payor: {
                 full_name: "Pat Johnson",
                 email: "patjohnson@pat_johnson.io"
@@ -60,7 +60,7 @@ The call will return the newly created recurring payment.
 
 ***
 ## Next Steps
-You can also refer to [create recurring payment](../recurring_payments/create_a_payment_plan.mdx) and we can also update our recurring payments information refer to [update the recurring payments](../recurring_payments/manage_recurring_payments/update_recurring_payments.mdx).
+You can also refer to [create a payment plan](../recurring_payments/create_a_payment_plan.mdx), or if you are looking to update a recurring payment's payment method refer to [update recurring payments](../recurring_payments/manage_recurring_payments/update_recurring_payments.mdx).
 
 
 

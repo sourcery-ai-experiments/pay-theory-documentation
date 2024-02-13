@@ -69,15 +69,15 @@ You pass a single object into the function with the following keys.
 
 **Optional Parameters**
 
-|Key                |type         | description                                                                                                                                                  |
-|-------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|     
-|style              |Object       | The style object that will style the payment button. Details Below.                                                                                          |
-|onReady            |Function     | A function that will be called when the button is ready to be clicked.                                                                                       |
-|onClick            |Function     | A function that will be called when the button is clicked.                                                                                                   |
-|onError            |Function     | A function that will be called when an error occurs. It is passed an error string.                                                                           |
-|onCancel           |Function     | A function that will be called when the user cancels the payment from the pop-up window.                                                                     |
-|onSuccess          |Function     | A function that will be called when the payment is successful. It is passed a [success](#success-response) response.                                         |
-|onBarcode          |Function     | A function that will be called when a barcode is successfully created and the user closes the window. It is passed a [bardcode](#barcode-response) response. |
+|Key                |type         | description                                                                                                                                                 |
+|-------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|     
+|style              |Object       | The style object that will style the payment button. Details Below.                                                                                         |
+|onReady            |Function     | A function that will be called when the button is ready to be clicked.                                                                                      |
+|onClick            |Function     | A function that will be called when the button is clicked.                                                                                                  |
+|onError            |Function     | A function that will be called when an error occurs. It is passed an error string.                                                                          |
+|onCancel           |Function     | A function that will be called when the user cancels the payment from the pop-up window.                                                                    |
+|onSuccess          |Function     | A function that will be called when the payment is successful. It is passed a [success](#success-response) response.                                        |
+|onBarcode          |Function     | A function that will be called when a barcode is successfully created and the user closes the window. It is passed a [barcode](#barcode-response) response. |
 
 ## Success Response
 
