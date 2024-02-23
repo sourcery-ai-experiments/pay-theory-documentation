@@ -65,15 +65,18 @@ const config = {
     ],
   ],
   plugins: [
-    // [
-    //   'docusaurus-plugin-typedoc',
-    //
-    //   // Plugin / TypeDoc options
-    //   {
-    //     entryPoints: ['theme/pay_theory_types.ts'],
-    //     tsconfig: 'tsconfig.json',
-    //   },
-    // ],
+    [
+      "@graphql-markdown/docusaurus",
+      {
+        schema: "./schema/api.graphql",
+        rootPath: "./docs", // docs will be generated under './docs/swapi' (rootPath/baseURL)
+        baseURL: "api",
+        // homepage: "./docs/api.md", https://graphql-markdown.github.io/docs/settings#homepage
+        loaders: {
+          GraphQLFileLoader: "@graphql-tools/graphql-file-loader", // local file schema
+        },
+      },
+    ],
   ],
   //plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
   // plugins: [
