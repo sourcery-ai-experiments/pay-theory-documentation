@@ -18,7 +18,6 @@ An authorization is used to reserve funds on a card for a future transaction.  I
     amount: Int!
     authorization_date: AWSDateTime!
     authorization_id: String!
-    captured_amount: Int
     currency: String!
     expiration_date: AWSDateTime
     failure_reasons: [String]
@@ -32,7 +31,6 @@ An authorization is used to reserve funds on a card for a future transaction.  I
     sale_id: String
     status: AuthorizationStatus!
     timezone: String
-    transaction_id: String
     updated_row_at: AWSDateTime
 }
 ```
@@ -43,7 +41,6 @@ An authorization is used to reserve funds on a card for a future transaction.  I
 |amount             |Int!         |The amount of the authorization in cents.|
 |authorization_date |AWSDateTime! |The date and time the authorization was created.|
 |authorization_id   |String!      |The Pay Theory unique identifier assigned to the authorization.|
-|captured_amount    |Int          |The amount of the authorization that has been captured.|
 |currency           |String!      |The currency of the authorization.  Currently only `USD` is supported.|
 |expiration_date    |AWSDateTime  |The date and time the authorization will expire.|
 |failure_reasons    |[String]     |Array of failure reasons for the authorization.  If the authorization is successful, this will be null.|
@@ -57,7 +54,6 @@ An authorization is used to reserve funds on a card for a future transaction.  I
 |sale_id            |String       |The Pay Theory unique identifier assigned to the sale that the authorization belongs to. Sales can be used to tie together multiple auths and captures.|
 |status             |AuthorizationStatus!|The status of the authorization.  It can be one of the following: `CANCELLED`, `FAILED`, `SUCCEEDED`|
 |timezone           |String       |The timezone of the authorization.|
-|transaction_id     |String       |The Pay Theory unique identifier assigned to the transaction that is created when the authorization is captured.|
 |updated_row_at     |AWSDateTime  |The date and time the authorization was last updated.|
 
 ***
@@ -71,7 +67,6 @@ An authorization is used to reserve funds on a card for a future transaction.  I
             amount
             authorization_date
             authorization_id
-            captured_amount
             currency
             device_id
             expiration_date
@@ -93,7 +88,6 @@ An authorization is used to reserve funds on a card for a future transaction.  I
             sale_id
             status
             timezone
-            transaction_id
             updated_row_at
         }
         total_row_count
