@@ -1,0 +1,74 @@
+---
+id: move-direction
+title: MoveDirection
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+No description
+
+
+```graphql
+enum MoveDirection {
+  BACKWARD
+  FORWARD
+}
+```
+
+
+
+
+### Values
+
+#### [`BACKWARD`](#)  
+> 
+> 
+> 
+> 
+
+#### [`FORWARD`](#)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`authorizations`](/docs/api/api/queries/authorizations)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`devices`](/docs/api/api/queries/devices)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`disputes`](/docs/api/api/queries/disputes)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`invoices`](/docs/api/api/queries/invoices)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`merchants`](/docs/api/api/queries/merchants)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`paymentLinks`](/docs/api/api/queries/payment-links)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`paymentMethodTokens`](/docs/api/api/queries/payment-method-tokens)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`payors`](/docs/api/api/queries/payors)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`recurringPayments`](/docs/api/api/queries/recurring-payments)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`settlements`](/docs/api/api/queries/settlements)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`transactions`](/docs/api/api/queries/transactions)  <Badge class="badge badge--secondary" text="query"/>
+

@@ -1,0 +1,130 @@
+---
+id: ach-input
+title: AchInput
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+ACH input details
+
+
+```graphql
+input AchInput {
+  address_line1: String
+  address_line2: String
+  account_number: String!
+  account_type: AchAccountType!
+  city: String
+  country: String
+  name_on_account: String!
+  postal_code: String
+  region: String
+  routing_number: String!
+}
+```
+
+
+
+
+### Fields
+
+#### [`address_line1`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`address_line2`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`account_number`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`account_type`](#)<Bullet />[`AchAccountType!`](/docs/api/types/enums/ach-account-type)  
+> 
+> 
+> 
+> 
+
+#### [`city`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`country`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`name_on_account`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`postal_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`region`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`routing_number`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`PaymentMethodInput`](/docs/api/types/inputs/payment-method-input)  <Badge class="badge badge--secondary" text="input"/>
+

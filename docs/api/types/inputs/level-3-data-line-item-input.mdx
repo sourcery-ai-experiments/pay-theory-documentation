@@ -1,0 +1,144 @@
+---
+id: level-3-data-line-item-input
+title: Level3DataLineItemInput
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Level 3 data input
+
+
+```graphql
+input Level3DataLineItemInput {
+  item_code: String
+  item_description: String
+  item_qty_exp: Int
+  prod_code: String
+  qty: Int
+  tax_amount: Int
+  tax_ind: TaxIndicatorType
+  tax_rate: Int
+  tax_rt_exp: Int
+  tax_type_id: TaxType
+  unit_cost: Int
+  unit_of_msure: String
+}
+```
+
+
+
+
+### Fields
+
+#### [`item_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`item_description`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`item_qty_exp`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`prod_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`qty`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`tax_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`tax_ind`](#)<Bullet />[`TaxIndicatorType`](/docs/api/types/enums/tax-indicator-type)  
+> 
+> 
+> 
+> 
+
+#### [`tax_rate`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`tax_rt_exp`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`tax_type_id`](#)<Bullet />[`TaxType`](/docs/api/types/enums/tax-type)  
+> 
+> 
+> 
+> 
+
+#### [`unit_cost`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`unit_of_msure`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`AdditionalPurchaseDataInput`](/docs/api/types/inputs/additional-purchase-data-input)  <Badge class="badge badge--secondary" text="input"/>
+

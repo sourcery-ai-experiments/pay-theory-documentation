@@ -1,0 +1,95 @@
+---
+id: digital-wallet-input
+title: DigitalWalletInput
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Digital wallet input details
+
+
+```graphql
+input DigitalWalletInput {
+  address_line1: String
+  dpan: String!
+  exp_date: String!
+  postal_code: String
+  wallet_type: WalletType!
+}
+```
+
+
+
+
+### Fields
+
+#### [`address_line1`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`dpan`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`exp_date`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`postal_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`wallet_type`](#)<Bullet />[`WalletType!`](/docs/api/types/enums/wallet-type)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`createAuthorization`](/docs/api/api/mutations/create-authorization)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createOneTimePayment`](/docs/api/api/mutations/create-one-time-payment)  <Badge class="badge badge--secondary" text="mutation"/>
+

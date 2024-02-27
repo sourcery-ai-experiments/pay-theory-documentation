@@ -1,0 +1,123 @@
+---
+id: level-3-data-summary
+title: Level3DataSummary
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Level 3 data summary
+
+
+```graphql
+type Level3DataSummary {
+  dest_postal_code: String
+  discnt_amt: Int
+  duty_amt: Int
+  frght_amt: Int
+  order_num: String
+  prod_desc: [String]
+  purch_idfr: String
+  tax_amt: Int
+  tax_ind: TaxIndicatorType
+}
+```
+
+
+
+
+### Fields
+
+#### [`dest_postal_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`discnt_amt`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`duty_amt`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`frght_amt`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`order_num`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`prod_desc`](#)<Bullet />[`[String]`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`purch_idfr`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`tax_amt`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`tax_ind`](#)<Bullet />[`TaxIndicatorType`](/docs/api/types/enums/tax-indicator-type)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`AdditionalPurchaseData`](/docs/api/types/objects/additional-purchase-data)  <Badge class="badge badge--secondary" text="object"/>
+

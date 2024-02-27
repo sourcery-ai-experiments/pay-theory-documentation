@@ -1,0 +1,102 @@
+---
+id: query-pair
+title: QueryPair
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+No description
+
+
+```graphql
+input QueryPair {
+  conjunctive_operator: ConjunctiveOperator
+  in_values: [String]
+  key: String
+  operator: Operator
+  query_group: [QueryPair]
+  value: String
+}
+```
+
+
+
+
+### Fields
+
+#### [`conjunctive_operator`](#)<Bullet />[`ConjunctiveOperator`](/docs/api/types/enums/conjunctive-operator)  
+> 
+> 
+> 
+> 
+
+#### [`in_values`](#)<Bullet />[`[String]`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`key`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`operator`](#)<Bullet />[`Operator`](/docs/api/types/enums/operator)  
+> 
+> 
+> 
+> 
+
+#### [`query_group`](#)<Bullet />[`[QueryPair]`](/docs/api/types/inputs/query-pair)  
+> 
+> 
+> 
+> 
+
+#### [`value`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`QueryPair`](/docs/api/types/inputs/query-pair)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`SqlQuery`](/docs/api/types/inputs/sql-query)  <Badge class="badge badge--secondary" text="input"/>
+

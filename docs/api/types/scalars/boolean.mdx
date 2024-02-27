@@ -1,0 +1,61 @@
+---
+id: boolean
+title: Boolean
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+The `Boolean` scalar type represents `true` or `false`.
+
+
+```graphql
+scalar Boolean
+```
+
+
+
+
+
+
+### Returned By
+
+[`cancelRecurringPayment`](/docs/api/api/mutations/cancel-recurring-payment)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createInvoiceEmail`](/docs/api/api/mutations/create-invoice-email)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createReceiptEmail`](/docs/api/api/mutations/create-receipt-email)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createRefund`](/docs/api/api/mutations/create-refund)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createRetryForFailedRecurringPayment`](/docs/api/api/mutations/create-retry-for-failed-recurring-payment)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createUserPasswordReset`](/docs/api/api/mutations/create-user-password-reset)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createVoidForRefund`](/docs/api/api/mutations/create-void-for-refund)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`deleteInvoice`](/docs/api/api/mutations/delete-invoice)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`deleteMetadata`](/docs/api/api/mutations/delete-metadata)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`deleteUser`](/docs/api/api/mutations/delete-user)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`updateDevice`](/docs/api/api/mutations/update-device)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`updateInvoice`](/docs/api/api/mutations/update-invoice)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`updateMerchantSettings`](/docs/api/api/mutations/update-merchant-settings)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`updateMetadata`](/docs/api/api/mutations/update-metadata)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`updatePayor`](/docs/api/api/mutations/update-payor)  <Badge class="badge badge--secondary" text="mutation"/>
+
+### Member Of
+
+[`AcceptedPaymentMethods`](/docs/api/types/objects/accepted-payment-methods)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`AcceptedPaymentMethodsInput`](/docs/api/types/inputs/accepted-payment-methods-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`createCapture`](/docs/api/api/mutations/create-capture)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createOneTimePayment`](/docs/api/api/mutations/create-one-time-payment)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`Device`](/docs/api/types/objects/device)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`FeeModel`](/docs/api/types/objects/fee-model)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`include`](/docs/api/api/directives/include)  <Badge class="badge badge--secondary" text="directive"/><Bullet />[`InvoiceInput`](/docs/api/types/inputs/invoice-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`InvoiceSettings`](/docs/api/types/objects/invoice-settings)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`InvoiceSettingsInput`](/docs/api/types/inputs/invoice-settings-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`InvoiceUpdateInput`](/docs/api/types/inputs/invoice-update-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`ListMerchant`](/docs/api/types/objects/list-merchant)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Merchant`](/docs/api/types/objects/merchant)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`PaymentLink`](/docs/api/types/objects/payment-link)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`PaymentLinkInput`](/docs/api/types/inputs/payment-link-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`PaymentMethodToken`](/docs/api/types/objects/payment-method-token)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`RecurringPayment`](/docs/api/types/objects/recurring-payment)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`RecurringPaymentInput`](/docs/api/types/inputs/recurring-payment-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`ServiceFeeCalculation`](/docs/api/types/objects/service-fee-calculation)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`skip`](/docs/api/api/directives/skip)  <Badge class="badge badge--secondary" text="directive"/><Bullet />[`Transaction`](/docs/api/types/objects/transaction)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`UpdatePaymentLinkInput`](/docs/api/types/inputs/update-payment-link-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`UpdateRecurringPaymentInput`](/docs/api/types/inputs/update-recurring-payment-input)  <Badge class="badge badge--secondary" text="input"/>
+

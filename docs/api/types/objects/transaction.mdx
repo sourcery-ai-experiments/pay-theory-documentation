@@ -1,0 +1,293 @@
+---
+id: transaction
+title: Transaction
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Transactions are a data object that can represent a payment, failed or successful, or a refund.
+
+
+```graphql
+type Transaction {
+  account_code: String
+  ach_return_details: AchReturnDetails
+  additional_purchase_data: AdditionalPurchaseData
+  authorization_id: String
+  currency: String
+  device_id: String
+  dispute_status: DisputeStatus
+  failure_reasons: [String]
+  fee_mode: FeeMode
+  fees: Int
+  invoice: Invoice
+  is_settled: Boolean
+  gross_amount: Int
+  merchant_uid: String
+  metadata(
+    query_list: [QueryPair]
+  ): AWSJSON
+  net_amount: Int
+  parent_id: String
+  payment_method(
+    query_list: [QueryPair]
+  ): PaymentMethodToken
+  recurring: RecurringPayment
+  reference: String
+  refund_reason: RefundReason
+  refund_voidable: Boolean
+  refunded_amount: Int
+  sale_id: String
+  settlement_batch: Int
+  status: TransactionStatus
+  timezone: String
+  transaction_date: AWSDateTime
+  transaction_id: String
+  transaction_type: TransactionType
+  updated_row_at: AWSDateTime
+}
+```
+
+
+
+
+### Fields
+
+#### [`account_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> Customer defined account code for the transaction.
+> 
+
+#### [`ach_return_details`](#)<Bullet />[`AchReturnDetails`](/docs/api/types/objects/ach-return-details)  
+> 
+> 
+> The details of the ACH return if any.
+> 
+
+#### [`additional_purchase_data`](#)<Bullet />[`AdditionalPurchaseData`](/docs/api/types/objects/additional-purchase-data)  
+> 
+> 
+> Additional purchase data for the transaction.
+> 
+
+#### [`authorization_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The authorization ID for the transaction.
+> 
+
+#### [`currency`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The type of currency for the transaction.
+> 
+
+#### [`device_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The device ID associated with the transaction.
+> 
+
+#### [`dispute_status`](#)<Bullet />[`DisputeStatus`](/docs/api/types/enums/dispute-status)  
+> 
+> 
+> The status of the dispute if any.
+> 
+
+#### [`failure_reasons`](#)<Bullet />[`[String]`](/docs/api/types/scalars/string)  
+> 
+> 
+> List of strings detailing the reason(s) a transaction failed, if any.
+> 
+
+#### [`fee_mode`](#)<Bullet />[`FeeMode`](/docs/api/types/enums/fee-mode)  
+> 
+> 
+> The fee mode on the transaction.
+> 
+
+#### [`fees`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The amount of fees charged for the transaction.
+> 
+
+#### [`invoice`](#)<Bullet />[`Invoice`](/docs/api/types/objects/invoice)  
+> 
+> 
+> The invoice object for the transaction if any.
+> 
+
+#### [`is_settled`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> Whether the transaction has been settled.
+> 
+
+#### [`gross_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The total amount of the transaction before fees.
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The Pay Theory unique identifier for the merchant the transaction is for.
+> 
+
+#### [`metadata`](#)<Bullet />[`AWSJSON`](/docs/api/types/scalars/awsjson)  
+> 
+> 
+> Custom-defined JSON object to be stored with the transaction.
+> ##### [`query_list`](#)<Bullet />[`[QueryPair]`](/docs/api/types/inputs/query-pair)  
+> 
+> 
+> 
+> 
+
+#### [`net_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The total amount of the transaction after fees.
+> 
+
+#### [`parent_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The Pay Theory unique identifier for the parent transaction if any.
+> 
+
+#### [`payment_method`](#)<Bullet />[`PaymentMethodToken`](/docs/api/types/objects/payment-method-token)  
+> 
+> 
+> The payment method used to make the transaction.
+> ##### [`query_list`](#)<Bullet />[`[QueryPair]`](/docs/api/types/inputs/query-pair)  
+> 
+> 
+> 
+> 
+
+#### [`recurring`](#)<Bullet />[`RecurringPayment`](/docs/api/types/objects/recurring-payment)  
+> 
+> 
+> The recurring payment that the transaction belongs to if any.
+> 
+
+#### [`reference`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> Customer defined reference for the transaction.
+> 
+
+#### [`refund_reason`](#)<Bullet />[`RefundReason`](/docs/api/types/objects/refund-reason)  
+> 
+> 
+> The reason for the refund if any.
+> 
+
+#### [`refund_voidable`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> Whether the refund can be voided.
+> 
+
+#### [`refunded_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The amount of the transaction that has been refunded if any.
+> 
+
+#### [`sale_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The sale ID associated with the transaction.
+> 
+
+#### [`settlement_batch`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The unique settlement batch number the transaction belongs to if settled.
+> 
+
+#### [`status`](#)<Bullet />[`TransactionStatus`](/docs/api/types/enums/transaction-status)  
+> 
+> 
+> The status of the transaction.
+> 
+
+#### [`timezone`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The timezone the transaction was made in.
+> 
+
+#### [`transaction_date`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date and time the transaction was made.
+> 
+
+#### [`transaction_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The Pay Theory unique identifier for the transaction.
+> 
+
+#### [`transaction_type`](#)<Bullet />[`TransactionType`](/docs/api/types/enums/transaction-type)  
+> 
+> 
+> The type of transfer that was made.
+> 
+
+#### [`updated_row_at`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date and time the transaction was last updated.
+> 
+
+
+
+### Returned By
+
+[`createCapture`](/docs/api/api/mutations/create-capture)  <Badge class="badge badge--secondary" text="mutation"/>
+
+### Member Of
+
+[`Dispute`](/docs/api/types/objects/dispute)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Transactions`](/docs/api/types/objects/transactions)  <Badge class="badge badge--secondary" text="object"/>
+

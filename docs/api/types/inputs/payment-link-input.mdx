@@ -1,0 +1,172 @@
+---
+id: payment-link-input
+title: PaymentLinkInput
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+No description
+
+
+```graphql
+input PaymentLinkInput {
+  accepted_payment_methods: AcceptedPaymentMethodsEnum
+  account_code: String
+  amount: Int
+  amount_is_variable: Boolean
+  call_to_action: CallToActionType
+  currency: String
+  custom_success_message: String
+  fee_mode: FeeMode
+  link_name: String!
+  max_amount: Int
+  merchant_uid: String!
+  min_amount: Int
+  payment_description: String
+  payment_name: String!
+  redirect_url: String
+  require_phone: Boolean
+}
+```
+
+
+
+
+### Fields
+
+#### [`accepted_payment_methods`](#)<Bullet />[`AcceptedPaymentMethodsEnum`](/docs/api/types/enums/accepted-payment-methods-enum)  
+> 
+> 
+> 
+> 
+
+#### [`account_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`amount_is_variable`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`call_to_action`](#)<Bullet />[`CallToActionType`](/docs/api/types/enums/call-to-action-type)  
+> 
+> 
+> 
+> 
+
+#### [`currency`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`custom_success_message`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`fee_mode`](#)<Bullet />[`FeeMode`](/docs/api/types/enums/fee-mode)  
+> 
+> 
+> 
+> 
+
+#### [`link_name`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`max_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`min_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`payment_description`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`payment_name`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`redirect_url`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`require_phone`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`createPaymentLink`](/docs/api/api/mutations/create-payment-link)  <Badge class="badge badge--secondary" text="mutation"/>
+

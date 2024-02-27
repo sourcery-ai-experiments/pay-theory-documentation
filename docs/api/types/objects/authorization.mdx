@@ -1,0 +1,233 @@
+---
+id: authorization
+title: Authorization
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+An authorization is used to reserve funds on a card for a future transaction. It is not a charge, but it does reserve
+the funds on the card for a period of time. The authorization will expire after a period of time if it is not captured.
+
+Authorizations are currently only available for certain processors. Please contact Pay Theory for more information.
+
+
+```graphql
+type Authorization {
+  account_code: String
+  additional_purchase_data: AdditionalPurchaseData
+  amount: Int!
+  authorization_date: AWSDateTime!
+  authorization_id: String!
+  captured_amount: Int
+  currency: String!
+  device_id: String
+  expiration_date: AWSDateTime
+  failure_reasons: [String]
+  fee_mode: FeeMode!
+  fees: Int!
+  invoice: Invoice
+  merchant_uid: String!
+  metadata(
+    query_list: [QueryPair]
+  ): AWSJSON
+  payment_method(
+    query_list: [QueryPair]
+  ): PaymentMethodToken!
+  reference: String
+  sale_id: String
+  status: AuthorizationStatus!
+  timezone: String
+  transaction_id: String
+  updated_row_at: AWSDateTime
+}
+```
+
+
+
+
+### Fields
+
+#### [`account_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> Custom defined value passed in as the account code for the authorization.
+> 
+
+#### [`additional_purchase_data`](#)<Bullet />[`AdditionalPurchaseData`](/docs/api/types/objects/additional-purchase-data)  
+> 
+> 
+> Additional purchase data for the authorization.
+> 
+
+#### [`amount`](#)<Bullet />[`Int!`](/docs/api/types/scalars/int)  
+> 
+> 
+> The amount of the authorization in cents.
+> 
+
+#### [`authorization_date`](#)<Bullet />[`AWSDateTime!`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date and time the authorization was created.
+> 
+
+#### [`authorization_id`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> The Pay Theory unique identifier assigned to the authorization.
+> 
+
+#### [`captured_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The amount of the captured authorization in cents.
+> 
+
+#### [`currency`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> The currency of the authorization. Currently only USD is supported.
+> 
+
+#### [`device_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The device ID associated with the authorization.
+> 
+
+#### [`expiration_date`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date and time the authorization will expire.
+> 
+
+#### [`failure_reasons`](#)<Bullet />[`[String]`](/docs/api/types/scalars/string)  
+> 
+> 
+> Array of failure reasons for the authorization. If the authorization is successful, this will be null.
+> 
+
+#### [`fee_mode`](#)<Bullet />[`FeeMode!`](/docs/api/types/enums/fee-mode)  
+> 
+> 
+> The fee mode for the authorization. It can be one of the following: SERVICE_FEE, MERCHANT_FEE
+> 
+
+#### [`fees`](#)<Bullet />[`Int!`](/docs/api/types/scalars/int)  
+> 
+> 
+> The amount of fees for the authorization in cents.
+> 
+
+#### [`invoice`](#)<Bullet />[`Invoice`](/docs/api/types/objects/invoice)  
+> 
+> 
+> The invoice object for the invoice that the authorization belongs to. More information on the invoice object can be found here.
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> The Pay Theory unique identifier assigned to the merchant that the authorization belongs to.
+> 
+
+#### [`metadata`](#)<Bullet />[`AWSJSON`](/docs/api/types/scalars/awsjson)  
+> 
+> 
+> Any additional data that was stored with the authorization.
+> ##### [`query_list`](#)<Bullet />[`[QueryPair]`](/docs/api/types/inputs/query-pair)  
+> 
+> 
+> 
+> 
+
+#### [`payment_method`](#)<Bullet />[`PaymentMethodToken!`](/docs/api/types/objects/payment-method-token)  
+> 
+> 
+> The payment method token object for the payment method that the authorization belongs to. More information on the payment method token object can be found here.
+> ##### [`query_list`](#)<Bullet />[`[QueryPair]`](/docs/api/types/inputs/query-pair)  
+> 
+> 
+> 
+> 
+
+#### [`reference`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> Custom defined value passed in as the reference for the authorization.
+> 
+
+#### [`sale_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The Pay Theory unique identifier assigned to the sale that the authorization belongs to. Sales can be used to tie together multiple auths and captures.
+> 
+
+#### [`status`](#)<Bullet />[`AuthorizationStatus!`](/docs/api/types/enums/authorization-status)  
+> 
+> 
+> The status of the authorization. It can be one of the following: CANCELLED, FAILED, SUCCEEDED
+> 
+
+#### [`timezone`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The timezone of the authorization.
+> 
+
+#### [`transaction_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The Pay Theory unique identifier for the transaction associated with the authorization.
+> 
+
+#### [`updated_row_at`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date and time the authorization was last updated.
+> 
+
+
+
+### Returned By
+
+[`createAuthorization`](/docs/api/api/mutations/create-authorization)  <Badge class="badge badge--secondary" text="mutation"/>
+
+### Member Of
+
+[`Authorizations`](/docs/api/types/objects/authorizations)  <Badge class="badge badge--secondary" text="object"/>
+

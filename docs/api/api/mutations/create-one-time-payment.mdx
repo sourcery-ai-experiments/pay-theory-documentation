@@ -1,0 +1,183 @@
+---
+id: create-one-time-payment
+title: createOneTimePayment
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Create a one time payment
+
+
+```graphql
+createOneTimePayment(
+  merchant_uid: String!
+  amount: Int!
+  payment_method_id: String
+  payment_method: PaymentMethodInput
+  recurring_id: String
+  invoice_id: String
+  fee: Int
+  fee_mode: FeeMode
+  payment_parameters_name: String
+  account_code: String
+  reference: String
+  send_receipt: Boolean
+  receipt_description: String
+  metadata: AWSJSON
+  health_expense_type: HealthExpenseType
+  digital_wallet: DigitalWalletInput
+  additional_purchase_data: AdditionalPurchaseDataInput
+): OneTimePayment
+```
+
+
+
+
+### Arguments
+
+#### [`merchant_uid`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`amount`](#)<Bullet />[`Int!`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`payment_method_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`payment_method`](#)<Bullet />[`PaymentMethodInput`](/docs/api/types/inputs/payment-method-input)  
+> 
+> 
+> 
+> 
+
+#### [`recurring_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`invoice_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`fee`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`fee_mode`](#)<Bullet />[`FeeMode`](/docs/api/types/enums/fee-mode)  
+> 
+> 
+> 
+> 
+
+#### [`payment_parameters_name`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`account_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`reference`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`send_receipt`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`receipt_description`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`metadata`](#)<Bullet />[`AWSJSON`](/docs/api/types/scalars/awsjson)  
+> 
+> 
+> 
+> 
+
+#### [`health_expense_type`](#)<Bullet />[`HealthExpenseType`](/docs/api/types/enums/health-expense-type)  
+> 
+> 
+> 
+> 
+
+#### [`digital_wallet`](#)<Bullet />[`DigitalWalletInput`](/docs/api/types/inputs/digital-wallet-input)  
+> 
+> 
+> 
+> 
+
+#### [`additional_purchase_data`](#)<Bullet />[`AdditionalPurchaseDataInput`](/docs/api/types/inputs/additional-purchase-data-input)  
+> 
+> 
+> 
+> 
+
+### Type
+
+#### [`OneTimePayment`](/docs/api/types/objects/one-time-payment)  
+> 
+> 
+> 
+> 
+
+
+

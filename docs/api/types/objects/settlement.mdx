@@ -1,0 +1,158 @@
+---
+id: settlement
+title: Settlement
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Settlements are a batch of payments, disputes, and refunds that are grouped together and paid out to a merchant.
+
+
+```graphql
+type Settlement {
+  currency: String
+  gross_amount: Int
+  merchant_uid: String
+  net_amount: Int
+  settlement_batch: Int
+  settlement_date: AWSDateTime
+  status: String
+  transaction_debit_count: Int
+  transaction_dispute_count: Int
+  transaction_reversal_count: Int
+  transfer_date: AWSDateTime
+  total_adjustments: Int
+  total_fees: Int
+  updated_row_at: AWSDateTime
+}
+```
+
+
+
+
+### Fields
+
+#### [`currency`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The currency of the settlement.
+> 
+
+#### [`gross_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The total amount of the settlement before any fees and adjustments.
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The Pay Theory unique identifier assigned to the merchant that the settlement belongs to.
+> 
+
+#### [`net_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The total amount of the settlement after any fees and adjustments.
+> 
+
+#### [`settlement_batch`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The unique settlement batch number.
+> 
+
+#### [`settlement_date`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date the settlement was created.
+> 
+
+#### [`status`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The status of the settlement. Will be either PENDING or SUCCEEDED.
+> 
+
+#### [`transaction_debit_count`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The number of transactions of type DEBIT that were included in the settlement.
+> 
+
+#### [`transaction_dispute_count`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The number of transactions of type DISPUTE that were included in the settlement.
+> 
+
+#### [`transaction_reversal_count`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The number of transactions of type REVERSAL that were included in the settlement.
+> 
+
+#### [`transfer_date`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date the settlement was transferred to the merchant.
+> 
+
+#### [`total_adjustments`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The total amount of adjustments that were applied to the settlement.
+> 
+
+#### [`total_fees`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The total amount of fees that were applied to the settlement.
+> 
+
+#### [`updated_row_at`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date the settlement was last updated.
+> 
+
+
+
+### Member Of
+
+[`Settlements`](/docs/api/types/objects/settlements)  <Badge class="badge badge--secondary" text="object"/>
+

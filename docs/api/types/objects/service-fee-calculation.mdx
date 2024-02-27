@@ -1,0 +1,88 @@
+---
+id: service-fee-calculation
+title: ServiceFeeCalculation
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+No description
+
+
+```graphql
+type ServiceFeeCalculation {
+  adjusted_total: Int
+  fee: Int
+  fee_limit_reached: Boolean
+  total: Int
+}
+```
+
+
+
+
+### Fields
+
+#### [`adjusted_total`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`fee`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`fee_limit_reached`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`total`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`ServiceFeeAmount`](/docs/api/types/objects/service-fee-amount)  <Badge class="badge badge--secondary" text="object"/>
+

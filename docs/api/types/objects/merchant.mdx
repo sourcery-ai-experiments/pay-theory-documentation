@@ -1,0 +1,137 @@
+---
+id: merchant
+title: Merchant
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Merchants are the entities that are using Pay Theory to accept payments.
+
+
+```graphql
+type Merchant {
+  ach_active: Boolean
+  api_key: String
+  card_active: Boolean
+  cash_active: Boolean
+  fee_model: FeeModel
+  is_system: Boolean
+  merchant_name: String
+  merchant_uid: String
+  parent_merchant_uid: String
+  settings: MerchantSettings
+  submitted_onboarding: Boolean
+}
+```
+
+
+
+
+### Fields
+
+#### [`ach_active`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`api_key`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`card_active`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`cash_active`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`fee_model`](#)<Bullet />[`FeeModel`](/docs/api/types/objects/fee-model)  
+> 
+> 
+> 
+> 
+
+#### [`is_system`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`merchant_name`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`parent_merchant_uid`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`settings`](#)<Bullet />[`MerchantSettings`](/docs/api/types/objects/merchant-settings)  
+> 
+> 
+> 
+> 
+
+#### [`submitted_onboarding`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+
+
+### Returned By
+
+[`merchant`](/docs/api/api/queries/merchant)  <Badge class="badge badge--secondary" text="query"/>
+

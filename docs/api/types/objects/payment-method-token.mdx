@@ -1,0 +1,195 @@
+---
+id: payment-method-token
+title: PaymentMethodToken
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Payment Method Tokens are meant to store info that represents a tokenized Bank Account, Credit Card, or Debit Card.
+
+
+```graphql
+type PaymentMethodToken {
+  address_line1: String
+  address_line2: String
+  card_brand: String
+  city: String
+  country: String
+  exp_date: String
+  full_name: String
+  is_active: Boolean
+  last_four: String
+  merchant_uid: String
+  metadata(
+    query_list: [QueryPair]
+  ): AWSJSON
+  payment_method_id: String
+  payment_type: PaymentType
+  payor(
+    query_list: [QueryPair]
+  ): Payor
+  postal_code: String
+  region: String
+  wallet_type: WalletType
+}
+```
+
+
+
+
+### Fields
+
+#### [`address_line1`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The first line of the billing address.
+> 
+
+#### [`address_line2`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The second line of the billing address.
+> 
+
+#### [`card_brand`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The brand of the card. Null if the payment_type is not a card.
+> 
+
+#### [`city`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The city of the billing address.
+> 
+
+#### [`country`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The country of the billing address.
+> 
+
+#### [`exp_date`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The expiration date of the card. Null if the payment_type is not a card. Format: MMYY
+> 
+
+#### [`full_name`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The name on card or bank account.
+> 
+
+#### [`is_active`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> Whether or not the payment method token is active.
+> 
+
+#### [`last_four`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The last four digits of the card or bank account number.
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The Pay Theory unique identifier assigned to the merchant that the payment_method_token belongs to.
+> 
+
+#### [`metadata`](#)<Bullet />[`AWSJSON`](/docs/api/types/scalars/awsjson)  
+> 
+> 
+> Any additional data that was stored with the payment method token.
+> ##### [`query_list`](#)<Bullet />[`[QueryPair]`](/docs/api/types/inputs/query-pair)  
+> 
+> 
+> 
+> 
+
+#### [`payment_method_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The unique payment method id.
+> 
+
+#### [`payment_type`](#)<Bullet />[`PaymentType`](/docs/api/types/enums/payment-type)  
+> 
+> 
+> The type of payment method. It can be one of the following: CARD, ACH
+> 
+
+#### [`payor`](#)<Bullet />[`Payor`](/docs/api/types/objects/payor)  
+> 
+> 
+> The payor object. Refer to the Payor docs for more info.
+> ##### [`query_list`](#)<Bullet />[`[QueryPair]`](/docs/api/types/inputs/query-pair)  
+> 
+> 
+> 
+> 
+
+#### [`postal_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The postal code of the billing address.
+> 
+
+#### [`region`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The region of the billing address.
+> 
+
+#### [`wallet_type`](#)<Bullet />[`WalletType`](/docs/api/types/enums/wallet-type)  
+> 
+> 
+> The type of wallet that the payment method token is stored in. It can be one of the following: APPLE_PAY, CLICK_TO_PAY, GOOGLE_PAY, SAMSUNG_PAY, VISA_STAGED
+> 
+
+
+
+### Returned By
+
+[`createPaymentMethod`](/docs/api/api/mutations/create-payment-method)  <Badge class="badge badge--secondary" text="mutation"/>
+
+### Member Of
+
+[`Authorization`](/docs/api/types/objects/authorization)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`PaymentMethodTokens`](/docs/api/types/objects/payment-method-tokens)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`RecurringPayment`](/docs/api/types/objects/recurring-payment)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Transaction`](/docs/api/types/objects/transaction)  <Badge class="badge badge--secondary" text="object"/>
+

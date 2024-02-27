@@ -1,0 +1,57 @@
+---
+id: awsdate-time
+title: AWSDateTime
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+No description
+
+
+```graphql
+scalar AWSDateTime
+```
+
+
+
+
+
+
+### Member Of
+
+[`Authorization`](/docs/api/types/objects/authorization)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Dispute`](/docs/api/types/objects/dispute)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Invoice`](/docs/api/types/objects/invoice)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`ListMerchant`](/docs/api/types/objects/list-merchant)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Metadata`](/docs/api/types/objects/metadata)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`OneTimePayment`](/docs/api/types/objects/one-time-payment)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`PaymentLink`](/docs/api/types/objects/payment-link)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`RecurringPayment`](/docs/api/types/objects/recurring-payment)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Settlement`](/docs/api/types/objects/settlement)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Transaction`](/docs/api/types/objects/transaction)  <Badge class="badge badge--secondary" text="object"/>
+

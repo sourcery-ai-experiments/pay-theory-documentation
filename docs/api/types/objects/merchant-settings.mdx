@@ -1,0 +1,116 @@
+---
+id: merchant-settings
+title: MerchantSettings
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Merchant settings
+
+
+```graphql
+type MerchantSettings {
+  contact_email: AWSEmail
+  contact_phone: AWSPhone
+  facebook: AWSURL
+  instagram: AWSURL
+  linkedin: AWSURL
+  tiktok: AWSURL
+  twitter: AWSURL
+  website: AWSURL
+}
+```
+
+
+
+
+### Fields
+
+#### [`contact_email`](#)<Bullet />[`AWSEmail`](/docs/api/types/scalars/awsemail)  
+> 
+> 
+> 
+> 
+
+#### [`contact_phone`](#)<Bullet />[`AWSPhone`](/docs/api/types/scalars/awsphone)  
+> 
+> 
+> 
+> 
+
+#### [`facebook`](#)<Bullet />[`AWSURL`](/docs/api/types/scalars/awsurl)  
+> 
+> 
+> 
+> 
+
+#### [`instagram`](#)<Bullet />[`AWSURL`](/docs/api/types/scalars/awsurl)  
+> 
+> 
+> 
+> 
+
+#### [`linkedin`](#)<Bullet />[`AWSURL`](/docs/api/types/scalars/awsurl)  
+> 
+> 
+> 
+> 
+
+#### [`tiktok`](#)<Bullet />[`AWSURL`](/docs/api/types/scalars/awsurl)  
+> 
+> 
+> 
+> 
+
+#### [`twitter`](#)<Bullet />[`AWSURL`](/docs/api/types/scalars/awsurl)  
+> 
+> 
+> 
+> 
+
+#### [`website`](#)<Bullet />[`AWSURL`](/docs/api/types/scalars/awsurl)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`Merchant`](/docs/api/types/objects/merchant)  <Badge class="badge badge--secondary" text="object"/>
+

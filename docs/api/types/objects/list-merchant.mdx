@@ -1,0 +1,127 @@
+---
+id: list-merchant
+title: ListMerchant
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+This is a limited merchant object that is returned when you want to query a list of merchants.
+
+
+```graphql
+type ListMerchant {
+  ach_active: Boolean
+  card_active: Boolean
+  cash_active: Boolean
+  is_system: Boolean
+  merchant_name: String
+  merchant_uid: String
+  parent_merchant_uid: String
+  submitted_onboarding: Boolean
+  updated_row_at: AWSDateTime
+}
+```
+
+
+
+
+### Fields
+
+#### [`ach_active`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`card_active`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`cash_active`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`is_system`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`merchant_name`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`parent_merchant_uid`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`submitted_onboarding`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`updated_row_at`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> 
+> 
+
+
+
+### Returned By
+
+[`createMerchant`](/docs/api/api/mutations/create-merchant)  <Badge class="badge badge--secondary" text="mutation"/>
+
+### Member Of
+
+[`Merchants`](/docs/api/types/objects/merchants)  <Badge class="badge badge--secondary" text="object"/>
+

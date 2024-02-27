@@ -1,0 +1,216 @@
+---
+id: invoice
+title: Invoice
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Invoices are used to create a payment request that can be sent to a payor.
+
+
+```graphql
+type Invoice {
+  account_code: String
+  api_key: String
+  created_date: AWSDateTime
+  currency: String
+  due_by: AWSDate
+  fee_mode: FeeMode
+  invoice_amount: Int
+  invoice_description: String
+  invoice_id: String
+  invoice_date: AWSDate
+  invoice_name: String
+  merchant_uid: String
+  merchant_invoice_number: String
+  metadata(
+    query_list: [QueryPair]
+  ): AWSJSON
+  offline_transactions: [OfflineTransaction]
+  payor(
+    query_list: [QueryPair]
+  ): Payor
+  reference: String
+  settings: InvoiceSettings
+  status: InvoiceStatus
+  total_paid_amount: Int
+}
+```
+
+
+
+
+### Fields
+
+#### [`account_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`api_key`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`created_date`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> 
+> 
+
+#### [`currency`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`due_by`](#)<Bullet />[`AWSDate`](/docs/api/types/scalars/awsdate)  
+> 
+> 
+> 
+> 
+
+#### [`fee_mode`](#)<Bullet />[`FeeMode`](/docs/api/types/enums/fee-mode)  
+> 
+> 
+> 
+> 
+
+#### [`invoice_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`invoice_description`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`invoice_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`invoice_date`](#)<Bullet />[`AWSDate`](/docs/api/types/scalars/awsdate)  
+> 
+> 
+> 
+> 
+
+#### [`invoice_name`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`merchant_invoice_number`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`metadata`](#)<Bullet />[`AWSJSON`](/docs/api/types/scalars/awsjson)  
+> 
+> 
+> 
+> ##### [`query_list`](#)<Bullet />[`[QueryPair]`](/docs/api/types/inputs/query-pair)  
+> 
+> 
+> 
+> 
+
+#### [`offline_transactions`](#)<Bullet />[`[OfflineTransaction]`](/docs/api/types/objects/offline-transaction)  
+> 
+> 
+> 
+> 
+
+#### [`payor`](#)<Bullet />[`Payor`](/docs/api/types/objects/payor)  
+> 
+> 
+> 
+> ##### [`query_list`](#)<Bullet />[`[QueryPair]`](/docs/api/types/inputs/query-pair)  
+> 
+> 
+> 
+> 
+
+#### [`reference`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`settings`](#)<Bullet />[`InvoiceSettings`](/docs/api/types/objects/invoice-settings)  
+> 
+> 
+> 
+> 
+
+#### [`status`](#)<Bullet />[`InvoiceStatus`](/docs/api/types/enums/invoice-status)  
+> 
+> 
+> 
+> 
+
+#### [`total_paid_amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+
+
+### Returned By
+
+[`createInvoice`](/docs/api/api/mutations/create-invoice)  <Badge class="badge badge--secondary" text="mutation"/>
+
+### Member Of
+
+[`Authorization`](/docs/api/types/objects/authorization)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Invoices`](/docs/api/types/objects/invoices)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Transaction`](/docs/api/types/objects/transaction)  <Badge class="badge badge--secondary" text="object"/>
+

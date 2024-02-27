@@ -1,0 +1,130 @@
+---
+id: auth-rule
+title: AuthRule
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+No description
+
+
+```graphql
+input AuthRule {
+  allow: AuthStrategy!
+  provider: AuthProvider
+  ownerField: String
+  identityClaim: String
+  groupClaim: String
+  groups: [String]
+  groupsField: String
+  operations: [ModelOperation]
+  queries: [ModelQuery]
+  mutations: [ModelMutation]
+}
+```
+
+
+
+
+### Fields
+
+#### [`allow`](#)<Bullet />[`AuthStrategy!`](/docs/api/types/enums/auth-strategy)  
+> 
+> 
+> 
+> 
+
+#### [`provider`](#)<Bullet />[`AuthProvider`](/docs/api/types/enums/auth-provider)  
+> 
+> 
+> 
+> 
+
+#### [`ownerField`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`identityClaim`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`groupClaim`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`groups`](#)<Bullet />[`[String]`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`groupsField`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`operations`](#)<Bullet />[`[ModelOperation]`](/docs/api/types/enums/model-operation)  
+> 
+> 
+> 
+> 
+
+#### [`queries`](#)<Bullet />[`[ModelQuery]`](/docs/api/types/enums/model-query)  
+> 
+> 
+> 
+> 
+
+#### [`mutations`](#)<Bullet />[`[ModelMutation]`](/docs/api/types/enums/model-mutation)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`auth`](/docs/api/types/directives/auth)  <Badge class="badge badge--secondary" text="directive"/>
+

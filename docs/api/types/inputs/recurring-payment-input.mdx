@@ -1,0 +1,165 @@
+---
+id: recurring-payment-input
+title: RecurringPaymentInput
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+No description
+
+
+```graphql
+input RecurringPaymentInput {
+  account_code: String
+  amount: Int!
+  fee_mode: FeeMode
+  first_payment_date: AWSDate
+  merchant_uid: String!
+  metadata: AWSJSON
+  mute_all_emails: Boolean
+  payment_count: Int
+  payment_interval: RecurringInterval!
+  payment_method_id: String!
+  payor: PayorInput
+  payor_id: String
+  recurring_description: String
+  recurring_name: String!
+  reference: String
+}
+```
+
+
+
+
+### Fields
+
+#### [`account_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`amount`](#)<Bullet />[`Int!`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`fee_mode`](#)<Bullet />[`FeeMode`](/docs/api/types/enums/fee-mode)  
+> 
+> 
+> 
+> 
+
+#### [`first_payment_date`](#)<Bullet />[`AWSDate`](/docs/api/types/scalars/awsdate)  
+> 
+> 
+> 
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`metadata`](#)<Bullet />[`AWSJSON`](/docs/api/types/scalars/awsjson)  
+> 
+> 
+> 
+> 
+
+#### [`mute_all_emails`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`payment_count`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`payment_interval`](#)<Bullet />[`RecurringInterval!`](/docs/api/types/enums/recurring-interval)  
+> 
+> 
+> 
+> 
+
+#### [`payment_method_id`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`payor`](#)<Bullet />[`PayorInput`](/docs/api/types/inputs/payor-input)  
+> 
+> 
+> 
+> 
+
+#### [`payor_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`recurring_description`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`recurring_name`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`reference`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`createRecurringPayment`](/docs/api/api/mutations/create-recurring-payment)  <Badge class="badge badge--secondary" text="mutation"/>
+

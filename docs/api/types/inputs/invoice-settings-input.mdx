@@ -1,0 +1,81 @@
+---
+id: invoice-settings-input
+title: InvoiceSettingsInput
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Invoice settings input
+
+
+```graphql
+input InvoiceSettingsInput {
+  accepted_payment_methods: AcceptedPaymentMethodsInput
+  is_secure: Boolean
+  require_payor_address: Boolean
+}
+```
+
+
+
+
+### Fields
+
+#### [`accepted_payment_methods`](#)<Bullet />[`AcceptedPaymentMethodsInput`](/docs/api/types/inputs/accepted-payment-methods-input)  
+> 
+> 
+> 
+> 
+
+#### [`is_secure`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`require_payor_address`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`InvoiceInput`](/docs/api/types/inputs/invoice-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`InvoiceUpdateInput`](/docs/api/types/inputs/invoice-update-input)  <Badge class="badge badge--secondary" text="input"/>
+

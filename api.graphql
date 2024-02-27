@@ -1,0 +1,1717 @@
+# These are here to help the IDE recognise AWS types.
+#
+# Place this file outside the 'schema' directory so are not pushed to AWS,
+# but are still picked up by PhpStorm's GraphQL plugin to help
+# validate schemas.
+#
+# https://docs.aws.amazon.com/appsync/latest/devguide/scalars.html
+#
+scalar AWSDateTime
+scalar AWSDate
+scalar AWSTime
+scalar AWSTimestamp
+scalar AWSEmail
+scalar AWSJSON
+scalar AWSURL
+scalar AWSPhone
+scalar AWSIPAddress
+
+#
+# The below directives came from a GitHub issue here:
+# https://github.com/apollographql/eslint-plugin-graphql/issues/263
+#
+
+"""This directive allows results to be deferred during execution"""
+directive @defer on FIELD
+
+"""
+Tells the service this field/object has access authorized by an OIDC token.
+"""
+directive @aws_oidc on OBJECT | FIELD_DEFINITION
+
+"""Directs the schema to enforce authorization on a field"""
+directive @aws_auth(
+    """List of cognito user pool groups which have access on this field"""
+    cognito_groups: [String]
+) on FIELD_DEFINITION
+
+"""
+Tells the service which subscriptions will be published to when this mutation is
+called. This directive is deprecated use @aws_susbscribe directive instead.
+"""
+directive @aws_publish(
+    """
+    List of subscriptions which will be published to when this mutation is called.
+    """
+    subscriptions: [String]
+) on FIELD_DEFINITION
+
+"""
+Tells the service this field/object has access authorized by a Cognito User Pools token.
+"""
+directive @aws_cognito_user_pools(
+    """List of cognito user pool groups which have access on this field"""
+    cognito_groups: [String]
+) repeatable on OBJECT | FIELD_DEFINITION
+
+"""Tells the service which mutation triggers this subscription."""
+directive @aws_subscribe(
+    """
+    List of mutations which will trigger this subscription when they are called.
+    """
+    mutations: [String]
+) on FIELD_DEFINITION
+
+"""
+Tells the service this field/object has access authorized by sigv4 signing.
+"""
+directive @aws_iam repeatable on OBJECT | FIELD_DEFINITION
+
+"""
+Tells the service this field/object has access authorized by lambda.
+"""
+directive @aws_lambda repeatable on OBJECT | FIELD_DEFINITION
+
+"""
+Tells the service this field/object has access authorized by an API key.
+"""
+directive @aws_api_key on OBJECT | FIELD_DEFINITION
+directive @auth(rules: [AuthRule!]!) repeatable on OBJECT | FIELD_DEFINITION
+input AuthRule {
+    allow: AuthStrategy!
+    provider: AuthProvider
+    ownerField: String # defaults to "owner" when using owner auth
+    identityClaim: String # defaults to "username" when using owner auth
+    groupClaim: String # defaults to "cognito:groups" when using Group auth
+    groups: [String]  # Required when using Static Group auth
+    groupsField: String # defaults to "groups" when using Dynamic Group auth
+    operations: [ModelOperation] # Required for finer control
+
+    # The following arguments are deprecated. It is encouraged to use the 'operations' argument.
+    queries: [ModelQuery]
+    mutations: [ModelMutation]
+}
+enum AuthStrategy { owner groups private public }
+enum AuthProvider { apiKey iam oidc userPools }
+enum ModelOperation { create update delete read }
+
+# The following objects are deprecated. It is encouraged to use ModelOperations.
+enum ModelQuery { get list }
+enum ModelMutation { create update delete }
+
+directive @connection(keyName: String, fields: [String!]) repeatable  on FIELD_DEFINITION
+directive @key(name: String!, fields: [String!]) repeatable on OBJECT | FIELD_DEFINITION
+directive @model(
+    queries: ModelQueryMap
+    mutations: ModelMutationMap
+    subscriptions: ModelSubscriptionMap
+    timestamps: TimestampConfiguration
+) repeatable on OBJECT
+input ModelMutationMap {
+    create: String
+    update: String
+    delete: String
+}
+input ModelQueryMap {
+    get: String
+    list: String
+}
+input ModelSubscriptionMap {
+    onCreate: [String]
+    onUpdate: [String]
+    onDelete: [String]
+    level: ModelSubscriptionLevel
+}
+enum ModelSubscriptionLevel {
+    off
+    public
+    on
+}
+input TimestampConfiguration {
+    createdAt: String
+    updatedAt: String
+}
+
+"""
+Accepted payment methods
+"""
+type AcceptedPaymentMethods @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    ach: Boolean
+    card: Boolean
+    cash: Boolean
+}
+
+"""
+The payment methods that will be available to a payor when making a payment.
+"""
+enum AcceptedPaymentMethodsEnum {
+    ALL
+    NOT_CASH
+    NOT_CARD
+    NOT_ACH
+    ONLY_CASH
+    ONLY_CARD
+    ONLY_ACH
+}
+
+"""
+Accepted payment method input
+"""
+input AcceptedPaymentMethodsInput {
+    ach: Boolean
+    card: Boolean
+    cash: Boolean
+}
+
+"""
+ACH Account Type
+"""
+enum AchAccountType {
+    BUSINESS_CHECKING
+    BUSINESS_SAVINGS
+    PERSONAL_CHECKING
+    PERSONAL_SAVINGS
+}
+
+"""
+ACH input details
+"""
+input AchInput {
+    address_line1: String
+    address_line2: String
+    account_number: String!
+    account_type: AchAccountType!
+    city: String
+    country: String
+    name_on_account: String!
+    postal_code: String
+    region: String
+    routing_number: String!
+}
+"""
+ACH return details
+"""
+type AchReturnDetails @aws_cognito_user_pools
+@aws_iam
+@aws_lambda {
+    return_code: String
+    return_details: String
+    transfer_type: AchReturnTransferType
+}
+
+"""
+ACH return transfer type
+"""
+enum AchReturnTransferType {
+    CREDIT
+    DEBIT
+}
+
+"""
+Additional purchase data
+"""
+type AdditionalPurchaseData @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    level3_data_line_item: [Level3DataLineItem]
+    level3_data_summary:  Level3DataSummary
+}
+
+"""
+Additional purchase data input
+"""
+input AdditionalPurchaseDataInput {
+    # Max 99 line items
+    level3_data_line_item: [Level3DataLineItemInput]
+    level3_data_summary:  Level3DataSummaryInput
+}
+
+"""
+An authorization is used to reserve funds on a card for a future transaction. It is not a charge, but it does reserve
+the funds on the card for a period of time. The authorization will expire after a period of time if it is not captured.
+
+Authorizations are currently only available for certain processors. Please contact Pay Theory for more information.
+"""
+type Authorization @aws_cognito_user_pools @aws_lambda @aws_iam {
+    """
+    Custom defined value passed in as the account code for the authorization.
+    """
+    account_code: String
+    """
+    Additional purchase data for the authorization.
+    """
+    additional_purchase_data: AdditionalPurchaseData
+    """
+    The amount of the authorization in cents.
+    """
+    amount: Int!
+    """
+    The date and time the authorization was created.
+    """
+    authorization_date: AWSDateTime!
+    """
+    The Pay Theory unique identifier assigned to the authorization.
+    """
+    authorization_id: String!
+    """
+    The amount of the captured authorization in cents.
+    """
+    captured_amount: Int
+    """
+    The currency of the authorization. Currently only USD is supported.
+    """
+    currency: String!
+    """
+    The device ID associated with the authorization.
+    """
+    device_id: String
+    """
+    The date and time the authorization will expire.
+    """
+    expiration_date: AWSDateTime
+    """
+    Array of failure reasons for the authorization. If the authorization is successful, this will be null.
+    """
+    failure_reasons: [String]
+    """
+    The fee mode for the authorization. It can be one of the following: SERVICE_FEE, MERCHANT_FEE
+    """
+    fee_mode: FeeMode!
+    """
+    The amount of fees for the authorization in cents.
+    """
+    fees: Int!
+    """
+    The invoice object for the invoice that the authorization belongs to.
+    """
+    invoice: Invoice
+    """
+    The Pay Theory unique identifier assigned to the merchant that the authorization belongs to.
+    """
+    merchant_uid: String!
+    """
+    Any additional data that was stored with the authorization.
+    """
+    metadata(query_list: [QueryPair]): AWSJSON
+    """
+    The payment method token object for the payment method that the authorization belongs to.
+    """
+    payment_method(query_list: [QueryPair]): PaymentMethodToken!
+    """
+    Custom defined value passed in as the reference for the authorization.
+    """
+    reference: String
+    """
+    The Pay Theory unique identifier assigned to the sale that the authorization belongs to. Sales can be used to tie together multiple auths and captures.
+    """
+    sale_id: String
+    """
+    The status of the authorization. It can be one of the following: CANCELLED, FAILED, SUCCEEDED
+    """
+    status: AuthorizationStatus!
+    """
+    The timezone of the authorization.
+    """
+    timezone: String
+    """
+    The Pay Theory unique identifier for the transaction associated with the authorization.
+    """
+    transaction_id: String
+    """
+    The date and time the authorization was last updated.
+    """
+    updated_row_at: AWSDateTime
+}
+
+"""
+An authorization is used to reserve funds on a card for a future transaction. It is not a charge, but it does reserve
+the funds on the card for a period of time. The authorization will expire after a period of time if it is not captured.
+"""
+type Authorizations @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [Authorization]
+    total_row_count: Int
+}
+
+"""
+Authorization statuses
+"""
+enum AuthorizationStatus {
+    CANCELED
+    FAILED
+    SUCCEEDED
+}
+
+"""
+Call to action types for payment links
+"""
+enum CallToActionType {
+    BOOK
+    DONATE
+    PAY
+}
+
+"""
+Card expiration input
+"""
+input CardExpirationInput {
+    month: String!
+    year: String!
+}
+
+"""
+Card input details
+"""
+input CardInput {
+    address_line1: String
+    address_line2: String
+    card_number: String!
+    city: String
+    country: String
+    exp_date: CardExpirationInput!
+    full_name: String
+    postal_code: String!
+    region: String
+    security_code: String!
+}
+
+"""
+The conjunctive operator to use to connect the query pair with the next query pair
+"""
+enum ConjunctiveOperator {
+    AND_NEXT
+    NONE_NEXT
+    OR_NEXT
+}
+
+"""
+Device details
+"""
+type Device @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    device_description: String
+    device_id: String
+    device_name: String
+    is_active: Boolean
+    merchant_uid: String
+}
+
+"""
+Device and total row count
+"""
+type Devices @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [Device]
+    total_row_count: Int
+}
+
+"""
+Digital wallet input details
+"""
+input DigitalWalletInput
+{
+    address_line1: String
+    dpan: String!
+    exp_date: String!
+    postal_code: String
+    wallet_type: WalletType!
+}
+
+"""
+Disputes are charges that have been contested by a cardholder to their card issuer.
+They could be an INQUIRY which is just a request for information, or an actual chargeback in the status PENDING which is
+a request for a charge to be reversed.
+"""
+type Dispute @aws_cognito_user_pools @aws_lambda @aws_iam {
+    """
+    The amount of the transaction in dispute.
+    """
+    amount: Int
+    """
+    The date the dispute was created.
+    """
+    dispute_date: AWSDateTime
+    """
+    The Pay Theory unique dispute identifier.
+    """
+    dispute_id: String
+    """
+    The last date evidence was sent to the processor. If no evidence was sent, this will be null.
+    """
+    evidence_last_send_date: AWSDateTime
+    """
+    The final date to submit evidence to contest a dispute.
+    """
+    expiration_date: AWSDateTime
+    """
+    The Pay Theory unique identifier assigned to the merchant that the dispute belongs to.
+    """
+    merchant_uid: ID
+    """
+    The status of the dispute.
+    """
+    status: DisputeStatus
+    """
+    The reason code for the dispute as passed by the card issuer.
+    """
+    reason: DisputeReason
+    """
+    A more detailed reason provided by the card issuer for the dispute.
+    """
+    reason_message: String
+    """
+    The settlement batch number where funds were withdrawn from the merchant's account for the dispute.
+    """
+    settlement_withdrawal_batch: String
+    """
+    The settlement batch number where funds were deposited into the merchant's account if a dispute is WON.
+    """
+    settlement_deposit_batch: String
+    """
+    The transaction object for the transaction that is in dispute.
+    """
+    transaction: Transaction
+    """
+    The date the dispute was last updated.
+    """
+    updated_date: AWSDateTime
+    """
+    The date the dispute was last updated in the database.
+    """
+    updated_row_at: AWSDateTime
+}
+
+"""
+Dispute reasons
+"""
+enum DisputeReason {
+    CLERICAL
+    FRAUD
+    INQUIRY
+    QUALITY
+    TECHNICAL
+}
+
+"""
+Disputes and total row count
+"""
+type Disputes @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [Dispute]
+    total_row_count: Int
+}
+
+"""
+Dispute statuses
+"""
+enum DisputeStatus {
+    INQUIRY
+    LOST
+    PENDING
+    WON
+}
+
+"""
+Defaults to MERCHANT_FEE. If available to merchant SERVICE_FEE the fee will be added to the amount and charged to the
+payor. More details about the fee modes in your Pay Theory Portal.
+"""
+enum FeeMode {
+    INTERCHANGE
+    MERCHANT_FEE
+    SERVICE_FEE
+}
+
+"""
+The fee model that the merchant is using. This is used to calculate the fees that are charged to the payor.
+"""
+type FeeModel @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    interchange_plus: Boolean
+    merchant_fee: FeeModelDetail
+    service_fee: FeeModelDetail
+    service_fee_min: FeeModelDetail
+}
+
+"""
+The fee details that are used to calculate the fees charged.
+"""
+type FeeModelDetail @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    ach_basis: Int
+    ach_fixed: Int
+    card_basis: Int
+    card_fixed: Int
+}
+
+"""
+Health expense types
+"""
+enum HealthExpenseType {
+    CLINICAL
+    COPAY
+    DENTAL
+    HEALTHCARE
+    RX
+    TRANSIT
+    VISION
+}
+
+"""
+Invoices are used to create a payment request that can be sent to a payor.
+"""
+type Invoice @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    account_code: String
+    api_key: String
+    created_date: AWSDateTime
+    currency: String
+    due_by: AWSDate
+    fee_mode: FeeMode
+    invoice_amount: Int
+    invoice_description: String
+    invoice_id: String
+    invoice_date: AWSDate
+    invoice_name: String
+    merchant_uid: String
+    merchant_invoice_number: String
+    metadata(query_list: [QueryPair]): AWSJSON
+    offline_transactions: [OfflineTransaction]
+    payor(query_list: [QueryPair]): Payor
+    reference: String
+    settings: InvoiceSettings
+    status: InvoiceStatus
+    total_paid_amount: Int
+}
+
+"""
+The input object that contains all the information needed to create an invoice.
+"""
+input InvoiceInput {
+    account_code: String
+    currency: String!
+    due_by: AWSDate
+    fee_mode: FeeMode
+    invoice_amount: Int!
+    invoice_date: AWSDate
+    invoice_description: String
+    invoice_name: String
+    merchant_uid: String!
+    merchant_invoice_number: String
+    metadata: AWSJSON
+    payor_id: String
+    payor: PayorInput
+    reference: String
+    send_email: Boolean
+    settings: InvoiceSettingsInput
+}
+
+"""
+Invoice settings
+"""
+type InvoiceSettings @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    accepted_payment_methods: AcceptedPaymentMethods
+    is_secure: Boolean
+    require_payor_address: Boolean
+    security_pin: String
+}
+
+"""
+Invoice settings input
+"""
+input InvoiceSettingsInput {
+    accepted_payment_methods: AcceptedPaymentMethodsInput
+    is_secure: Boolean
+    require_payor_address: Boolean
+}
+
+"""
+Invoice statuses
+"""
+enum InvoiceStatus {
+    NOT_PAID
+    PARTIALLY_PAID
+    PAID
+}
+
+"""
+Invoices and total row count
+"""
+type Invoices @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [Invoice]
+    total_row_count: Int
+}
+
+"""
+The input object that contains all of the information needed to update an invoice.
+"""
+input InvoiceUpdateInput {
+    account_code: String
+    currency: String
+    due_by: AWSDate
+    fee_mode: FeeMode
+    invoice_amount: Int
+    invoice_date: AWSDate
+    invoice_name: String
+    invoice_description: String
+    merchant_invoice_number: String
+    reference: String
+    send_email: Boolean
+    settings: InvoiceSettingsInput
+}
+
+"""
+Level 3 data
+"""
+type Level3DataLineItem @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    item_code: String
+    item_description: String
+    item_qty_exp: Int
+    prod_code: String
+    qty: Int
+    tax_amount: Int
+    tax_ind: TaxIndicatorType
+    tax_rate: Int
+    tax_rt_exp: Int
+    tax_type_id: TaxType
+    unit_cost: Int
+    unit_of_msure: String
+}
+
+"""
+Level 3 data input
+"""
+input Level3DataLineItemInput {
+    item_code: String
+    item_description: String
+    item_qty_exp: Int
+    prod_code: String
+    qty: Int
+    tax_amount: Int
+    tax_ind: TaxIndicatorType
+    tax_rate: Int
+    tax_rt_exp: Int
+    tax_type_id: TaxType
+    unit_cost: Int
+    unit_of_msure: String
+}
+
+"""
+Level 3 data summary
+"""
+type Level3DataSummary @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    dest_postal_code: String
+    discnt_amt: Int
+    duty_amt: Int
+    frght_amt: Int
+    order_num: String
+    prod_desc: [String]
+    purch_idfr: String
+    tax_amt: Int
+    tax_ind: TaxIndicatorType
+}
+
+"""
+Level 3 data summary input
+"""
+input Level3DataSummaryInput {
+    dest_postal_code: String
+    discnt_amt: Int
+    duty_amt: Int
+    frght_amt: Int
+    order_num: String
+    prod_desc: [String]
+    purch_idfr: String
+    tax_amt: Int
+    tax_ind: TaxIndicatorType
+}
+
+"""
+This is a limited merchant object that is returned when you want to query a list of merchants.
+"""
+type ListMerchant @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    ach_active: Boolean
+    card_active: Boolean
+    cash_active: Boolean
+    is_system: Boolean
+    merchant_name: String
+    merchant_uid: String
+    parent_merchant_uid: String
+    submitted_onboarding: Boolean
+    updated_row_at: AWSDateTime
+}
+
+"""
+Merchants are the entities that are using Pay Theory to accept payments.
+"""
+type Merchant @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    ach_active: Boolean
+    api_key: String
+    card_active: Boolean
+    cash_active: Boolean
+    fee_model: FeeModel
+    is_system: Boolean
+    merchant_name: String
+    merchant_uid: String
+    parent_merchant_uid: String
+    settings: MerchantSettings
+    submitted_onboarding: Boolean
+}
+
+"""
+Merchants and total row count
+"""
+type Merchants @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [ListMerchant]
+    total_row_count: Int
+}
+
+"""
+Merchant settings
+"""
+type MerchantSettings @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    contact_email: AWSEmail
+    contact_phone: AWSPhone
+    facebook: AWSURL
+    instagram: AWSURL
+    linkedin: AWSURL
+    tiktok: AWSURL
+    twitter: AWSURL
+    website: AWSURL
+}
+
+"""
+Merchant settings input
+"""
+input MerchantSettingsInput {
+    contact_email: AWSEmail
+    contact_phone: AWSPhone
+    facebook: AWSURL
+    instagram: AWSURL
+    linkedin: AWSURL
+    tiktok: AWSURL
+    twitter: AWSURL
+    website: AWSURL
+}
+
+"""
+Merchant user input
+"""
+input MerchantUserInput {
+    email: AWSEmail!
+    first_name: String!
+    last_name: String!
+    phone: AWSPhone
+}
+
+"""
+Metadata is used to pass customer data to track items in Pay Theory Systems.
+"""
+type Metadata @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    id: String
+    metadata_associate: MetadataAssociate
+    metadata_associate_id: String
+    metadata_key: String
+    metadata_type: MetadataType
+    merchant_uid: String
+    metadata_value: String
+    updated_row_at: AWSDateTime
+}
+
+enum MetadataAssociate {
+    AUTHORIZATION
+    INVOICE
+    PAYMENT_INTENT
+    PAYMENT_METHOD_TOKEN
+    PAYMENT_SESSION
+    PAYOR
+    RECURRING
+    TRANSACTION
+    SALE
+}
+
+enum MetadataType {
+    BOOLEAN
+    DATETIME
+    INT
+    STRING
+}
+
+type MissedRecurringPaymentData @aws_cognito_user_pools
+@aws_iam
+@aws_lambda {
+    fee: Int
+    number_of_payments_missed: Int
+    total_amount_owed: Int
+}
+
+enum MoveDirection {
+    BACKWARD
+    FORWARD
+}
+
+type OfflineTransaction @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    amount: Int
+    instance_id: String
+    invoice_id: String
+    note: String
+    transaction_date: AWSDate
+    type: OfflineTransactionType
+}
+
+input OfflineTransactionInput {
+    amount: Int!
+    invoice_id: String!
+    note: String
+    transaction_date: AWSDate!
+    type: OfflineTransactionType!
+}
+
+enum OfflineTransactionType {
+    ACH
+    CARD
+    CASH
+    OTHER
+}
+
+type OneTimePayment @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    amount: Int
+    card_brand: String
+    created_at: AWSDateTime
+    currency: String
+    failure_reason: String
+    last_four: String
+    service_fee: Int
+    status: TransactionStatus
+    transaction_id: String
+}
+
+enum Operator {
+    EQUAL
+    EQUAL_FALSE
+    EQUAL_TRUE
+    GREATER_EQUAL
+    GREATER_THAN
+    IN_LIST
+    IS_NOT_NULL
+    IS_NULL
+    LESS_EQUAL
+    LESS_THAN
+    LIKE
+    NOT_EQUAL
+    NOT_IN_LIST
+    NOT_LIKE
+}
+
+type PaymentLink @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    accepted_payment_methods: AcceptedPaymentMethodsEnum
+    account_code: String
+    amount: Int
+    amount_is_variable: Boolean
+    call_to_action: CallToActionType
+    created_date: AWSDateTime
+    currency: String
+    custom_success_message: String
+    fee_mode: FeeMode
+    is_active: Boolean
+    link_id: String
+    link_name: String
+    link_url: String
+    max_amount: Int
+    merchant_uid: String
+    min_amount: Int
+    payment_name: String
+    payment_description: String
+    redirect_url: String
+    require_phone: Boolean
+}
+
+input PaymentLinkInput {
+    accepted_payment_methods: AcceptedPaymentMethodsEnum
+    account_code: String
+    amount: Int
+    amount_is_variable: Boolean
+    call_to_action: CallToActionType
+    currency: String
+    custom_success_message: String
+    fee_mode: FeeMode
+    link_name: String!
+    max_amount: Int
+    merchant_uid: String!
+    min_amount: Int
+    payment_description: String
+    payment_name: String!
+    redirect_url: String
+    require_phone: Boolean
+}
+
+type PaymentLinks @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [PaymentLink]
+    total_row_count: Int
+}
+
+input PaymentMethodInput {
+    ach: AchInput
+    card: CardInput
+    metadata: AWSJSON
+    payor: PayorInput
+    payor_id: String
+}
+
+"""
+Payment Method Tokens are meant to store info that represents a tokenized Bank Account, Credit Card, or Debit Card.
+"""
+type PaymentMethodToken @aws_cognito_user_pools @aws_lambda @aws_iam {
+    """
+    The first line of the billing address.
+    """
+    address_line1: String
+    """
+    The second line of the billing address.
+    """
+    address_line2: String
+    """
+    The brand of the card. Null if the payment_type is not a card.
+    """
+    card_brand: String
+    """
+    The city of the billing address.
+    """
+    city: String
+    """
+    The country of the billing address.
+    """
+    country: String
+    """
+    The expiration date of the card. Null if the payment_type is not a card. Format: MMYY
+    """
+    exp_date: String
+    """
+    The name on card or bank account.
+    """
+    full_name: String
+    """
+    Whether or not the payment method token is active.
+    """
+    is_active: Boolean
+    """
+    The last four digits of the card or bank account number.
+    """
+    last_four: String
+    """
+    The Pay Theory unique identifier assigned to the merchant that the payment_method_token belongs to.
+    """
+    merchant_uid: String
+    """
+    Any additional data that was stored with the payment method token.
+    """
+    metadata(query_list: [QueryPair]): AWSJSON
+    """
+    The unique payment method id.
+    """
+    payment_method_id: String
+    """
+    The type of payment method. It can be one of the following: CARD, ACH
+    """
+    payment_type: PaymentType
+    """
+    The payor object. Refer to the Payor docs for more info.
+    """
+    payor(query_list: [QueryPair]): Payor
+    """
+    The postal code of the billing address.
+    """
+    postal_code: String
+    """
+    The region of the billing address.
+    """
+    region: String
+    """
+    The type of wallet that the payment method token is stored in. It can be one of the following: APPLE_PAY, CLICK_TO_PAY, GOOGLE_PAY, SAMSUNG_PAY, VISA_STAGED
+    """
+    wallet_type: WalletType
+}
+
+type PaymentMethodTokens @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [PaymentMethodToken]
+    total_row_count: Int
+}
+
+enum PaymentType {
+    ACH
+    CARD
+    CASH
+}
+
+"""
+Payors are used to track payor info that can be tied to other data objects in Pay Theory.
+"""
+type Payor @aws_cognito_user_pools @aws_lambda @aws_iam {
+    """
+    The first line of the address of the payor.
+    """
+    address_line1: String
+    """
+    The second line of the address of the payor.
+    """
+    address_line2: String
+    """
+    The city of the payor.
+    """
+    city: String
+    """
+    The country of the payor.
+    """
+    country: String
+    """
+    The email address of the payor.
+    """
+    email: String
+    """
+    The full name of the payor.
+    """
+    full_name: String
+    """
+    The Pay Theory unique identifier assigned to the merchant that the payor belongs to.
+    """
+    merchant_uid: String
+    """
+    The metadata to attach to the payor. This is a JSON object that can contain any data that you want to attach to the payor.
+    """
+    metadata(query_list: [QueryPair]): AWSJSON
+    """
+    The unique payor id.
+    """
+    payor_id: String
+    """
+    The phone number of the payor.
+    """
+    phone: String
+    """
+    The postal code of the payor.
+    """
+    postal_code: String
+    """
+    The region of the payor.
+    """
+    region: String
+}
+
+input PayorData {
+    address_line1: String
+    address_line2: String
+    city: String
+    country: String
+    email: String
+    full_name: String
+    phone: String
+    postal_code: String
+    region: String
+}
+
+input PayorInput {
+    address_line1: String
+    address_line2: String
+    city: String
+    country: String
+    email: String
+    full_name: String
+    merchant_uid: String
+    metadata: AWSJSON
+    phone: String
+    postal_code: String
+    region: String
+}
+
+type Payors @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [Payor]
+    total_row_count: Int
+}
+
+input QueryPair {
+    conjunctive_operator: ConjunctiveOperator
+    in_values: [String]
+    key: String
+    operator: Operator
+    query_group: [QueryPair]
+    value: String
+}
+
+enum RecurringInterval {
+    ANNUAL
+    BI_ANNUAL
+    BI_WEEKLY
+    MONTHLY
+    QUARTERLY
+    WEEKLY
+}
+
+type RecurringPayment @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    account_code: String
+    amount_per_payment: Int
+    created_date: AWSDateTime
+    currency: String
+    fee_mode: FeeMode
+    fee_per_payment: Int
+    is_active: Boolean
+    is_processing: Boolean
+    recurring_id: String
+    merchant_uid: String
+    metadata(query_list: [QueryPair]): AWSJSON
+    mute_all_emails: Boolean
+    next_payment_date: AWSDate
+    payment_interval: RecurringInterval
+    payment_method(query_list: [QueryPair]): PaymentMethodToken
+    payor(query_list: [QueryPair]): Payor
+    prev_payment_date: AWSDate
+    recurring_description: String
+    recurring_name: String
+    reference: String
+    remaining_payments: Int
+    status: RecurringStatus
+    total_amount_per_payment: Int
+}
+
+input RecurringPaymentInput {
+    account_code: String
+    amount: Int!
+    fee_mode: FeeMode
+    first_payment_date: AWSDate
+    merchant_uid: String!
+    metadata: AWSJSON
+    mute_all_emails: Boolean
+    payment_count: Int
+    payment_interval: RecurringInterval!
+    payment_method_id: String!
+    payor: PayorInput
+    payor_id: String
+    recurring_description: String
+    recurring_name: String!
+    reference: String
+}
+
+type RecurringPayments @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [RecurringPayment]
+    total_row_count: Int
+}
+
+enum RecurringStatus {
+    INSTRUMENT_FAILURE
+    SUCCESS
+    SYSTEM_FAILURE
+}
+
+type RefundReason @aws_cognito_user_pools
+@aws_iam
+@aws_lambda {
+    reason_code: RefundReasonCode
+    reason_details: String
+}
+
+enum RefundReasonCode {
+    DUPLICATE
+    FRAUDULENT
+    OTHER
+    REQUESTED_BY_CUSTOMER
+}
+
+input RefundReasonInput {
+    reason_code: RefundReasonCode!
+    reason_details: String
+}
+
+type ServiceFeeAmount @aws_cognito_user_pools
+@aws_iam
+@aws_lambda {
+    ach: ServiceFeeCalculation
+    card: ServiceFeeCalculation
+}
+
+type ServiceFeeCalculation @aws_cognito_user_pools
+@aws_iam
+@aws_lambda {
+    adjusted_total: Int
+    fee: Int
+    fee_limit_reached: Boolean
+    total: Int
+}
+
+"""
+Settlements are a batch of payments, disputes, and refunds that are grouped together and paid out to a merchant.
+"""
+type Settlement @aws_cognito_user_pools @aws_iam @aws_lambda {
+    """
+    The currency of the settlement.
+    """
+    currency: String
+    """
+    The total amount of the settlement before any fees and adjustments.
+    """
+    gross_amount: Int
+    """
+    The Pay Theory unique identifier assigned to the merchant that the settlement belongs to.
+    """
+    merchant_uid: String
+    """
+    The total amount of the settlement after any fees and adjustments.
+    """
+    net_amount: Int
+    """
+    The unique settlement batch number.
+    """
+    settlement_batch: Int
+    """
+    The date the settlement was created.
+    """
+    settlement_date: AWSDateTime
+    """
+    The status of the settlement. Will be either PENDING or SUCCEEDED.
+    """
+    status: String
+    """
+    The number of transactions of type DEBIT that were included in the settlement.
+    """
+    transaction_debit_count: Int
+    """
+    The number of transactions of type DISPUTE that were included in the settlement.
+    """
+    transaction_dispute_count: Int
+    """
+    The number of transactions of type REVERSAL that were included in the settlement.
+    """
+    transaction_reversal_count: Int
+    """
+    The date the settlement was transferred to the merchant.
+    """
+    transfer_date: AWSDateTime
+    """
+    The total amount of adjustments that were applied to the settlement.
+    """
+    total_adjustments: Int
+    """
+    The total amount of fees that were applied to the settlement.
+    """
+    total_fees: Int
+    """
+    The date the settlement was last updated.
+    """
+    updated_row_at: AWSDateTime
+}
+
+type Settlements @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [Settlement]
+    total_row_count: Int
+}
+
+enum SettlementStatus {
+    PENDING
+    SUCCEEDED
+}
+
+enum SortDirection {
+    ASC
+    DESC
+}
+
+input SortPair {
+    direction: SortDirection
+    key: String
+}
+
+input SqlQuery {
+    query_list: [QueryPair]
+    sort_list: [SortPair]
+}
+
+enum TaxIndicatorType {
+    NO_TAX_INFO_PROVIDED
+    NOT_TAXABLE
+    TAX_AMOUNT_PROVIDED
+}
+
+enum TaxType {
+    CITY_SALES
+    ENERGY
+    GST
+    LOCAL_SALES
+    MUNICIPAL_SALES
+    NATIONAL_SALES
+    NOT_SUPPORTED
+    OTHER
+    PST
+    ROOM
+    OCCUPANCY
+    STATE_SALES
+    UNKNOWN
+    VAT
+}
+
+"""
+Transactions are a data object that can represent a payment, failed or successful, or a refund.
+"""
+type Transaction @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    """
+    Customer defined account code for the transaction.
+    """
+    account_code: String
+    """
+    The details of the ACH return if any.
+    """
+    ach_return_details: AchReturnDetails
+
+    """
+    Additional purchase data for the transaction.
+    """
+    additional_purchase_data: AdditionalPurchaseData
+    """
+    The authorization ID for the transaction.
+    """
+    authorization_id: String
+    """
+    The type of currency for the transaction.
+    """
+    currency: String
+    """
+    The device ID associated with the transaction.
+    """
+    device_id: String
+    """
+    The status of the dispute if any.
+    """
+    dispute_status: DisputeStatus
+    """
+    List of strings detailing the reason(s) a transaction failed, if any.
+    """
+    failure_reasons: [String]
+    """
+    The fee mode on the transaction.
+    """
+    fee_mode: FeeMode
+    """
+    The amount of fees charged for the transaction.
+    """
+    fees: Int
+    """
+    The invoice object for the transaction if any.
+    """
+    invoice: Invoice
+    """
+    Whether the transaction has been settled.
+    """
+    is_settled: Boolean
+    """
+    The total amount of the transaction before fees.
+    """
+    gross_amount: Int
+    """
+    The Pay Theory unique identifier for the merchant the transaction is for.
+    """
+    merchant_uid: String
+    """
+    Custom-defined JSON object to be stored with the transaction.
+    """
+    metadata(query_list: [QueryPair]): AWSJSON
+    """
+    The total amount of the transaction after fees.
+    """
+    net_amount: Int
+    """
+    The Pay Theory unique identifier for the parent transaction if any.
+    """
+    parent_id: String
+    """
+    The payment method used to make the transaction.
+    """
+    payment_method(query_list: [QueryPair]): PaymentMethodToken
+    """
+    The recurring payment that the transaction belongs to if any.
+    """
+    recurring: RecurringPayment
+    """
+    Customer defined reference for the transaction.
+    """
+    reference: String
+    """
+    The reason for the refund if any.
+    """
+    refund_reason: RefundReason
+    """
+    Whether the refund can be voided.
+    """
+    refund_voidable: Boolean
+    """
+    The amount of the transaction that has been refunded if any.
+    """
+    refunded_amount: Int
+    """
+    The sale ID associated with the transaction.
+    """
+    sale_id: String
+    """
+    The unique settlement batch number the transaction belongs to if settled.
+    """
+    settlement_batch: Int
+    """
+    The status of the transaction.
+    """
+    status: TransactionStatus
+    """
+    The timezone the transaction was made in.
+    """
+    timezone: String
+    """
+    The date and time the transaction was made.
+    """
+    transaction_date: AWSDateTime
+    """
+    The Pay Theory unique identifier for the transaction.
+    """
+    transaction_id: String
+    """
+    The type of transfer that was made.
+    """
+    transaction_type: TransactionType
+    """
+    The date and time the transaction was last updated.
+    """
+    updated_row_at: AWSDateTime
+}
+
+"""
+Transactions are a data object that can represent a payment, failed or successful, or a refund.
+"""
+type Transactions @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    items: [Transaction]
+    total_row_count: Int
+}
+
+enum TransactionStatus {
+    CANCELED
+    FAILED
+    PARTIALLY_REFUNDED
+    PENDING
+    REFUNDED
+    RETURNED
+    SETTLED
+    SUCCEEDED
+    VOIDED
+}
+
+enum TransactionType {
+    ACH_RETURN
+    DEBIT
+    FAILURE
+    REVERSAL
+}
+
+input UpdatePaymentLinkInput {
+    accepted_payment_methods: AcceptedPaymentMethodsEnum
+    account_code: String
+    amount: Int
+    amount_is_variable: Boolean
+    call_to_action: CallToActionType
+    currency: String
+    custom_success_message: String
+    fee_mode: FeeMode
+    is_active: Boolean
+    link_id: String!
+    link_name: String
+    max_amount: Int
+    merchant_uid: String!
+    min_amount: Int
+    payment_description: String
+    payment_name: String
+    redirect_url: String
+    require_phone: Boolean
+}
+
+input UpdateRecurringPaymentInput {
+    mute_all_emails: Boolean
+    pay_all_missed_payments: Boolean
+    payment_method_id: String
+    recurring_id: String!
+}
+
+type User @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    email: String
+    full_name: String
+    phone: String
+    user_status: String
+    username: String
+}
+
+input UserInput {
+    email: AWSEmail!
+    first_name: String!
+    last_name: String!
+    merchant_uid: String
+    phone: AWSPhone
+    user_pool: UserPool!
+}
+
+enum UserPool {
+    MERCHANT
+    PARTNER
+    SYSTEM
+}
+
+enum WalletType {
+    APPLE_PAY
+    CLICK_TO_PAY
+    GOOGLE_PAY
+    SAMSUNG_PAY
+    VISA_STAGED
+}
+
+type Mutation @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    "Create an authorization"
+    createAuthorization(merchant_uid: String!, sale_id: String, amount: Int!, payment_method_id: String, payment_method: PaymentMethodInput, invoice_id: String, fee: Int, fee_mode: FeeMode, account_code: String, reference: String, metadata: AWSJSON, health_expense_type: HealthExpenseType, digital_wallet: DigitalWalletInput, additional_purchase_data: AdditionalPurchaseDataInput): Authorization!
+    "Create a capture for the passed in authorization ID"
+    createCapture(merchant_uid: String!, authorization_id: String!, amount: Int!, fee: Int, send_receipt: Boolean, receipt_description: String, allow_reauth: Boolean, allow_exceeded_amount: Boolean): Transaction!
+    "Create a payment link"
+    createPaymentLink(input: PaymentLinkInput!): PaymentLink
+    "Create a recurring payment"
+    cancelRecurringPayment(recurring_id: String!): Boolean
+    "Create an invoice"
+    createInvoice(input: InvoiceInput!): Invoice
+    "Create an invoice email"
+    createInvoiceEmail(invoice_id: String!): Boolean
+    "Create a merchant"
+    createMerchant(merchant_name: String!, parent_merchant_uid: String, user: MerchantUserInput): ListMerchant
+    "Create a offline transaction"
+    createOfflineTransaction(input: OfflineTransactionInput!): OfflineTransaction
+    "Create a one time payment"
+    createOneTimePayment(merchant_uid: String!, amount: Int!, payment_method_id: String, payment_method: PaymentMethodInput, recurring_id: String, invoice_id: String, fee: Int, fee_mode: FeeMode, payment_parameters_name: String, account_code: String, reference: String, send_receipt: Boolean, receipt_description: String, metadata: AWSJSON, health_expense_type: HealthExpenseType, digital_wallet: DigitalWalletInput, additional_purchase_data: AdditionalPurchaseDataInput): OneTimePayment
+    "Create a payment method"
+    createPaymentMethod(payment_method: PaymentMethodInput!, merchant_uid: String!): PaymentMethodToken
+    "Create a payor"
+    createPayor(input: PayorInput!): Payor
+    "Create a receipt email for a transaction"
+    createReceiptEmail(transaction_id: String!, receipt_description: String, email: AWSEmail): Boolean
+    "Create a recurring payment"
+    createRecurringPayment(input: RecurringPaymentInput!): RecurringPayment
+    "Create a refund"
+    createRefund(transaction_id: String!, amount: Int!, refund_reason: RefundReasonInput!, refund_email: String): Boolean
+    "Create a retry for a failed recurring payment"
+    createRetryForFailedRecurringPayment(recurring_id: String!): Boolean
+    "Create a user"
+    createUser(input: UserInput!): User
+    "Create a user password reset email"
+    createUserPasswordReset(username: String!, user_pool: UserPool!): Boolean
+    "Create a void for a refund"
+    createVoidForRefund(transaction_id: String!): Boolean
+    "Delete an invoice"
+    deleteInvoice(invoice_id: String!): Boolean
+    "Delete metadata"
+    deleteMetadata(id: String!, metadata_associate: MetadataAssociate!, merchant_uid: String!, metadata_keys: [String]!): Boolean
+    "Delete a user"
+    deleteUser(username: String!, user_pool: UserPool!): Boolean
+    "Update a device"
+    updateDevice(merchant_uid: String!, device_id: String!, device_description: String!): Boolean
+    "Update an invoice"
+    updateInvoice(invoice_id: String!, invoice_update_input: InvoiceUpdateInput!): Boolean
+    "Update the merchant settings"
+    updateMerchantSettings(merchant_uid: ID!, settings: MerchantSettingsInput!): Boolean
+    "Update metadata"
+    updateMetadata(id: String!, metadata_associate: MetadataAssociate!, merchant_uid: String!, metadata: AWSJSON!): Boolean
+    "Update a payment link"
+    updatePaymentLink(input: UpdatePaymentLinkInput!): PaymentLink
+    "Update a payor"
+    updatePayor(payor_id: String!, payor_data: PayorData!): Boolean
+    "Update a recurring payment"
+    updateRecurringPayment(input: UpdateRecurringPaymentInput!): RecurringPayment
+}
+
+type Query @aws_cognito_user_pools
+@aws_lambda
+@aws_iam {
+    "Get a list of authorizations"
+    authorizations(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): Authorizations
+    "Get a list of devices"
+    devices(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): Devices
+    "Get a list of disputes"
+    disputes(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): Disputes
+    "Convert an error code into a language specific error text"
+    errorText(language_code: String!, error_codes: [String]!): [String]!
+    "Get a list of invoices"
+    invoices(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): Invoices
+    "Get a list of merchants"
+    merchant(merchant_uid: String, merchant_name: String): Merchant
+    "Get a list of merchants"
+    merchants(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): Merchants
+    "Get missed recurring payment data"
+    missedRecurringPaymentData(recurring_id: String!): MissedRecurringPaymentData
+    "Get a list of payment links"
+    paymentLinks(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): PaymentLinks
+    "Get a list of payment method tokens"
+    paymentMethodTokens(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): PaymentMethodTokens
+    "Get a list of payors"
+    payors(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): Payors
+    "Get a list of recurring payments"
+    recurringPayments(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): RecurringPayments
+    "Calculate a service fee amount"
+    serviceFeeAmount(merchant_uid: String!, amount: Int!): ServiceFeeAmount
+    "Get a list of settlements"
+    settlements(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): Settlements
+    "Get a list of transactions"
+    transactions(query: SqlQuery, limit: Int, offset: String, direction: MoveDirection, offset_id: String): Transactions
+    "Get a list of users"
+    users(user_pool: UserPool!, merchant_uid: String): [User]
+}
+
+schema {
+    mutation: Mutation
+    query: Query
+}

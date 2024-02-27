@@ -1,0 +1,160 @@
+---
+id: dispute
+title: Dispute
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+Disputes are charges that have been contested by a cardholder to their card issuer.
+They could be an INQUIRY which is just a request for information, or an actual chargeback in the status PENDING which is
+a request for a charge to be reversed.
+
+
+```graphql
+type Dispute {
+  amount: Int
+  dispute_date: AWSDateTime
+  dispute_id: String
+  evidence_last_send_date: AWSDateTime
+  expiration_date: AWSDateTime
+  merchant_uid: ID
+  status: DisputeStatus
+  reason: DisputeReason
+  reason_message: String
+  settlement_withdrawal_batch: String
+  settlement_deposit_batch: String
+  transaction: Transaction
+  updated_date: AWSDateTime
+  updated_row_at: AWSDateTime
+}
+```
+
+
+
+
+### Fields
+
+#### [`amount`](#)<Bullet />[`Int`](/docs/api/types/scalars/int)  
+> 
+> 
+> The amount of the transaction in dispute.
+> 
+
+#### [`dispute_date`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date the dispute was created.
+> 
+
+#### [`dispute_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The Pay Theory unique dispute identifier.
+> 
+
+#### [`evidence_last_send_date`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The last date evidence was sent to the processor. If no evidence was sent, this will be null.
+> 
+
+#### [`expiration_date`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The final date to submit evidence to contest a dispute.
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`ID`](/docs/api/types/scalars/id)  
+> 
+> 
+> The Pay Theory unique identifier assigned to the merchant that the dispute belongs to.
+> 
+
+#### [`status`](#)<Bullet />[`DisputeStatus`](/docs/api/types/enums/dispute-status)  
+> 
+> 
+> The status of the dispute.
+> 
+
+#### [`reason`](#)<Bullet />[`DisputeReason`](/docs/api/types/enums/dispute-reason)  
+> 
+> 
+> The reason code for the dispute as passed by the card issuer.
+> 
+
+#### [`reason_message`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> A more detailed reason provided by the card issuer for the dispute.
+> 
+
+#### [`settlement_withdrawal_batch`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The settlement batch number where funds were withdrawn from the merchant's account for the dispute.
+> 
+
+#### [`settlement_deposit_batch`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> The settlement batch number where funds were deposited into the merchant's account if a dispute is WON.
+> 
+
+#### [`transaction`](#)<Bullet />[`Transaction`](/docs/api/types/objects/transaction)  
+> 
+> 
+> The transaction object for the transaction that is in dispute. More information on the transaction object can be found here.
+> 
+
+#### [`updated_date`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date the dispute was last updated.
+> 
+
+#### [`updated_row_at`](#)<Bullet />[`AWSDateTime`](/docs/api/types/scalars/awsdate-time)  
+> 
+> 
+> The date the dispute was last updated in the database.
+> 
+
+
+
+### Member Of
+
+[`Disputes`](/docs/api/types/objects/disputes)  <Badge class="badge badge--secondary" text="object"/>
+

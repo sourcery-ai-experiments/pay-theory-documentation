@@ -1,0 +1,172 @@
+---
+id: invoice-input
+title: InvoiceInput
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+The input object that contains all the information needed to create an invoice.
+
+
+```graphql
+input InvoiceInput {
+  account_code: String
+  currency: String!
+  due_by: AWSDate
+  fee_mode: FeeMode
+  invoice_amount: Int!
+  invoice_date: AWSDate
+  invoice_description: String
+  invoice_name: String
+  merchant_uid: String!
+  merchant_invoice_number: String
+  metadata: AWSJSON
+  payor_id: String
+  payor: PayorInput
+  reference: String
+  send_email: Boolean
+  settings: InvoiceSettingsInput
+}
+```
+
+
+
+
+### Fields
+
+#### [`account_code`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`currency`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`due_by`](#)<Bullet />[`AWSDate`](/docs/api/types/scalars/awsdate)  
+> 
+> 
+> 
+> 
+
+#### [`fee_mode`](#)<Bullet />[`FeeMode`](/docs/api/types/enums/fee-mode)  
+> 
+> 
+> 
+> 
+
+#### [`invoice_amount`](#)<Bullet />[`Int!`](/docs/api/types/scalars/int)  
+> 
+> 
+> 
+> 
+
+#### [`invoice_date`](#)<Bullet />[`AWSDate`](/docs/api/types/scalars/awsdate)  
+> 
+> 
+> 
+> 
+
+#### [`invoice_description`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`invoice_name`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`merchant_uid`](#)<Bullet />[`String!`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`merchant_invoice_number`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`metadata`](#)<Bullet />[`AWSJSON`](/docs/api/types/scalars/awsjson)  
+> 
+> 
+> 
+> 
+
+#### [`payor_id`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`payor`](#)<Bullet />[`PayorInput`](/docs/api/types/inputs/payor-input)  
+> 
+> 
+> 
+> 
+
+#### [`reference`](#)<Bullet />[`String`](/docs/api/types/scalars/string)  
+> 
+> 
+> 
+> 
+
+#### [`send_email`](#)<Bullet />[`Boolean`](/docs/api/types/scalars/boolean)  
+> 
+> 
+> 
+> 
+
+#### [`settings`](#)<Bullet />[`InvoiceSettingsInput`](/docs/api/types/inputs/invoice-settings-input)  
+> 
+> 
+> 
+> 
+
+
+
+### Member Of
+
+[`createInvoice`](/docs/api/api/mutations/create-invoice)  <Badge class="badge badge--secondary" text="mutation"/>
+

@@ -16,18 +16,29 @@ npm install graphql-config
 
 3. Add the following to plugins `docusaurus.config.js`
 ```javascript
+  plugins: [
     [
-    "@graphql-markdown/docusaurus",
-    {
-        schema: "./schema/api.graphql",
-        rootPath: "./docs", // docs will be generated under './docs/swapi' (rootPath/baseURL)
-        baseURL: "api",
-        // homepage: "./docs/api.md",
-        loaders: {
-            GraphQLFileLoader: "@graphql-tools/graphql-file-loader", // local file schema
+        "@graphql-markdown/docusaurus",
+        {
+            schema: "./api.graphql", // local graphql api schema
+            rootPath: "./docs/api", // docs will be generated under (rootPath/baseURL)
+            baseURL: "graphql-api", // docs will be generated under (rootPath/baseURL)
+            linkRoot: "/docs/api", // adds a link root for the generated docs depending on the rootPath
+            printTypeOptions: {
+                codeSection: true, // the display section
+                deprecated: "default", // deprecated entities are displayed with other entities.
+                exampleSection: false, // display example section based on directive data https://graphql-markdown.github.io/docs/advanced/examples/
+                parentTypePrefix: false, // disable parent prefix, same as CLI flag --noParentType
+                relatedTypeSection: true, // disable related type sections, same as CLI flag --noRelatedType
+                typeBadges: false, // disable type attribute badges, same as CLI flag --noTypeBadges
+                useApiGroup: true, // disable type API grouping, same as CLI flag --noApiGroup
+            },
+            loaders: {
+                GraphQLFileLoader: "@graphql-tools/graphql-file-loader", // local file schema
+            },
         },
-    },
-    ]
+    ],
+]
 ```
 
 4. Run the following command to generate the API documentation

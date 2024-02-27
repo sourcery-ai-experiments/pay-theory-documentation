@@ -1,0 +1,57 @@
+---
+id: int
+title: Int
+---
+
+
+
+
+export const Bullet = () => <><span style={{ fontWeight: 'normal', fontSize: '.5em', color: 'var(--ifm-color-secondary-darkest)' }}>&nbsp;●&nbsp;</span></>
+
+export const SpecifiedBy = (props) => <>Specification<a className="link" style={{ fontSize:'1.5em', paddingLeft:'4px' }} target="_blank" href={props.url} title={'Specified by ' + props.url}>⎘</a></>
+
+export const Badge = (props) => <><span className={props.class}>{props.text}</span></>
+
+import { useState } from 'react';
+
+export const Details = ({ dataOpen, dataClose, children, startOpen = false }) => {
+  const [open, setOpen] = useState(startOpen);
+  return (
+    <details {...(open ? { open: true } : {})} className="details" style={{ border:'none', boxShadow:'none', background:'var(--ifm-background-color)' }}>
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((open) => !open);
+        }}
+        style={{ listStyle:'none' }}
+      >
+      {open ? dataOpen : dataClose}
+      </summary>
+      {open && children}
+    </details>
+  );
+};
+
+
+
+
+
+
+
+
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+
+
+```graphql
+scalar Int
+```
+
+
+
+
+
+
+### Member Of
+
+[`Authorization`](/docs/api/types/objects/authorization)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`authorizations`](/docs/api/api/queries/authorizations)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`Authorizations`](/docs/api/types/objects/authorizations)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`createAuthorization`](/docs/api/api/mutations/create-authorization)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createCapture`](/docs/api/api/mutations/create-capture)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createOneTimePayment`](/docs/api/api/mutations/create-one-time-payment)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`createRefund`](/docs/api/api/mutations/create-refund)  <Badge class="badge badge--secondary" text="mutation"/><Bullet />[`devices`](/docs/api/api/queries/devices)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`Devices`](/docs/api/types/objects/devices)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Dispute`](/docs/api/types/objects/dispute)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`disputes`](/docs/api/api/queries/disputes)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`Disputes`](/docs/api/types/objects/disputes)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`FeeModelDetail`](/docs/api/types/objects/fee-model-detail)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Invoice`](/docs/api/types/objects/invoice)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`InvoiceInput`](/docs/api/types/inputs/invoice-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`invoices`](/docs/api/api/queries/invoices)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`Invoices`](/docs/api/types/objects/invoices)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`InvoiceUpdateInput`](/docs/api/types/inputs/invoice-update-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`Level3DataLineItem`](/docs/api/types/objects/level-3-data-line-item)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Level3DataLineItemInput`](/docs/api/types/inputs/level-3-data-line-item-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`Level3DataSummary`](/docs/api/types/objects/level-3-data-summary)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Level3DataSummaryInput`](/docs/api/types/inputs/level-3-data-summary-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`merchants`](/docs/api/api/queries/merchants)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`Merchants`](/docs/api/types/objects/merchants)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`MissedRecurringPaymentData`](/docs/api/types/objects/missed-recurring-payment-data)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`OfflineTransaction`](/docs/api/types/objects/offline-transaction)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`OfflineTransactionInput`](/docs/api/types/inputs/offline-transaction-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`OneTimePayment`](/docs/api/types/objects/one-time-payment)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`PaymentLink`](/docs/api/types/objects/payment-link)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`PaymentLinkInput`](/docs/api/types/inputs/payment-link-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`paymentLinks`](/docs/api/api/queries/payment-links)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`PaymentLinks`](/docs/api/types/objects/payment-links)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`paymentMethodTokens`](/docs/api/api/queries/payment-method-tokens)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`PaymentMethodTokens`](/docs/api/types/objects/payment-method-tokens)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`payors`](/docs/api/api/queries/payors)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`Payors`](/docs/api/types/objects/payors)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`RecurringPayment`](/docs/api/types/objects/recurring-payment)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`RecurringPaymentInput`](/docs/api/types/inputs/recurring-payment-input)  <Badge class="badge badge--secondary" text="input"/><Bullet />[`recurringPayments`](/docs/api/api/queries/recurring-payments)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`RecurringPayments`](/docs/api/types/objects/recurring-payments)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`serviceFeeAmount`](/docs/api/api/queries/service-fee-amount)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`ServiceFeeCalculation`](/docs/api/types/objects/service-fee-calculation)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Settlement`](/docs/api/types/objects/settlement)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`settlements`](/docs/api/api/queries/settlements)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`Settlements`](/docs/api/types/objects/settlements)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`Transaction`](/docs/api/types/objects/transaction)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`transactions`](/docs/api/api/queries/transactions)  <Badge class="badge badge--secondary" text="query"/><Bullet />[`Transactions`](/docs/api/types/objects/transactions)  <Badge class="badge badge--secondary" text="object"/><Bullet />[`UpdatePaymentLinkInput`](/docs/api/types/inputs/update-payment-link-input)  <Badge class="badge badge--secondary" text="input"/>
+
