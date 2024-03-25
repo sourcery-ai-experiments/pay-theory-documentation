@@ -15,6 +15,7 @@ Transactions are a data object that can represent a payment, failed or successfu
 {
   account_code: String
   ach_return_details: AchReturnDetails
+  authorization_id: String!
   currency: String
   dispute_status: DisputeStatus
   failure_reasons: [String]
@@ -33,6 +34,7 @@ Transactions are a data object that can represent a payment, failed or successfu
   refund_reason: RefundReason
   refund_voidable: Boolean
   refunded_amount: Int
+  sale_id: String
   settlement_batch: Int
   status: TransactionStatus
   timezone: String
@@ -47,6 +49,7 @@ Transactions are a data object that can represent a payment, failed or successfu
 |-------------------|----------------------------------------------------------------------------|---------------------------------------|     
 |account_code       | String                                                                     |Customer defined account code for the transaction.|
 |ach_return_details | AchReturnDetails                                                           |The details of the ACH return if any.|
+|authorization_id   | String                                                                     |The authorization id for the transaction.|
 |currency           | String                                                                     |The type of currency for the transaction.|
 |dispute_status     | [DisputeStatus](dispute#dispute-status)                                    |The status of the dispute if any.|
 |failure_reasons    | [String]                                                                   |List of strings, if any, detailing the reason a transaction failed.|
@@ -65,6 +68,7 @@ Transactions are a data object that can represent a payment, failed or successfu
 |refund_reason      | RefundReason                                                               |The reason for the refund if any.|
 |refund_voidable    | Boolean                                                                    |Whether the refund can be voided.|
 |refunded_amount    | Int                                                                        |The amount of the transaction that has been refunded if any.|
+|sale_id            | String                                                                     |The sale id for the transaction if any.|
 |settlement_batch   | Int                                                                        |The unique settlement batch number the transaction belongs to if settled.|
 |status             | [TransactionStatus](#transaction-status)                                   |The status of the transaction.|
 |timezone           | String                                                                     |The timezone the transaction was made in.|
