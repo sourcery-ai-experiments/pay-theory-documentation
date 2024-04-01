@@ -240,8 +240,6 @@ const config = {
         {
             type: 'text/javascript',
             src: '/script/freshdesk.js',
-            async: true,
-            defer: true
         },
         {
             type: 'text/javascript',
