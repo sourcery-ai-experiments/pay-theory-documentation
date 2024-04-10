@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 sidebar_label: 'Hosted Fields'
-title: ""
+title: "Hosted Fields"
 ---
 
 # Hosted Fields

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 14
 sidebar_label: 'Payment Links'
-title: ""
+title: "Payment Links"
 ---
 
 # Payment Links

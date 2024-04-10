@@ -1,7 +1,7 @@
 ---
 sidebar_position: 10
 sidebar_label: 'Merchant'
-title: ""
+title: "Merchant"
 ---
 
 # Merchant

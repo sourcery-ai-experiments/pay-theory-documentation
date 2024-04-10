@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 sidebar_label: 'Event Listeners'
-title: ""
+title: "Event Listeners"
 ---
 
 # Event Listeners

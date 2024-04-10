@@ -1,7 +1,7 @@
 ---
 sidebar_position: 13
 sidebar_label: 'Metadata'
-title: ""
+title: "Metadata"
 ---
 
 # Metadata

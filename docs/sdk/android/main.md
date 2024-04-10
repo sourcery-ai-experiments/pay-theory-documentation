@@ -1,5 +1,7 @@
 ---
 sidebar_position: 1
+sidebar_label: 'Pay Theory Android SDK'
+title: "Pay Theory Android SDK"
 ---
 
 # Pay Theory Android SDK
