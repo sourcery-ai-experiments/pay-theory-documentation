@@ -87,6 +87,15 @@ This is the query definition for the `WebhookEvents` object:
 webhookEvents(id: ID, endpoint: String, result: WebhookNotificationResult, last_evaluated_key: String, limit: Int): WebhookEvents!
 ```
 
+***Parameters***
+|Key                |type         |       description                     |
+|-------------------|-------------|---------------------------------------|
+|id                 |ID           |The ID of the event to retrieve.|
+|endpoint           |String       |The endpoint of the webhook associated with the event.|
+|result             |WebhookNotificationResult|The result of the event.|
+|last_evaluated_key |String       |The last evaluated key for pagination.|
+|limit              |Int          |The maximum number of events to return.|
+
 The object `WebhookEvents` consists of the following fields:
 
 ```graphql
