@@ -27,6 +27,71 @@ This object represents an endpoint on your end that will receive notifications f
 | is_active | Boolean | Whether the webhook is active and receiving notifications. |
 | name      | String  | A user-friendly name for the webhook.                      |
 
+## Create Webhook
+To create a webhook, you need to provide the endpoint and a name for the webhook using the following mutation:
+
+```graphql
+mutation {
+  createWebhook(endpoint: String, name: String) {
+    success
+  }
+}
+```
+
+| Key      | Type   | Description                                          |
+|----------|--------|------------------------------------------------------|
+| endpoint | String | The URL the event will be sent to.                   |
+| name     | String | The name you want to give the webhook for reference. |
+
+## Query Webhooks
+
+```graphql
+{
+  webhooks(endpoint: String) {
+    endpoint
+    is_active
+    name
+  }
+}
+```
+
+| Key      | Type   | Description                                                                       |
+|----------|--------|-----------------------------------------------------------------------------------|
+| endpoint | String | The URL the event will be sent to. If not passed in all webhooks will be returned |
+
+## Update Webhook
+To update a webhook, you can use a mutation like the following:
+
+```graphql
+mutation {
+  updateWebhook(endpoint: String, name: String, is_active: Boolean) {
+    success
+  }
+}
+```
+
+| Key       | Type    | Description                                                       |
+|-----------|---------|-------------------------------------------------------------------|
+| endpoint  | String  | The URL of the webhook you want to update. This cannot be changed |
+| name      | String  | The new name you want to give the webhook                         |
+| is_active | Boolean | Whether the webhook should be active or not                       |
+
+## Delete Webhook
+To delete a webhook, you can use the following mutation:
+
+```graphql
+mutation {
+  deleteWebhook(endpoint: String) {
+    success
+  }
+}
+```
+
+| Key      | Type   | Description                                |
+|----------|--------|--------------------------------------------|
+| endpoint | String | The URL of the webhook you want to delete. |
+
+
 ## The Webhook Event Object
 A webhook event object represents a webhook trigger, meaning it may have sent a notification to your endpoint if it was active at the time.
 
@@ -80,21 +145,20 @@ The following is the retry policy for webhooks:
 - The maximum timeout for a notification is **10 seconds**.
 - If the endpoint fails to respond after the third attempt, the webhook will be deactivated, and further notifications will be marked as `IGNORED`, no longer calling the endpoint.
 
-## Webhook Events Query
+## Query Webhook Events
 This is the query definition for the `WebhookEvents` object:
 
 ```graphql
 webhookEvents(id: ID, endpoint: String, result: WebhookNotificationResult, last_evaluated_key: String, limit: Int): WebhookEvents!
 ```
 
-***Parameters***
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|
-|id                 |ID           |The ID of the event to retrieve.|
-|endpoint           |String       |The endpoint of the webhook associated with the event.|
-|result             |WebhookNotificationResult|The result of the event.|
-|last_evaluated_key |String       |The last evaluated key for pagination.|
-|limit              |Int          |The maximum number of events to return.|
+| Key                | type                      | description                                                            |
+|--------------------|---------------------------|------------------------------------------------------------------------|
+| id                 | ID                        | The ID of the event to retrieve. Allows you to fetch a specific event. |
+| endpoint           | String                    | The endpoint of the webhook associated with the event.                 |
+| result             | WebhookNotificationResult | The result of the event.                                               |
+| last_evaluated_key | String                    | The last evaluated key for pagination.                                 |
+| limit              | Int                       | The maximum number of events to return.                                |
 
 The object `WebhookEvents` consists of the following fields:
 
@@ -110,152 +174,6 @@ The object `WebhookEvents` consists of the following fields:
 | events             | [WebhookEvent] | A list of webhook events.              |
 | last_evaluated_key | String         | The last evaluated key for pagination. |
 
-## Examples
-
-### Creating a Webhook
-To create a webhook, you need to provide the endpoint and a name for the webhook using the following mutation:
-
-```graphql
-mutation {
-  createWebhook(endpoint: "https://example.com/webhook", name: "Example Webhook") {
-    success
-  }
-}
-```
-
-### Listing Webhooks
-To list all webhooks, you can use the following query:
-
-```graphql
-{
-  webhooks {
-    endpoint
-    is_active
-    name
-  }
-}
-```
-
-If you want to get a specific webhook, you can pass the endpoint as an argument:
-
-```graphql
-{
-  webhooks(endpoint: "https://example.com/webhook") {
-    is_active
-    name
-  }
-}
-```
-
-### Updating a Webhook
-To update a webhook, you can use a mutation like the following:
-
-```graphql
-mutation {
-  updateWebhook(endpoint: "https://example.com/webhook", name: "Updated Webhook", is_active: false) {
-    success
-  }
-}
-```
-
-> **Note:** Not passing a field will leave it unchanged; the webhook endpoint (URL) cannot be changed.
-
-### Deleting a Webhook
-To delete a webhook, you can use the following mutation:
-
-```graphql
-mutation {
-  deleteWebhook(endpoint: "https://example.com/webhook") {
-    success
-  }
-}
-```
-
-### Listing Webhook Events
-
-To list all webhook events, you can use the following query:
-
-```graphql
-{
-  webhookEvents {
-    events {
-      id
-      endpoint
-      error
-      event
-      started_at
-      finished_at
-      request
-      response
-      status_code
-      result
-    }
-  }
-}
-```
-
-If you want to get a specific webhook event, you can pass the event ID as an argument:
-
-```graphql
-{
-  webhookEvents(id: "123456") {
-    events {
-      endpoint
-      error
-      event
-      started_at
-      finished_at
-      request
-      response
-      status_code
-      result
-    }
-  }
-}
-```
-
-You can also filter by the endpoint, result, or limit the number of events returned:
-
-```graphql
-{
-  webhookEvents(endpoint: "https://example.com/webhook", result: SUCCESS, limit: 10) {
-    events {
-      id
-      endpoint
-      error
-      event
-      started_at
-      finished_at
-      request
-      response
-      status_code
-      result
-    }
-  }
-}
-```
-
-If you have more events than the limit, you can use the `last_evaluated_key` to paginate through the results:
-
-```graphql
-{
-  webhookEvents(last_evaluated_key: "123456", limit: 10) {
-    events {
-      id
-      endpoint
-      error
-      event
-      started_at
-      finished_at
-      request
-      response
-      status_code
-      result
-    }
-    last_evaluated_key
-  }
-}
-```
 
 ## Webhook Payloads
 
