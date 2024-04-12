@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 sidebar_label: 'Authorization'
-title: ""
+title: "Authorization"
 ---
 
 # Authorization  
@@ -119,7 +119,7 @@ mutation {
   createAuthorization( account_code: "", 
                        amount: 10, 
                        fee: 10, 
-                       fee_mode: INTERCHANGE, 
+                       fee_mode: MERCHANT_FEE, 
                        health_expense_type: CLINICAL, 
                        invoice_id: "", 
                        merchant_uid: "", 
@@ -163,7 +163,8 @@ The authorization object.  Refer to the [Authorization Object](#the-authorizatio
 mutation {
     createCapture( allow_exceeded_amount: false, 
                    allow_reauth: false, 
-                   amount: 10, 
+                   amount: 10,
+                   fee: 10,
                    authorization_id: "", 
                    merchant_uid: "", 
                    receipt_description: "", 
@@ -177,15 +178,16 @@ mutation {
 
 **Parameters**
 
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-|allow_exceeded_amount|Boolean    |Whether to allow the capture to exceed the amount of the authorization.  <br/><br/>If this is set to `true` Pay Theory will release the hold on the current auth and create a new auth for the amount of the capture.  <br/><br/>If this is set to `false` or left blank, the capture will fail if the amount is greater than the amount of the authorization.|
-|allow_reauth       |Boolean      |Whether to allow the capture to be reauthorized in the case that it is expired.  <br/><br/>If this is set to `true` Pay Theory will reauthorize the capture if it is expired.  <br/><br/>If this is set to `false` or left blank, the capture will fail if it is expired.|
-|amount             |Int!         |The amount of the capture in cents.|
-|authorization_id   |String!      |The Pay Theory unique identifier assigned to the authorization that you are looking to capture.|
-|merchant_uid       |String!      |The Pay Theory unique identifier assigned to the merchant that the authorization belongs to.|
-|receipt_description|String       |A custom description that will be displayed on the receipt.|
-|send_receipt       |Boolean      |Can be set to `true` to send a receipt to the payor.|
+|Key                |type         | description                                                                                                                                                                                                                                                                                                                                                    |
+|-------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|     
+|allow_exceeded_amount|Boolean    | Whether to allow the capture to exceed the amount of the authorization.  <br/><br/>If this is set to `true` Pay Theory will release the hold on the current auth and create a new auth for the amount of the capture.  <br/><br/>If this is set to `false` or left blank, the capture will fail if the amount is greater than the amount of the authorization. |
+|allow_reauth       |Boolean      | Whether to allow the capture to be reauthorized in the case that it is expired.  <br/><br/>If this is set to `true` Pay Theory will reauthorize the capture if it is expired.  <br/><br/>If this is set to `false` or left blank, the capture will fail if it is expired.                                                                                      |
+|amount             |Int!         | The amount of the capture in cents. If auth has a `fee_mode` of `SERVICE_FEE` this amount would be the amount without the fee included.                                                                                                                                                                                                                        |
+|authorization_id   |String!      | The Pay Theory unique identifier assigned to the authorization that you are looking to capture.                                                                                                                                                                                                                                                                |
+|fee                |Int          | The amount of the service fee in cents. Required if you are capturing an auth that has a `fee_mode` of `SERVICE_FEE`.                                                                                                                                                                                                                                          |
+|merchant_uid       |String!      | The Pay Theory unique identifier assigned to the merchant that the authorization belongs to.                                                                                                                                                                                                                                                                   |
+|receipt_description|String       | A custom description that will be displayed on the receipt.                                                                                                                                                                                                                                                                                                    |
+|send_receipt       |Boolean      | Can be set to `true` to send a receipt to the payor.                                                                                                                                                                                                                                                                                                           |
 
 
 **Returns**

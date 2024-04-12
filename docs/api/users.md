@@ -1,7 +1,7 @@
 ---
 sidebar_position: 11
 sidebar_label: 'Users'
-title: ""
+title: "Users"
 ---
 
 # Users

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 8
 sidebar_label: 'Dispute'
-title: ""
+title: "Dispute"
 ---
 
 # Disputes
@@ -50,7 +50,7 @@ They could be an `INQUIRY` which is just a request for information, or an actual
 |updated_row_at     | String                           | The date the dispute was last updated in the database.                                                                                      |
 
 ***
-## Dispute Status
+### Dispute Status
 
 - `INQUIRY` - The dispute is in the inquiry stage. The cardholder has requested more information about the charge.
 - `LOST` - The dispute has been lost. The cardholder has won the dispute and the funds have been withdrawn from the merchants account.
@@ -58,7 +58,7 @@ They could be an `INQUIRY` which is just a request for information, or an actual
 - `WON` - The dispute has been won. The merchant has won the dispute and the funds have been deposited into the merchants account.
 
 ***
-## Dispute Reason
+### Dispute Reason
 
 - `CLERICAL`
 - `FRAUD` 

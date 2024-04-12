@@ -1,7 +1,7 @@
 ---
 sidebar_position: 8
 sidebar_label: 'Payment QR Code'
-title: ""
+title: "Payment QR Code"
 ---
 
 # Payment QR Code

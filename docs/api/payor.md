@@ -1,7 +1,7 @@
 ---
 sidebar_position: 5
 sidebar_label: 'Payor'
-title: ""
+title: "Payor"
 ---
 
 # Payor
