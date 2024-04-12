@@ -78,7 +78,7 @@ Transactions are a data object that can represent a payment, failed or successfu
 | updated_row_at     | AWSDateTime                                                                | The date and time the transaction was last updated.                       |
 
 ***
-## Ach Return Details
+### Ach Return Details
 
 ```graphql
 {
@@ -95,13 +95,13 @@ Transactions are a data object that can represent a payment, failed or successfu
 | transfer_type  | [AchReturnTransferType](#ach-return-transfer-type) | The type of transfer that the ACH return is for. |
 
 ***
-## Ach Return Transfer Type
+### Ach Return Transfer Type
 
 - `DEBIT` - The ACH return is going to debit the merchant funds.
 - `CREDIT` - The ACH return is going to credit the merchant funds.
 
 ***
-## Refund Reason
+### Refund Reason
 
 ```graphql
 {
@@ -116,7 +116,7 @@ Transactions are a data object that can represent a payment, failed or successfu
 |reason_details     | String                         |The details of the refund reason.|
 
 ***
-## Refund Reason Code
+### Refund Reason Code
     
 - `DUPLICATE`
 - `FRAUDULENT`
@@ -125,7 +125,7 @@ Transactions are a data object that can represent a payment, failed or successfu
 
 
 ***
-## Transaction Status
+### Transaction Status
 
 - `PENDING` - The transaction is pending capture. For a sale this automatically changes to `SUCCEEDED` typically within the hour. For an auth that has been set to capture, this will change to `SUCCEEDED` when the settlement batch is created.
 - `SUCCEEDED` - The transaction has been captured.
@@ -137,7 +137,7 @@ Transactions are a data object that can represent a payment, failed or successfu
 - `RETURNED` - The transaction is an ACH transaction that has had an `ACH_RETURN` created for it.
 
 ***
-## Transaction Type
+### Transaction Type
 
 - `ACH_RETURN` - The transaction is an ACH return for an ACH Debit or Reversal. Check `parent_id` to find origin.
 - `DEBIT` - The transaction is a debit to a payors payment method.

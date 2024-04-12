@@ -26,21 +26,21 @@ Merchants are the entities that are using Pay Theory to accept payments.
 }
 ```
 
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|
-|ach_active         |Boolean      |If the merchant has successfully completed onboarding and has an ACH processor active.|
-|api_key            |String       |The API key of the merchant. This is used to authenticate use of the PayTheory Web and Native SDKs.|
-|card_active        |Boolean      |If the merchant has successfully completed onboarding and has a card processor active.|
-|cash_active        |Boolean      |If the merchant has successfully completed onboarding and has a cash processor active.|
-|fee_matrix         |FeeMatrix    |The fee matrix that the merchant is using.  This is used to calculate the fees that are charged to the payor.|
-|is_system          |Boolean      |If the merchant is a system merchant.  System merchants are merchants that also have sub merchants.|
-|merchant_name      |String       |The name of the merchant.|
-|merchant_uid       |String       |The Pay Theory unique identifier assigned to the merchant.|
-|parent_merchant_uid|String       |The `merchant_uid` of the parent merchant.  This is only set if the merchant is a sub merchant of a system merchant.|
-|settings           |MerchantSettings|The settings that the merchant has set.|
-|submitted_onboarding|Boolean     |Whether the merchant has submitted their onboarding information.|
+| Key                  | type             | description                                                                                                          |
+|----------------------|------------------|----------------------------------------------------------------------------------------------------------------------|
+| ach_active           | Boolean          | If the merchant has successfully completed onboarding and has an ACH processor active.                               |
+| api_key              | String           | The API key of the merchant. This is used to authenticate use of the PayTheory Web and Native SDKs.                  |
+| card_active          | Boolean          | If the merchant has successfully completed onboarding and has a card processor active.                               |
+| cash_active          | Boolean          | If the merchant has successfully completed onboarding and has a cash processor active.                               |
+| fee_matrix           | FeeMatrix        | The fee matrix that the merchant is using.  This is used to calculate the fees that are charged to the payor.        |
+| is_system            | Boolean          | If the merchant is a system merchant.  System merchants are merchants that also have sub merchants.                  |
+| merchant_name        | String           | The name of the merchant.                                                                                            |
+| merchant_uid         | String           | The Pay Theory unique identifier assigned to the merchant.                                                           |
+| parent_merchant_uid  | String           | The `merchant_uid` of the parent merchant.  This is only set if the merchant is a sub merchant of a system merchant. |
+| settings             | MerchantSettings | The settings that the merchant has set.                                                                              |
+| submitted_onboarding | Boolean          | Whether the merchant has submitted their onboarding information.                                                     |
 
-## The Fee Matrix Object
+### The Fee Matrix Object
 
 This object is used to calculate the fees that are charged to the payor. `card`, `ach`, and `cash` are the main fee objects that are used to calculate the fees for each transaction type.  
 
@@ -96,7 +96,7 @@ Card brands can only be used to charge different fees when using the `MERCHANT_F
 |service_fee_enabled|Boolean      | If the merchant is using service fee pricing.                                                                                         |
 |visa               |CardBrandFee| The model that will be used to calculate all Visa card transaction fees for the merchant.                                             |
 
-## Fee Type Objects
+### Fee Type Objects
 ```graphql
 type AchFee {
     merchant_fee: AchMerchantFee

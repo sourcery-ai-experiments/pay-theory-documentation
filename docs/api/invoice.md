@@ -58,7 +58,7 @@ Invoices are used to create a payment request that can be sent to a payor.
 |total_paid_amount  |Int          |The total amount that has been paid toward the invoice.|
 
 ***
-## Invoice Settings Object
+### Invoice Settings Object
 
 ```graphql
 {
@@ -134,7 +134,6 @@ Invoices are used to create a payment request that can be sent to a payor.
 }
 ```
 
-**Parameters**
 |Key                |type         |       description                     |
 |-------------------|-------------|---------------------------------------|     
 |direction          |MoveDirection|The direction of the pagination. Makes sure the results are returned in the correct order.|
@@ -190,12 +189,11 @@ mutation {
 }
 ```
 
-**Parameters**
-|Key                |type         |       description                     |
-|-------------------|-------------|---------------------------------------|     
-|intput             |CreateInvoiceInput|The input object that contains all the information needed to create an invoice.|
+| Key   | type               | description                                                                     |
+|-------|--------------------|---------------------------------------------------------------------------------|     
+| input | CreateInvoiceInput | The input object that contains all the information needed to create an invoice. |
 
-**CreateInvoiceInput**
+### Create Invoice Input
 
 ```graphql
 {
@@ -241,7 +239,7 @@ mutation {
 The response will contain the invoice object that was created. More information on the [invoice object](#the-invoice-object).
 
 ***
-## Invoice Settings Input
+### Invoice Settings Input
 ```graphql
 {
     accepted_payment_methods: AcceptedPaymentMethodsInput
