@@ -15,16 +15,18 @@ This guide will walk you through the steps to create a payment button that will 
 ## 1. Import the SDK
 You need to use the Pay Theory Web SDK. This is available by adding the below script into your web header. This button will open a hosted checkout page that will allow the user to select a payment method and complete the payment.
 
-```jsx title="javascript"
-<script src="https://start.sdk.paytheory.com/index.js"></script>
+The SDK URL can be found in the Pay Theory portal under the settings tab as the SDK Import URL.
+
+```
+<script src={SDK Import URL}> </script>
 ```
 ***
 
 ## 2. Add Pay Theory element to your Html
 This div is used to mount an iframe that will include a checkout button. You need to add the Pay Theory elements to your HTML. You can place these elements anywhere in your HTML and the SDK will place the button in the correct place. 
 
-```jsx title="javascript"
-<div id = "pay-theory-checkout-button" ></div>
+```html
+<div id="pay-theory-checkout-button" ></div>
 ```
 *** 
 

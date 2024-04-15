@@ -14,8 +14,10 @@ Here is some steps to get you started with a basic implementation.
 
 To use the Pay Theory Web SDK, you need to add this script to your web header:
 
+The SDK URL can be found in the Pay Theory portal under the settings tab as the SDK Import URL.
+
 ```html
-<script src="https://start.sdk.paytheory.com/index.js"></script>
+<script src={SDK Import URL}> </script>
 ```
 
 The SDK will be available on the window object as `paytheory`.
