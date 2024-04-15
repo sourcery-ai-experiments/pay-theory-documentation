@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: 'Pay Theory GraphQL API'
-title: ""
+title: "Pay Theory GraphQL API"
 ---
 # Pay Theory GraphQL API
 

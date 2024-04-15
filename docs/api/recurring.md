@@ -1,7 +1,7 @@
 ---
 sidebar_position: 12
 sidebar_label: 'Recurring'
-title: ""
+title: "Recurring"
 ---
 
 # Recurring Payment
@@ -70,7 +70,7 @@ You can also create a recurring payment with no set payment amounts to enable a 
 |total_amount_per_payment| Int                                      |The amount the payor will be charged for the recurring payment.|
 
 ***
-## Recurring Interval
+### Recurring Interval
 
 The interval of the recurring payment. The following intervals are available:
 
@@ -82,7 +82,7 @@ The interval of the recurring payment. The following intervals are available:
 - `ANNUAL`
 
 ***
-## Recurring Status
+### Recurring Status
 
 The status of the recurring payment. The following statuses are available:
 

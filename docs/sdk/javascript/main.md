@@ -1,5 +1,7 @@
 ---
 sidebar_position: 1
+sidebar_label: 'Pay Theory Javascript SDK'
+title: "Pay Theory Javascript SDK"
 ---
 
 # Pay Theory Javascript SDK
